@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.0.0",
+  "name": "nest-ng-pizza",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -25,7 +25,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "docker:start": "cross-env-shell docker-compose -f docker/docker-compose.yml -p $npm_package_name up -d"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +44,7 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nrwl/angular": "12.7.2",
     "apollo-server-express": "^2.25.2",
+    "cross-env": "^7.0.3",
     "graphql": "^15.5.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",

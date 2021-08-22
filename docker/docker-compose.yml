@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  pg:
+    image: 'postgres:latest'
+    container_name: nest-ng-pizza-pg
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: nest-ng-pizza
+
+  redis:
+    image: 'redis:latest'
+    container_name: nest-ng-pizza-redis
+    image: redis
+    ports:
+      - 6379:6379
