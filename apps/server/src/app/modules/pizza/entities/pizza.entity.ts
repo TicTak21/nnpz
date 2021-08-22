@@ -1,11 +1,5 @@
 import { Field, ID, InputType, ObjectType } from '@nestjs/graphql';
-
-// TODO: move to the shared libs/shared/interfaces
-enum EPizzaSize {
-  small = 'sm',
-  medium = 'md',
-  large = 'lg',
-}
+import { EPizzaSize } from '@shared';
 
 @ObjectType('Pizza')
 @InputType('PizzaInput')

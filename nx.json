@@ -37,7 +37,7 @@
     "server": {
       "tags": []
     },
-    "server-interfaces": {
+    "shared": {
       "tags": []
     }
   }

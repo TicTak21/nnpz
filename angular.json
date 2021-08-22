@@ -167,15 +167,15 @@
         }
       }
     },
-    "server-interfaces": {
-      "root": "libs/server-interfaces",
-      "sourceRoot": "libs/server-interfaces/src",
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/server-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/shared/**/*.ts"]
           }
         }
       }
