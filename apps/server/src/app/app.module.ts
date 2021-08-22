@@ -1,11 +1,8 @@
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { GqlModule } from './modules/gql/gql.module';
+import { PizzaModule } from './modules/pizza/pizza.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [PizzaModule, GqlModule],
 })
 export class AppModule {}

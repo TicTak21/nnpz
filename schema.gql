@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pizza {
+  id: ID!
+  name: String!
+  size: String!
+  price: Float!
+}
+
+input PizzaInput {
+  id: ID!
+  name: String!
+  size: String = "sm"
+  price: Float = 0
+}
+
+type Query {
+  getAll: [Pizza!]!
+  get(id: String!): Pizza
+}
