@@ -8,12 +8,12 @@ export class PizzaResolver {
   constructor(private readonly pizzaService: PizzaService) {}
 
   @Query(_returns => [PizzaEntity])
-  getAll(): Observable<PizzaEntity[]> {
+  pizzas(): Observable<PizzaEntity[]> {
     return this.pizzaService.getAll();
   }
 
   @Query(_returns => PizzaEntity, { nullable: true })
-  get(@Args('id') id: string): Observable<PizzaEntity> {
+  pizza(@Args('id') id: string): Observable<PizzaEntity> {
     return this.pizzaService.get(id);
   }
 }

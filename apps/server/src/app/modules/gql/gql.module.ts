@@ -1,16 +1,15 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { PizzaModule } from '../pizza/pizza.module';
+import { join } from 'path';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      include: [PizzaModule],
-      installSubscriptionHandlers: true,
       path: '/graphql',
-      context: ({ req, res }) => ({ req, res }),
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: join(process.cwd(), 'apps/server/schema.gql'),
       debug: false,
+      installSubscriptionHandlers: true,
+      context: ({ req, res }) => ({ req, res }),
     }),
   ],
 })

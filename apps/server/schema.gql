@@ -23,6 +23,6 @@ input PizzaInput {
 }
 
 type Query {
-  getAll: [Pizza!]!
-  get(id: String!): Pizza
+  pizzas: [Pizza!]!
+  pizza(id: String!): Pizza
 }
