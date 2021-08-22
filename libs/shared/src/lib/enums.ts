@@ -1,4 +1,4 @@
-export const enum EPizzaSize {
+export enum EPizzaSize {
   small = 'sm',
   medium = 'md',
   large = 'lg',

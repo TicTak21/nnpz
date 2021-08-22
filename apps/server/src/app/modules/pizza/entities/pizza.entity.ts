@@ -1,4 +1,4 @@
-import { Field, ID, InputType, ObjectType } from '@nestjs/graphql';
+import { Field, ID, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { EPizzaSize } from '@shared';
 
 @ObjectType('Pizza')
@@ -10,9 +10,13 @@ export class PizzaEntity {
   @Field()
   name: string;
 
-  @Field({ defaultValue: EPizzaSize.small })
+  @Field(_type => EPizzaSize, { defaultValue: EPizzaSize.small })
   size: EPizzaSize;
 
   @Field({ defaultValue: 0 })
   price: number;
 }
+
+registerEnumType(EPizzaSize, {
+  name: 'EPizzaSize',
+});

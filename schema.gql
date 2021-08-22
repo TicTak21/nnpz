@@ -5,14 +5,20 @@
 type Pizza {
   id: ID!
   name: String!
-  size: String!
+  size: EPizzaSize!
   price: Float!
+}
+
+enum EPizzaSize {
+  small
+  medium
+  large
 }
 
 input PizzaInput {
   id: ID!
   name: String!
-  size: String = "sm"
+  size: EPizzaSize = small
   price: Float = 0
 }
 
