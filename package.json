@@ -26,7 +26,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "docker:start": "cross-env-shell docker-compose -f docker/docker-compose.yml -p $npm_package_name up -d"
+    "docker:start": "cross-env-shell docker-compose -f docker/docker-compose.yml --env-file ./config/.env -p $npm_package_name up -d"
   },
   "private": true,
   "dependencies": {
