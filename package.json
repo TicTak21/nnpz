@@ -48,6 +48,7 @@
     "apollo-server-express": "^2.25.2",
     "cross-env": "^7.0.3",
     "graphql": "^15.5.1",
+    "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "7.3.0",
     "swagger-ui-express": "^4.1.6",
