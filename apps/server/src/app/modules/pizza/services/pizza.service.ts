@@ -9,6 +9,6 @@ export class PizzaService {
   }
 
   get(id: string): Observable<PizzaEntity> {
-    return of({ id } as PizzaEntity);
+    return of({ id, name: 'default' } as PizzaEntity);
   }
 }
