@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 
-@Controller('pizza')
+@Controller('pizzas')
 @UseInterceptors(CacheInterceptor)
 @ApiTags('Pizza')
 export class PizzaController {
