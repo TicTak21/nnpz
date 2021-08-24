@@ -4,12 +4,13 @@ import { cwd } from 'process';
 import { AppController } from './controllers/app.controller';
 import { GqlModule } from './modules/gql/gql.module';
 import { PizzaModule } from './modules/pizza/pizza.module';
+import { ToppingModule } from './modules/topping/topping.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: `${cwd()}/config/.env`, isGlobal: true }),
-
     PizzaModule,
+    ToppingModule,
     GqlModule,
   ],
   controllers: [AppController],

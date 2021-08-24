@@ -2,11 +2,18 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Topping {
+  id: ID!
+  name: String!
+  price: Float!
+}
+
 type Pizza {
   id: ID!
   name: String!
   size: EPizzaSize!
   price: Float!
+  toppings: [Topping!]
 }
 
 enum EPizzaSize {
@@ -15,14 +22,23 @@ enum EPizzaSize {
   large
 }
 
+input ToppingInput {
+  id: ID!
+  name: String!
+  price: Float = 0
+}
+
 input PizzaInput {
   id: ID!
   name: String!
   size: EPizzaSize = small
   price: Float = 0
+  toppings: [ToppingInput!] = null
 }
 
 type Query {
   pizzas: [Pizza!]!
   pizza(id: String!): Pizza
+  toppings: [Topping!]!
+  topping(id: String!): Topping
 }

@@ -6,6 +6,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { join } from 'path';
 import { AppModule } from './app/app.module';
 import { PizzaEntity } from './app/modules/pizza/entities/pizza.entity';
+import { ToppingEntity } from './app/modules/topping/entities/topping.entity';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -18,7 +19,9 @@ async function bootstrap() {
   app.setViewEngine('pug');
 
   const swaggerConfig = new DocumentBuilder().setTitle('Nest Pizza API').setVersion('1.0').build();
-  const document = SwaggerModule.createDocument(app, swaggerConfig, { extraModels: [PizzaEntity] });
+  const document = SwaggerModule.createDocument(app, swaggerConfig, {
+    extraModels: [PizzaEntity, ToppingEntity],
+  });
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(port, () => {
