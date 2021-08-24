@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+  table.table.table-hover.caption-top
+    caption
+      h3 Routes
+    tbody
+      each route, index in routes
+        tr
+          th(scope="row")= index + 1
+          td
+            a(href=route.path)= route.label
+          td= route.description

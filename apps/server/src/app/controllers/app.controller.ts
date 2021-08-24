@@ -1,9 +1,12 @@
 import { Controller, Get, Render } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller()
+@ApiTags('Index')
 export class AppController {
   @Get()
   @Render('index')
+  @ApiOperation({ summary: 'Navigation index(ui)' })
   index() {
     return {
       routes: [
