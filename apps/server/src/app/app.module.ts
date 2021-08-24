@@ -8,6 +8,7 @@ import { PizzaModule } from './modules/pizza/pizza.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: `${cwd()}/config/.env`, isGlobal: true }),
+
     PizzaModule,
     GqlModule,
   ],

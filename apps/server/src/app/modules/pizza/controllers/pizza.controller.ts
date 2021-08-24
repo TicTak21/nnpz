@@ -1,10 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { CacheInterceptor, Controller, Get, Param, UseInterceptors } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 
 @Controller('pizza')
+@UseInterceptors(CacheInterceptor)
 @ApiTags('Pizza')
 export class PizzaController {
   constructor(private readonly pizzaService: PizzaService) {}
