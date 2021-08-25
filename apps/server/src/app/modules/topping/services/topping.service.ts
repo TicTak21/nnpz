@@ -1,14 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
+import { InjectRepository } from '@nestjs/typeorm';
+import { from, Observable } from 'rxjs';
+import { Repository } from 'typeorm';
 import { ToppingEntity } from '../entities/topping.entity';
 
 @Injectable()
 export class ToppingService {
+  constructor(
+    @InjectRepository(ToppingEntity)
+    private readonly pizzaRepo: Repository<ToppingEntity>,
+  ) {}
+
   getAll(): Observable<ToppingEntity[]> {
-    return of([]);
+    return from(this.pizzaRepo.find());
   }
 
   get(id: string): Observable<ToppingEntity> {
-    return of({ id, name: 'default' } as ToppingEntity);
+    return from(this.pizzaRepo.findOne({ id }));
   }
 }
