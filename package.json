@@ -51,6 +51,7 @@
     "cache-manager-redis-store": "^2.0.0",
     "cross-env": "^7.0.3",
     "graphql": "^15.5.1",
+    "helmet": "^4.6.0",
     "pg": "^8.7.1",
     "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",

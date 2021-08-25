@@ -2,6 +2,7 @@ import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as helmet from 'helmet';
 import { join } from 'path';
 import { from, Observable } from 'rxjs';
 import { PizzaEntity } from '../../../modules/pizza/entities/pizza.entity';
@@ -34,7 +35,7 @@ export class Configurator {
    * @returns Observable<void>
    */
   run(): Observable<void> {
-    this.addStaticAssets().addViews().addSwagger();
+    this.addStaticAssets().addViews().addSwagger().addMiddlewares();
 
     return from(this.app.listen(this.port, this.logListen));
   }
@@ -53,7 +54,19 @@ export class Configurator {
   }
 
   private addMiddlewares() {
-    // app.use(...)
+    this.app.use(
+      helmet({
+        contentSecurityPolicy: {
+          directives: {
+            defaultSrc: [`'self'`],
+            styleSrc: [`'self'`, `'unsafe-inline'`, 'cdn.jsdelivr.net', 'fonts.googleapis.com'],
+            fontSrc: [`'self'`, 'fonts.gstatic.com'],
+            imgSrc: [`'self'`, 'data:', 'cdn.jsdelivr.net'],
+            scriptSrc: [`'self'`, `https: 'unsafe-inline'`, `cdn.jsdelivr.net`],
+          },
+        },
+      }),
+    );
 
     return this;
   }

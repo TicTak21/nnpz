@@ -51,6 +51,7 @@ specifiers:
   eslint-config-prettier: 8.1.0
   eslint-plugin-cypress: ^2.10.3
   graphql: ^15.5.1
+  helmet: ^4.6.0
   jest: 27.0.3
   jest-preset-angular: 9.0.4
   pg: ^8.7.1
@@ -88,6 +89,7 @@ dependencies:
   cache-manager-redis-store: 2.0.0
   cross-env: 7.0.3
   graphql: 15.5.1
+  helmet: 4.6.0
   pg: 8.7.1
   pug: 3.0.2
   reflect-metadata: 0.1.13
@@ -7839,6 +7841,11 @@ packages:
     dependencies:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+
+  /helmet/4.6.0:
+    resolution: {integrity: sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==}
+    engines: {node: '>=10.0.0'}
+    dev: false
 
   /highlight.js/10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
