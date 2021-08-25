@@ -23,6 +23,7 @@ export class Configurator {
     this.configService = app.get(ConfigService);
 
     // reusable variables(port, host, etc.)
+
     this.port = this.configService.get('SERVER_PORT');
   }
 
@@ -37,7 +38,7 @@ export class Configurator {
   run(): Observable<void> {
     this.addStaticAssets().addViews().addSwagger().addMiddlewares();
 
-    return from(this.app.listen(this.port, this.logListen));
+    return from(this.app.listen(this.port, () => this.logListen()));
   }
 
   private addSwagger(): this {
