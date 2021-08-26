@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { from, Observable } from 'rxjs';
+import { EMPTY, from, mergeMap, Observable, of, throwIfEmpty } from 'rxjs';
 import { Repository } from 'typeorm';
 import { PizzaEntity } from '../entities/pizza.entity';
 
@@ -12,10 +12,15 @@ export class PizzaService {
   ) {}
 
   getAll(): Observable<PizzaEntity[]> {
-    return from(this.pizzaRepo.find());
+    return from(this.pizzaRepo.createQueryBuilder('pizzas').getMany());
   }
 
   get(id: string): Observable<PizzaEntity> {
-    return from(this.pizzaRepo.findOne({ id }));
+    return from(
+      this.pizzaRepo.createQueryBuilder('pizza').where('pizza.id = :id', { id }).getOne(),
+    ).pipe(
+      mergeMap(entity => (entity ? of(entity) : EMPTY)),
+      throwIfEmpty(() => new NotFoundException(`${PizzaEntity.name} not found: #${id}`)),
+    );
   }
 }
