@@ -17,10 +17,15 @@ export class ToppingService {
 
   get(id: string): Observable<ToppingEntity> {
     return from(
-      this.toppingRepo.createQueryBuilder('topping').where('topping.id = :id', { id }).getOne(),
+      this.toppingRepo
+        .createQueryBuilder('topping')
+        .where('topping.id = :id', { id })
+        .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => new NotFoundException(`${ToppingEntity.name} not found: #${id}`)),
+      throwIfEmpty(
+        () => new NotFoundException(`${ToppingEntity.name} not found: #${id}`),
+      ),
     );
   }
 }

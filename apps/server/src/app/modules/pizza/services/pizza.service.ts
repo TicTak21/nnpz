@@ -17,10 +17,15 @@ export class PizzaService {
 
   get(id: string): Observable<PizzaEntity> {
     return from(
-      this.pizzaRepo.createQueryBuilder('pizza').where('pizza.id = :id', { id }).getOne(),
+      this.pizzaRepo
+        .createQueryBuilder('pizza')
+        .where('pizza.id = :id', { id })
+        .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => new NotFoundException(`${PizzaEntity.name} not found: #${id}`)),
+      throwIfEmpty(
+        () => new NotFoundException(`${PizzaEntity.name} not found: #${id}`),
+      ),
     );
   }
 }
