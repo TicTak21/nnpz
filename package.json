@@ -31,7 +31,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "docker:start": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name up -d",
-    "docker:stop": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name stop"
+    "docker:stop": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name stop",
+    "docker:ps": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name ps"
   },
   "private": true,
   "dependencies": {
