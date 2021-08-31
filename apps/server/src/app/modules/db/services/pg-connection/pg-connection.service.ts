@@ -14,6 +14,7 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
     const username = this.configService.get<string>('POSTGRES_USER');
     const password = this.configService.get<string>('POSTGRES_PASSWORD');
     const database = this.configService.get<string>('POSTGRES_DB');
+    const env = this.configService.get<string>('NODE_ENV');
 
     const entities = [PizzaEntity, ToppingEntity];
 
@@ -25,7 +26,7 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
       password,
       database,
       entities,
-      synchronize: true,
+      synchronize: env === 'development',
       retryAttempts: 3,
       logging: true,
     };
