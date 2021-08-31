@@ -42,3 +42,12 @@ type Query {
   toppings: [Topping!]!
   topping(id: String!): Topping
 }
+
+type Mutation {
+  createTopping(topping: CreateToppingDto!): Topping!
+}
+
+input CreateToppingDto {
+  name: String!
+  price: Float!
+}
