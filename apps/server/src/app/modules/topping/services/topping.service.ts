@@ -1,9 +1,4 @@
-import {
-  ConflictException,
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   catchError,
@@ -16,6 +11,7 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { InsertResult, Repository } from 'typeorm';
+import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto } from '../validation/dto/create-topping.dto';
 
@@ -27,7 +23,14 @@ export class ToppingService {
   ) {}
 
   getAll(): Observable<ToppingEntity[]> {
-    return from(this.toppingRepo.createQueryBuilder('toppings').getMany());
+    return from(this.toppingRepo.createQueryBuilder().getMany()).pipe(
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] || errorHandlers['500'];
+
+        return throwError(errorHandler);
+      }),
+    );
   }
 
   get(id: string): Observable<ToppingEntity> {
@@ -38,9 +41,13 @@ export class ToppingService {
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(
-        () => new NotFoundException(`${ToppingEntity.name} not found: #${id}`),
-      ),
+      throwIfEmpty(() => ({ code: '404' })),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] || errorHandlers['500'];
+
+        return throwError(errorHandler);
+      }),
     );
   }
 
@@ -56,10 +63,10 @@ export class ToppingService {
     ).pipe(
       mergeMap<InsertResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
       catchError(err => {
-        if (err.code === '23505')
-          return throwError(() => new ConflictException());
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] || errorHandlers['500'];
 
-        return throwError(() => new InternalServerErrorException());
+        return throwError(errorHandler);
       }),
     );
   }
