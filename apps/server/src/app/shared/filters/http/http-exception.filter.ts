@@ -13,6 +13,8 @@ export class HttpExceptionFilter<T extends HttpException = HttpException>
   implements ExceptionFilter
 {
   catch(exception: T, host: ArgumentsHost) {
+    if (host.getType() !== 'http') return null;
+
     const filterName = this.constructor.name;
 
     const ctx: HttpArgumentsHost = host.switchToHttp();
