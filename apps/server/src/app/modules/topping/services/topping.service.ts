@@ -10,10 +10,11 @@ import {
   throwError,
   throwIfEmpty,
 } from 'rxjs';
-import { DeleteResult, InsertResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto } from '../validation/dto/create-topping.dto';
+import { UpdateToppingDto } from '../validation/dto/update-topping.dto';
 
 @Injectable()
 export class ToppingService {
@@ -82,6 +83,26 @@ export class ToppingService {
         .execute(),
     ).pipe(
       mergeMap<DeleteResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] || errorHandlers['500'];
+
+        return throwError(errorHandler);
+      }),
+    );
+  }
+
+  update(id: string, dto: UpdateToppingDto): Observable<ToppingEntity> {
+    return from(
+      this.toppingRepo
+        .createQueryBuilder()
+        .update(ToppingEntity)
+        .set({ ...dto })
+        .where('id = :id', { id })
+        .returning('*')
+        .execute(),
+    ).pipe(
+      mergeMap<UpdateResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] || errorHandlers['500'];
