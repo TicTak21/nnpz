@@ -2,6 +2,7 @@ import {
   Body,
   CacheInterceptor,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -35,5 +36,10 @@ export class ToppingController {
   @ApiOperation({ summary: 'Create single topping' })
   create(@Body() dto: CreateToppingDto): Observable<ToppingEntity> {
     return this.toppingService.create(dto);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string): Observable<ToppingEntity> {
+    return this.toppingService.delete(id);
   }
 }

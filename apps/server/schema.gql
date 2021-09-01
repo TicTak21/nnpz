@@ -45,6 +45,7 @@ type Query {
 
 type Mutation {
   createTopping(topping: CreateToppingDto!): Topping!
+  deleteTopping(id: String!): Topping!
 }
 
 input CreateToppingDto {

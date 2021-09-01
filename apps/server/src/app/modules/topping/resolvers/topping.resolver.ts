@@ -24,4 +24,9 @@ export class ToppingResolver {
   ): Observable<ToppingEntity> {
     return this.toppingService.create(dto);
   }
+
+  @Mutation(_returns => ToppingEntity)
+  deleteTopping(@Args('id') id: string): Observable<ToppingEntity> {
+    return this.toppingService.delete(id);
+  }
 }
