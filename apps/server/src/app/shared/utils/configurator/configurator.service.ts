@@ -36,7 +36,7 @@ export class Configurator {
    * @returns Observable<void>
    */
   run(): Observable<void> {
-    this.addStaticAssets().addViews().addSwagger().addMiddlewares();
+    this.addStaticAssets().addViews().addSwagger().addMiddlewares().addPipes();
 
     return from(this.app.listen(this.port, () => this.logListen()));
   }
@@ -79,6 +79,8 @@ export class Configurator {
 
   private addPipes() {
     this.app.useGlobalPipes(new ValidationPipe());
+
+    return this;
   }
 
   private addViews(): this {
