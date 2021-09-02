@@ -59,7 +59,7 @@ export class ToppingService {
         .insert()
         .into(ToppingEntity)
         .values([dto])
-        .returning(['id', ...Object.keys(dto)])
+        .returning('*')
         .execute(),
     ).pipe(
       mergeMap<InsertResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
