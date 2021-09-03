@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
 import { CreateToppingDto } from '../validation/dto/create-topping.dto';
+import { UpdateToppingDto } from '../validation/dto/update-topping.dto';
 
 @Resolver((_of: ToppingEntity) => ToppingEntity)
 export class ToppingResolver {
@@ -28,5 +29,13 @@ export class ToppingResolver {
   @Mutation(_returns => ToppingEntity)
   deleteTopping(@Args('id') id: string): Observable<ToppingEntity> {
     return this.toppingService.delete(id);
+  }
+
+  @Mutation(_returns => ToppingEntity)
+  updateTopping(
+    @Args('id') id: string,
+    @Args('topping') dto: UpdateToppingDto,
+  ): Observable<ToppingEntity> {
+    return this.toppingService.update(id, dto);
   }
 }
