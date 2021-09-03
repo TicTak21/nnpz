@@ -46,9 +46,15 @@ type Query {
 type Mutation {
   createTopping(topping: CreateToppingDto!): Topping!
   deleteTopping(id: String!): Topping!
+  updateTopping(topping: UpdateToppingDto!, id: String!): Topping!
 }
 
 input CreateToppingDto {
+  name: String!
+  price: Float!
+}
+
+input UpdateToppingDto {
   name: String!
   price: Float!
 }
