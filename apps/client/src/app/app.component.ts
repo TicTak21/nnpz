@@ -2,7 +2,7 @@ import { lyl, StyleRenderer, ThemeRef, ThemeVariables } from '@alyle/ui';
 import { Component } from '@angular/core';
 
 const STYLES = (theme: ThemeVariables, ref: ThemeRef) => {
-  const __ = ref.selectorsOf(STYLES);
+  ref.selectorsOf(STYLES);
   return {
     $global: lyl`{
       body {
