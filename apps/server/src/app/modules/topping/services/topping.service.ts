@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   catchError,
@@ -27,7 +27,8 @@ export class ToppingService {
     return from(this.toppingRepo.createQueryBuilder().getMany()).pipe(
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
@@ -45,7 +46,8 @@ export class ToppingService {
       throwIfEmpty(() => ({ code: '404' })),
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
@@ -65,7 +67,8 @@ export class ToppingService {
       mergeMap<InsertResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
@@ -85,7 +88,8 @@ export class ToppingService {
       mergeMap<DeleteResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
@@ -105,7 +109,8 @@ export class ToppingService {
       mergeMap<UpdateResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),

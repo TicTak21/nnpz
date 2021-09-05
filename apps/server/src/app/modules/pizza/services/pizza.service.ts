@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   catchError,
@@ -30,7 +30,8 @@ export class PizzaService {
     ).pipe(
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
@@ -49,7 +50,8 @@ export class PizzaService {
       throwIfEmpty(() => ({ code: '404' })),
       catchError(err => {
         const errorHandler: ErrorHandler =
-          errorHandlers[err.code] || errorHandlers['500'];
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
         return throwError(errorHandler);
       }),
