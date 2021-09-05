@@ -22,7 +22,12 @@ export class PizzaService {
   ) {}
 
   getAll(): Observable<PizzaEntity[]> {
-    return from(this.pizzaRepo.createQueryBuilder().getMany()).pipe(
+    return from(
+      this.pizzaRepo
+        .createQueryBuilder('pizza')
+        .leftJoinAndSelect('pizza.toppings', 'toppings')
+        .getMany(),
+    ).pipe(
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] || errorHandlers['500'];
@@ -36,6 +41,7 @@ export class PizzaService {
     return from(
       this.pizzaRepo
         .createQueryBuilder('pizza')
+        .leftJoinAndSelect('pizza.toppings', 'toppings')
         .where('pizza.id = :id', { id })
         .getOne(),
     ).pipe(

@@ -2,7 +2,7 @@ import { Field, ID, InputType, ObjectType } from '@nestjs/graphql';
 import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('toppings')
+@Entity('topping')
 @ObjectType('Topping')
 @InputType('ToppingInput')
 export class ToppingEntity {

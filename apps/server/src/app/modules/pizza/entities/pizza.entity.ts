@@ -1,10 +1,22 @@
-import { Field, ID, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
+import {
+  Field,
+  ID,
+  InputType,
+  ObjectType,
+  registerEnumType,
+} from '@nestjs/graphql';
 import { ApiProperty } from '@nestjs/swagger';
 import { EPizzaSize } from '@shared';
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { ToppingEntity } from '../../topping/entities/topping.entity';
 
-@Entity({ name: 'pizzas' })
+@Entity({ name: 'pizza' })
 @ObjectType('Pizza')
 @InputType('PizzaInput')
 export class PizzaEntity {
@@ -29,7 +41,14 @@ export class PizzaEntity {
   price: number;
 
   @ManyToMany(_type => ToppingEntity, { eager: true, nullable: true })
-  @JoinTable({ name: 'pizza_toppings' })
+  @JoinTable({
+    name: 'pizza_topping_junction',
+    joinColumn: {
+      name: 'pizza_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: { name: 'topping_id', referencedColumnName: 'id' },
+  })
   @Field(_type => [ToppingEntity], { nullable: true, defaultValue: null })
   @ApiProperty()
   toppings: ToppingEntity[];
