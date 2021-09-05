@@ -9,10 +9,12 @@ import { ApiProperty } from '@nestjs/swagger';
 import { EPizzaSize } from '@shared';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { ToppingEntity } from '../../topping/entities/topping.entity';
 
@@ -39,6 +41,23 @@ export class PizzaEntity {
   @Field({ defaultValue: 0 })
   @ApiProperty()
   price: number;
+
+  @CreateDateColumn({
+    type: 'timestamptz',
+    default: () => 'now()',
+  })
+  @Field(_type => Date)
+  @ApiProperty()
+  createdAt: string;
+
+  @UpdateDateColumn({
+    type: 'timestamptz',
+    default: () => 'now()',
+    onUpdate: 'now()',
+  })
+  @Field(_type => Date)
+  @ApiProperty()
+  updatedAt: string;
 
   @ManyToMany(_type => ToppingEntity, { eager: true, nullable: true })
   @JoinTable({

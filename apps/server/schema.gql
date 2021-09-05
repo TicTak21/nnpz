@@ -6,13 +6,22 @@ type Topping {
   id: ID!
   name: String!
   price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Pizza {
   id: ID!
   name: String!
   size: EPizzaSize!
   price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   toppings: [Topping!]
 }
 
@@ -26,6 +35,8 @@ input ToppingInput {
   id: ID!
   name: String!
   price: Float = 0
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input PizzaInput {
@@ -33,6 +44,8 @@ input PizzaInput {
   name: String!
   size: EPizzaSize = small
   price: Float = 0
+  createdAt: DateTime!
+  updatedAt: DateTime!
   toppings: [ToppingInput!] = null
 }
 
