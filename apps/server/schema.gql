@@ -58,6 +58,7 @@ type Query {
 
 type Mutation {
   createPizza(pizza: CreatePizzaDto!): Pizza!
+  deletePizza(id: String!): Pizza!
   createTopping(topping: CreateToppingDto!): Topping!
   deleteTopping(id: String!): Topping!
   updateTopping(topping: UpdateToppingDto!, id: String!): Topping!

@@ -2,6 +2,7 @@ import {
   Body,
   CacheInterceptor,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -34,5 +35,11 @@ export class PizzaController {
   @Post()
   create(@Body() dto: CreatePizzaDto): Observable<PizzaEntity> {
     return this.pizzaService.create(dto);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete single pizza by `id`' })
+  delete(@Param('id') id: string): Observable<PizzaEntity> {
+    return this.pizzaService.delete(id);
   }
 }

@@ -59,7 +59,11 @@ export class PizzaEntity {
   @ApiProperty()
   updatedAt: string;
 
-  @ManyToMany(_type => ToppingEntity, { eager: true, nullable: true })
+  @ManyToMany(_type => ToppingEntity, {
+    eager: true,
+    cascade: true,
+    nullable: true,
+  })
   @JoinTable({
     name: 'pizza_topping_junction',
     joinColumn: {

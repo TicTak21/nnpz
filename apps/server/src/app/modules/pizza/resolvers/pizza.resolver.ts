@@ -22,4 +22,9 @@ export class PizzaResolver {
   createPizza(@Args('pizza') dto: CreatePizzaDto): Observable<PizzaEntity> {
     return this.pizzaService.create(dto);
   }
+
+  @Mutation(_type => PizzaEntity)
+  deletePizza(@Args('id') id: string): Observable<PizzaEntity> {
+    return this.pizzaService.delete(id);
+  }
 }

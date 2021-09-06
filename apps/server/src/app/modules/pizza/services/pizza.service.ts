@@ -10,7 +10,7 @@ import {
   throwError,
   throwIfEmpty,
 } from 'rxjs';
-import { InsertResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
@@ -84,6 +84,29 @@ export class PizzaService {
           return this.get(raw[0].id);
         },
       ),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
+
+        return throwError(errorHandler);
+      }),
+    );
+  }
+
+  delete(id: string): Observable<PizzaEntity> {
+    const deletedEntity = this.get(id);
+
+    return from(
+      this.pizzaRepo
+        .createQueryBuilder('pizza')
+        .delete()
+        .from(PizzaEntity)
+        .where('id = :id', { id })
+        .returning('*')
+        .execute(),
+    ).pipe(
+      mergeMap<DeleteResult, Observable<PizzaEntity>>(() => deletedEntity),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
