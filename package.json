@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "config": {
-    "ENV_PATH": "./config/.env",
-    "COMPOSE_PATH": "docker/docker-compose.yml"
+    "DEV_ENV_PATH": "./config/dev/.env.dev",
+    "DEV_COMPOSE_PATH": "docker/dev/docker-compose.yml"
   },
   "scripts": {
     "ng": "nx",
@@ -30,9 +30,9 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "docker:start": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name up -d",
-    "docker:stop": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name stop",
-    "docker:ps": "cross-env-shell docker-compose -f $npm_package_config_COMPOSE_PATH --env-file $npm_package_config_ENV_PATH -p $npm_package_name ps"
+    "docker:dev:up": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name up -d",
+    "docker:dev:down": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name stop",
+    "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps"
   },
   "private": true,
   "dependencies": {

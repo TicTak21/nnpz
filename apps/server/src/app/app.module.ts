@@ -11,7 +11,7 @@ import { globalFilters } from './shared/filters';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `${cwd()}/config/.env`,
+      envFilePath: `${cwd()}/config/dev/.env.dev`,
       isGlobal: true,
     }),
     DbModule,
