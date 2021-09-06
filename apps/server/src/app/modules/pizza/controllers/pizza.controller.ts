@@ -1,8 +1,17 @@
-import { CacheInterceptor, Controller, Get, Param, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  CacheInterceptor,
+  Controller,
+  Get,
+  Param,
+  Post,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
+import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
 
 @Controller('pizzas')
 @UseInterceptors(CacheInterceptor)
@@ -20,5 +29,10 @@ export class PizzaController {
   @ApiOperation({ summary: 'Get a single pizza by `id`' })
   get(@Param('id') id: string): Observable<PizzaEntity> {
     return this.pizzaService.get(id);
+  }
+
+  @Post()
+  create(@Body() dto: CreatePizzaDto): Observable<PizzaEntity> {
+    return this.pizzaService.create(dto);
   }
 }

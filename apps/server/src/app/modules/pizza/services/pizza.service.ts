@@ -10,9 +10,10 @@ import {
   throwError,
   throwIfEmpty,
 } from 'rxjs';
-import { Repository } from 'typeorm';
+import { InsertResult, Repository } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PizzaEntity } from '../entities/pizza.entity';
+import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
 
 @Injectable()
 export class PizzaService {
@@ -48,6 +49,41 @@ export class PizzaService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: '404' })),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
+
+        return throwError(errorHandler);
+      }),
+    );
+  }
+
+  create(dto: CreatePizzaDto): Observable<PizzaEntity> {
+    const { toppings, ...pizza } = dto;
+
+    return from(
+      this.pizzaRepo
+        .createQueryBuilder()
+        .insert()
+        .into(PizzaEntity)
+        .values([pizza])
+        .returning('*')
+        .execute(),
+    ).pipe(
+      mergeMap<InsertResult, Observable<PizzaEntity>>(
+        ({ identifiers, raw }) => {
+          from(
+            this.pizzaRepo
+              .createQueryBuilder()
+              .relation(PizzaEntity, 'toppings')
+              .of(identifiers[0])
+              .add(toppings),
+          );
+
+          return this.get(raw[0].id);
+        },
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
