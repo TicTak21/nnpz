@@ -33,6 +33,7 @@ export class PizzaController {
   }
 
   @Post()
+  @ApiOperation({ summary: 'Create single pizza' })
   create(@Body() dto: CreatePizzaDto): Observable<PizzaEntity> {
     return this.pizzaService.create(dto);
   }
