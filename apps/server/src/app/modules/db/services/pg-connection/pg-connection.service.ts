@@ -26,7 +26,7 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
       password,
       database,
       entities,
-      synchronize: env === 'development',
+      synchronize: env === 'dev',
       retryAttempts: 3,
       logging: true,
     };
