@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "config": {
-    "DEV_ENV_PATH": "./config/dev/.env.dev",
+    "DEV_ENV_PATH": "./config/dev/.env",
     "DEV_COMPOSE_PATH": "docker/dev/docker-compose.yml"
   },
   "scripts": {
