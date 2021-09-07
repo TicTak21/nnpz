@@ -13,8 +13,7 @@ import {
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { ToppingEntity } from '../entities/topping.entity';
-import { CreateToppingDto } from '../validation/dto/create-topping.dto';
-import { UpdateToppingDto } from '../validation/dto/update-topping.dto';
+import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
 
 @Injectable()
 export class ToppingService {

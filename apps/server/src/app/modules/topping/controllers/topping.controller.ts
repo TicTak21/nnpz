@@ -13,8 +13,7 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
-import { CreateToppingDto } from '../validation/dto/create-topping.dto';
-import { UpdateToppingDto } from '../validation/dto/update-topping.dto';
+import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
 
 @Controller('toppings')
 @UseInterceptors(CacheInterceptor)

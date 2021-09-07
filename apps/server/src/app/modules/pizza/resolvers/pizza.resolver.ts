@@ -2,8 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
-import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
-import { UpdatePizzaDto } from '../validation/dto/update-pizza.dto';
+import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
 
 @Resolver((_of: PizzaEntity) => PizzaEntity)
 export class PizzaResolver {

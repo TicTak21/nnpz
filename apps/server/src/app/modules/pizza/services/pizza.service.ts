@@ -13,8 +13,7 @@ import {
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PizzaEntity } from '../entities/pizza.entity';
-import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
-import { UpdatePizzaDto } from '../validation/dto/update-pizza.dto';
+import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
 
 @Injectable()
 export class PizzaService {
