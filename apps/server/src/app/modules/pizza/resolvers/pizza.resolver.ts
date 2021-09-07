@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
+import { UpdatePizzaDto } from '../validation/dto/update-pizza.dto';
 
 @Resolver((_of: PizzaEntity) => PizzaEntity)
 export class PizzaResolver {
@@ -26,5 +27,13 @@ export class PizzaResolver {
   @Mutation(_type => PizzaEntity)
   deletePizza(@Args('id') id: string): Observable<PizzaEntity> {
     return this.pizzaService.delete(id);
+  }
+
+  @Mutation(_type => PizzaEntity)
+  updatePizza(
+    @Args('id') id: string,
+    @Args('pizza') dto: UpdatePizzaDto,
+  ): Observable<PizzaEntity> {
+    return this.pizzaService.update(id, dto);
   }
 }

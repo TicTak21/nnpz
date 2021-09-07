@@ -59,12 +59,20 @@ type Query {
 type Mutation {
   createPizza(pizza: CreatePizzaDto!): Pizza!
   deletePizza(id: String!): Pizza!
+  updatePizza(pizza: UpdatePizzaDto!, id: String!): Pizza!
   createTopping(topping: CreateToppingDto!): Topping!
   deleteTopping(id: String!): Topping!
   updateTopping(topping: UpdateToppingDto!, id: String!): Topping!
 }
 
 input CreatePizzaDto {
+  name: String!
+  size: EPizzaSize = small
+  price: Float = 0
+  toppings: [String!] = []
+}
+
+input UpdatePizzaDto {
   name: String!
   size: EPizzaSize = small
   price: Float = 0

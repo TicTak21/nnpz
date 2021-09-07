@@ -10,10 +10,11 @@ import {
   throwError,
   throwIfEmpty,
 } from 'rxjs';
-import { DeleteResult, InsertResult, Repository } from 'typeorm';
+import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
+import { UpdatePizzaDto } from '../validation/dto/update-pizza.dto';
 
 @Injectable()
 export class PizzaService {
@@ -107,6 +108,39 @@ export class PizzaService {
         .execute(),
     ).pipe(
       mergeMap<DeleteResult, Observable<PizzaEntity>>(() => deletedEntity),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
+
+        return throwError(errorHandler);
+      }),
+    );
+  }
+
+  update(id: string, dto: UpdatePizzaDto): Observable<PizzaEntity> {
+    const { toppings, ...pizza } = dto;
+
+    return from(
+      this.pizzaRepo
+        .createQueryBuilder()
+        .update(PizzaEntity)
+        .set({ ...pizza })
+        .where('id = :id', { id })
+        .returning('*')
+        .execute(),
+    ).pipe(
+      mergeMap<UpdateResult, Observable<PizzaEntity>>(({ raw }) => {
+        from(
+          this.pizzaRepo
+            .createQueryBuilder()
+            .relation(PizzaEntity, 'toppings')
+            .of(raw[0])
+            .add(toppings),
+        );
+
+        return this.get(raw[0].id);
+      }),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

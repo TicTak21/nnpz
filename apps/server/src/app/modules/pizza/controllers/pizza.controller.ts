@@ -6,6 +6,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -13,6 +14,7 @@ import { Observable } from 'rxjs';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto } from '../validation/dto/create-pizza.dto';
+import { UpdatePizzaDto } from '../validation/dto/update-pizza.dto';
 
 @Controller('pizzas')
 @UseInterceptors(CacheInterceptor)
@@ -42,5 +44,14 @@ export class PizzaController {
   @ApiOperation({ summary: 'Delete single pizza by `id`' })
   delete(@Param('id') id: string): Observable<PizzaEntity> {
     return this.pizzaService.delete(id);
+  }
+
+  @Put(':id')
+  @ApiOperation({ summary: 'Update single pizza by `id`' })
+  update(
+    @Param('id') id: string,
+    @Body() dto: UpdatePizzaDto,
+  ): Observable<PizzaEntity> {
+    return this.pizzaService.update(id, dto);
   }
 }
