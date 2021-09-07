@@ -1,5 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
+import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
@@ -9,8 +10,10 @@ export class ToppingResolver {
   constructor(private readonly toppingService: ToppingService) {}
 
   @Query(_returns => [ToppingEntity])
-  toppings(): Observable<ToppingEntity[]> {
-    return this.toppingService.getAll();
+  toppings(
+    @Args('pagination', { nullable: true }) pagination?: PaginationDto,
+  ): Observable<ToppingEntity[]> {
+    return this.toppingService.getAll(pagination);
   }
 
   @Query(_returns => ToppingEntity, { nullable: true })

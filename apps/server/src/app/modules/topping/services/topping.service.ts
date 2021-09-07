@@ -12,6 +12,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
 
@@ -22,8 +23,12 @@ export class ToppingService {
     private readonly toppingRepo: Repository<ToppingEntity>,
   ) {}
 
-  getAll(): Observable<ToppingEntity[]> {
-    return from(this.toppingRepo.createQueryBuilder().getMany()).pipe(
+  getAll({ page, take }: PaginationDto): Observable<ToppingEntity[]> {
+    const skip = (page - 1) * take;
+
+    return from(
+      this.toppingRepo.createQueryBuilder().skip(skip).take(take).getMany(),
+    ).pipe(
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

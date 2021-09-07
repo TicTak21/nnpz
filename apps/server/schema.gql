@@ -50,10 +50,15 @@ input PizzaInput {
 }
 
 type Query {
-  pizzas: [Pizza!]!
+  pizzas(pagination: PaginationDto): [Pizza!]!
   pizza(id: String!): Pizza
-  toppings: [Topping!]!
+  toppings(pagination: PaginationDto): [Topping!]!
   topping(id: String!): Topping
+}
+
+input PaginationDto {
+  page: Float = 1
+  take: Float = 10
 }
 
 type Mutation {

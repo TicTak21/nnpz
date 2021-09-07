@@ -1,5 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
+import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
@@ -9,8 +10,10 @@ export class PizzaResolver {
   constructor(private readonly pizzaService: PizzaService) {}
 
   @Query(_returns => [PizzaEntity])
-  pizzas(): Observable<PizzaEntity[]> {
-    return this.pizzaService.getAll();
+  pizzas(
+    @Args('pagination', { nullable: true }) pagination?: PaginationDto,
+  ): Observable<PizzaEntity[]> {
+    return this.pizzaService.getAll(pagination);
   }
 
   @Query(_returns => PizzaEntity, { nullable: true })

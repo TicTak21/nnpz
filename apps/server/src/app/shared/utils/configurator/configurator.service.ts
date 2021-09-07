@@ -78,7 +78,14 @@ export class Configurator {
   }
 
   private addPipes() {
-    this.app.useGlobalPipes(new ValidationPipe());
+    this.app.useGlobalPipes(
+      new ValidationPipe({
+        transform: true,
+        transformOptions: {
+          enableImplicitConversion: true,
+        },
+      }),
+    );
 
     return this;
   }

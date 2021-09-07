@@ -12,6 +12,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
 
@@ -22,11 +23,15 @@ export class PizzaService {
     private readonly pizzaRepo: Repository<PizzaEntity>,
   ) {}
 
-  getAll(): Observable<PizzaEntity[]> {
+  getAll({ page, take }: PaginationDto): Observable<PizzaEntity[]> {
+    const skip = (page - 1) * take;
+
     return from(
       this.pizzaRepo
         .createQueryBuilder('pizza')
         .leftJoinAndSelect('pizza.toppings', 'toppings')
+        .skip(skip)
+        .take(take)
         .getMany(),
     ).pipe(
       catchError(err => {

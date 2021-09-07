@@ -7,10 +7,12 @@ import {
   Param,
   Post,
   Put,
+  Query,
   UseInterceptors,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
+import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
@@ -23,8 +25,8 @@ export class ToppingController {
 
   @Get()
   @ApiOperation({ summary: 'Get all toppings' })
-  getAll(): Observable<ToppingEntity[]> {
-    return this.toppingService.getAll();
+  getAll(@Query() pagination: PaginationDto): Observable<ToppingEntity[]> {
+    return this.toppingService.getAll(pagination);
   }
 
   @Get(':id')
