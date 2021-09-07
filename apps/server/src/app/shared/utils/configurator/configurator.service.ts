@@ -1,4 +1,4 @@
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -36,7 +36,7 @@ export class Configurator {
    * @returns Observable<void>
    */
   run(): Observable<void> {
-    this.addStaticAssets().addViews().addSwagger().addMiddlewares();
+    this.addStaticAssets().addViews().addSwagger().addMiddlewares().addPipes();
 
     return from(this.app.listen(this.port, () => this.logListen()));
   }
@@ -60,11 +60,29 @@ export class Configurator {
         contentSecurityPolicy: {
           directives: {
             defaultSrc: [`'self'`],
-            styleSrc: [`'self'`, `'unsafe-inline'`, 'cdn.jsdelivr.net', 'fonts.googleapis.com'],
+            styleSrc: [
+              `'self'`,
+              `'unsafe-inline'`,
+              'cdn.jsdelivr.net',
+              'fonts.googleapis.com',
+            ],
             fontSrc: [`'self'`, 'fonts.gstatic.com'],
             imgSrc: [`'self'`, 'data:', 'cdn.jsdelivr.net'],
             scriptSrc: [`'self'`, `https: 'unsafe-inline'`, `cdn.jsdelivr.net`],
           },
+        },
+      }),
+    );
+
+    return this;
+  }
+
+  private addPipes() {
+    this.app.useGlobalPipes(
+      new ValidationPipe({
+        transform: true,
+        transformOptions: {
+          enableImplicitConversion: true,
         },
       }),
     );

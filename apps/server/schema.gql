@@ -6,13 +6,22 @@ type Topping {
   id: ID!
   name: String!
   price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type Pizza {
   id: ID!
   name: String!
   size: EPizzaSize!
   price: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   toppings: [Topping!]
 }
 
@@ -26,6 +35,8 @@ input ToppingInput {
   id: ID!
   name: String!
   price: Float = 0
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 input PizzaInput {
@@ -33,12 +44,52 @@ input PizzaInput {
   name: String!
   size: EPizzaSize = small
   price: Float = 0
+  createdAt: DateTime!
+  updatedAt: DateTime!
   toppings: [ToppingInput!] = null
 }
 
 type Query {
-  pizzas: [Pizza!]!
+  pizzas(pagination: PaginationDto): [Pizza!]!
   pizza(id: String!): Pizza
-  toppings: [Topping!]!
+  toppings(pagination: PaginationDto): [Topping!]!
   topping(id: String!): Topping
+}
+
+input PaginationDto {
+  page: Float = 1
+  take: Float = 10
+}
+
+type Mutation {
+  createPizza(pizza: CreatePizzaDto!): Pizza!
+  deletePizza(id: String!): Pizza!
+  updatePizza(pizza: UpdatePizzaDto!, id: String!): Pizza!
+  createTopping(topping: CreateToppingDto!): Topping!
+  deleteTopping(id: String!): Topping!
+  updateTopping(topping: UpdateToppingDto!, id: String!): Topping!
+}
+
+input CreatePizzaDto {
+  name: String!
+  size: EPizzaSize = small
+  price: Float = 0
+  toppings: [String!] = []
+}
+
+input UpdatePizzaDto {
+  name: String!
+  size: EPizzaSize = small
+  price: Float = 0
+  toppings: [String!] = []
+}
+
+input CreateToppingDto {
+  name: String!
+  price: Float!
+}
+
+input UpdateToppingDto {
+  name: String!
+  price: Float!
 }

@@ -78,7 +78,10 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/client/src/**/*.ts", "apps/client/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/client/src/**/*.ts",
+              "apps/client/src/**/*.html"
+            ]
           }
         },
         "test": {
