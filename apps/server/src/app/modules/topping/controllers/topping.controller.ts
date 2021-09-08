@@ -16,6 +16,7 @@ import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
+import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
 
 @Controller('toppings')
 @UseInterceptors(CacheInterceptor)
@@ -25,7 +26,7 @@ export class ToppingController {
 
   @Get()
   @ApiOperation({ summary: 'Get all toppings' })
-  getAll(@Query() pagination: PaginationDto): Observable<ToppingEntity[]> {
+  getAll(@Query() pagination: PaginationDto): Observable<PaginatedListRo> {
     return this.toppingService.getAll(pagination);
   }
 

@@ -4,6 +4,7 @@ import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { ToppingService } from '../services/topping.service';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
+import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
 
 @Resolver((_of: ToppingEntity) => ToppingEntity)
 export class ToppingResolver {
@@ -12,7 +13,7 @@ export class ToppingResolver {
   @Query(_returns => [ToppingEntity])
   toppings(
     @Args('pagination', { nullable: true }) pagination?: PaginationDto,
-  ): Observable<ToppingEntity[]> {
+  ): Observable<PaginatedListRo> {
     return this.toppingService.getAll(pagination);
   }
 

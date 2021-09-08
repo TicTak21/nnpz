@@ -15,6 +15,7 @@ import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
+import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
 
 @Injectable()
 export class PizzaService {
@@ -23,7 +24,7 @@ export class PizzaService {
     private readonly pizzaRepo: Repository<PizzaEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<PizzaEntity[]> {
+  getAll({ page, take }: PaginationDto): Observable<PaginatedListRo> {
     const skip = (page - 1) * take;
 
     return from(
@@ -32,8 +33,19 @@ export class PizzaService {
         .leftJoinAndSelect('pizza.toppings', 'toppings')
         .skip(skip)
         .take(take)
-        .getMany(),
+        .getManyAndCount(),
     ).pipe(
+      mergeMap(([entities, count]) => {
+        return of({
+          total: count,
+          perPage: take,
+          currentPage: page,
+          lastPage: Math.ceil(count / take),
+          from: skip,
+          to: skip + entities.length,
+          data: entities,
+        });
+      }),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
