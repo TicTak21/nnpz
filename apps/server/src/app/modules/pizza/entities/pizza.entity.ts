@@ -27,7 +27,7 @@ export class PizzaEntity {
   @ApiProperty()
   id: string;
 
-  @Column('varchar')
+  @Column('varchar', { unique: true })
   @Field()
   @ApiProperty()
   name: string;
