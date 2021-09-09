@@ -9,21 +9,13 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
   constructor(private readonly configService: ConfigService) {}
 
   createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
-    const port = this.configService.get<number>('POSTGRES_PORT');
-    const host = this.configService.get<string>('POSTGRES_HOST');
-    const username = this.configService.get<string>('POSTGRES_USER');
-    const password = this.configService.get<string>('POSTGRES_PASSWORD');
-    const database = this.configService.get<string>('POSTGRES_DB');
+    const url = this.configService.get<string>('POSTGRES_URL');
 
     const entities = [PizzaEntity, ToppingEntity];
 
     return {
       type: 'postgres',
-      port,
-      host,
-      username,
-      password,
-      database,
+      url,
       entities,
       synchronize: false,
       retryAttempts: 3,

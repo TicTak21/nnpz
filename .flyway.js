@@ -1,7 +1,7 @@
+require('dotenv').config({ path: './config/dev/.env' });
+
 const { ConnectionString } = require('connection-string');
-const cs = new ConnectionString(
-  'postgres://pg:pass@localhost:5432/nest-ng-pizza?schema=public',
-);
+const cs = new ConnectionString(process.env.POSTGRES_URL);
 const {
   user: USERNAME,
   password: PASSWORD,
@@ -22,17 +22,14 @@ module.exports = {
     table: '__migrations',
     sqlMigrationSuffixes: '.pgsql',
   },
-  // Use to configure environment variables used by flyway
   env: {
     JAVA_ARGS: '-Djava.util.logging.config.file=./conf/logging.properties',
   },
   mavinPlugins: [
     {
-      // optional, use to add any plugins (ie. logging)
       groupId: 'org.slf4j',
       artifactId: 'slf4j-api',
       version: '1.7.25',
-      // This can be a specifc url to download that may be different then the auto generated url.
       downloadUrl:
         'https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar',
     },
@@ -43,7 +40,7 @@ module.exports = {
     },
   ],
   downloads: {
-    storageDirectory: `${__dirname}/tmp`, // optional, the specific directory to store the flyway downloaded files. The directory must be writable by the node app process' user.
-    expirationTimeInMs: -1, // optional, -1 will never check for updates, defaults to 1 day.
+    storageDirectory: `${__dirname}/tmp`,
+    expirationTimeInMs: -1,
   },
 };
