@@ -16,7 +16,7 @@ import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
-import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
+import { PaginatedPizzasRo } from '../validation/ro';
 
 @Controller('pizzas')
 @UseInterceptors(CacheInterceptor)
@@ -26,7 +26,7 @@ export class PizzaController {
 
   @Get()
   @ApiOperation({ summary: 'Get all pizzas' })
-  getAll(@Query() pagination?: PaginationDto): Observable<PaginatedListRo> {
+  getAll(@Query() pagination?: PaginationDto): Observable<PaginatedPizzasRo> {
     return this.pizzaService.getAll(pagination);
   }
 

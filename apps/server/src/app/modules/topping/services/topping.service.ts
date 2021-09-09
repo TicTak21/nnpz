@@ -15,7 +15,7 @@ import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PaginationDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
-import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
+import { PaginatedToppingsRo } from '../validation/ro';
 
 @Injectable()
 export class ToppingService {
@@ -24,7 +24,7 @@ export class ToppingService {
     private readonly toppingRepo: Repository<ToppingEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<PaginatedListRo> {
+  getAll({ page, take }: PaginationDto): Observable<PaginatedToppingsRo> {
     const skip = (page - 1) * take;
 
     return from(

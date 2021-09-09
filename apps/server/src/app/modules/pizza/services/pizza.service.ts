@@ -15,7 +15,7 @@ import { ErrorHandler, errorHandlers } from '../../../shared/error';
 import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
-import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
+import { PaginatedPizzasRo } from '../validation/ro';
 
 @Injectable()
 export class PizzaService {
@@ -24,7 +24,7 @@ export class PizzaService {
     private readonly pizzaRepo: Repository<PizzaEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<PaginatedListRo> {
+  getAll({ page, take }: PaginationDto): Observable<PaginatedPizzasRo> {
     const skip = (page - 1) * take;
 
     return from(

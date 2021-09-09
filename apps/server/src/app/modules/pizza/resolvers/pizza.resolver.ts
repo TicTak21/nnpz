@@ -4,16 +4,16 @@ import { PaginationDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
-import { PaginatedListRo } from '../validation/ro/paginated-list.ro';
+import { PaginatedPizzasRo } from '../validation/ro';
 
 @Resolver((_of: PizzaEntity) => PizzaEntity)
 export class PizzaResolver {
   constructor(private readonly pizzaService: PizzaService) {}
 
-  @Query(_returns => PaginatedListRo)
+  @Query(_returns => PaginatedPizzasRo)
   pizzas(
     @Args('pagination', { nullable: true }) pagination?: PaginationDto,
-  ): Observable<PaginatedListRo> {
+  ): Observable<PaginatedPizzasRo> {
     return this.pizzaService.getAll(pagination);
   }
 

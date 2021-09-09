@@ -31,8 +31,18 @@ enum EPizzaSize {
   large
 }
 
-type PaginatedListRo {
+type PaginatedPizzasRo {
   data: [Pizza!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
+type PaginatedToppingsRo {
+  data: [Topping!]!
   total: Float!
   perPage: Float!
   currentPage: Float!
@@ -60,9 +70,9 @@ input PizzaInput {
 }
 
 type Query {
-  pizzas(pagination: PaginationDto): PaginatedListRo!
+  pizzas(pagination: PaginationDto): PaginatedPizzasRo!
   pizza(id: String!): Pizza
-  toppings(pagination: PaginationDto): [Topping!]!
+  toppings(pagination: PaginationDto): PaginatedToppingsRo!
   topping(id: String!): Topping
 }
 
