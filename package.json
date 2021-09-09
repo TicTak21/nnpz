@@ -32,7 +32,9 @@
     "help": "nx help",
     "docker:dev:up": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name up -d",
     "docker:dev:down": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name stop",
-    "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps"
+    "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps",
+    "flyway:migrate": "flyway -c .flyway.js migrate",
+    "flyway:clean": "flyway -c .flyway.js clean"
   },
   "private": true,
   "dependencies": {
@@ -103,6 +105,7 @@
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "~4.28.3",
     "@typescript-eslint/parser": "~4.28.3",
+    "connection-string": "^4.3.4",
     "cypress": "^7.3.0",
     "dotenv": "~10.0.0",
     "eslint": "7.22.0",
@@ -111,6 +114,7 @@
     "eslint-plugin-ngrx": "^1.0.0",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.4",
+    "node-flywaydb": "^3.0.7",
     "prettier": "^2.3.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
