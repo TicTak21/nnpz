@@ -5,8 +5,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as helmet from 'helmet';
 import { join } from 'path';
 import { from, Observable } from 'rxjs';
-import { PizzaEntity } from '../../../modules/pizza/entities/pizza.entity';
-import { ToppingEntity } from '../../../modules/topping/entities/topping.entity';
 
 /**
  * Class that configures app. Works like `Builder`.
@@ -21,8 +19,6 @@ export class Configurator {
    */
   constructor(private readonly app: NestExpressApplication) {
     this.configService = app.get(ConfigService);
-
-    // reusable variables(port, host, etc.)
 
     this.port = this.configService.get('SERVER_PORT');
   }
@@ -46,9 +42,7 @@ export class Configurator {
       .setTitle('Nest Pizza API')
       .setVersion('1.0')
       .build();
-    const document = SwaggerModule.createDocument(this.app, swaggerConfig, {
-      extraModels: [PizzaEntity, ToppingEntity],
-    });
+    const document = SwaggerModule.createDocument(this.app, swaggerConfig);
     SwaggerModule.setup('swagger', this.app, document);
 
     return this;
@@ -81,9 +75,6 @@ export class Configurator {
     this.app.useGlobalPipes(
       new ValidationPipe({
         transform: true,
-        transformOptions: {
-          enableImplicitConversion: true,
-        },
       }),
     );
 

@@ -1,22 +1,21 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { ApiProperty } from '@nestjs/swagger';
 import { EPizzaSize } from '@shared';
+import { IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 @InputType()
 export class CreatePizzaDto {
   @Field()
-  @ApiProperty()
   name: string;
 
   @Field(_type => EPizzaSize, { defaultValue: EPizzaSize.small })
-  @ApiProperty()
   size: EPizzaSize;
 
   @Field({ defaultValue: 0 })
-  @ApiProperty()
+  @IsNotEmpty()
+  @IsNumber({ maxDecimalPlaces: 2 })
+  @Min(0)
   price: number;
 
   @Field(_type => [String], { defaultValue: [] })
-  @ApiProperty()
   toppings: string[];
 }
