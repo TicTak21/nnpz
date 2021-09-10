@@ -3,7 +3,7 @@ import { Type } from 'class-transformer';
 import { IsNumber, IsOptional } from 'class-validator';
 
 @InputType()
-export class PaginationDto {
+export class PaginationArgsDto {
   @IsOptional()
   @IsNumber()
   @Type(() => Number)

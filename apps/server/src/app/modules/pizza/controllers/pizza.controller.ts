@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
-import { PaginationDto } from '../../../shared/validation/dto';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { PizzaService } from '../services/pizza.service';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
@@ -26,7 +26,9 @@ export class PizzaController {
 
   @Get()
   @ApiOperation({ summary: 'Get all pizzas' })
-  getAll(@Query() pagination?: PaginationDto): Observable<PaginatedPizzasRo> {
+  getAll(
+    @Query() pagination?: PaginationArgsDto,
+  ): Observable<PaginatedPizzasRo> {
     return this.pizzaService.getAll(pagination);
   }
 

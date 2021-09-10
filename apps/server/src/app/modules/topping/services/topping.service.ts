@@ -12,7 +12,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import { PaginationDto } from '../../../shared/validation/dto';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
 import { PaginatedToppingsRo } from '../validation/ro';
@@ -24,7 +24,7 @@ export class ToppingService {
     private readonly toppingRepo: Repository<ToppingEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<PaginatedToppingsRo> {
+  getAll({ page, take }: PaginationArgsDto): Observable<PaginatedToppingsRo> {
     const skip = (page - 1) * take;
 
     return from(

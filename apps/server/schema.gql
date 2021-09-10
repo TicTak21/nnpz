@@ -70,13 +70,13 @@ input PizzaInput {
 }
 
 type Query {
-  pizzas(pagination: PaginationDto): PaginatedPizzasRo!
+  pizzas(pagination: PaginationArgsDto): PaginatedPizzasRo!
   pizza(id: String!): Pizza
-  toppings(pagination: PaginationDto): PaginatedToppingsRo!
+  toppings(pagination: PaginationArgsDto): PaginatedToppingsRo!
   topping(id: String!): Topping
 }
 
-input PaginationDto {
+input PaginationArgsDto {
   page: Float = 1
   take: Float = 10
 }
