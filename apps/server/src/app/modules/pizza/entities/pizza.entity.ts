@@ -1,3 +1,4 @@
+import { EPizzaSize, IPizzaEntity } from '@nest-ng-pizza/types';
 import {
   Field,
   ID,
@@ -5,7 +6,6 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { EPizzaSize, IPizzaEntity } from '@shared';
 import {
   Column,
   CreateDateColumn,

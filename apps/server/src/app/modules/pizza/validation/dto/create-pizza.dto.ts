@@ -1,5 +1,5 @@
+import { EPizzaSize } from '@nest-ng-pizza/types';
 import { Field, InputType } from '@nestjs/graphql';
-import { EPizzaSize } from '@shared';
 import { IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 @InputType()

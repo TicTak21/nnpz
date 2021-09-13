@@ -303,15 +303,15 @@
         }
       }
     },
-    "shared": {
-      "root": "libs/shared",
-      "sourceRoot": "libs/shared/src",
+    "types": {
+      "root": "libs/nest-ng-pizza/types",
+      "sourceRoot": "libs/nest-ng-pizza/types/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/**/*.ts"]
+            "lintFilePatterns": ["libs/nest-ng-pizza/types/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         }

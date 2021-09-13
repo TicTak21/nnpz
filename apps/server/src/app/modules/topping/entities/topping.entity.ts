@@ -1,5 +1,5 @@
+import { IToppingEntity } from '@nest-ng-pizza/types';
 import { Field, ID, InputType, ObjectType } from '@nestjs/graphql';
-import { IToppingEntity } from '@shared';
 import {
   Column,
   CreateDateColumn,
@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 @Entity('topping')
-@ObjectType('Topp implements IToppingEntity ing')
+@ObjectType('Topping')
 @InputType('ToppingInput')
 export class ToppingEntity implements IToppingEntity {
   @PrimaryGeneratedColumn('uuid')
