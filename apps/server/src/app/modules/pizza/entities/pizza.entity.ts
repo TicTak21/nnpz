@@ -5,7 +5,7 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { EPizzaSize } from '@shared';
+import { EPizzaSize, IPizzaEntity } from '@shared';
 import {
   Column,
   CreateDateColumn,
@@ -20,7 +20,7 @@ import { ToppingEntity } from '../../topping/entities/topping.entity';
 @Entity({ name: 'pizza' })
 @ObjectType('Pizza')
 @InputType('PizzaInput')
-export class PizzaEntity {
+export class PizzaEntity implements IPizzaEntity {
   @PrimaryGeneratedColumn('uuid')
   @Field(_type => ID)
   id: string;

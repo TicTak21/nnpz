@@ -1,4 +1,5 @@
 import { Field, ID, InputType, ObjectType } from '@nestjs/graphql';
+import { IToppingEntity } from '@shared';
 import {
   Column,
   CreateDateColumn,
@@ -8,9 +9,9 @@ import {
 } from 'typeorm';
 
 @Entity('topping')
-@ObjectType('Topping')
+@ObjectType('Topp implements IToppingEntity ing')
 @InputType('ToppingInput')
-export class ToppingEntity {
+export class ToppingEntity implements IToppingEntity {
   @PrimaryGeneratedColumn('uuid')
   @Field(_type => ID)
   id: string;
