@@ -15,17 +15,17 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'pizza',
+    path: 'pizzas',
     loadChildren: () =>
       import('./modules/pizza/pizza.module').then(m => m.PizzaModule),
   },
   {
-    path: 'topping',
+    path: 'toppings',
     loadChildren: () =>
       import('./modules/topping/topping.module').then(m => m.ToppingModule),
   },
   {
-    path: 'user',
+    path: 'users',
     loadChildren: () =>
       import('./modules/user/user.module').then(m => m.UserModule),
   },

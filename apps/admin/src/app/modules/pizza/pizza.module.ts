@@ -1,17 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { PizzaComponent } from './components/pizza/pizza.component';
+import { PizzaPageComponent } from './containers/pizza-page/pizza-page.component';
 import { PizzaRoutingModule } from './pizza-routing.module';
-import { PizzaComponent } from './pizza.component';
-
 
 @NgModule({
-  declarations: [
-    PizzaComponent
-  ],
-  imports: [
-    CommonModule,
-    PizzaRoutingModule
-  ]
+  declarations: [PizzaComponent, PizzaPageComponent],
+  imports: [CommonModule, PizzaRoutingModule],
 })
-export class PizzaModule { }
+export class PizzaModule {}
