@@ -20,7 +20,7 @@ const STYLES = (theme: ThemeVariables, ref: ThemeRef) => {
 };
 
 @Component({
-  selector: 'client-root',
+  selector: 'admin-root',
   templateUrl: './app.component.html',
   providers: [StyleRenderer],
 })

@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/admin",
       "sourceRoot": "apps/admin/src",
-      "prefix": "client",
+      "prefix": "admin",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -345,7 +345,8 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "changeDetection": "OnPush"
     }
   },
   "defaultProject": "client"

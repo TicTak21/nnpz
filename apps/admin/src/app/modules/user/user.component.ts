@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'client-user',
+  selector: 'admin-user',
   templateUrl: './user.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent {}

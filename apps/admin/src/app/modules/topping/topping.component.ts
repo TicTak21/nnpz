@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'client-topping',
+  selector: 'admin-topping',
   templateUrl: './topping.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToppingComponent {}
