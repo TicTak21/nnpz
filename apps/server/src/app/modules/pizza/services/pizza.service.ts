@@ -112,8 +112,6 @@ export class PizzaService {
   }
 
   delete(id: string): Observable<PizzaEntity> {
-    const deletedEntity = this.get(id);
-
     return from(
       this.pizzaRepo
         .createQueryBuilder('pizza')
@@ -123,7 +121,7 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<PizzaEntity>>(() => deletedEntity),
+      mergeMap<DeleteResult, Observable<PizzaEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
