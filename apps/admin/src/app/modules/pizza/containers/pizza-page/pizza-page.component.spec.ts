@@ -8,9 +8,8 @@ describe('PizzaPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PizzaPageComponent ]
-    })
-    .compileComponents();
+      declarations: [PizzaPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

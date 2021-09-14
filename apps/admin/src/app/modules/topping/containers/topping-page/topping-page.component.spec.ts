@@ -8,9 +8,8 @@ describe('ToppingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToppingPageComponent ]
-    })
-    .compileComponents();
+      declarations: [ToppingPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
