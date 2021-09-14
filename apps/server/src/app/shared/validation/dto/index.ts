@@ -1,1 +1,1 @@
-export { PaginationDto } from './pagination.dto';
+export { PaginationArgsDto } from './pagination-args.dto';

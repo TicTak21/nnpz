@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shared": ["libs/shared/src/index.ts"]
+      "@nest-ng-pizza/types": ["libs/nest-ng-pizza/types/src/index.ts"],
+      "@nest-ng-pizza/ui": ["libs/nest-ng-pizza/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

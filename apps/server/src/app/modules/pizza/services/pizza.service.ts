@@ -12,9 +12,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import { PaginationDto } from '../../../shared/validation/dto';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
+import { PaginatedPizzasRo } from '../validation/ro';
 
 @Injectable()
 export class PizzaService {
@@ -23,7 +24,7 @@ export class PizzaService {
     private readonly pizzaRepo: Repository<PizzaEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<PizzaEntity[]> {
+  getAll({ page, take }: PaginationArgsDto): Observable<PaginatedPizzasRo> {
     const skip = (page - 1) * take;
 
     return from(
@@ -32,8 +33,19 @@ export class PizzaService {
         .leftJoinAndSelect('pizza.toppings', 'toppings')
         .skip(skip)
         .take(take)
-        .getMany(),
+        .getManyAndCount(),
     ).pipe(
+      mergeMap(([entities, count]) => {
+        return of({
+          total: count,
+          perPage: take,
+          currentPage: page,
+          lastPage: Math.ceil(count / take),
+          from: skip,
+          to: skip + entities.length,
+          data: entities,
+        });
+      }),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -100,8 +112,6 @@ export class PizzaService {
   }
 
   delete(id: string): Observable<PizzaEntity> {
-    const deletedEntity = this.get(id);
-
     return from(
       this.pizzaRepo
         .createQueryBuilder('pizza')
@@ -111,7 +121,7 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<PizzaEntity>>(() => deletedEntity),
+      mergeMap<DeleteResult, Observable<PizzaEntity>>(res => of(res.raw[0])),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

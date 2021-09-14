@@ -1,3 +1,4 @@
+import { EPizzaSize, IPizzaEntity } from '@nest-ng-pizza/types';
 import {
   Field,
   ID,
@@ -5,8 +6,6 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { ApiProperty } from '@nestjs/swagger';
-import { EPizzaSize } from '@shared';
 import {
   Column,
   CreateDateColumn,
@@ -21,25 +20,21 @@ import { ToppingEntity } from '../../topping/entities/topping.entity';
 @Entity({ name: 'pizza' })
 @ObjectType('Pizza')
 @InputType('PizzaInput')
-export class PizzaEntity {
+export class PizzaEntity implements IPizzaEntity {
   @PrimaryGeneratedColumn('uuid')
   @Field(_type => ID)
-  @ApiProperty()
   id: string;
 
-  @Column('varchar')
+  @Column('varchar', { unique: true })
   @Field()
-  @ApiProperty()
   name: string;
 
   @Column({ type: 'enum', enum: EPizzaSize, default: EPizzaSize.small })
   @Field(_type => EPizzaSize, { defaultValue: EPizzaSize.small })
-  @ApiProperty()
   size: EPizzaSize;
 
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   @Field({ defaultValue: 0 })
-  @ApiProperty()
   price: number;
 
   @CreateDateColumn({
@@ -47,7 +42,6 @@ export class PizzaEntity {
     default: () => 'now()',
   })
   @Field(_type => Date)
-  @ApiProperty()
   createdAt: string;
 
   @UpdateDateColumn({
@@ -56,7 +50,6 @@ export class PizzaEntity {
     onUpdate: 'now()',
   })
   @Field(_type => Date)
-  @ApiProperty()
   updatedAt: string;
 
   @ManyToMany(_type => ToppingEntity, {
@@ -73,7 +66,6 @@ export class PizzaEntity {
     inverseJoinColumn: { name: 'topping_id', referencedColumnName: 'id' },
   })
   @Field(_type => [ToppingEntity], { nullable: true, defaultValue: null })
-  @ApiProperty()
   toppings: ToppingEntity[];
 }
 

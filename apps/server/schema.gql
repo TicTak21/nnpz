@@ -31,6 +31,50 @@ enum EPizzaSize {
   large
 }
 
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  role: EUserRole!
+}
+
+enum EUserRole {
+  admin
+  client
+}
+
+type PaginatedPizzasRo {
+  data: [Pizza!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
+type PaginatedToppingsRo {
+  data: [Topping!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
+type PaginatedUsersRo {
+  data: [User!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
 input ToppingInput {
   id: ID!
   name: String!
@@ -49,14 +93,25 @@ input PizzaInput {
   toppings: [ToppingInput!] = null
 }
 
-type Query {
-  pizzas(pagination: PaginationDto): [Pizza!]!
-  pizza(id: String!): Pizza
-  toppings(pagination: PaginationDto): [Topping!]!
-  topping(id: String!): Topping
+input UserInput {
+  id: ID!
+  email: String!
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  role: EUserRole = client
 }
 
-input PaginationDto {
+type Query {
+  pizzas(pagination: PaginationArgsDto): PaginatedPizzasRo!
+  pizza(id: String!): Pizza
+  toppings(pagination: PaginationArgsDto): PaginatedToppingsRo!
+  topping(id: String!): Topping
+  users(pagination: PaginationArgsDto): PaginatedUsersRo!
+  user(id: String!): User
+}
+
+input PaginationArgsDto {
   page: Float = 1
   take: Float = 10
 }
@@ -68,6 +123,9 @@ type Mutation {
   createTopping(topping: CreateToppingDto!): Topping!
   deleteTopping(id: String!): Topping!
   updateTopping(topping: UpdateToppingDto!, id: String!): Topping!
+  createUser(user: CreateUserDto!): User!
+  deleteUser(id: String!): User!
+  updateUser(user: UpdateUserDto!, id: String!): User!
 }
 
 input CreatePizzaDto {
@@ -92,4 +150,16 @@ input CreateToppingDto {
 input UpdateToppingDto {
   name: String!
   price: Float!
+}
+
+input CreateUserDto {
+  email: String!
+  password: String!
+  role: EUserRole = client
+}
+
+input UpdateUserDto {
+  email: String!
+  password: String!
+  role: EUserRole = client
 }

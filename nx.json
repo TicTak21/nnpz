@@ -27,18 +27,28 @@
     ]
   },
   "projects": {
+    "admin": {
+      "tags": ["admin", "angular"]
+    },
+    "admin-e2e": {
+      "tags": ["admin", "cypress", "e2e"],
+      "implicitDependencies": ["admin"]
+    },
     "client": {
-      "tags": []
+      "tags": ["client", "angular", "frontend"]
     },
     "e2e": {
-      "tags": [],
+      "tags": ["client", "cypress", "e2e"],
       "implicitDependencies": ["client"]
     },
     "server": {
-      "tags": []
+      "tags": ["server", "nest", "backend"]
     },
-    "shared": {
-      "tags": []
+    "types": {
+      "tags": ["types", "lib"]
+    },
+    "ui": {
+      "tags": ["ui", "angular", "lib"]
     }
   }
 }

@@ -3,30 +3,22 @@ import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { PizzaEntity } from '../../../pizza/entities/pizza.entity';
 import { ToppingEntity } from '../../../topping/entities/topping.entity';
+import { UserEntity } from '../../../user/entities/user.entity';
 
 @Injectable()
 export class PgConnectionService implements TypeOrmOptionsFactory {
   constructor(private readonly configService: ConfigService) {}
 
   createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
-    const port = this.configService.get<number>('POSTGRES_PORT');
-    const host = this.configService.get<string>('POSTGRES_HOST');
-    const username = this.configService.get<string>('POSTGRES_USER');
-    const password = this.configService.get<string>('POSTGRES_PASSWORD');
-    const database = this.configService.get<string>('POSTGRES_DB');
-    const env = this.configService.get<string>('NODE_ENV');
+    const url = this.configService.get<string>('POSTGRES_URL');
 
-    const entities = [PizzaEntity, ToppingEntity];
+    const entities = [PizzaEntity, ToppingEntity, UserEntity];
 
     return {
       type: 'postgres',
-      port,
-      host,
-      username,
-      password,
-      database,
+      url,
       entities,
-      synchronize: env === 'dev',
+      synchronize: false,
       retryAttempts: 3,
       logging: true,
     };

@@ -12,9 +12,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import { PaginationDto } from '../../../shared/validation/dto';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
+import { PaginatedToppingsRo } from '../validation/ro';
 
 @Injectable()
 export class ToppingService {
@@ -23,12 +24,27 @@ export class ToppingService {
     private readonly toppingRepo: Repository<ToppingEntity>,
   ) {}
 
-  getAll({ page, take }: PaginationDto): Observable<ToppingEntity[]> {
+  getAll({ page, take }: PaginationArgsDto): Observable<PaginatedToppingsRo> {
     const skip = (page - 1) * take;
 
     return from(
-      this.toppingRepo.createQueryBuilder().skip(skip).take(take).getMany(),
+      this.toppingRepo
+        .createQueryBuilder()
+        .skip(skip)
+        .take(take)
+        .getManyAndCount(),
     ).pipe(
+      mergeMap(([entities, count]) => {
+        return of({
+          total: count,
+          perPage: take,
+          currentPage: page,
+          lastPage: Math.ceil(count / take),
+          from: skip,
+          to: skip + entities.length,
+          data: entities,
+        });
+      }),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
