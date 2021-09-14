@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { PizzaEntity } from '../../../pizza/entities/pizza.entity';
 import { ToppingEntity } from '../../../topping/entities/topping.entity';
+import { UserEntity } from '../../../user/entities/user.entity';
 
 @Injectable()
 export class PgConnectionService implements TypeOrmOptionsFactory {
@@ -11,7 +12,7 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
     const url = this.configService.get<string>('POSTGRES_URL');
 
-    const entities = [PizzaEntity, ToppingEntity];
+    const entities = [PizzaEntity, ToppingEntity, UserEntity];
 
     return {
       type: 'postgres',

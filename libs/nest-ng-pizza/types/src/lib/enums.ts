@@ -3,3 +3,8 @@ export enum EPizzaSize {
   medium = 'md',
   large = 'lg',
 }
+
+export enum EUserRole {
+  admin = 'admin',
+  client = 'client',
+}

@@ -7,6 +7,7 @@ import { GqlModule } from './modules/gql/gql.module';
 import { PizzaModule } from './modules/pizza/pizza.module';
 import { ToppingModule } from './modules/topping/topping.module';
 import { globalFilters } from './shared/filters';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { globalFilters } from './shared/filters';
     GqlModule,
     PizzaModule,
     ToppingModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [...globalFilters],
