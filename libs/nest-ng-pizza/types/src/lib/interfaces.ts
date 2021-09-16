@@ -2,8 +2,8 @@ import { EPizzaSize } from './enums';
 
 export interface IBaseEntity {
   id: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface IToppingEntity extends IBaseEntity {

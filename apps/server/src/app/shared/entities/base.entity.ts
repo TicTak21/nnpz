@@ -17,7 +17,7 @@ export abstract class BaseEntity implements IBaseEntity {
     default: () => 'now()',
   })
   @Field(_type => Date)
-  createdAt: string;
+  createdAt: Date;
 
   @UpdateDateColumn({
     type: 'timestamptz',
@@ -25,5 +25,5 @@ export abstract class BaseEntity implements IBaseEntity {
     onUpdate: 'now()',
   })
   @Field(_type => Date)
-  updatedAt: string;
+  updatedAt: Date;
 }
