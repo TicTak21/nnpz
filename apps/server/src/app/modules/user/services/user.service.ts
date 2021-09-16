@@ -13,6 +13,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import {
+  PaginationService,
+  TManyAndCount,
+} from '../../../shared/services/pagination';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
@@ -26,7 +30,7 @@ export class UserService {
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedUsersRo> {
-    const skip = (page - 1) * take;
+    const skip = PaginationService.countSkip(page, take);
 
     return from(
       this.userRepo
@@ -35,17 +39,17 @@ export class UserService {
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap(([entities, count]) => {
-        return of({
-          total: count,
-          perPage: take,
-          currentPage: page,
-          lastPage: Math.ceil(count / take),
-          from: skip,
-          to: skip + entities.length,
-          data: entities,
-        });
-      }),
+      mergeMap<TManyAndCount<UserEntity>, Observable<PaginatedUsersRo>>(
+        queryResult =>
+          of(
+            PaginationService.paginate({
+              queryResult,
+              page,
+              take,
+              skip,
+            }),
+          ),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

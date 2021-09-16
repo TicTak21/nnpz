@@ -12,6 +12,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import {
+  PaginationService,
+  TManyAndCount,
+} from '../../../shared/services/pagination';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
@@ -25,7 +29,7 @@ export class PizzaService {
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedPizzasRo> {
-    const skip = (page - 1) * take;
+    const skip = PaginationService.countSkip(page, take);
 
     return from(
       this.pizzaRepo
@@ -35,17 +39,17 @@ export class PizzaService {
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap(([entities, count]) => {
-        return of({
-          total: count,
-          perPage: take,
-          currentPage: page,
-          lastPage: Math.ceil(count / take),
-          from: skip,
-          to: skip + entities.length,
-          data: entities,
-        });
-      }),
+      mergeMap<TManyAndCount<PizzaEntity>, Observable<PaginatedPizzasRo>>(
+        queryResult =>
+          of(
+            PaginationService.paginate({
+              queryResult,
+              page,
+              take,
+              skip,
+            }),
+          ),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

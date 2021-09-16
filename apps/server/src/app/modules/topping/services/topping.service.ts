@@ -12,6 +12,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import {
+  PaginationService,
+  TManyAndCount,
+} from '../../../shared/services/pagination';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
@@ -25,26 +29,26 @@ export class ToppingService {
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedToppingsRo> {
-    const skip = (page - 1) * take;
+    const skip = PaginationService.countSkip(page, take);
 
     return from(
       this.toppingRepo
-        .createQueryBuilder()
+        .createQueryBuilder('toppings')
         .skip(skip)
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap(([entities, count]) => {
-        return of({
-          total: count,
-          perPage: take,
-          currentPage: page,
-          lastPage: Math.ceil(count / take),
-          from: skip,
-          to: skip + entities.length,
-          data: entities,
-        });
-      }),
+      mergeMap<TManyAndCount<ToppingEntity>, Observable<PaginatedToppingsRo>>(
+        queryResult =>
+          of(
+            PaginationService.paginate({
+              queryResult,
+              page,
+              take,
+              skip,
+            }),
+          ),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
