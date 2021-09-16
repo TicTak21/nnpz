@@ -1,28 +1,25 @@
 import { EPizzaSize } from './enums';
 
-export interface IToppingEntity {
+export interface IBaseEntity {
   id: string;
-  name: string;
-  price: number;
   createdAt: string;
   updatedAt: string;
 }
 
-export interface IPizzaEntity {
-  id: string;
+export interface IToppingEntity extends IBaseEntity {
+  name: string;
+  price: number;
+}
+
+export interface IPizzaEntity extends IBaseEntity {
   name: string;
   size: EPizzaSize;
   price: number;
-  createdAt: string;
-  updatedAt: string;
   toppings: IToppingEntity[];
 }
 
-export interface IUserEntity {
-  id: string;
+export interface IUserEntity extends IBaseEntity {
   email: string;
   password: string;
-  createdAt: string;
-  updatedAt: string;
   role: string;
 }
