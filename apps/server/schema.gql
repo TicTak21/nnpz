@@ -4,10 +4,10 @@
 
 type Topping {
   id: ID!
-  name: String!
-  price: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
+  name: String!
+  price: Float!
 }
 
 """
@@ -17,11 +17,11 @@ scalar DateTime
 
 type Pizza {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
   size: EPizzaSize!
   price: Float!
-  createdAt: DateTime!
-  updatedAt: DateTime!
   toppings: [Topping!]
 }
 
@@ -33,10 +33,10 @@ enum EPizzaSize {
 
 type User {
   id: ID!
-  email: String!
-  password: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+  email: String!
+  password: String!
   role: EUserRole!
 }
 
@@ -76,29 +76,20 @@ type PaginatedUsersRo {
 }
 
 input ToppingInput {
-  id: ID!
   name: String!
   price: Float = 0
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 input PizzaInput {
-  id: ID!
   name: String!
   size: EPizzaSize = small
   price: Float = 0
-  createdAt: DateTime!
-  updatedAt: DateTime!
   toppings: [ToppingInput!] = null
 }
 
 input UserInput {
-  id: ID!
   email: String!
   password: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
   role: EUserRole = client
 }
 
