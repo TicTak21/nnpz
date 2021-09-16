@@ -1,7 +1,7 @@
 import { IToppingEntity } from '@nest-ng-pizza/types';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 import { Column, Entity } from 'typeorm';
-import { BaseEntity } from '../../../shared/entities/base.entity';
+import { BaseEntity } from '../../../shared/entities';
 
 @Entity('topping')
 @ObjectType('Topping')

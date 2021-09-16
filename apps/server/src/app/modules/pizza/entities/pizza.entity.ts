@@ -6,7 +6,7 @@ import {
   registerEnumType,
 } from '@nestjs/graphql';
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
-import { BaseEntity } from '../../../shared/entities/base.entity';
+import { BaseEntity } from '../../../shared/entities';
 import { ToppingEntity } from '../../topping/entities/topping.entity';
 
 @Entity({ name: 'pizza' })
