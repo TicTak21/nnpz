@@ -1,11 +1,11 @@
 import { BaseEntity } from '../../../shared/entities';
 
 describe('BaseEntity', () => {
-  let entity: BaseEntity;
+  class MockEntity extends BaseEntity {}
+
+  let entity: MockEntity;
 
   beforeEach(() => {
-    class MockEntity extends BaseEntity {}
-
     entity = new MockEntity();
   });
 
