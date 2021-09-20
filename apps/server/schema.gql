@@ -31,20 +31,6 @@ enum EPizzaSize {
   large
 }
 
-type User {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  email: String!
-  password: String!
-  role: EUserRole!
-}
-
-enum EUserRole {
-  admin
-  client
-}
-
 type PaginatedPizzasRo {
   data: [Pizza!]!
   total: Float!
@@ -63,6 +49,20 @@ type PaginatedToppingsRo {
   lastPage: Float!
   from: Float!
   to: Float!
+}
+
+type User {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  password: String!
+  role: EUserRole!
+}
+
+enum EUserRole {
+  admin
+  client
 }
 
 type PaginatedUsersRo {
