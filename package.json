@@ -33,9 +33,9 @@
     "docker:dev:up": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name up -d",
     "docker:dev:down": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name stop",
     "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps",
-    "flyway:migrate": "flyway -c .flyway.js migrate",
-    "flyway:clean": "flyway -c .flyway.js clean",
-    "flyway:repair": "flyway -c .flyway.js repair"
+    "flyway:migrate": "flyway -c flyway.config.js migrate",
+    "flyway:clean": "flyway -c flyway.config.js clean",
+    "flyway:repair": "flyway -c flyway.config.js repair"
   },
   "private": true,
   "dependencies": {
