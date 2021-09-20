@@ -89,7 +89,7 @@ export class Configurator {
   }
 
   private addStaticAssets(): this {
-    this.app.useStaticAssets(join(__dirname, 'assets'));
+    this.app.useStaticAssets(join(__dirname, 'assets/public'));
 
     return this;
   }

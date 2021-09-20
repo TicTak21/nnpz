@@ -24,6 +24,7 @@ specifiers:
   '@nestjs/graphql': ^8.0.2
   '@nestjs/platform-express': ^8.0.0
   '@nestjs/schematics': ^8.0.0
+  '@nestjs/serve-static': ^2.2.2
   '@nestjs/swagger': ^5.0.9
   '@nestjs/testing': ^8.0.0
   '@nestjs/typeorm': ^8.0.2
@@ -97,6 +98,7 @@ dependencies:
   '@nestjs/core': 8.0.6_a4d6c832897073857f471f32139e452f
   '@nestjs/graphql': 8.0.2_ed8e357e5838d5481307984d0ac8d845
   '@nestjs/platform-express': 8.0.6_67f7e5db8827badcb202b1d38f6b1aea
+  '@nestjs/serve-static': 2.2.2_67f7e5db8827badcb202b1d38f6b1aea
   '@nestjs/swagger': 5.0.9_d6863c03ba5575c4f4a12471120bc20a
   '@nestjs/typeorm': 8.0.2_678658ca2a76b283f366f444c6ec3f55
   '@ngrx/effects': 12.4.0_84f80421aba781fedd12e77454d6cc89
@@ -3248,6 +3250,17 @@ packages:
       pluralize: 8.0.0
       typescript: 4.3.5
     dev: true
+
+  /@nestjs/serve-static/2.2.2_67f7e5db8827badcb202b1d38f6b1aea:
+    resolution: {integrity: sha512-3Mr+Q/npS3N7iGoF3Wd6Lj9QcjMGxbNrSqupi5cviM0IKrZ1BHl5qekW95rWYNATAVqoTmjGROAq+nKKpuUagQ==}
+    peerDependencies:
+      '@nestjs/common': ^6.0.0 || ^7.0.0 || ^8.0.0
+      '@nestjs/core': ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      '@nestjs/common': 8.0.6_4d0c20d2c2a765e9ff99ebac79ad2484
+      '@nestjs/core': 8.0.6_a4d6c832897073857f471f32139e452f
+      path-to-regexp: 0.1.7
+    dev: false
 
   /@nestjs/swagger/5.0.9_d6863c03ba5575c4f4a12471120bc20a:
     resolution: {integrity: sha512-KivZeDgn/VeDn81Rnd/0Cbv7M4kuHRb+Rlri+YsUrw3h9or4bxxRiUg7Yjjt368KxfJgR7C3lc6kltvoI7ucQg==}
