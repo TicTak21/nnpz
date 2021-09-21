@@ -2,6 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  password: String!
+  role: EUserRole!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum EUserRole {
+  admin
+  client
+}
+
 type Topping {
   id: ID!
   createdAt: DateTime!
@@ -9,11 +28,6 @@ type Topping {
   name: String!
   price: Float!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type Pizza {
   id: ID!
@@ -51,20 +65,6 @@ type PaginatedToppingsRo {
   to: Float!
 }
 
-type User {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  email: String!
-  password: String!
-  role: EUserRole!
-}
-
-enum EUserRole {
-  admin
-  client
-}
-
 type PaginatedUsersRo {
   data: [User!]!
   total: Float!
@@ -73,6 +73,12 @@ type PaginatedUsersRo {
   lastPage: Float!
   from: Float!
   to: Float!
+}
+
+input UserInput {
+  email: String!
+  password: String!
+  role: EUserRole = client
 }
 
 input ToppingInput {
@@ -85,12 +91,6 @@ input PizzaInput {
   size: EPizzaSize = small
   price: Float = 0
   toppings: [ToppingInput!] = null
-}
-
-input UserInput {
-  email: String!
-  password: String!
-  role: EUserRole = client
 }
 
 type Query {
@@ -117,6 +117,9 @@ type Mutation {
   createUser(user: CreateUserDto!): User!
   deleteUser(id: String!): User!
   updateUser(user: UpdateUserDto!, id: String!): User!
+  login(credentials: LoginDto!): User!
+  logout(id: String!): User!
+  register(credentials: RegisterDto!): User!
 }
 
 input CreatePizzaDto {
@@ -153,4 +156,14 @@ input UpdateUserDto {
   email: String!
   password: String!
   role: EUserRole = client
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+input RegisterDto {
+  email: String!
+  password: String!
 }

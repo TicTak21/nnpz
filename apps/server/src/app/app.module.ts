@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { cwd } from 'process';
 import { AppController } from './controllers/app.controller';
+import { AuthenticationModule } from './modules/auth/authentication/authentication.module';
 import { DbModule } from './modules/db/db.module';
 import { GqlModule } from './modules/gql/gql.module';
 import { PizzaModule } from './modules/pizza/pizza.module';
@@ -22,6 +23,7 @@ import { globalFilters } from './shared/filters';
     PizzaModule,
     ToppingModule,
     UserModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [...globalFilters],
