@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
-import { LoginDto, RegisterDto } from '../validation/dto';
+import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 
 @Injectable()
 export class AuthenticationService {
@@ -9,7 +9,7 @@ export class AuthenticationService {
     return of({} as UserEntity);
   }
 
-  logout(id: string): Observable<UserEntity> {
+  logout(credentials: LogoutDto): Observable<UserEntity> {
     return of({} as UserEntity);
   }
 

@@ -2,7 +2,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { AuthenticationService } from '../services/authentication.service';
-import { LoginDto, RegisterDto } from '../validation/dto';
+import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 
 @Resolver((_of: AuthenticationService) => AuthenticationService)
 export class AuthenticationResolver {
@@ -14,8 +14,8 @@ export class AuthenticationResolver {
   }
 
   @Mutation(_returns => UserEntity)
-  logout(@Args('id') id: string): Observable<UserEntity> {
-    return this.authService.logout(id);
+  logout(@Args('credentials') credentials: LogoutDto): Observable<UserEntity> {
+    return this.authService.logout(credentials);
   }
 
   @Mutation(_returns => UserEntity)

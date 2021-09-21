@@ -1,9 +1,9 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { AuthenticationService } from '../services/authentication.service';
-import { LoginDto, RegisterDto } from '../validation/dto';
+import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 
 @Controller('auth')
 @ApiTags('Auth')
@@ -16,10 +16,10 @@ export class AuthenticationController {
     return this.authService.login(credentials);
   }
 
-  @Post('logout/:id')
-  @ApiOperation({ summary: 'Logout from existing account' })
-  logout(@Param('id') id: string): Observable<UserEntity> {
-    return this.authService.logout(id);
+  @Post('logout')
+  @ApiOperation({ summary: 'Logout from account with credentials' })
+  logout(@Body() credentials: LogoutDto): Observable<UserEntity> {
+    return this.authService.logout(credentials);
   }
 
   @Post('register')
