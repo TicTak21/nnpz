@@ -45,11 +45,13 @@ export class ToppingController {
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: 'Delete single topping by `id`' })
   delete(@Param('id') id: string): Observable<ToppingEntity> {
     return this.toppingService.delete(id);
   }
 
   @Put(':id')
+  @ApiOperation({ summary: 'Update single topping by `id`' })
   update(
     @Param('id') id: string,
     @Body() dto: UpdateToppingDto,
