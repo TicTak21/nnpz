@@ -1,7 +1,9 @@
+import { Injectable } from '@nestjs/common';
 import { IPaginationConfig } from '../interfaces';
 
+@Injectable()
 export class PaginationService {
-  static paginate<Entity>(config: IPaginationConfig<Entity>) {
+  paginate<Entity>(config: IPaginationConfig<Entity>) {
     const {
       queryResult: [entities, count],
       page,
@@ -20,7 +22,7 @@ export class PaginationService {
     };
   }
 
-  static countSkip(page: number, take: number) {
+  countSkip(page: number, take: number) {
     return (page - 1) * take;
   }
 }

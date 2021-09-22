@@ -26,10 +26,11 @@ export class ToppingService {
   constructor(
     @InjectRepository(ToppingEntity)
     private readonly toppingRepo: Repository<ToppingEntity>,
+    private readonly paginationService: PaginationService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedToppingsRo> {
-    const skip = PaginationService.countSkip(page, take);
+    const skip = this.paginationService.countSkip(page, take);
 
     return from(
       this.toppingRepo
@@ -41,7 +42,7 @@ export class ToppingService {
       mergeMap<TManyAndCount<ToppingEntity>, Observable<PaginatedToppingsRo>>(
         queryResult =>
           of(
-            PaginationService.paginate({
+            this.paginationService.paginate({
               queryResult,
               page,
               take,

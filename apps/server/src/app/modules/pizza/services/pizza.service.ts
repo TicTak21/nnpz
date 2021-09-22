@@ -26,10 +26,11 @@ export class PizzaService {
   constructor(
     @InjectRepository(PizzaEntity)
     private readonly pizzaRepo: Repository<PizzaEntity>,
+    private readonly paginationService: PaginationService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedPizzasRo> {
-    const skip = PaginationService.countSkip(page, take);
+    const skip = this.paginationService.countSkip(page, take);
 
     return from(
       this.pizzaRepo
@@ -42,7 +43,7 @@ export class PizzaService {
       mergeMap<TManyAndCount<PizzaEntity>, Observable<PaginatedPizzasRo>>(
         queryResult =>
           of(
-            PaginationService.paginate({
+            this.paginationService.paginate({
               queryResult,
               page,
               take,

@@ -28,10 +28,11 @@ export class UserService {
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
     private readonly hashService: HashService,
+    private readonly paginationService: PaginationService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedUsersRo> {
-    const skip = PaginationService.countSkip(page, take);
+    const skip = this.paginationService.countSkip(page, take);
 
     return from(
       this.userRepo
@@ -43,7 +44,7 @@ export class UserService {
       mergeMap<TManyAndCount<UserEntity>, Observable<PaginatedUsersRo>>(
         queryResult =>
           of(
-            PaginationService.paginate({
+            this.paginationService.paginate({
               queryResult,
               page,
               take,
