@@ -68,7 +68,7 @@ export class ToppingService {
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => ({ code: '404' })),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -110,7 +110,10 @@ export class ToppingService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
+      mergeMap<DeleteResult, Observable<ToppingEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -131,7 +134,10 @@ export class ToppingService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
+      mergeMap<UpdateResult, Observable<ToppingEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

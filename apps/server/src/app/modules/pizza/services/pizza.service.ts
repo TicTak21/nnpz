@@ -70,7 +70,7 @@ export class PizzaService {
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => ({ code: '404' })),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -126,7 +126,10 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<PizzaEntity>>(res => of(res.raw[0])),
+      mergeMap<DeleteResult, Observable<PizzaEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -149,17 +152,18 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<PizzaEntity>>(({ raw }) => {
+      mergeMap<UpdateResult, Observable<PizzaEntity>>(({ raw: [entity] }) => {
         from(
           this.pizzaRepo
             .createQueryBuilder()
             .relation(PizzaEntity, 'toppings')
-            .of(raw[0])
+            .of(entity)
             .add(toppings),
         );
 
-        return this.get(raw[0].id);
+        return this.get(entity.id);
       }),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

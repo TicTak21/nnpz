@@ -68,7 +68,7 @@ export class UserService {
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => ({ code: '404' })),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -110,7 +110,10 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<DeleteResult, Observable<UserEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -131,7 +134,10 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<UpdateResult, Observable<UserEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
