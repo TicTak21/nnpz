@@ -1,6 +1,5 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { pbkdf2Sync, randomBytes } from 'crypto';
 import {
   catchError,
   EMPTY,
@@ -13,6 +12,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import { HashService } from '../../../shared/services/crypto/hash.service';
 import {
   PaginationService,
   TManyAndCount,
@@ -27,6 +27,7 @@ export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
+    private readonly hashService: HashService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedUsersRo> {
@@ -82,17 +83,7 @@ export class UserService {
   create(dto: CreateUserDto): Observable<UserEntity> {
     const { password } = dto;
 
-    // === TODO: move to separate service/module ===
-    const salt = randomBytes(16).toString('hex');
-
-    const passwordHash = pbkdf2Sync(
-      password,
-      salt,
-      1000,
-      64,
-      'sha512',
-    ).toString('hex');
-    // === TODO: ===
+    const passwordHash = this.hashService.hashPassword(password);
 
     return from(
       this.userRepo
@@ -138,17 +129,7 @@ export class UserService {
   update(id: string, dto: UpdateUserDto): Observable<UserEntity> {
     const { password } = dto;
 
-    // === TODO: move to separate service/module ===
-    const salt = randomBytes(16).toString('hex');
-
-    const passwordHash = pbkdf2Sync(
-      password,
-      salt,
-      1000,
-      64,
-      'sha512',
-    ).toString('hex');
-    // === TODO: ===
+    const passwordHash = this.hashService.hashPassword(password);
 
     return from(
       this.userRepo
