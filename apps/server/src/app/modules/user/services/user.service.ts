@@ -84,7 +84,7 @@ export class UserService {
   create(dto: CreateUserDto): Observable<UserEntity> {
     const { password } = dto;
 
-    const passwordHash = this.hashService.hashPassword(password);
+    const passwordHash = this.hashService.hash(password);
 
     return from(
       this.userRepo
@@ -130,7 +130,7 @@ export class UserService {
   update(id: string, dto: UpdateUserDto): Observable<UserEntity> {
     const { password } = dto;
 
-    const passwordHash = this.hashService.hashPassword(password);
+    const passwordHash = this.hashService.hash(password);
 
     return from(
       this.userRepo
