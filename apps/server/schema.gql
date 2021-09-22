@@ -21,6 +21,16 @@ enum EUserRole {
   client
 }
 
+type PaginatedUsersRo {
+  data: [User!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
 type Topping {
   id: ID!
   createdAt: DateTime!
@@ -57,16 +67,6 @@ type PaginatedPizzasRo {
 
 type PaginatedToppingsRo {
   data: [Topping!]!
-  total: Float!
-  perPage: Float!
-  currentPage: Float!
-  lastPage: Float!
-  from: Float!
-  to: Float!
-}
-
-type PaginatedUsersRo {
-  data: [User!]!
   total: Float!
   perPage: Float!
   currentPage: Float!

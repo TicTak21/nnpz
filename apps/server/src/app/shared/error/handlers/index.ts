@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   ConflictException,
+  HttpStatus,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
@@ -10,4 +11,5 @@ export const errorHandlers = {
   '500': () => new InternalServerErrorException(),
   '22P02': () => new BadRequestException(),
   '23505': () => new ConflictException(),
+  [HttpStatus.CONFLICT]: () => new ConflictException(),
 };
