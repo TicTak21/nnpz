@@ -12,7 +12,6 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import { HashService } from '../../../shared/services/crypto/hash.service';
 import {
   PaginationService,
   TManyAndCount,
@@ -27,7 +26,6 @@ export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
-    private readonly hashService: HashService,
     private readonly paginationService: PaginationService,
   ) {}
 
@@ -82,16 +80,12 @@ export class UserService {
   }
 
   create(dto: CreateUserDto): Observable<UserEntity> {
-    const { password } = dto;
-
-    const passwordHash = this.hashService.hash(password);
-
     return from(
       this.userRepo
         .createQueryBuilder()
         .insert()
         .into(UserEntity)
-        .values([{ ...dto, password: passwordHash }])
+        .values([dto])
         .returning('*')
         .execute(),
     ).pipe(
@@ -128,15 +122,11 @@ export class UserService {
   }
 
   update(id: string, dto: UpdateUserDto): Observable<UserEntity> {
-    const { password } = dto;
-
-    const passwordHash = this.hashService.hash(password);
-
     return from(
       this.userRepo
         .createQueryBuilder()
         .update(UserEntity)
-        .set({ ...dto, password: passwordHash })
+        .set({ ...dto })
         .where('id = :id', { id })
         .returning('*')
         .execute(),
