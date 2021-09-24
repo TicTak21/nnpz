@@ -1,6 +1,6 @@
 import { EUserRole } from '@nest-ng-pizza/types';
 import { Injectable } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { HashService } from '../../../../shared/services/crypto/hash.service';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserService } from '../../../user/services/user.service';
@@ -22,12 +22,14 @@ export class AuthenticationService {
   }
 
   register({ email, password }: RegisterDto): Observable<UserEntity> {
-    const passwordHash = this.hashService.hash(password);
-
-    return this.userService.create({
-      email,
-      password: passwordHash,
-      role: EUserRole.client,
-    });
+    return this.hashService.hash(password).pipe(
+      switchMap(passwordHash =>
+        this.userService.create({
+          email,
+          password: passwordHash,
+          role: EUserRole.client,
+        }),
+      ),
+    );
   }
 }
