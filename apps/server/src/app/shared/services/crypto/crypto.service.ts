@@ -17,7 +17,7 @@ const scrypt: (
 ) => Observable<Buffer> = bindNodeCallback(cryptoScript);
 
 @Injectable()
-export class HashService {
+export class CryptoService {
   private readonly separator: string = ':';
   private readonly keylen: number = 64;
   private readonly encoding: BufferEncoding = 'hex';

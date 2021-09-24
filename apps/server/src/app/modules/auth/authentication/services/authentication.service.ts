@@ -1,7 +1,7 @@
 import { EUserRole } from '@nest-ng-pizza/types';
 import { Injectable } from '@nestjs/common';
 import { Observable, of, switchMap } from 'rxjs';
-import { HashService } from '../../../../shared/services/crypto/hash.service';
+import { CryptoService } from '../../../../shared/services/crypto/crypto.service';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserService } from '../../../user/services/user.service';
 import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
@@ -10,7 +10,7 @@ import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 export class AuthenticationService {
   constructor(
     private readonly userService: UserService,
-    private readonly hashService: HashService,
+    private readonly cryptoService: CryptoService,
   ) {}
 
   login(credentials: LoginDto): Observable<UserEntity> {
@@ -22,7 +22,7 @@ export class AuthenticationService {
   }
 
   register({ email, password }: RegisterDto): Observable<UserEntity> {
-    return this.hashService.hash(password).pipe(
+    return this.cryptoService.hash(password).pipe(
       switchMap(passwordHash =>
         this.userService.create({
           email,
