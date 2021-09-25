@@ -9,6 +9,7 @@ type User {
   email: String!
   password: String!
   role: EUserRole!
+  token: String
 }
 
 """
@@ -79,6 +80,7 @@ input UserInput {
   email: String!
   password: String!
   role: EUserRole = client
+  token: String
 }
 
 input ToppingInput {

@@ -23,6 +23,10 @@ export class UserEntity extends BaseEntity implements IUserEntity {
   @Column({ type: 'enum', enum: EUserRole, default: EUserRole.client })
   @Field(_type => EUserRole, { defaultValue: EUserRole.client })
   role: EUserRole;
+
+  @Column({ type: 'varchar', nullable: true })
+  @Field({ nullable: true })
+  token: string;
 }
 
 registerEnumType(EUserRole, {
