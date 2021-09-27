@@ -1,6 +1,12 @@
 import { EUserRole } from '@nest-ng-pizza/types';
 import { Field, InputType } from '@nestjs/graphql';
-import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsEmail,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 @InputType()
 export class CreateUserDto {
@@ -14,6 +20,11 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   password: string;
+
+  @Field()
+  @IsOptional()
+  @IsString()
+  token?: string;
 
   @Field(_type => EUserRole, { defaultValue: EUserRole.client })
   @IsNotEmpty()

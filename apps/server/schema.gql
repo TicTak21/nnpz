@@ -151,12 +151,14 @@ input UpdateToppingDto {
 input CreateUserDto {
   email: String!
   password: String!
+  token: String!
   role: EUserRole = client
 }
 
 input UpdateUserDto {
   email: String!
   password: String!
+  token: String!
   role: EUserRole = client
 }
 
