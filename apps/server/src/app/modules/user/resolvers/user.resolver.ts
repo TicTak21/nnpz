@@ -19,7 +19,7 @@ export class UserResolver {
 
   @Query(_returns => UserEntity, { nullable: true })
   user(@Args('id') id: string): Observable<UserEntity> {
-    return this.userService.get(id);
+    return this.userService.getById(id);
   }
 
   @Mutation(_type => UserEntity)

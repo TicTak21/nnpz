@@ -60,11 +60,30 @@ export class UserService {
     );
   }
 
-  get(id: string): Observable<UserEntity> {
+  getById(id: string): Observable<UserEntity> {
     return from(
       this.userRepo
         .createQueryBuilder('user')
         .where('user.id = :id', { id })
+        .getOne(),
+    ).pipe(
+      mergeMap(entity => (entity ? of(entity) : EMPTY)),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
+
+        return throwError(errorHandler);
+      }),
+    );
+  }
+
+  getByEmail(email: string): Observable<UserEntity> {
+    return from(
+      this.userRepo
+        .createQueryBuilder('user')
+        .where('user.email = :email', { email })
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),

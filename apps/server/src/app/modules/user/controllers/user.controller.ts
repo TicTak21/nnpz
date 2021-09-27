@@ -33,7 +33,7 @@ export class UserController {
   @Get(':id')
   @ApiOperation({ summary: 'Get a single user by `id`' })
   get(@Param('id') id: string): Observable<UserEntity> {
-    return this.userService.get(id);
+    return this.userService.getById(id);
   }
 
   @Post()
