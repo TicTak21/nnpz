@@ -12,6 +12,7 @@ enum EDbStatus {
 }
 
 export const errorHandlers = {
+  [HttpStatus.BAD_REQUEST]: () => new BadRequestException(),
   [HttpStatus.NOT_FOUND]: () => new NotFoundException(),
   [HttpStatus.INTERNAL_SERVER_ERROR]: () => new InternalServerErrorException(),
   [EDbStatus.INVALID_INPUT]: () => new BadRequestException(),
