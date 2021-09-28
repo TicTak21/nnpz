@@ -27,7 +27,7 @@ export class UserEntity extends BaseEntity implements IUserEntity {
 
   @Column({ type: 'varchar', nullable: true })
   @Field({ nullable: true })
-  token: string;
+  accessToken: string;
 }
 
 registerEnumType(EUserRole, {

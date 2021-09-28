@@ -8,7 +8,7 @@ type User {
   updatedAt: DateTime!
   email: String!
   role: EUserRole!
-  token: String
+  accessToken: String
 }
 
 """
@@ -78,7 +78,7 @@ type PaginatedToppingsRo {
 input UserInput {
   email: String!
   role: EUserRole = client
-  token: String
+  accessToken: String
 }
 
 input ToppingInput {
@@ -149,14 +149,14 @@ input UpdateToppingDto {
 input CreateUserDto {
   email: String!
   password: String!
-  token: String!
+  accessToken: String!
   role: EUserRole = client
 }
 
 input UpdateUserDto {
   email: String!
   password: String!
-  token: String!
+  accessToken: String!
   role: EUserRole = client
 }
 

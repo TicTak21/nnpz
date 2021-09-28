@@ -24,7 +24,7 @@ export class CreateUserDto {
   @Field()
   @IsOptional()
   @IsString()
-  token?: string;
+  accessToken?: string;
 
   @Field(_type => EUserRole, { defaultValue: EUserRole.client })
   @IsNotEmpty()

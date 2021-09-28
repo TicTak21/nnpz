@@ -66,7 +66,9 @@ export class AuthenticationService {
     const payload = { id, role };
 
     return from(this.jwtService.signAsync(payload)).pipe(
-      switchMap(token => this.userService.update(id, { ...user, token })),
+      switchMap(accessToken =>
+        this.userService.update(id, { ...user, accessToken }),
+      ),
     );
   }
 }

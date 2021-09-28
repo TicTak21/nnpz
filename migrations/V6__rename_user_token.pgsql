@@ -1,0 +1,1 @@
+ALTER TABLE "user" RENAME COLUMN token TO "accessToken";
