@@ -1,5 +1,6 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { classToClass } from 'class-transformer';
 import {
   catchError,
   EMPTY,
@@ -19,7 +20,7 @@ import {
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
-import { PaginatedUsersRo } from '../validation/ro';
+import { PaginatedUsersRo, UserRo } from '../validation/ro';
 
 @Injectable()
 export class UserService {
@@ -39,16 +40,23 @@ export class UserService {
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap<TManyAndCount<UserEntity>, Observable<PaginatedUsersRo>>(
-        queryResult =>
-          of(
+      mergeMap<TManyAndCount<UserRo>, Observable<PaginatedUsersRo>>(
+        queryResult => {
+          const [entities, count] = queryResult;
+
+          const hidratedEntities = entities.map(entity =>
+            classToClass<UserRo>(entity),
+          );
+
+          return of(
             this.paginationService.paginate({
-              queryResult,
+              queryResult: [hidratedEntities, count],
               page,
               take,
               skip,
             }),
-          ),
+          );
+        },
       ),
       catchError(err => {
         const errorHandler: ErrorHandler =
@@ -60,14 +68,14 @@ export class UserService {
     );
   }
 
-  getById(id: string): Observable<UserEntity> {
+  getById(id: string): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder('user')
         .where('user.id = :id', { id })
         .getOne(),
     ).pipe(
-      mergeMap(entity => (entity ? of(entity) : EMPTY)),
+      mergeMap(entity => (entity ? of(classToClass<UserRo>(entity)) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
@@ -98,7 +106,7 @@ export class UserService {
     );
   }
 
-  create(dto: CreateUserDto): Observable<UserEntity> {
+  create(dto: CreateUserDto): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder()
@@ -108,7 +116,9 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<InsertResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<InsertResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        of(classToClass<UserRo>(entity)),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -119,7 +129,7 @@ export class UserService {
     );
   }
 
-  delete(id: string): Observable<UserEntity> {
+  delete(id: string): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder('user')
@@ -129,8 +139,8 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<UserEntity>>(({ raw: [entity] }) =>
-        entity ? of(entity) : EMPTY,
+      mergeMap<DeleteResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        entity ? of(classToClass<UserRo>(entity)) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
@@ -143,7 +153,7 @@ export class UserService {
     );
   }
 
-  update(id: string, dto: UpdateUserDto): Observable<UserEntity> {
+  update(id: string, dto: UpdateUserDto): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder()
@@ -153,8 +163,8 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<UserEntity>>(({ raw: [entity] }) =>
-        entity ? of(entity) : EMPTY,
+      mergeMap<UpdateResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        entity ? of(classToClass<UserRo>(entity)) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {

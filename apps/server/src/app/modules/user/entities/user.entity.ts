@@ -5,6 +5,7 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
+import { Exclude } from 'class-transformer';
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';
 
@@ -17,7 +18,7 @@ export class UserEntity extends BaseEntity implements IUserEntity {
   email: string;
 
   @Column({ type: 'varchar' })
-  @Field()
+  @Exclude()
   password: string;
 
   @Column({ type: 'enum', enum: EUserRole, default: EUserRole.client })

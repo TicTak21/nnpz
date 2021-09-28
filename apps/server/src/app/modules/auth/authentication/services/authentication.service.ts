@@ -13,6 +13,7 @@ import { ErrorHandler, errorHandlers } from '../../../../shared/error';
 import { CryptoService } from '../../../../shared/services/crypto/crypto.service';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserService } from '../../../user/services/user.service';
+import { UserRo } from '../../../user/validation/ro';
 import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 
 @Injectable()
@@ -23,7 +24,7 @@ export class AuthenticationService {
     private readonly jwtService: JwtService,
   ) {}
 
-  login({ email, password }: LoginDto): Observable<UserEntity> {
+  login({ email, password }: LoginDto): Observable<UserRo> {
     return this.userService.getByEmail(email).pipe(
       mergeMap(user =>
         this.cryptoService.compare(password, user.password).pipe(
@@ -43,11 +44,11 @@ export class AuthenticationService {
     );
   }
 
-  logout(credentials: LogoutDto): Observable<UserEntity> {
-    return of({} as UserEntity);
+  logout(credentials: LogoutDto): Observable<UserRo> {
+    return of({} as UserRo);
   }
 
-  register({ email, password }: RegisterDto): Observable<UserEntity> {
+  register({ email, password }: RegisterDto): Observable<UserRo> {
     return this.cryptoService.hash(password).pipe(
       switchMap(passwordHash =>
         this.userService.create({
@@ -59,7 +60,7 @@ export class AuthenticationService {
     );
   }
 
-  private signUser(user: UserEntity): Observable<UserEntity> {
+  private signUser(user: UserEntity): Observable<UserRo> {
     const payload = { id: user.id, email: user.email };
     const token = this.jwtService.sign(payload);
 
