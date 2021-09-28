@@ -61,9 +61,11 @@ export class AuthenticationService {
   }
 
   private signUser(user: UserEntity): Observable<UserRo> {
-    const payload = { id: user.id, email: user.email };
+    const { id, role } = user;
+
+    const payload = { id, role };
     const token = this.jwtService.sign(payload);
 
-    return this.userService.update(user.id, { ...user, token });
+    return this.userService.update(id, { ...user, token });
   }
 }
