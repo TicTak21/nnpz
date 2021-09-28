@@ -3,6 +3,7 @@ import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
   catchError,
+  from,
   mergeMap,
   Observable,
   of,
@@ -62,10 +63,10 @@ export class AuthenticationService {
 
   private signUser(user: UserEntity): Observable<UserRo> {
     const { id, role } = user;
-
     const payload = { id, role };
-    const token = this.jwtService.sign(payload);
 
-    return this.userService.update(id, { ...user, token });
+    return from(this.jwtService.signAsync(payload)).pipe(
+      switchMap(token => this.userService.update(id, { ...user, token })),
+    );
   }
 }
