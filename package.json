@@ -30,6 +30,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "rename:ng": "sh tools/scripts/rename-ng.sh",
     "docker:dev:up": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name up -d",
     "docker:dev:down": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name stop",
     "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps",
