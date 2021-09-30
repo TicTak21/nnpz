@@ -1,6 +1,6 @@
 {
   "name": "nnpz",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "config": {
     "DEV_ENV_PATH": "./config/dev/.env",
