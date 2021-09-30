@@ -8,6 +8,7 @@ import {
 import { MinimaDark, MinimaLight } from '@alyle/ui/themes/minima';
 import { NgModule } from '@angular/core';
 import { HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { EThemes } from '.';
 
 @NgModule({
   imports: [HammerModule],
@@ -15,7 +16,7 @@ import { HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },
     StyleRenderer,
     LyTheme2,
-    { provide: LY_THEME_NAME, useValue: 'minima-dark' },
+    { provide: LY_THEME_NAME, useValue: EThemes.dark },
     { provide: LY_THEME, useClass: MinimaLight, multi: true },
     { provide: LY_THEME, useClass: MinimaDark, multi: true },
   ],
