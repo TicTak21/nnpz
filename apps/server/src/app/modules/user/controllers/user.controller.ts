@@ -10,13 +10,12 @@ import {
   Query,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
-import { UserEntity } from '../entities/user.entity';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
-import { PaginatedUsersRo } from '../validation/ro';
+import { PaginatedUsersRo, UserRo } from '../validation/ro';
 
 @Controller('users')
 @UseInterceptors(CacheInterceptor)
@@ -25,30 +24,35 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
+  @ApiOperation({ summary: 'Get all users' })
   getAll(@Query() pagination: PaginationArgsDto): Observable<PaginatedUsersRo> {
     return this.userService.getAll(pagination);
   }
 
   @Get(':id')
-  get(@Param('id') id: string): Observable<UserEntity> {
-    return this.userService.get(id);
+  @ApiOperation({ summary: 'Get a single user by `id`' })
+  get(@Param('id') id: string): Observable<UserRo> {
+    return this.userService.getById(id);
   }
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto): Observable<UserEntity> {
+  @ApiOperation({ summary: 'Create single user' })
+  create(@Body() createUserDto: CreateUserDto): Observable<UserRo> {
     return this.userService.create(createUserDto);
   }
 
   @Put(':id')
+  @ApiOperation({ summary: 'Delete single user by `id`' })
   update(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
-  ): Observable<UserEntity> {
+  ): Observable<UserRo> {
     return this.userService.update(id, updateUserDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Observable<UserEntity> {
+  @ApiOperation({ summary: 'Update single user by `id`' })
+  delete(@Param('id') id: string): Observable<UserRo> {
     return this.userService.delete(id);
   }
 }

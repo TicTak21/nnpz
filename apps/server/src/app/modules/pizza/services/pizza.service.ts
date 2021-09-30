@@ -12,6 +12,10 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import {
+  PaginationService,
+  TManyAndCount,
+} from '../../../shared/services/pagination';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
@@ -22,10 +26,11 @@ export class PizzaService {
   constructor(
     @InjectRepository(PizzaEntity)
     private readonly pizzaRepo: Repository<PizzaEntity>,
+    private readonly paginationService: PaginationService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedPizzasRo> {
-    const skip = (page - 1) * take;
+    const skip = this.paginationService.countSkip(page, take);
 
     return from(
       this.pizzaRepo
@@ -35,17 +40,17 @@ export class PizzaService {
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap(([entities, count]) => {
-        return of({
-          total: count,
-          perPage: take,
-          currentPage: page,
-          lastPage: Math.ceil(count / take),
-          from: skip,
-          to: skip + entities.length,
-          data: entities,
-        });
-      }),
+      mergeMap<TManyAndCount<PizzaEntity>, Observable<PaginatedPizzasRo>>(
+        queryResult =>
+          of(
+            this.paginationService.paginate({
+              queryResult,
+              page,
+              take,
+              skip,
+            }),
+          ),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -65,7 +70,7 @@ export class PizzaService {
         .getOne(),
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => ({ code: '404' })),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -121,7 +126,10 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<PizzaEntity>>(res => of(res.raw[0])),
+      mergeMap<DeleteResult, Observable<PizzaEntity>>(({ raw: [entity] }) =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -144,17 +152,18 @@ export class PizzaService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<PizzaEntity>>(({ raw }) => {
+      mergeMap<UpdateResult, Observable<PizzaEntity>>(({ raw: [entity] }) => {
         from(
           this.pizzaRepo
             .createQueryBuilder()
             .relation(PizzaEntity, 'toppings')
-            .of(raw[0])
+            .of(entity)
             .add(toppings),
         );
 
-        return this.get(raw[0].id);
+        return this.get(entity.id);
       }),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

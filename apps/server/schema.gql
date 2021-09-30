@@ -2,12 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Topping {
+type User {
   id: ID!
-  name: String!
-  price: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
+  email: String!
+  role: EUserRole!
+  accessToken: String
 }
 
 """
@@ -15,13 +16,36 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+enum EUserRole {
+  admin
+  client
+}
+
+type PaginatedUsersRo {
+  data: [User!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
+type Topping {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  price: Float!
+}
+
 type Pizza {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
   size: EPizzaSize!
   price: Float!
-  createdAt: DateTime!
-  updatedAt: DateTime!
   toppings: [Topping!]
 }
 
@@ -29,20 +53,6 @@ enum EPizzaSize {
   small
   medium
   large
-}
-
-type User {
-  id: ID!
-  email: String!
-  password: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  role: EUserRole!
-}
-
-enum EUserRole {
-  admin
-  client
 }
 
 type PaginatedPizzasRo {
@@ -65,41 +75,22 @@ type PaginatedToppingsRo {
   to: Float!
 }
 
-type PaginatedUsersRo {
-  data: [User!]!
-  total: Float!
-  perPage: Float!
-  currentPage: Float!
-  lastPage: Float!
-  from: Float!
-  to: Float!
+input UserInput {
+  email: String!
+  role: EUserRole = client
+  accessToken: String
 }
 
 input ToppingInput {
-  id: ID!
   name: String!
   price: Float = 0
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 input PizzaInput {
-  id: ID!
   name: String!
   size: EPizzaSize = small
   price: Float = 0
-  createdAt: DateTime!
-  updatedAt: DateTime!
   toppings: [ToppingInput!] = null
-}
-
-input UserInput {
-  id: ID!
-  email: String!
-  password: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  role: EUserRole = client
 }
 
 type Query {
@@ -126,6 +117,9 @@ type Mutation {
   createUser(user: CreateUserDto!): User!
   deleteUser(id: String!): User!
   updateUser(user: UpdateUserDto!, id: String!): User!
+  login(credentials: LoginDto!): User!
+  logout(credentials: LogoutDto!): User!
+  register(credentials: RegisterDto!): User!
 }
 
 input CreatePizzaDto {
@@ -155,11 +149,28 @@ input UpdateToppingDto {
 input CreateUserDto {
   email: String!
   password: String!
+  accessToken: String!
   role: EUserRole = client
 }
 
 input UpdateUserDto {
   email: String!
   password: String!
+  accessToken: String!
   role: EUserRole = client
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+input LogoutDto {
+  email: String!
+  password: String!
+}
+
+input RegisterDto {
+  email: String!
+  password: String!
 }

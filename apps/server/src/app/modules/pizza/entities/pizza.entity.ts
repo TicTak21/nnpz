@@ -1,30 +1,18 @@
-import { EPizzaSize, IPizzaEntity } from '@nest-ng-pizza/types';
+import { EPizzaSize, IPizzaEntity } from '@nnpz/types';
 import {
   Field,
-  ID,
   InputType,
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  JoinTable,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
+import { BaseEntity } from '../../../shared/entities';
 import { ToppingEntity } from '../../topping/entities/topping.entity';
 
 @Entity({ name: 'pizza' })
 @ObjectType('Pizza')
 @InputType('PizzaInput')
-export class PizzaEntity implements IPizzaEntity {
-  @PrimaryGeneratedColumn('uuid')
-  @Field(_type => ID)
-  id: string;
-
+export class PizzaEntity extends BaseEntity implements IPizzaEntity {
   @Column('varchar', { unique: true })
   @Field()
   name: string;
@@ -36,21 +24,6 @@ export class PizzaEntity implements IPizzaEntity {
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   @Field({ defaultValue: 0 })
   price: number;
-
-  @CreateDateColumn({
-    type: 'timestamptz',
-    default: () => 'now()',
-  })
-  @Field(_type => Date)
-  createdAt: string;
-
-  @UpdateDateColumn({
-    type: 'timestamptz',
-    default: () => 'now()',
-    onUpdate: 'now()',
-  })
-  @Field(_type => Date)
-  updatedAt: string;
 
   @ManyToMany(_type => ToppingEntity, {
     eager: true,

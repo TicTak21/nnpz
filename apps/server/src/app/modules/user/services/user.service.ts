@@ -1,6 +1,6 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { pbkdf2Sync, randomBytes } from 'crypto';
+import { classToClass } from 'class-transformer';
 import {
   catchError,
   EMPTY,
@@ -13,20 +13,25 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import {
+  PaginationService,
+  TManyAndCount,
+} from '../../../shared/services/pagination';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
-import { PaginatedUsersRo } from '../validation/ro';
+import { PaginatedUsersRo, UserRo } from '../validation/ro';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
+    private readonly paginationService: PaginationService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedUsersRo> {
-    const skip = (page - 1) * take;
+    const skip = this.paginationService.countSkip(page, take);
 
     return from(
       this.userRepo
@@ -35,17 +40,24 @@ export class UserService {
         .take(take)
         .getManyAndCount(),
     ).pipe(
-      mergeMap(([entities, count]) => {
-        return of({
-          total: count,
-          perPage: take,
-          currentPage: page,
-          lastPage: Math.ceil(count / take),
-          from: skip,
-          to: skip + entities.length,
-          data: entities,
-        });
-      }),
+      mergeMap<TManyAndCount<UserRo>, Observable<PaginatedUsersRo>>(
+        queryResult => {
+          const [entities, count] = queryResult;
+
+          const hidratedEntities = entities.map(entity =>
+            classToClass<UserRo>(entity),
+          );
+
+          return of(
+            this.paginationService.paginate({
+              queryResult: [hidratedEntities, count],
+              page,
+              take,
+              skip,
+            }),
+          );
+        },
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -56,15 +68,15 @@ export class UserService {
     );
   }
 
-  get(id: string): Observable<UserEntity> {
+  getById(id: string): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder('user')
         .where('user.id = :id', { id })
         .getOne(),
     ).pipe(
-      mergeMap(entity => (entity ? of(entity) : EMPTY)),
-      throwIfEmpty(() => ({ code: '404' })),
+      mergeMap(entity => (entity ? of(classToClass<UserRo>(entity)) : EMPTY)),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -75,31 +87,38 @@ export class UserService {
     );
   }
 
-  create(dto: CreateUserDto): Observable<UserEntity> {
-    const { password } = dto;
+  getByEmail(email: string): Observable<UserEntity> {
+    return from(
+      this.userRepo
+        .createQueryBuilder('user')
+        .where('user.email = :email', { email })
+        .getOne(),
+    ).pipe(
+      mergeMap(entity => (entity ? of(entity) : EMPTY)),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
 
-    // === TODO: move to separate service/module ===
-    const salt = randomBytes(16).toString('hex');
+        return throwError(errorHandler);
+      }),
+    );
+  }
 
-    const passwordHash = pbkdf2Sync(
-      password,
-      salt,
-      1000,
-      64,
-      'sha512',
-    ).toString('hex');
-    // === TODO: ===
-
+  create(dto: CreateUserDto): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder()
         .insert()
         .into(UserEntity)
-        .values([{ ...dto, password: passwordHash }])
+        .values([dto])
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<InsertResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<InsertResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        of(classToClass<UserRo>(entity)),
+      ),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -110,7 +129,7 @@ export class UserService {
     );
   }
 
-  delete(id: string): Observable<UserEntity> {
+  delete(id: string): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder('user')
@@ -120,7 +139,10 @@ export class UserService {
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<DeleteResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<DeleteResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        entity ? of(classToClass<UserRo>(entity)) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||
@@ -131,31 +153,20 @@ export class UserService {
     );
   }
 
-  update(id: string, dto: UpdateUserDto): Observable<UserEntity> {
-    const { password } = dto;
-
-    // === TODO: move to separate service/module ===
-    const salt = randomBytes(16).toString('hex');
-
-    const passwordHash = pbkdf2Sync(
-      password,
-      salt,
-      1000,
-      64,
-      'sha512',
-    ).toString('hex');
-    // === TODO: ===
-
+  update(id: string, dto: UpdateUserDto): Observable<UserRo> {
     return from(
       this.userRepo
         .createQueryBuilder()
         .update(UserEntity)
-        .set({ ...dto, password: passwordHash })
+        .set({ ...dto })
         .where('id = :id', { id })
         .returning('*')
         .execute(),
     ).pipe(
-      mergeMap<UpdateResult, Observable<UserEntity>>(res => of(res.raw[0])),
+      mergeMap<UpdateResult, Observable<UserRo>>(({ raw: [entity] }) =>
+        entity ? of(classToClass<UserRo>(entity)) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
       catchError(err => {
         const errorHandler: ErrorHandler =
           errorHandlers[err.code] ||

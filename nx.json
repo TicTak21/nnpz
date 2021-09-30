@@ -37,7 +37,7 @@
     "client": {
       "tags": ["client", "angular", "frontend"]
     },
-    "e2e": {
+    "client-e2e": {
       "tags": ["client", "cypress", "e2e"],
       "implicitDependencies": ["client"]
     },

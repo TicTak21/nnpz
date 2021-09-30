@@ -1,6 +1,6 @@
 {
-  "name": "nest-ng-pizza",
-  "version": "1.0.0",
+  "name": "nnpz",
+  "version": "0.0.1",
   "license": "MIT",
   "config": {
     "DEV_ENV_PATH": "./config/dev/.env",
@@ -30,12 +30,13 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "rename:ng": "sh tools/scripts/rename-ng.sh",
     "docker:dev:up": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name up -d",
     "docker:dev:down": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name stop",
     "docker:dev:ps": "cross-env-shell docker-compose -f $npm_package_config_DEV_COMPOSE_PATH --env-file $npm_package_config_DEV_ENV_PATH -p $npm_package_name ps",
-    "flyway:migrate": "flyway -c .flyway.js migrate",
-    "flyway:clean": "flyway -c .flyway.js clean",
-    "flyway:repair": "flyway -c .flyway.js repair"
+    "flyway:migrate": "flyway -c flyway.config.js migrate",
+    "flyway:clean": "flyway -c flyway.config.js clean",
+    "flyway:repair": "flyway -c flyway.config.js repair"
   },
   "private": true,
   "dependencies": {
@@ -53,7 +54,9 @@
     "@nestjs/config": "^1.0.1",
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "^8.0.2",
+    "@nestjs/jwt": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/serve-static": "^2.2.2",
     "@nestjs/swagger": "^5.0.9",
     "@nestjs/typeorm": "^8.0.2",
     "@ngrx/effects": "12.4.0",

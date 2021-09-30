@@ -1,4 +1,4 @@
-import { EPizzaSize } from '@nest-ng-pizza/types';
+import { EPizzaSize } from '@nnpz/types';
 import { Field, InputType } from '@nestjs/graphql';
 import { IsNotEmpty, IsNumber, Min } from 'class-validator';
 

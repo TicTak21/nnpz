@@ -1,13 +1,21 @@
 import {
   BadRequestException,
   ConflictException,
+  HttpStatus,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
 
+enum EDbStatus {
+  INVALID_INPUT = '22P02',
+  CONFLICT = '23505',
+}
+
 export const errorHandlers = {
-  '404': () => new NotFoundException(),
-  '500': () => new InternalServerErrorException(),
-  '22P02': () => new BadRequestException(),
-  '23505': () => new ConflictException(),
+  [HttpStatus.BAD_REQUEST]: () => new BadRequestException(),
+  [HttpStatus.NOT_FOUND]: () => new NotFoundException(),
+  [HttpStatus.INTERNAL_SERVER_ERROR]: () => new InternalServerErrorException(),
+  [EDbStatus.INVALID_INPUT]: () => new BadRequestException(),
+  [EDbStatus.CONFLICT]: () => new ConflictException(),
+  [HttpStatus.CONFLICT]: () => new ConflictException(),
 };
