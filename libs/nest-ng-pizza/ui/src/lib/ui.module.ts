@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ThemeModule } from './theme';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ThemeModule],
 })
 export class UiModule {}
