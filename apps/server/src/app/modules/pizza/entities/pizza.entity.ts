@@ -1,4 +1,4 @@
-import { EPizzaSize, IPizzaEntity } from '@nest-ng-pizza/types';
+import { EPizzaSize, IPizzaEntity } from '@nnpz/types';
 import {
   Field,
   InputType,

@@ -1,4 +1,4 @@
-import { IBaseEntity } from '@nest-ng-pizza/types';
+import { IBaseEntity } from '@nnpz/types';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
   CreateDateColumn,

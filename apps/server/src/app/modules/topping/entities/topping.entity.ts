@@ -1,4 +1,4 @@
-import { IToppingEntity } from '@nest-ng-pizza/types';
+import { IToppingEntity } from '@nnpz/types';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';

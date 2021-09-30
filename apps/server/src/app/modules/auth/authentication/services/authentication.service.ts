@@ -1,4 +1,4 @@
-import { EUserRole } from '@nest-ng-pizza/types';
+import { EUserRole } from '@nnpz/types';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {

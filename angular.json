@@ -306,14 +306,14 @@
       }
     },
     "types": {
-      "root": "libs/nest-ng-pizza/types",
-      "sourceRoot": "libs/nest-ng-pizza/types/src",
+      "root": "libs/nnpz/types",
+      "sourceRoot": "libs/nnpz/types/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/nest-ng-pizza/types/**/*.ts"]
+            "lintFilePatterns": ["libs/nnpz/types/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         }
@@ -321,15 +321,15 @@
     },
     "ui": {
       "projectType": "library",
-      "root": "libs/nest-ng-pizza/ui",
-      "sourceRoot": "libs/nest-ng-pizza/ui/src",
-      "prefix": "client",
+      "root": "libs/nnpz/ui",
+      "sourceRoot": "libs/nnpz/ui/src",
+      "prefix": "nnpz",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/nest-ng-pizza/ui"],
+          "outputs": ["coverage/libs/nnpz/ui"],
           "options": {
-            "jestConfig": "libs/nest-ng-pizza/ui/jest.config.js",
+            "jestConfig": "libs/nnpz/ui/jest.config.js",
             "passWithNoTests": true
           }
         },

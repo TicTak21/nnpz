@@ -1,4 +1,4 @@
-import { EUserRole } from '@nest-ng-pizza/types';
+import { EUserRole } from '@nnpz/types';
 import { Field, InputType } from '@nestjs/graphql';
 import {
   IsEmail,

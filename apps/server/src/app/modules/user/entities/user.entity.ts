@@ -1,4 +1,4 @@
-import { EUserRole, IUserEntity } from '@nest-ng-pizza/types';
+import { EUserRole, IUserEntity } from '@nnpz/types';
 import {
   Field,
   InputType,
