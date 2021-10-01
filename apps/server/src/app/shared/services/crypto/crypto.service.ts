@@ -7,14 +7,14 @@ import {
   ScryptOptions,
   timingSafeEqual,
 } from 'crypto';
-import { bindNodeCallback, map, Observable } from 'rxjs';
-
-const scrypt: (
-  password: BinaryLike,
-  salt: BinaryLike,
-  keylen: number,
-  options?: ScryptOptions,
-) => Observable<Buffer> = bindNodeCallback(cryptoScript);
+import {
+  bindNodeCallback,
+  from,
+  map,
+  Observable,
+  switchMap,
+  withLatestFrom,
+} from 'rxjs';
 
 @Injectable()
 export class CryptoService {
@@ -24,13 +24,12 @@ export class CryptoService {
   private readonly bytesLength: number = 8;
 
   hash(str: string): Observable<string> {
-    const salt = randomBytes(this.bytesLength).toString(this.encoding);
+    const salt$ = this.getSalt();
 
-    return scrypt(str, salt, this.keylen).pipe(
-      map(
-        derivedKey =>
-          salt + this.separator + derivedKey.toString(this.encoding),
-      ),
+    return salt$.pipe(
+      switchMap(salt => this.scrypt(str, salt, this.keylen)),
+      withLatestFrom(salt$),
+      switchMap(([key, salt]) => this.concatSaltAndKey(salt, key)),
     );
   }
 
@@ -38,8 +37,23 @@ export class CryptoService {
     const [salt, key] = hash.split(this.separator);
     const keyBuffer = Buffer.from(key, this.encoding);
 
-    return scrypt(str, salt, this.keylen).pipe(
-      map(derivedKey => timingSafeEqual(keyBuffer, derivedKey)),
+    return this.scrypt(str, salt, this.keylen).pipe(
+      map(key => timingSafeEqual(keyBuffer, key)),
     );
   }
+
+  getSalt(): Observable<string> {
+    return from(randomBytes(this.bytesLength).toString(this.encoding));
+  }
+
+  private concatSaltAndKey(salt: string, key: Buffer): Observable<string> {
+    return from(salt + this.separator + key.toString(this.encoding));
+  }
+
+  private scrypt: (
+    password: BinaryLike,
+    salt: BinaryLike,
+    keylen: number,
+    options?: ScryptOptions,
+  ) => Observable<Buffer> = bindNodeCallback(cryptoScript);
 }
