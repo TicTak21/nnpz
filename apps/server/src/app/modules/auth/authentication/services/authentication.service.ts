@@ -1,14 +1,14 @@
-import { EUserRole } from '@nnpz/types';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { EUserRole } from '@nnpz/types';
 import {
   catchError,
   from,
-  mergeMap,
   Observable,
   of,
   switchMap,
   throwError,
+  withLatestFrom,
 } from 'rxjs';
 import { ErrorHandler, errorHandlers } from '../../../../shared/error';
 import { CryptoService } from '../../../../shared/services/crypto/crypto.service';
@@ -26,22 +26,22 @@ export class AuthenticationService {
   ) {}
 
   login({ email, password }: LoginDto): Observable<UserRo> {
-    return this.userService.getByEmail(email).pipe(
-      mergeMap(user =>
-        this.cryptoService.compare(password, user.password).pipe(
-          mergeMap(validPass =>
-            validPass
-              ? this.signUser(user)
-              : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
-          ),
-          catchError(err => {
-            const errorHandler: ErrorHandler =
-              errorHandlers[err.code] ||
-              errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-            return throwError(errorHandler);
-          }),
-        ),
+    const userByEmail$ = this.userService.getByEmail(email);
+
+    return userByEmail$.pipe(
+      switchMap(user => this.cryptoService.compare(password, user.password)),
+      withLatestFrom(userByEmail$),
+      switchMap(([validPass, user]) =>
+        validPass
+          ? this.signUser(user)
+          : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
       ),
+      catchError(err => {
+        const errorHandler: ErrorHandler =
+          errorHandlers[err.code] ||
+          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
+        return throwError(errorHandler);
+      }),
     );
   }
 
