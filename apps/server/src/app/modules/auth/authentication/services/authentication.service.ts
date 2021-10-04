@@ -15,6 +15,7 @@ import { CryptoService } from '../../../../shared/services/crypto/crypto.service
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserService } from '../../../user/services/user.service';
 import { UserRo } from '../../../user/validation/ro';
+import { ITokenPayload } from '../interfaces';
 import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
 
 @Injectable()
@@ -33,7 +34,7 @@ export class AuthenticationService {
       withLatestFrom(userByEmail$),
       switchMap(([validPass, user]) =>
         validPass
-          ? this.signUser(user)
+          ? this.updateAccessTokenToken(user)
           : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
       ),
       catchError(err => {
@@ -61,14 +62,18 @@ export class AuthenticationService {
     );
   }
 
-  private signUser(user: UserEntity): Observable<UserRo> {
-    const { id, role } = user;
-    const payload = { id, role };
+  private updateAccessTokenToken(user: UserEntity): Observable<UserRo> {
+    const { id, role, email } = user;
+    const payload: ITokenPayload = { id, role, email };
 
-    return from(this.jwtService.signAsync(payload)).pipe(
+    return this.signAccessToken(payload).pipe(
       switchMap(accessToken =>
         this.userService.update(id, { ...user, accessToken }),
       ),
     );
+  }
+
+  private signAccessToken(payload: ITokenPayload) {
+    return from(this.jwtService.signAsync(payload));
   }
 }
