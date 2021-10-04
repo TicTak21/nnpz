@@ -73,7 +73,7 @@ export class AuthenticationService {
     );
   }
 
-  private signAccessToken(payload: ITokenPayload) {
+  private signAccessToken(payload: ITokenPayload): Observable<string> {
     return from(this.jwtService.signAsync(payload));
   }
 }
