@@ -154,9 +154,9 @@ input CreateUserDto {
 }
 
 input UpdateUserDto {
-  email: String!
-  password: String!
-  accessToken: String!
+  email: String
+  password: String
+  accessToken: String
   role: EUserRole = client
 }
 

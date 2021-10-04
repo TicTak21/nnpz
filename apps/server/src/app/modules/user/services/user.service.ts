@@ -157,7 +157,7 @@ export class UserService {
     return from(
       this.userRepo
         .createQueryBuilder()
-        .update(UserEntity)
+        .update<Partial<UserEntity>>(UserEntity)
         .set({ ...dto })
         .where('id = :id', { id })
         .returning('*')
