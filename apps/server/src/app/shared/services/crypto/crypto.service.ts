@@ -9,9 +9,9 @@ import {
 } from 'crypto';
 import {
   bindNodeCallback,
-  from,
   map,
   Observable,
+  of,
   switchMap,
   withLatestFrom,
 } from 'rxjs';
@@ -42,12 +42,12 @@ export class CryptoService {
     );
   }
 
-  getSalt(): Observable<string> {
-    return from(randomBytes(this.bytesLength).toString(this.encoding));
+  private getSalt(): Observable<string> {
+    return of(randomBytes(this.bytesLength).toString(this.encoding));
   }
 
   private concatSaltAndKey(salt: string, key: Buffer): Observable<string> {
-    return from(salt + this.separator + key.toString(this.encoding));
+    return of(salt + this.separator + key.toString(this.encoding));
   }
 
   private scrypt: (
