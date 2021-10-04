@@ -34,7 +34,7 @@ export class AuthenticationService {
       withLatestFrom(userByEmail$),
       switchMap(([validPass, user]) =>
         validPass
-          ? this.updateAccessTokenToken(user)
+          ? this.updateAccessToken(user)
           : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
       ),
       catchError(err => {
@@ -62,7 +62,7 @@ export class AuthenticationService {
     );
   }
 
-  private updateAccessTokenToken(user: UserEntity): Observable<UserRo> {
+  private updateAccessToken(user: UserEntity): Observable<UserRo> {
     const { id, role, email } = user;
     const payload: ITokenPayload = { id, role, email };
 
