@@ -34,7 +34,8 @@ export class ToppingService {
 
     return from(
       this.toppingRepo
-        .createQueryBuilder('toppings')
+        .createQueryBuilder('topping')
+        .orderBy('topping.createdAt')
         .skip(skip)
         .take(take)
         .getManyAndCount(),
@@ -128,7 +129,7 @@ export class ToppingService {
     return from(
       this.toppingRepo
         .createQueryBuilder()
-        .update(ToppingEntity)
+        .update<UpdateToppingDto>(ToppingEntity)
         .set({ ...dto })
         .where('id = :id', { id })
         .returning('*')

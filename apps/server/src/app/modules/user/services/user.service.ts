@@ -36,6 +36,7 @@ export class UserService {
     return from(
       this.userRepo
         .createQueryBuilder('user')
+        .orderBy('user.createdAt')
         .skip(skip)
         .take(take)
         .getManyAndCount(),
@@ -157,7 +158,7 @@ export class UserService {
     return from(
       this.userRepo
         .createQueryBuilder()
-        .update<Partial<UserEntity>>(UserEntity)
+        .update<UpdateUserDto>(UserEntity)
         .set({ ...dto })
         .where('id = :id', { id })
         .returning('*')

@@ -130,7 +130,7 @@ input CreatePizzaDto {
 }
 
 input UpdatePizzaDto {
-  name: String!
+  name: String
   size: EPizzaSize = small
   price: Float = 0
   toppings: [String!] = []
@@ -142,8 +142,8 @@ input CreateToppingDto {
 }
 
 input UpdateToppingDto {
-  name: String!
-  price: Float!
+  name: String
+  price: Float
 }
 
 input CreateUserDto {

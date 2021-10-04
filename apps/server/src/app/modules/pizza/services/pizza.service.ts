@@ -36,6 +36,7 @@ export class PizzaService {
       this.pizzaRepo
         .createQueryBuilder('pizza')
         .leftJoinAndSelect('pizza.toppings', 'toppings')
+        .orderBy('pizza.createdAt')
         .skip(skip)
         .take(take)
         .getManyAndCount(),
@@ -146,7 +147,7 @@ export class PizzaService {
     return from(
       this.pizzaRepo
         .createQueryBuilder()
-        .update(PizzaEntity)
+        .update<UpdatePizzaDto>(PizzaEntity)
         .set({ ...pizza })
         .where('id = :id', { id })
         .returning('*')
