@@ -51,13 +51,19 @@ export class AuthenticationService {
   }
 
   register({ email, password }: RegisterDto): Observable<UserRo> {
-    return this.cryptoService.hash(password).pipe(
+    const passwordHash$ = this.cryptoService.hash(password);
+
+    return passwordHash$.pipe(
       switchMap(passwordHash =>
         this.userService.create({
           email,
           password: passwordHash,
           role: EUserRole.client,
         }),
+      ),
+      withLatestFrom(passwordHash$),
+      switchMap(([user, passwordHash]) =>
+        this.updateAccessToken({ ...user, password: passwordHash }),
       ),
     );
   }
