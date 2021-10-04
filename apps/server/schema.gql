@@ -118,7 +118,7 @@ type Mutation {
   deleteUser(id: String!): User!
   updateUser(user: UpdateUserDto!, id: String!): User!
   login(credentials: LoginDto!): User!
-  logout(credentials: LogoutDto!): User!
+  logout(id: String!): User!
   register(credentials: RegisterDto!): User!
 }
 
@@ -161,11 +161,6 @@ input UpdateUserDto {
 }
 
 input LoginDto {
-  email: String!
-  password: String!
-}
-
-input LogoutDto {
   email: String!
   password: String!
 }

@@ -5,7 +5,6 @@ import {
   catchError,
   from,
   Observable,
-  of,
   switchMap,
   throwError,
   withLatestFrom,
@@ -16,7 +15,7 @@ import { UserEntity } from '../../../user/entities/user.entity';
 import { UserService } from '../../../user/services/user.service';
 import { UserRo } from '../../../user/validation/ro';
 import { ITokenPayload } from '../interfaces';
-import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
+import { LoginDto, RegisterDto } from '../validation/dto';
 
 @Injectable()
 export class AuthenticationService {
@@ -46,8 +45,8 @@ export class AuthenticationService {
     );
   }
 
-  logout(credentials: LogoutDto): Observable<UserRo> {
-    return of({} as UserRo);
+  logout(id: string): Observable<UserRo> {
+    return this.removeAccessToken(id);
   }
 
   register({ email, password }: RegisterDto): Observable<UserRo> {
@@ -77,6 +76,10 @@ export class AuthenticationService {
         this.userService.update(id, { ...user, accessToken }),
       ),
     );
+  }
+
+  private removeAccessToken(id: string): Observable<UserRo> {
+    return this.userService.update(id, { accessToken: null });
   }
 
   private signAccessToken(payload: ITokenPayload): Observable<string> {

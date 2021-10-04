@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserRo } from '../../../user/validation/ro';
 import { AuthenticationService } from '../services/authentication.service';
-import { LoginDto, LogoutDto, RegisterDto } from '../validation/dto';
+import { LoginDto, RegisterDto } from '../validation/dto';
 
 @Resolver((_of: AuthenticationService) => AuthenticationService)
 export class AuthenticationResolver {
@@ -15,8 +15,8 @@ export class AuthenticationResolver {
   }
 
   @Mutation(_returns => UserEntity)
-  logout(@Args('credentials') credentials: LogoutDto): Observable<UserRo> {
-    return this.authService.logout(credentials);
+  logout(@Args('id') id: string): Observable<UserRo> {
+    return this.authService.logout(id);
   }
 
   @Mutation(_returns => UserEntity)
