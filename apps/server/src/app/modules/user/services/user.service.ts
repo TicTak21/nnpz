@@ -13,10 +13,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import {
-  PaginationService,
-  TManyAndCount,
-} from '../../../shared/services/pagination';
+import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';

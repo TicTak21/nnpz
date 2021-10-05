@@ -1,7 +1,6 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RedisCacheService } from '../../shared/services/cache';
-import { PaginationService } from '../../shared/services/pagination';
+import { PaginationService, RedisCacheService } from '../../shared/services';
 import { PizzaController } from './controllers/pizza.controller';
 import { PizzaEntity } from './entities/pizza.entity';
 import { PizzaResolver } from './resolvers/pizza.resolver';

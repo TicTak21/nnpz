@@ -9,13 +9,13 @@ import {
   throwError,
   withLatestFrom,
 } from 'rxjs';
-import { ErrorHandler, errorHandlers } from '../../../../shared/error';
-import { CryptoService } from '../../../../shared/services/crypto/crypto.service';
-import { UserEntity } from '../../../user/entities/user.entity';
-import { UserService } from '../../../user/services/user.service';
-import { UserRo } from '../../../user/validation/ro';
-import { ITokenPayload } from '../interfaces';
-import { LoginDto, RegisterDto } from '../validation/dto';
+import { ErrorHandler, errorHandlers } from '../../../../../shared/error';
+import { CryptoService } from '../../../../../shared/services';
+import { UserEntity } from '../../../../user/entities/user.entity';
+import { UserService } from '../../../../user/services/user.service';
+import { UserRo } from '../../../../user/validation/ro';
+import { ITokenPayload } from '../../interfaces';
+import { LoginDto, RegisterDto } from '../../validation/dto';
 
 @Injectable()
 export class AuthenticationService {

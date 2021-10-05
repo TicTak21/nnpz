@@ -12,10 +12,7 @@ import {
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
 import { ErrorHandler, errorHandlers } from '../../../shared/error';
-import {
-  PaginationService,
-  TManyAndCount,
-} from '../../../shared/services/pagination';
+import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';

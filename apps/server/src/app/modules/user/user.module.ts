@@ -1,7 +1,6 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RedisCacheService } from '../../shared/services/cache';
-import { PaginationService } from '../../shared/services/pagination';
+import { PaginationService, RedisCacheService } from '../../shared/services';
 import { UserController } from './controllers/user.controller';
 import { UserEntity } from './entities/user.entity';
 import { UserResolver } from './resolvers/user.resolver';

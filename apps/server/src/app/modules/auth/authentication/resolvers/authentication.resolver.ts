@@ -2,7 +2,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserRo } from '../../../user/validation/ro';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';
 
 @Resolver((_of: AuthenticationService) => AuthenticationService)
