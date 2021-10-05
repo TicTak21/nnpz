@@ -10,6 +10,7 @@ import { PizzaModule } from './modules/pizza/pizza.module';
 import { ToppingModule } from './modules/topping/topping.module';
 import { UserModule } from './modules/user/user.module';
 import { globalFilters } from './shared/filters';
+import { globalInterceptors } from './shared/interceptors';
 
 @Module({
   imports: [
@@ -26,6 +27,6 @@ import { globalFilters } from './shared/filters';
     AuthenticationModule,
   ],
   controllers: [AppController],
-  providers: [...globalFilters],
+  providers: [...globalFilters, ...globalInterceptors],
 })
 export class AppModule {}
