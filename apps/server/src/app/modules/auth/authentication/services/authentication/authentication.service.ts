@@ -3,8 +3,10 @@ import { JwtService } from '@nestjs/jwt';
 import { EUserRole } from '@nnpz/types';
 import {
   catchError,
+  forkJoin,
   from,
   Observable,
+  of,
   switchMap,
   throwError,
   withLatestFrom,
@@ -45,8 +47,11 @@ export class AuthenticationService {
     );
   }
 
-  logout(id: string): Observable<UserRo> {
-    return this.removeAccessToken(id);
+  logout(id: string): Observable<[UserRo, string]> {
+    const user$ = this.removeAccessToken(id);
+    const cookie$ = this.getLogoutCookie();
+
+    return forkJoin([user$, cookie$]);
   }
 
   register({ email, password }: RegisterDto): Observable<UserRo> {
@@ -84,5 +89,9 @@ export class AuthenticationService {
 
   private signAccessToken(payload: ITokenPayload): Observable<string> {
     return from(this.jwtService.signAsync(payload));
+  }
+
+  private getLogoutCookie(): Observable<string> {
+    return of('Authentication=; HttpOnly; Path=/; Max-Age=0');
   }
 }

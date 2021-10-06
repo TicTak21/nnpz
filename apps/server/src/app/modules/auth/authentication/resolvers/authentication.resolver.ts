@@ -1,7 +1,8 @@
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
-import { Observable } from 'rxjs';
+import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
+import { Observable, of, switchMap } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserRo } from '../../../user/validation/ro';
+import { GqlContext } from '../interfaces';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';
 
@@ -15,8 +16,17 @@ export class AuthenticationResolver {
   }
 
   @Mutation(_returns => UserEntity)
-  logout(@Args('id') id: string): Observable<UserRo> {
-    return this.authService.logout(id);
+  logout(
+    @Args('id') id: string,
+    @Context() ctx?: GqlContext,
+  ): Observable<UserRo> {
+    return this.authService.logout(id).pipe(
+      switchMap(([user, cookie]) => {
+        ctx.res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 
   @Mutation(_returns => UserEntity)

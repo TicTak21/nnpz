@@ -1,6 +1,7 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Param, Post, Res } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { Observable } from 'rxjs';
+import { Response } from 'express';
+import { Observable, of, switchMap } from 'rxjs';
 import { UserRo } from '../../../user/validation/ro';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';
@@ -16,10 +17,19 @@ export class AuthenticationController {
     return this.authService.login(credentials);
   }
 
-  @Post('logout')
+  @Post('logout/:id')
   @ApiOperation({ summary: 'Logout from account with id' })
-  logout(@Param() id: string): Observable<UserRo> {
-    return this.authService.logout(id);
+  logout(
+    @Param('id') id: string,
+    @Res({ passthrough: true }) res: Response,
+  ): Observable<UserRo> {
+    return this.authService.logout(id).pipe(
+      switchMap(([user, cookie]) => {
+        res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 
   @Post('register')
