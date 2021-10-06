@@ -8,6 +8,11 @@ import { join } from 'path';
       path: '/graphql',
       autoSchemaFile: join(process.cwd(), 'apps/server/schema.gql'),
       debug: false,
+      playground: {
+        settings: {
+          'request.credentials': 'include',
+        },
+      },
       installSubscriptionHandlers: true,
       context: ({ req, res }) => ({ req, res }),
     }),
