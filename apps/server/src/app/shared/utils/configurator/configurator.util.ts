@@ -12,7 +12,8 @@ import { from, Observable } from 'rxjs';
  */
 export class ConfiguratorUtil {
   private readonly configService: ConfigService;
-  public readonly port: number;
+  private readonly port: number;
+  private readonly appName: string;
 
   /**
    * Creates an app.
@@ -21,7 +22,8 @@ export class ConfiguratorUtil {
   constructor(private readonly app: NestExpressApplication) {
     this.configService = app.get(ConfigService);
 
-    this.port = this.configService.get('SERVER_PORT');
+    this.port = this.configService.get<number>('SERVER_PORT');
+    this.appName = this.configService.get<string>('APP_NAME');
   }
 
   /**
@@ -40,7 +42,7 @@ export class ConfiguratorUtil {
 
   private addSwagger(): this {
     const swaggerConfig = new DocumentBuilder()
-      .setTitle('Nest Pizza API')
+      .setTitle(this.appName)
       .setVersion('1.0')
       .build();
     const document = SwaggerModule.createDocument(this.app, swaggerConfig);
