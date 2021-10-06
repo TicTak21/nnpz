@@ -1,1 +1,1 @@
-export { Configurator } from './configurator/configurator.util';
+export { ConfiguratorUtil } from './configurator/configurator.util';

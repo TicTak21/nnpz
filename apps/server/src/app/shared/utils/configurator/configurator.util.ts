@@ -10,7 +10,7 @@ import { from, Observable } from 'rxjs';
 /**
  * Class that configures app. Works like `Builder`.
  */
-export class Configurator {
+export class ConfiguratorUtil {
   private readonly configService: ConfigService;
   public readonly port: number;
 
