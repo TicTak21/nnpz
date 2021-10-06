@@ -2,6 +2,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as cookieParser from 'cookie-parser';
 import * as helmet from 'helmet';
 import { join } from 'path';
 import { from, Observable } from 'rxjs';
@@ -66,6 +67,7 @@ export class Configurator {
           },
         },
       }),
+      cookieParser(),
     );
 
     return this;
