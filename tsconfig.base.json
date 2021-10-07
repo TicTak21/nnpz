@@ -14,7 +14,6 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "strict": true,
     "paths": {
       "@nnpz/types": ["libs/nnpz/types/src/index.ts"],
       "@nnpz/ui": ["libs/nnpz/ui/src/index.ts"]
