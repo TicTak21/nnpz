@@ -1,13 +1,24 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { EPizzaSize } from '@nnpz/types';
-import { IsNotEmpty, IsNumber, Min } from 'class-validator';
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Min,
+} from 'class-validator';
 
 @InputType()
 export class CreatePizzaDto {
   @Field()
+  @IsNotEmpty()
+  @IsString()
   name: string;
 
   @Field(_type => EPizzaSize, { defaultValue: EPizzaSize.small })
+  @IsNotEmpty()
+  @IsEnum(EPizzaSize)
   size: EPizzaSize;
 
   @Field({ defaultValue: 0 })
@@ -17,11 +28,17 @@ export class CreatePizzaDto {
   price: number;
 
   @Field({ nullable: true })
-  description: string;
+  @IsOptional()
+  @IsString()
+  description?: string;
 
   @Field({ nullable: true })
-  image: string;
+  @IsOptional()
+  @IsString()
+  image?: string;
 
   @Field(_type => [String], { defaultValue: [] })
-  toppings: string[];
+  @IsOptional()
+  @IsString({ each: true })
+  toppings?: string[];
 }
