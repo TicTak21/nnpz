@@ -46,6 +46,8 @@ type Pizza {
   name: String!
   size: EPizzaSize!
   price: Float!
+  description: String
+  image: String
   toppings: [Topping!]
 }
 
@@ -90,6 +92,8 @@ input PizzaInput {
   name: String!
   size: EPizzaSize = small
   price: Float = 0
+  description: String
+  image: String
   toppings: [ToppingInput!] = null
 }
 
@@ -126,6 +130,8 @@ input CreatePizzaDto {
   name: String!
   size: EPizzaSize = small
   price: Float = 0
+  description: String
+  image: String
   toppings: [String!] = []
 }
 
@@ -133,6 +139,8 @@ input UpdatePizzaDto {
   name: String
   size: EPizzaSize = small
   price: Float = 0
+  description: String
+  image: String
   toppings: [String!] = []
 }
 

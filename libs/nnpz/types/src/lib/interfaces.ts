@@ -15,6 +15,8 @@ export interface IPizzaEntity extends IBaseEntity {
   name: string;
   size: EPizzaSize;
   price: number;
+  description: string;
+  image: string;
   toppings: IToppingEntity[];
 }
 

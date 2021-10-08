@@ -1,10 +1,10 @@
-import { EPizzaSize, IPizzaEntity } from '@nnpz/types';
 import {
   Field,
   InputType,
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
+import { EPizzaSize, IPizzaEntity } from '@nnpz/types';
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';
 import { ToppingEntity } from '../../topping/entities/topping.entity';
@@ -24,6 +24,14 @@ export class PizzaEntity extends BaseEntity implements IPizzaEntity {
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   @Field({ defaultValue: 0 })
   price: number;
+
+  @Column({ type: 'text', nullable: true })
+  @Field({ nullable: true })
+  description: string;
+
+  @Column({ type: 'text', nullable: true })
+  @Field({ nullable: true })
+  image: string;
 
   @ManyToMany(_type => ToppingEntity, {
     eager: true,

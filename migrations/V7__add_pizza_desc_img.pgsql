@@ -1,0 +1,2 @@
+ALTER TABLE "pizza" ADD COLUMN description TEXT;
+ALTER TABLE "pizza" ADD COLUMN image TEXT;

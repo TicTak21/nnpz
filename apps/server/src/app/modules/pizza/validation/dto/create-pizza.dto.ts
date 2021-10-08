@@ -1,5 +1,5 @@
-import { EPizzaSize } from '@nnpz/types';
 import { Field, InputType } from '@nestjs/graphql';
+import { EPizzaSize } from '@nnpz/types';
 import { IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 @InputType()
@@ -15,6 +15,12 @@ export class CreatePizzaDto {
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   price: number;
+
+  @Field({ nullable: true })
+  description: string;
+
+  @Field({ nullable: true })
+  image: string;
 
   @Field(_type => [String], { defaultValue: [] })
   toppings: string[];
