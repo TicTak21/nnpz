@@ -25,3 +25,7 @@ export interface IUserEntity extends IBaseEntity {
   password: string;
   role: string;
 }
+
+export interface IOrderEntity extends IBaseEntity {
+  total: number;
+}
