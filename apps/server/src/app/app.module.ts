@@ -11,6 +11,7 @@ import { ToppingModule } from './modules/topping/topping.module';
 import { UserModule } from './modules/user/user.module';
 import { globalFilters } from './shared/filters';
 import { globalInterceptors } from './shared/interceptors';
+import { OrderModule } from './modules/order/order.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { globalInterceptors } from './shared/interceptors';
     ToppingModule,
     UserModule,
     AuthenticationModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [...globalFilters, ...globalInterceptors],

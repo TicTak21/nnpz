@@ -77,6 +77,23 @@ type PaginatedToppingsRo {
   to: Float!
 }
 
+type Order {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  total: Float!
+}
+
+type PaginatedOrdersRo {
+  data: [Order!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
 input UserInput {
   email: String!
   role: EUserRole = client
@@ -97,6 +114,10 @@ input PizzaInput {
   toppings: [ToppingInput!] = null
 }
 
+input OrderInput {
+  total: Float = 0
+}
+
 type Query {
   pizzas(pagination: PaginationArgsDto): PaginatedPizzasRo!
   pizza(id: String!): Pizza
@@ -104,6 +125,8 @@ type Query {
   topping(id: String!): Topping
   users(pagination: PaginationArgsDto): PaginatedUsersRo!
   user(id: String!): User
+  orders(pagination: PaginationArgsDto): PaginatedOrdersRo!
+  order(id: String!): Order
 }
 
 input PaginationArgsDto {
@@ -124,6 +147,9 @@ type Mutation {
   login(credentials: LoginDto!): User!
   logout(id: String!): User!
   register(credentials: RegisterDto!): User!
+  createOrder(order: CreateOrderDto!): Order!
+  deleteOrder(id: String!): Order!
+  updateOrder(order: UpdateOrderDto!, id: String!): Order!
 }
 
 input CreatePizzaDto {
@@ -176,4 +202,12 @@ input LoginDto {
 input RegisterDto {
   email: String!
   password: String!
+}
+
+input CreateOrderDto {
+  total: Float!
+}
+
+input UpdateOrderDto {
+  total: Float
 }
