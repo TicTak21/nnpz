@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { UiModule } from '@nnpz/ui';
+import { ThemeModule } from '@nnpz/ui';
 import { StoreModule } from './store/store.module';
 
-@NgModule({ imports: [UiModule, StoreModule] })
+@NgModule({ imports: [ThemeModule, StoreModule] })
 export class CoreModule {}
