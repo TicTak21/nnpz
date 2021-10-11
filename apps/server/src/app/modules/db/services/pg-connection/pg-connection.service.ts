@@ -14,8 +14,9 @@ export class PgConnectionService implements TypeOrmOptionsFactory {
       url,
       synchronize: false,
       retryAttempts: 3,
-      logging: false,
+      logging: true,
       autoLoadEntities: true,
+      maxQueryExecutionTime: 1000,
     };
   }
 }
