@@ -11,7 +11,7 @@ import {
   throwError,
   withLatestFrom,
 } from 'rxjs';
-import { ErrorHandler, errorHandlers } from '../../../../../shared/error';
+import { handleError } from '../../../../../shared/error';
 import { CryptoService } from '../../../../../shared/services';
 import { UserEntity } from '../../../../user/entities/user.entity';
 import { UserService } from '../../../../user/services/user.service';
@@ -38,12 +38,7 @@ export class AuthenticationService {
           ? this.updateAccessToken(user)
           : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
       ),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 

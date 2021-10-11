@@ -7,11 +7,10 @@ import {
   mergeMap,
   Observable,
   of,
-  throwError,
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { OrderEntity } from '../entities/order.entity';
@@ -48,13 +47,7 @@ export class OrderService {
             }),
           ),
       ),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -67,13 +60,7 @@ export class OrderService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -88,13 +75,7 @@ export class OrderService {
         .execute(),
     ).pipe(
       mergeMap<InsertResult, Observable<OrderEntity>>(res => of(res.raw[0])),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -112,13 +93,7 @@ export class OrderService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -136,13 +111,7 @@ export class OrderService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 }

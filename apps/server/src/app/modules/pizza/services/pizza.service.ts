@@ -7,11 +7,10 @@ import {
   mergeMap,
   Observable,
   of,
-  throwError,
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { ErrorHandler, errorHandlers } from '../../../shared/error';
+import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { PizzaEntity } from '../entities/pizza.entity';
@@ -49,13 +48,7 @@ export class PizzaService {
             }),
           ),
       ),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -69,13 +62,7 @@ export class PizzaService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -104,13 +91,7 @@ export class PizzaService {
           return this.get(raw[0].id);
         },
       ),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -128,13 +109,7 @@ export class PizzaService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 
@@ -162,13 +137,7 @@ export class PizzaService {
         return this.get(entity.id);
       }),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => {
-        const errorHandler: ErrorHandler =
-          errorHandlers[err.code] ||
-          errorHandlers[HttpStatus.INTERNAL_SERVER_ERROR];
-
-        return throwError(errorHandler);
-      }),
+      catchError(err => handleError(err)),
     );
   }
 }
