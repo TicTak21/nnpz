@@ -13,8 +13,17 @@ export class AuthenticationController {
 
   @Post('login')
   @ApiOperation({ summary: 'Login into accout with existing credentials' })
-  login(@Body() credentials: LoginDto): Observable<UserRo> {
-    return this.authService.login(credentials);
+  login(
+    @Body() credentials: LoginDto,
+    @Res({ passthrough: true }) res: Response,
+  ): Observable<UserRo> {
+    return this.authService.login(credentials).pipe(
+      switchMap(([user, cookie]) => {
+        res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 
   @Post('logout/:id')
@@ -34,7 +43,16 @@ export class AuthenticationController {
 
   @Post('register')
   @ApiOperation({ summary: 'Register new account with given credentials' })
-  register(@Body() credentials: RegisterDto): Observable<UserRo> {
-    return this.authService.register(credentials);
+  register(
+    @Body() credentials: RegisterDto,
+    @Res({ passthrough: true }) res: Response,
+  ): Observable<UserRo> {
+    return this.authService.register(credentials).pipe(
+      switchMap(([user, cookie]) => {
+        res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 }

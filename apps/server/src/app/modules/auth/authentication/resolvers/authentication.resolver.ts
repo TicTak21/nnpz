@@ -11,8 +11,17 @@ export class AuthenticationResolver {
   constructor(private readonly authService: AuthenticationService) {}
 
   @Mutation(_returns => UserEntity)
-  login(@Args('credentials') credentials: LoginDto): Observable<UserRo> {
-    return this.authService.login(credentials);
+  login(
+    @Args('credentials') credentials: LoginDto,
+    @Context() ctx?: GqlContext,
+  ): Observable<UserRo> {
+    return this.authService.login(credentials).pipe(
+      switchMap(([user, cookie]) => {
+        ctx.res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 
   @Mutation(_returns => UserEntity)
@@ -30,7 +39,16 @@ export class AuthenticationResolver {
   }
 
   @Mutation(_returns => UserEntity)
-  register(@Args('credentials') credentials: RegisterDto): Observable<UserRo> {
-    return this.authService.register(credentials);
+  register(
+    @Args('credentials') credentials: RegisterDto,
+    @Context() ctx?: GqlContext,
+  ): Observable<UserRo> {
+    return this.authService.register(credentials).pipe(
+      switchMap(([user, cookie]) => {
+        ctx.res.setHeader('Set-Cookie', cookie);
+
+        return of(user);
+      }),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { EUserRole } from '@nnpz/types';
 import {
@@ -25,9 +26,10 @@ export class AuthenticationService {
     private readonly userService: UserService,
     private readonly cryptoService: CryptoService,
     private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
   ) {}
 
-  login({ email, password }: LoginDto): Observable<UserRo> {
+  login({ email, password }: LoginDto): Observable<[UserRo, string]> {
     const userByEmail$ = this.userService.getByEmail(email);
 
     return userByEmail$.pipe(
@@ -38,18 +40,23 @@ export class AuthenticationService {
           ? this.updateAccessToken(user)
           : throwError(() => ({ code: HttpStatus.BAD_REQUEST })),
       ),
+      switchMap(user => {
+        const cookie$ = this.getValidCookie(user.accessToken);
+
+        return forkJoin([of(user), cookie$]);
+      }),
       catchError(err => handleError(err)),
     );
   }
 
   logout(id: string): Observable<[UserRo, string]> {
     const user$ = this.removeAccessToken(id);
-    const cookie$ = this.getLogoutCookie();
+    const cookie$ = this.getExpiredCookie();
 
     return forkJoin([user$, cookie$]);
   }
 
-  register({ email, password }: RegisterDto): Observable<UserRo> {
+  register({ email, password }: RegisterDto): Observable<[UserRo, string]> {
     const passwordHash$ = this.cryptoService.hash(password);
 
     return passwordHash$.pipe(
@@ -64,6 +71,11 @@ export class AuthenticationService {
       switchMap(([user, passwordHash]) =>
         this.updateAccessToken({ ...user, password: passwordHash }),
       ),
+      switchMap(user => {
+        const cookie$ = this.getValidCookie(user.accessToken);
+
+        return forkJoin([of(user), cookie$]);
+      }),
     );
   }
 
@@ -86,7 +98,14 @@ export class AuthenticationService {
     return from(this.jwtService.signAsync(payload));
   }
 
-  private getLogoutCookie(): Observable<string> {
+  private getExpiredCookie(): Observable<string> {
     return of('Authentication=; HttpOnly; Path=/; Max-Age=0');
+  }
+
+  private getValidCookie(
+    token: string,
+    age: string | number = this.configService.get('JWT_EXPIRES'),
+  ) {
+    return of(`Authentication=${token}; HttpOnly; Path=/; Max-Age=${age}`);
   }
 }
