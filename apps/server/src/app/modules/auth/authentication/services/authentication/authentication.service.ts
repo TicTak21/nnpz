@@ -84,9 +84,7 @@ export class AuthenticationService {
     const payload: ITokenPayload = { id, role, email };
 
     return this.signAccessToken(payload).pipe(
-      switchMap(accessToken =>
-        this.userService.update(id, { ...user, accessToken }),
-      ),
+      switchMap(accessToken => this.userService.update(id, { accessToken })),
     );
   }
 
