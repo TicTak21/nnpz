@@ -27,11 +27,11 @@ export class PizzaEntity extends BaseEntity implements IPizzaEntity {
 
   @Column({ type: 'text', nullable: true })
   @Field({ nullable: true })
-  description: string;
+  description?: string;
 
   @Column({ type: 'text', nullable: true })
   @Field({ nullable: true })
-  image: string;
+  image?: string;
 
   @Column({ type: 'varchar', nullable: true })
   @Field({ nullable: true })
@@ -51,7 +51,7 @@ export class PizzaEntity extends BaseEntity implements IPizzaEntity {
     inverseJoinColumn: { name: 'topping_id', referencedColumnName: 'id' },
   })
   @Field(_type => [ToppingEntity], { nullable: true, defaultValue: null })
-  toppings: ToppingEntity[];
+  toppings?: ToppingEntity[];
 }
 
 registerEnumType(EPizzaSize, {

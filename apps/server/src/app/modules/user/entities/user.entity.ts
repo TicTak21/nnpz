@@ -1,10 +1,10 @@
-import { EUserRole, IUserEntity } from '@nnpz/types';
 import {
   Field,
   InputType,
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
+import { EUserRole, IUserEntity } from '@nnpz/types';
 import { Exclude } from 'class-transformer';
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';
@@ -27,7 +27,7 @@ export class UserEntity extends BaseEntity implements IUserEntity {
 
   @Column({ type: 'varchar', nullable: true })
   @Field({ nullable: true })
-  accessToken: string;
+  accessToken?: string;
 }
 
 registerEnumType(EUserRole, {
