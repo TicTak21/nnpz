@@ -18,6 +18,7 @@ export interface IPizzaEntity extends IBaseEntity {
   description: string;
   image: string;
   toppings: IToppingEntity[];
+  slug?: string;
 }
 
 export interface IUserEntity extends IBaseEntity {

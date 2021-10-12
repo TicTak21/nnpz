@@ -37,6 +37,11 @@ export class CreatePizzaDto {
   @IsString()
   image?: string;
 
+  @Field({ nullable: true })
+  @IsOptional()
+  @IsString()
+  slug?: string;
+
   @Field(_type => [String], { defaultValue: [] })
   @IsOptional()
   @IsString({ each: true })

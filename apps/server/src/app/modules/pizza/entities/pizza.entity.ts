@@ -33,6 +33,10 @@ export class PizzaEntity extends BaseEntity implements IPizzaEntity {
   @Field({ nullable: true })
   image: string;
 
+  @Column({ type: 'varchar', nullable: true })
+  @Field({ nullable: true })
+  slug?: string;
+
   @ManyToMany(_type => ToppingEntity, {
     eager: true,
     cascade: true,
