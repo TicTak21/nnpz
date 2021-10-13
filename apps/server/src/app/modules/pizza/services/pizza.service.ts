@@ -10,9 +10,10 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { ErrorService } from '../../error/services/error.service';
+import { PaginationService } from '../../pagination/services/pagination.service';
+import { TManyAndCount } from '../../pagination/types';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
 import { PaginatedPizzasRo } from '../validation/ro';
