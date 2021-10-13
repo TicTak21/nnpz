@@ -10,9 +10,9 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
+import { ErrorService } from '../../error/services/error.service';
 import { PizzaEntity } from '../entities/pizza.entity';
 import { CreatePizzaDto, UpdatePizzaDto } from '../validation/dto';
 import { PaginatedPizzasRo } from '../validation/ro';
@@ -23,6 +23,7 @@ export class PizzaService {
     @InjectRepository(PizzaEntity)
     private readonly pizzaRepo: Repository<PizzaEntity>,
     private readonly paginationService: PaginationService,
+    private readonly errorService: ErrorService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedPizzasRo> {
@@ -48,7 +49,7 @@ export class PizzaService {
             }),
           ),
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -62,7 +63,7 @@ export class PizzaService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -91,7 +92,7 @@ export class PizzaService {
           return this.get(raw[0].id);
         },
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -109,7 +110,7 @@ export class PizzaService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -137,7 +138,7 @@ export class PizzaService {
         return this.get(entity.id);
       }),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 }

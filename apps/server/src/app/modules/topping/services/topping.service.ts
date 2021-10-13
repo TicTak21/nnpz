@@ -10,9 +10,9 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
+import { ErrorService } from '../../error/services/error.service';
 import { ToppingEntity } from '../entities/topping.entity';
 import { CreateToppingDto, UpdateToppingDto } from '../validation/dto';
 import { PaginatedToppingsRo } from '../validation/ro';
@@ -23,6 +23,7 @@ export class ToppingService {
     @InjectRepository(ToppingEntity)
     private readonly toppingRepo: Repository<ToppingEntity>,
     private readonly paginationService: PaginationService,
+    private readonly errorService: ErrorService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedToppingsRo> {
@@ -47,7 +48,7 @@ export class ToppingService {
             }),
           ),
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -60,7 +61,7 @@ export class ToppingService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -75,7 +76,7 @@ export class ToppingService {
         .execute(),
     ).pipe(
       mergeMap<InsertResult, Observable<ToppingEntity>>(res => of(res.raw[0])),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -93,7 +94,7 @@ export class ToppingService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -111,7 +112,7 @@ export class ToppingService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 }

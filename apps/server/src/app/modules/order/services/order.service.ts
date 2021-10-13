@@ -10,9 +10,9 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
+import { ErrorService } from '../../error/services/error.service';
 import { OrderEntity } from '../entities/order.entity';
 import { CreateOrderDto, UpdateOrderDto } from '../validation/dto';
 import { PaginatedOrdersRo } from '../validation/ro';
@@ -23,6 +23,7 @@ export class OrderService {
     @InjectRepository(OrderEntity)
     private readonly orderRepo: Repository<OrderEntity>,
     private readonly paginationService: PaginationService,
+    private readonly errorService: ErrorService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedOrdersRo> {
@@ -47,7 +48,7 @@ export class OrderService {
             }),
           ),
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -60,7 +61,7 @@ export class OrderService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -75,7 +76,7 @@ export class OrderService {
         .execute(),
     ).pipe(
       mergeMap<InsertResult, Observable<OrderEntity>>(res => of(res.raw[0])),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -93,7 +94,7 @@ export class OrderService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -111,7 +112,7 @@ export class OrderService {
         entity ? of(entity) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 }

@@ -11,9 +11,9 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
-import { handleError } from '../../../shared/error';
 import { PaginationService, TManyAndCount } from '../../../shared/services';
 import { PaginationArgsDto } from '../../../shared/validation/dto';
+import { ErrorService } from '../../error/services/error.service';
 import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
 import { PaginatedUsersRo, UserRo } from '../validation/ro';
@@ -24,6 +24,7 @@ export class UserService {
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
     private readonly paginationService: PaginationService,
+    private readonly errorService: ErrorService,
   ) {}
 
   getAll({ page, take }: PaginationArgsDto): Observable<PaginatedUsersRo> {
@@ -55,7 +56,7 @@ export class UserService {
           );
         },
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -68,7 +69,7 @@ export class UserService {
     ).pipe(
       mergeMap(entity => (entity ? of(classToClass<UserRo>(entity)) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -81,7 +82,7 @@ export class UserService {
     ).pipe(
       mergeMap(entity => (entity ? of(entity) : EMPTY)),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -98,7 +99,7 @@ export class UserService {
       mergeMap<InsertResult, Observable<UserRo>>(({ raw: [entity] }) =>
         of(classToClass<UserRo>(entity)),
       ),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -116,7 +117,7 @@ export class UserService {
         entity ? of(classToClass<UserRo>(entity)) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 
@@ -134,7 +135,7 @@ export class UserService {
         entity ? of(classToClass<UserRo>(entity)) : EMPTY,
       ),
       throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 }

@@ -12,8 +12,8 @@ import {
   throwError,
   withLatestFrom,
 } from 'rxjs';
-import { handleError } from '../../../../../shared/error';
 import { CryptoService } from '../../../../../shared/services';
+import { ErrorService } from '../../../../error/services/error.service';
 import { UserEntity } from '../../../../user/entities/user.entity';
 import { UserService } from '../../../../user/services/user.service';
 import { UserRo } from '../../../../user/validation/ro';
@@ -27,6 +27,7 @@ export class AuthenticationService {
     private readonly cryptoService: CryptoService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
+    private readonly errorService: ErrorService,
   ) {}
 
   login({ email, password }: LoginDto): Observable<[UserRo, string]> {
@@ -45,7 +46,7 @@ export class AuthenticationService {
 
         return forkJoin([of(user), cookie$]);
       }),
-      catchError(err => handleError(err)),
+      catchError(err => this.errorService.handle(err)),
     );
   }
 

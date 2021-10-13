@@ -1,6 +1,7 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PaginationService, RedisCacheService } from '../../shared/services';
+import { ErrorModule } from '../error/error.module';
 import { ToppingController } from './controllers/topping.controller';
 import { ToppingEntity } from './entities/topping.entity';
 import { ToppingResolver } from './resolvers/topping.resolver';
@@ -10,6 +11,7 @@ import { ToppingService } from './services/topping.service';
   imports: [
     CacheModule.registerAsync({ useClass: RedisCacheService }),
     TypeOrmModule.forFeature([ToppingEntity]),
+    ErrorModule,
   ],
   controllers: [ToppingController],
   providers: [ToppingService, ToppingResolver, PaginationService],
