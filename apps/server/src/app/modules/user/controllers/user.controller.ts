@@ -1,6 +1,5 @@
 import {
   Body,
-  CacheInterceptor,
   Controller,
   Delete,
   Get,
@@ -8,7 +7,6 @@ import {
   Post,
   Put,
   Query,
-  UseInterceptors,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
@@ -18,7 +16,6 @@ import { CreateUserDto, UpdateUserDto } from '../validation/dto';
 import { PaginatedUsersRo, UserRo } from '../validation/ro';
 
 @Controller('users')
-@UseInterceptors(CacheInterceptor)
 @ApiTags('User')
 export class UserController {
   constructor(private readonly userService: UserService) {}
