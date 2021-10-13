@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { CryptoService } from '../../../shared/services';
+import { CryptoModule } from '../../crypto/crypto.module';
 import { ErrorModule } from '../../error/error.module';
 import { UserModule } from '../../user/user.module';
 import { AuthenticationController } from './controllers/authentication.controller';
@@ -14,8 +14,9 @@ import { AuthenticationService, JwtConnectionService } from './services';
       useClass: JwtConnectionService,
     }),
     ErrorModule,
+    CryptoModule,
   ],
   controllers: [AuthenticationController],
-  providers: [AuthenticationService, AuthenticationResolver, CryptoService],
+  providers: [AuthenticationService, AuthenticationResolver],
 })
 export class AuthenticationModule {}

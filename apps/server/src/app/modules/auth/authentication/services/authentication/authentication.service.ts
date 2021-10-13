@@ -12,7 +12,7 @@ import {
   throwError,
   withLatestFrom,
 } from 'rxjs';
-import { CryptoService } from '../../../../../shared/services';
+import { CryptoService } from '../../../../crypto/services/crypto.service';
 import { ErrorService } from '../../../../error/services/error.service';
 import { UserEntity } from '../../../../user/entities/user.entity';
 import { UserService } from '../../../../user/services/user.service';
