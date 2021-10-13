@@ -27,10 +27,12 @@ export class HttpExceptionFilter implements ExceptionFilter {
       path: url,
     };
 
+    const filterName = this.constructor.name;
+
     Logger.error(
       `${method}: ${url}`,
       JSON.stringify(errorResponse),
-      this.constructor.name,
+      filterName,
     );
 
     res.status(status).json(errorResponse);
