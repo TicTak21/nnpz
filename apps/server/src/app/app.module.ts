@@ -6,12 +6,13 @@ import { AppController } from './controllers/app.controller';
 import { AuthenticationModule } from './modules/auth/authentication/authentication.module';
 import { DbModule } from './modules/db/db.module';
 import { GqlModule } from './modules/gql/gql.module';
+import { OrderModule } from './modules/order/order.module';
 import { PizzaModule } from './modules/pizza/pizza.module';
 import { ToppingModule } from './modules/topping/topping.module';
 import { UserModule } from './modules/user/user.module';
 import { globalFilters } from './shared/filters';
+import { globalGuards } from './shared/guards';
 import { globalInterceptors } from './shared/interceptors';
-import { OrderModule } from './modules/order/order.module';
 
 @Module({
   imports: [
@@ -29,6 +30,6 @@ import { OrderModule } from './modules/order/order.module';
     OrderModule,
   ],
   controllers: [AppController],
-  providers: [...globalFilters, ...globalInterceptors],
+  providers: [...globalFilters, ...globalInterceptors, ...globalGuards],
 })
 export class AppModule {}

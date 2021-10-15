@@ -7,15 +7,11 @@ import {
 } from '@nestjs/common';
 import { Request } from 'express';
 import { Observable, of, switchMap } from 'rxjs';
-import { ErrorService } from '../../../../error/services/error.service';
-import { AuthenticationService } from '../../services';
+import { AuthenticationService } from '../../../modules/auth/authentication/services';
 
 @Injectable()
 export class HttpAuthGuard implements CanActivate {
-  constructor(
-    private readonly errorService: ErrorService,
-    private readonly authService: AuthenticationService,
-  ) {}
+  constructor(private readonly authService: AuthenticationService) {}
 
   canActivate(ctx: ExecutionContext): Observable<boolean> {
     if (ctx.getType() !== 'http') return;
