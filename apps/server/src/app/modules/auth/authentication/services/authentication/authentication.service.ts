@@ -80,6 +80,10 @@ export class AuthenticationService {
     );
   }
 
+  validateToken(token: string): Observable<true> {
+    return from(this.jwtService.verifyAsync(token));
+  }
+
   private updateAccessToken(user: UserEntity): Observable<UserRo> {
     const { id, role, email } = user;
     const payload: ITokenPayload = { id, role, email };
