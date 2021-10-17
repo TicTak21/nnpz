@@ -31,6 +31,24 @@ type PaginatedUsersRo {
   to: Float!
 }
 
+type Order {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  total: Float!
+  complete: Boolean!
+}
+
+type PaginatedOrdersRo {
+  data: [Order!]!
+  total: Float!
+  perPage: Float!
+  currentPage: Float!
+  lastPage: Float!
+  from: Float!
+  to: Float!
+}
+
 type Topping {
   id: ID!
   createdAt: DateTime!
@@ -78,27 +96,15 @@ type PaginatedToppingsRo {
   to: Float!
 }
 
-type Order {
-  id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  total: Float!
-}
-
-type PaginatedOrdersRo {
-  data: [Order!]!
-  total: Float!
-  perPage: Float!
-  currentPage: Float!
-  lastPage: Float!
-  from: Float!
-  to: Float!
-}
-
 input UserInput {
   email: String!
   role: EUserRole = client
   accessToken: String
+}
+
+input OrderInput {
+  total: Float = 0
+  complete: Boolean = false
 }
 
 input ToppingInput {
@@ -114,10 +120,6 @@ input PizzaInput {
   image: String
   slug: String
   toppings: [ToppingInput!] = null
-}
-
-input OrderInput {
-  total: Float = 0
 }
 
 type Query {
@@ -210,8 +212,10 @@ input RegisterDto {
 
 input CreateOrderDto {
   total: Float!
+  complete: Boolean!
 }
 
 input UpdateOrderDto {
   total: Float
+  complete: Boolean
 }

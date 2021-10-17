@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IsNotEmpty, IsNumber, Min } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, Min } from 'class-validator';
 
 @InputType()
 export class CreateOrderDto {
@@ -8,4 +8,9 @@ export class CreateOrderDto {
   @IsNumber({ maxDecimalPlaces: 2 })
   @Min(0)
   total: number;
+
+  @Field()
+  @IsNotEmpty()
+  @IsBoolean()
+  complete: boolean;
 }

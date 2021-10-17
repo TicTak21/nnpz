@@ -30,4 +30,5 @@ export interface IUserEntity extends IBaseEntity {
 
 export interface IOrderEntity extends IBaseEntity {
   total: number;
+  complete: boolean;
 }

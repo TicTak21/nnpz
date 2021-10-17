@@ -10,4 +10,8 @@ export class OrderEntity extends BaseEntity implements IOrderEntity {
   @Column({ type: 'decimal', precision: 5, scale: 2, default: 0 })
   @Field({ defaultValue: 0 })
   total: number;
+
+  @Column({ type: 'boolean', default: false })
+  @Field({ defaultValue: false })
+  complete: boolean;
 }
