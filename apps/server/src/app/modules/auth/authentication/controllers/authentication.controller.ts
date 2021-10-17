@@ -3,6 +3,7 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 import { Observable, of, switchMap } from 'rxjs';
 import { UserRo } from '../../../user/validation/ro';
+import { Public } from '../decorators';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';
 
@@ -12,6 +13,7 @@ export class AuthenticationController {
   constructor(private readonly authService: AuthenticationService) {}
 
   @Post('login')
+  @Public()
   @ApiOperation({ summary: 'Login into accout with existing credentials' })
   login(
     @Body() credentials: LoginDto,
