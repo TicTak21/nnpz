@@ -92,7 +92,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["admin", "angular"]
     },
     "admin-e2e": {
       "root": "apps/admin-e2e",
@@ -118,7 +119,9 @@
             "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": ["admin", "cypress", "e2e"],
+      "implicitDependencies": ["admin"]
     },
     "client": {
       "projectType": "application",
@@ -212,7 +215,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["client", "angular", "frontend"]
     },
     "client-e2e": {
       "root": "apps/client-e2e",
@@ -239,7 +243,9 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["client", "cypress", "e2e"],
+      "implicitDependencies": ["client"]
     },
     "server": {
       "root": "apps/server",
@@ -303,7 +309,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["server", "nest", "backend"]
     },
     "types": {
       "root": "libs/nnpz/types",
@@ -317,7 +324,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["types", "lib"]
     },
     "ui": {
       "projectType": "library",
@@ -339,11 +347,9 @@
             "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         }
-      }
+      },
+      "tags": ["ui", "angular", "lib"]
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/angular": {
@@ -372,6 +378,5 @@
       "style": "scss",
       "changeDetection": "OnPush"
     }
-  },
-  "defaultProject": "client"
+  }
 }

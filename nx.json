@@ -26,29 +26,36 @@
       }
     ]
   },
-  "projects": {
-    "admin": {
-      "tags": ["admin", "angular"]
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "admin-e2e": {
-      "tags": ["admin", "cypress", "e2e"],
-      "implicitDependencies": ["admin"]
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "client": {
-      "tags": ["client", "angular", "frontend"]
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "client-e2e": {
-      "tags": ["client", "cypress", "e2e"],
-      "implicitDependencies": ["client"]
-    },
-    "server": {
-      "tags": ["server", "nest", "backend"]
-    },
-    "types": {
-      "tags": ["types", "lib"]
-    },
-    "ui": {
-      "tags": ["ui", "angular", "lib"]
+    "@nrwl/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush"
     }
-  }
+  },
+  "defaultProject": "client"
 }
