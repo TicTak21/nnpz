@@ -1,10 +1,12 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Public } from '../modules/auth/authentication/decorators';
 
 @Controller()
 @ApiTags('Index')
 export class AppController {
   @Get()
+  @Public()
   @Render('index')
   @ApiOperation({ summary: 'Navigation index(ui)' })
   index() {
