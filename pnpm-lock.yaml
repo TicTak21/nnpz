@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@alyle/ui': ^11.0.2
+  '@alyle/ui': ^11.1.1
   '@angular-devkit/build-angular': 13.0.3
   '@angular-eslint/eslint-plugin': 12.6.1
   '@angular-eslint/eslint-plugin-template': 12.6.1
@@ -86,7 +86,7 @@ specifiers:
   zone.js: 0.11.4
 
 dependencies:
-  '@alyle/ui': 11.0.2_bbd8fdcd485daccfc27f2762c8d8e10e
+  '@alyle/ui': 11.1.1_bbd8fdcd485daccfc27f2762c8d8e10e
   '@angular/animations': 13.0.0_@angular+core@13.0.0
   '@angular/cdk': 13.0.0_776b4a603ccc97772da13c4029d5bf35
   '@angular/common': 13.0.0_@angular+core@13.0.0+rxjs@7.3.0
@@ -174,8 +174,8 @@ devDependencies:
 
 packages:
 
-  /@alyle/ui/11.0.2_bbd8fdcd485daccfc27f2762c8d8e10e:
-    resolution: {integrity: sha512-KvFwzFLzS1zqK3dHcrMTqrI4M7tpZpHnnWFTcd898NrlyNmi+lQehIFPcVUDxi2M+T3mOPA7T2HwgbsvtpL7Cg==}
+  /@alyle/ui/11.1.1_bbd8fdcd485daccfc27f2762c8d8e10e:
+    resolution: {integrity: sha512-W/VFc1RPZLTgbdP+aNV7M4cmxbwE7GCEVA/+4ClNFTTJ3OSwRZFtHWYoesVkzLKtJiX6nR783eX5ArkAZY0x9g==}
     hasBin: true
     peerDependencies:
       '@angular/core': ^8.0.0 || ^9.0.0 || ^10.0.0-0
