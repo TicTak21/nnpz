@@ -1,0 +1,7 @@
+<a ly-button appearance="icon" [routerLink]="['/me']">
+  <ly-avatar bg="primary">
+    <img *ngIf="src && alt" [alt]="alt" [src]="src" />
+    <ng-container *ngIf="!src && alt">{{ altFirstChar }}</ng-container>
+    <ly-icon *ngIf="!src && !alt">account_circle</ly-icon>
+  </ly-avatar>
+</a>
