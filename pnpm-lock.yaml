@@ -54,6 +54,7 @@ specifiers:
   apollo-server-express: ^2.25.2
   cache-manager: ^3.4.4
   cache-manager-redis-store: ^2.0.0
+  chart.js: ^3.7.1
   class-transformer: ^0.4.0
   class-validator: ^0.13.1
   connection-string: ^4.3.4
@@ -70,6 +71,7 @@ specifiers:
   helmet: ^4.6.0
   jest: 27.2.3
   jest-preset-angular: 11.0.0
+  ng2-charts: ^3.0.8
   node-flywaydb: ^3.0.7
   pg: ^8.7.1
   prettier: 2.5.1
@@ -156,6 +158,7 @@ devDependencies:
   '@types/node': 14.14.33
   '@typescript-eslint/eslint-plugin': 5.10.2_61711575dd6de0ced61e0bccc6181943
   '@typescript-eslint/parser': 5.10.2_eslint@8.7.0+typescript@4.5.5
+  chart.js: 3.7.1
   connection-string: 4.3.4
   cross-env: 7.0.3
   cypress: 7.7.0
@@ -166,6 +169,7 @@ devDependencies:
   eslint-plugin-ngrx: 1.29.3_eslint@8.7.0+typescript@4.5.5
   jest: 27.2.3_ts-node@9.1.1
   jest-preset-angular: 11.0.0_95521eeb2dec063e14d53fe30e8b0884
+  ng2-charts: 3.0.8_4fea3ba2fb2d16090f58e1208b22496d
   node-flywaydb: 3.0.7
   prettier: 2.5.1
   ts-jest: 27.0.5_227fbc629be1b82a2ac5dd91da2eb1f8
@@ -5293,6 +5297,10 @@ packages:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
     dev: true
 
+  /chart.js/3.7.1:
+    resolution: {integrity: sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA==}
+    dev: true
+
   /check-more-types/2.24.0:
     resolution: {integrity: sha1-FCD/sQ/URNz8ebQ4kbv//TKoRgA=}
     engines: {node: '>= 0.8.0'}
@@ -8864,7 +8872,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
 
   /jsonparse/1.3.1:
     resolution: {integrity: sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=}
@@ -8971,7 +8979,7 @@ packages:
       tslib: 2.3.1
     optionalDependencies:
       errno: 0.1.8
-      graceful-fs: 4.2.8
+      graceful-fs: 4.2.9
       image-size: 0.5.5
       make-dir: 2.1.0
       mime: 1.6.0
@@ -9082,6 +9090,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       p-locate: 4.1.0
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: true
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha1-gteb/zCmfEAF/9XiUVMArZyk168=}
@@ -9490,6 +9502,22 @@ packages:
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+    dev: true
+
+  /ng2-charts/3.0.8_4fea3ba2fb2d16090f58e1208b22496d:
+    resolution: {integrity: sha512-ELlpN0b/IJO4ka/P2sFBKeng3bV7XOQuh40f0J5hx9UveWPaSxOYQAOiGxV7BN2VSnKq6GRkjRvqTrcQPyJYww==}
+    peerDependencies:
+      '@angular/common': '>=11.0.0'
+      '@angular/core': '>=11.0.0'
+      chart.js: ^3.4.0
+      rxjs: ^6.5.3 || ^7.4.0
+    dependencies:
+      '@angular/common': 13.2.2_@angular+core@13.2.2+rxjs@7.3.0
+      '@angular/core': 13.2.2_rxjs@7.3.0+zone.js@0.11.4
+      chart.js: 3.7.1
+      lodash-es: 4.17.21
+      rxjs: 7.3.0
+      tslib: 2.3.1
     dev: true
 
   /nice-napi/1.0.2:
