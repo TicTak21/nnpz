@@ -1,10 +1,7 @@
 <ly-toolbar position="static" bg="primary" [elevation]="3">
   <admin-header-menu-btn></admin-header-menu-btn>
   <admin-header-title [withClass]="classes.grow"></admin-header-title>
-  <admin-header-avatar
-    [alt]="MOCK_DATA.username"
-    [src]="MOCK_DATA.img"
-  ></admin-header-avatar>
+  <admin-avatar [alt]="MOCK_DATA.username" [src]="MOCK_DATA.img"></admin-avatar>
   <admin-header-notifications
     [notifications]="MOCK_DATA.notifications"
   ></admin-header-notifications>

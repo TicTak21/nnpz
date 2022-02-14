@@ -16,8 +16,8 @@ export class HeaderComponent {
   classes = this._theme.addStyleSheet(styles);
 
   MOCK_DATA = {
-    username: 'Larm Rmah',
-    img: 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash.jpeg?alt=media&token=1db05ae5-9c03-437b-9e8c-764dfb257061',
+    username: 'Jane Doe',
+    img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
     notifications: [
       { id: 1, title: 'Update user #1' },
       { id: 2, title: 'Delete pizza with olives' },

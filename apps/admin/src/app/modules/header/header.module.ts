@@ -8,7 +8,7 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderAvatarComponent } from './components/header-avatar/header-avatar.component';
+import { AvatarModule } from '../avatar/avatar.module';
 import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu-btn.component';
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';
 import { HeaderTitleComponent } from './components/header-title/header-title.component';
@@ -19,7 +19,6 @@ import { HeaderComponent } from './containers/header/header.component';
     HeaderComponent,
     HeaderTitleComponent,
     HeaderMenuBtnComponent,
-    HeaderAvatarComponent,
     HeaderNotificationsComponent,
   ],
   imports: [
@@ -32,6 +31,7 @@ import { HeaderComponent } from './containers/header/header.component';
     LyIconModule,
     LyAvatarModule,
     LyMenuModule,
+    AvatarModule,
   ],
   exports: [HeaderComponent],
 })

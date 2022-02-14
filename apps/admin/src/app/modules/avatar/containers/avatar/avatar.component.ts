@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'admin-header-avatar',
-  templateUrl: './header-avatar.component.html',
+  selector: 'admin-avatar',
+  templateUrl: './avatar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderAvatarComponent {
+export class AvatarComponent {
   @Input() src = '';
   @Input() alt = '';
+  @Input() size = 40;
 
   get altFirstChar(): string {
     return this.alt.charAt(0);
