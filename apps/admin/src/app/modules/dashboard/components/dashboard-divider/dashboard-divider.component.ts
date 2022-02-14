@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'admin-dashboard-active-users',
-  templateUrl: './dashboard-active-users.component.html',
+  selector: 'admin-dashboard-divider',
+  templateUrl: './dashboard-divider.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardActiveUsersComponent {
+export class DashboardDividerComponent {
   @Input() activeUsers = 0;
+  @Input() activeOrders = 0;
 }

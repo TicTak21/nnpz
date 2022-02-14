@@ -3,10 +3,18 @@
     <admin-dashboard-top-five-pizzas></admin-dashboard-top-five-pizzas>
   </ly-grid>
   <ly-grid item col="6 12@XSmall@Small">
-    <admin-dashboard-active-users></admin-dashboard-active-users>
+    <admin-dashboard-sales-amount-chart></admin-dashboard-sales-amount-chart>
   </ly-grid>
+
+  <ly-grid item [col]="12">
+    <admin-dashboard-divider
+      [activeOrders]="MOCK_DATA.activeOrders"
+      [activeUsers]="MOCK_DATA.activeUsers"
+    ></admin-dashboard-divider>
+  </ly-grid>
+
   <ly-grid item col="6 12@XSmall@Small">
-    <admin-dashboard-active-users></admin-dashboard-active-users>
+    <admin-dashboard-sales-amount-chart></admin-dashboard-sales-amount-chart>
   </ly-grid>
   <ly-grid item col="6 12@XSmall@Small">
     <admin-dashboard-top-five-pizzas></admin-dashboard-top-five-pizzas>

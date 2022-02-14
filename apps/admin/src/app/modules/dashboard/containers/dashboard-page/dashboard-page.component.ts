@@ -5,4 +5,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './dashboard-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardPageComponent {}
+export class DashboardPageComponent {
+  MOCK_DATA = {
+    activeUsers: 12,
+    activeOrders: 48,
+  };
+}

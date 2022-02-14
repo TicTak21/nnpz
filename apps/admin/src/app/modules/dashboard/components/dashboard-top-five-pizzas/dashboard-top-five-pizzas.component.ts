@@ -1,12 +1,5 @@
-import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ChartDataset } from 'chart.js';
-
-const styles = {
-  chart: {
-    padding: '0.5rem',
-  },
-};
 
 @Component({
   selector: 'admin-dashboard-top-five-pizzas',
@@ -14,10 +7,6 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardTopFivePizzasComponent {
-  classes = this.theme.addStyleSheet(styles);
-
-  constructor(private readonly theme: LyTheme2) {}
-
   barChartOptions = {
     responsive: true,
   };
