@@ -9,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/admin",
             "index": "apps/admin/src/index.html",
@@ -19,13 +17,8 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/admin/src/favicon.ico",
-              "apps/admin/src/assets"
-            ],
-            "styles": [
-              "apps/admin/src/styles.scss"
-            ],
+            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
+            "styles": ["apps/admin/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -93,19 +86,14 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/admin"
-          ],
+          "outputs": ["coverage/apps/admin"],
           "options": {
             "jestConfig": "apps/admin/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": [
-        "admin",
-        "angular"
-      ]
+      "tags": ["admin", "angular"]
     },
     "admin-e2e": {
       "root": "apps/admin-e2e",
@@ -126,24 +114,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/admin-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
           }
         }
       },
-      "tags": [
-        "admin",
-        "cypress",
-        "e2e"
-      ],
-      "implicitDependencies": [
-        "admin"
-      ]
+      "tags": ["admin", "cypress", "e2e"],
+      "implicitDependencies": ["admin"]
     },
     "client": {
       "projectType": "application",
@@ -153,9 +131,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/client",
             "index": "apps/client/src/index.html",
@@ -163,13 +139,8 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/client/src/favicon.ico",
-              "apps/client/src/assets"
-            ],
-            "styles": [
-              "apps/client/src/styles.scss"
-            ],
+            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
+            "styles": ["apps/client/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -234,26 +205,18 @@
               "apps/client/src/**/*.html"
             ]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/client"
-          ],
+          "outputs": ["coverage/apps/client"],
           "options": {
             "jestConfig": "apps/client/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": [
-        "client",
-        "angular",
-        "frontend"
-      ]
+      "tags": ["client", "angular", "frontend"]
     },
     "client-e2e": {
       "root": "apps/client-e2e",
@@ -276,23 +239,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/client-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": [
-        "client",
-        "cypress",
-        "e2e"
-      ],
-      "implicitDependencies": [
-        "client"
-      ]
+      "tags": ["client", "cypress", "e2e"],
+      "implicitDependencies": ["client"]
     },
     "server": {
       "root": "apps/server",
@@ -301,29 +254,19 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/server",
             "main": "apps/server/src/main.ts",
             "tsConfig": "apps/server/tsconfig.app.json",
-            "assets": [
-              "apps/server/src/assets"
-            ],
+            "assets": ["apps/server/src/assets"],
             "tsPlugins": [
               {
                 "name": "@nestjs/swagger/plugin",
                 "options": {
                   "compilerOptions": {
-                    "plugins": [
-                      "@nestjs/swagger"
-                    ],
-                    "dtoFileNameSuffix": [
-                      ".dto.ts",
-                      ".ro.ts",
-                      ".entity.ts"
-                    ],
+                    "plugins": ["@nestjs/swagger"],
+                    "dtoFileNameSuffix": [".dto.ts", ".ro.ts", ".entity.ts"],
                     "classValidatorShim": true,
                     "introspectComments": true
                   }
@@ -354,30 +297,20 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/server/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/server/**/*.ts"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/server"
-          ],
+          "outputs": ["coverage/apps/server"],
           "options": {
             "jestConfig": "apps/server/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": [
-        "server",
-        "nest",
-        "backend"
-      ]
+      "tags": ["server", "nest", "backend"]
     },
     "types": {
       "root": "libs/nnpz/types",
@@ -387,19 +320,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/nnpz/types/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/nnpz/types/**/*.ts"]
           },
-          "outputs": [
-            "{options.outputFile}"
-          ]
+          "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": [
-        "types",
-        "lib"
-      ]
+      "tags": ["types", "lib"]
     },
     "ui": {
       "projectType": "library",
@@ -409,9 +335,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/nnpz/ui"
-          ],
+          "outputs": ["coverage/libs/nnpz/ui"],
           "options": {
             "jestConfig": "libs/nnpz/ui/jest.config.js",
             "passWithNoTests": true
@@ -420,18 +344,11 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/src/**/*.ts",
-              "libs/ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         }
       },
-      "tags": [
-        "ui",
-        "angular",
-        "lib"
-      ]
+      "tags": ["ui", "angular", "lib"]
     }
   }
 }

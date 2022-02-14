@@ -8,9 +8,8 @@ describe('HeaderAvatarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderAvatarComponent ]
-    })
-    .compileComponents();
+      declarations: [HeaderAvatarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
