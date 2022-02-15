@@ -1,11 +1,8 @@
-import { LY_THEME } from '@alyle/ui';
 import { NgModule } from '@angular/core';
-import { ThemeModule } from '@nnpz/ui';
 import { StoreModule } from './store/store.module';
-import { CustomMinimaDark } from './theme/custom-minima-dark.theme';
+import { ThemeModule } from './theme/theme.module';
 
 @NgModule({
-  imports: [ThemeModule, StoreModule],
-  providers: [{ provide: LY_THEME, useClass: CustomMinimaDark, multi: true }],
+  imports: [StoreModule, ThemeModule],
 })
 export class CoreModule {}

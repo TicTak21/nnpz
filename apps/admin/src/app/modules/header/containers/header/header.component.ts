@@ -13,7 +13,7 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  classes = this._theme.addStyleSheet(styles);
+  classes = this.theme.addStyleSheet(styles);
 
   MOCK_DATA = {
     username: 'Jane Doe',
@@ -24,5 +24,5 @@ export class HeaderComponent {
     ],
   };
 
-  constructor(private _theme: LyTheme2) {}
+  constructor(private readonly theme: LyTheme2) {}
 }

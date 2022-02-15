@@ -1,8 +1,9 @@
 <ly-toolbar position="static" bg="primary" [elevation]="3">
   <admin-header-menu-btn></admin-header-menu-btn>
   <admin-header-title [lyFlexGrow]="1"></admin-header-title>
-  <admin-avatar [alt]="MOCK_DATA.username" [src]="MOCK_DATA.img"></admin-avatar>
   <admin-header-notifications
     [notifications]="MOCK_DATA.notifications"
   ></admin-header-notifications>
+  <admin-header-theme-switch></admin-header-theme-switch>
+  <admin-avatar [alt]="MOCK_DATA.username" [src]="MOCK_DATA.img"></admin-avatar>
 </ly-toolbar>

@@ -14,6 +14,7 @@ import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';
 import { HeaderTitleComponent } from './components/header-title/header-title.component';
 import { HeaderComponent } from './containers/header/header.component';
+import { HeaderThemeSwitchComponent } from './components/header-theme-switch/header-theme-switch.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './containers/header/header.component';
     HeaderTitleComponent,
     HeaderMenuBtnComponent,
     HeaderNotificationsComponent,
+    HeaderThemeSwitchComponent,
   ],
   imports: [
     CommonModule,
