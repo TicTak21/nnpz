@@ -30,6 +30,10 @@ const routes: Routes = [
       import('./modules/user/user.module').then(m => m.UserModule),
   },
   {
+    path: 'me',
+    loadChildren: () => import('./modules/me/me.module').then(m => m.MeModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/not-found/not-found.module').then(
