@@ -1,2 +1,2 @@
+export * from './base-theme.module';
 export * from './enums';
-export * from './theme.module';
