@@ -4,11 +4,15 @@
   appearance="icon"
   [lyMenuTriggerFor]="menu"
 >
-  <ly-icon>notifications<ly-badge bg="accent">11</ly-badge></ly-icon>
+  <ly-icon
+    >notifications<ly-badge bg="accent">{{
+      countNotifications
+    }}</ly-badge></ly-icon
+  >
 </button>
 
-<ng-template #menu let-M>
-  <ly-menu [ref]="M">
+<ng-template #menu let-menuRef>
+  <ly-menu [ref]="menuRef">
     <a
       [routerLink]="['/notifications', item.id]"
       ly-button

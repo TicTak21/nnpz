@@ -1,6 +1,7 @@
 import { LyAvatarModule } from '@alyle/ui/avatar';
 import { LyBadgeModule } from '@alyle/ui/badge';
 import { LyButtonModule } from '@alyle/ui/button';
+import { LyGridModule } from '@alyle/ui/grid';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyMenuModule } from '@alyle/ui/menu';
 import { LyToolbarModule } from '@alyle/ui/toolbar';
@@ -31,6 +32,7 @@ import { HeaderComponent } from './containers/header/header.component';
     LyIconModule,
     LyAvatarModule,
     LyMenuModule,
+    LyGridModule,
     AvatarModule,
   ],
   exports: [HeaderComponent],

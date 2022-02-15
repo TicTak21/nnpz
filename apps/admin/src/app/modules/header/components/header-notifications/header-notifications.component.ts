@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class HeaderNotificationsComponent {
   @Input() notifications: { title: string; id: number }[] = [];
+
+  get countNotifications(): number {
+    return this.notifications.length;
+  }
 }
