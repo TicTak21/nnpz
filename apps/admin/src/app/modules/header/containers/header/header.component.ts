@@ -2,8 +2,8 @@ import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 const styles = {
-  grow: {
-    flexGrow: 1,
+  container: {
+    gap: '0.25rem',
   },
 };
 
