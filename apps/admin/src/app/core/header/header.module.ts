@@ -9,12 +9,12 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AvatarModule } from '../avatar/avatar.module';
+import { AvatarModule } from '../../modules/avatar/avatar.module';
+import { ThemeModule } from '../theme/theme.module';
 import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu-btn.component';
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';
 import { HeaderTitleComponent } from './components/header-title/header-title.component';
 import { HeaderComponent } from './containers/header/header.component';
-import { HeaderThemeSwitchComponent } from './components/header-theme-switch/header-theme-switch.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { HeaderThemeSwitchComponent } from './components/header-theme-switch/hea
     HeaderTitleComponent,
     HeaderMenuBtnComponent,
     HeaderNotificationsComponent,
-    HeaderThemeSwitchComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +35,7 @@ import { HeaderThemeSwitchComponent } from './components/header-theme-switch/hea
     LyMenuModule,
     LyGridModule,
     AvatarModule,
+    ThemeModule,
   ],
   exports: [HeaderComponent],
 })

@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ThemeService } from '../../../../core/theme/services/theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
-  selector: 'admin-header-theme-switch',
-  templateUrl: './header-theme-switch.component.html',
+  selector: 'admin-theme-switch',
+  templateUrl: './theme-switch.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderThemeSwitchComponent {
+export class ThemeSwitchComponent {
   constructor(private readonly themeService: ThemeService) {}
 
   toggleTheme() {
