@@ -2,7 +2,7 @@ import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 const styles = {
-  center: {
+  container: {
     display: 'flex !important',
     justifyContent: 'center',
     alignItems: 'center',
