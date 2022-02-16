@@ -7,7 +7,17 @@ import { environment } from '../../../environments/environment';
 
 @NgModule({
   imports: [
-    NgrxStoreModule.forRoot({}, {}),
+    NgrxStoreModule.forRoot(
+      {},
+      {
+        runtimeChecks: {
+          strictStateSerializability: true,
+          strictActionSerializability: true,
+          strictActionWithinNgZone: true,
+          strictActionTypeUniqueness: true,
+        },
+      },
+    ),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
