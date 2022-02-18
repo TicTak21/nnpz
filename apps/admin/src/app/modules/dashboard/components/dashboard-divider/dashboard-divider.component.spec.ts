@@ -8,9 +8,8 @@ describe('DashboardDividerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardDividerComponent ]
-    })
-    .compileComponents();
+      declarations: [DashboardDividerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

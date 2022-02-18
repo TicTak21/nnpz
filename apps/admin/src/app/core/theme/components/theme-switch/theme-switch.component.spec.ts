@@ -8,9 +8,8 @@ describe('ThemeSwitchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThemeSwitchComponent ]
-    })
-    .compileComponents();
+      declarations: [ThemeSwitchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

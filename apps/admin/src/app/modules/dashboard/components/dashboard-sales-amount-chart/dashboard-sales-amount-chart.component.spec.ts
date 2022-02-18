@@ -8,9 +8,8 @@ describe('DashboardSalesAmountChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardSalesAmountChartComponent ]
-    })
-    .compileComponents();
+      declarations: [DashboardSalesAmountChartComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

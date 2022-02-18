@@ -4,9 +4,7 @@ import { MeRoutingModule } from './me-routing.module';
 import { MePageComponent } from './containers/me-page/me-page.component';
 
 @NgModule({
-  declarations: [
-    MePageComponent
-  ],
+  declarations: [MePageComponent],
   imports: [CommonModule, MeRoutingModule],
 })
 export class MeModule {}
