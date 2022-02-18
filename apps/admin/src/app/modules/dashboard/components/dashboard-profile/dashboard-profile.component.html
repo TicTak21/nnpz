@@ -1,7 +1,7 @@
 <ly-paper
   [elevation]="3"
-  [lyP]="'1rem'"
-  [lyHeight]="'100%'"
+  lyP="1rem"
+  lyHeight="100%"
   [withClass]="classes.container"
 >
   <ly-grid container [spacing]="16">
@@ -9,18 +9,16 @@
       <admin-avatar [size]="100" [src]="img" [alt]="username"></admin-avatar>
     </ly-grid>
     <ly-grid item [col]="12">
-      <h6 [lyTyp]="'headline'">{{ username }}</h6>
+      <h6 lyTyp="headline">{{ username }}</h6>
     </ly-grid>
     <ly-grid item [col]="12">
-      <a ly-button outlined [routerLink]="['/me']" [lyM]="'0 0.5rem'"
-        >Go to Profile</a
-      >
+      <a ly-button outlined routerLink="/me" lyM="0 0.5rem">Go to Profile</a>
       <a
         ly-button
         outlined
         color="warn"
-        [routerLink]="['/auth/logout']"
-        [lyM]="'0 0.5rem'"
+        routerLink="/auth/logout"
+        lyM="0 0.5rem"
         >Log Out</a
       >
     </ly-grid>
