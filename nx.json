@@ -54,6 +54,7 @@
     },
     "@nrwl/angular:component": {
       "style": "scss",
+      "inlineStyle": true,
       "changeDetection": "OnPush"
     }
   },
