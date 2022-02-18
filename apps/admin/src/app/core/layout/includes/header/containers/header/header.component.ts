@@ -4,6 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 const styles = {
   container: {
     gap: '0.25rem',
+    boxShadow: '0 0 10px rgba(0,0,0, 0.5)',
+    zIndex: 99,
   },
 };
 

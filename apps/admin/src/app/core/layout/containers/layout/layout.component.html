@@ -1,3 +1,7 @@
-<main [lyP]="'1rem'">
-  <ng-content select="[projected]"></ng-content>
-</main>
+<admin-header></admin-header>
+
+<admin-drawer>
+  <main lyP="1rem" drawerProjection>
+    <ng-content select="[layoutProjection]"></ng-content>
+  </main>
+</admin-drawer>

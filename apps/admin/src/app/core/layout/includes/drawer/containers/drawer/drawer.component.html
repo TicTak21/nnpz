@@ -1,0 +1,18 @@
+<ly-drawer-container [withClass]="classes.drawerContainer">
+  <ly-drawer
+    ly-paper
+    lyMy="1rem"
+    lyP="1.5rem"
+    #drawer="lyDrawer"
+    [opened]="true"
+    [hasBackdrop]="false"
+    mode="side"
+    drawerWidth="256"
+    bg="primary"
+  >
+    drawer
+  </ly-drawer>
+  <ly-drawer-content>
+    <ng-content select="[drawerProjection]"></ng-content>
+  </ly-drawer-content>
+</ly-drawer-container>

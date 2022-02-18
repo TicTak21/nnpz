@@ -5,6 +5,9 @@ const STYLES = (theme: ThemeVariables, ref: ThemeRef) => {
   ref.selectorsOf(STYLES);
   return {
     $global: lyl`{
+      * {
+        box-sizing: border-box
+      }
       body {
         background-color: ${theme.background.default}
         color: ${theme.text.default}
