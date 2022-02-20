@@ -44,6 +44,7 @@ export class AuthenticationController {
   }
 
   @Post('register')
+  @Public()
   @ApiOperation({ summary: 'Register new account with given credentials' })
   register(
     @Body() credentials: RegisterDto,

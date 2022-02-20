@@ -2,6 +2,7 @@ import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
 import { Observable, of, switchMap } from 'rxjs';
 import { UserEntity } from '../../../user/entities/user.entity';
 import { UserRo } from '../../../user/validation/ro';
+import { Public } from '../decorators';
 import { GqlContext } from '../interfaces';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';
@@ -11,6 +12,7 @@ export class AuthenticationResolver {
   constructor(private readonly authService: AuthenticationService) {}
 
   @Mutation(_returns => UserEntity)
+  @Public()
   login(
     @Args('credentials') credentials: LoginDto,
     @Context() ctx?: GqlContext,
@@ -38,6 +40,7 @@ export class AuthenticationResolver {
     );
   }
 
+  @Public()
   @Mutation(_returns => UserEntity)
   register(
     @Args('credentials') credentials: RegisterDto,
