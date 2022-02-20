@@ -5,7 +5,7 @@ const cs = new ConnectionString(process.env.POSTGRES_URL);
 const {
   user: USERNAME,
   password: PASSWORD,
-  HOST = cs.host,
+  port: PORT,
   DATABASE = cs.path && cs.path[0],
   SCHEMA = cs.params && cs.params.schema,
   SCHEMAS = cs.params && cs.params.schemas,
@@ -13,7 +13,7 @@ const {
 
 module.exports = {
   flywayArgs: {
-    url: `jdbc:postgresql://${HOST}/${DATABASE}`,
+    url: `jdbc:postgresql://localhost:${PORT}/${DATABASE}`,
     schemas: SCHEMAS || SCHEMA,
     defaultSchema: SCHEMA,
     locations: `filesystem:migrations`,
