@@ -2,6 +2,7 @@ import { Field, InputType } from '@nestjs/graphql';
 import { EPizzaSize } from '@nnpz/types';
 import {
   IsEnum,
+  IsInt,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -41,6 +42,12 @@ export class CreatePizzaDto {
   @IsOptional()
   @IsString()
   slug?: string;
+
+  @Field({ defaultValue: 0 })
+  @IsNotEmpty()
+  @IsInt()
+  @Min(0)
+  itemsSold: number;
 
   @Field(_type => [String], { defaultValue: [] })
   @IsOptional()

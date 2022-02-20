@@ -67,6 +67,7 @@ type Pizza {
   description: String
   image: String
   slug: String
+  itemsSold: Float!
   toppings: [Topping!]
 }
 
@@ -119,6 +120,7 @@ input PizzaInput {
   description: String
   image: String
   slug: String
+  itemsSold: Float = 0
   toppings: [ToppingInput!] = null
 }
 
@@ -163,6 +165,7 @@ input CreatePizzaDto {
   description: String
   image: String
   slug: String
+  itemsSold: Float = 0
   toppings: [String!] = []
 }
 
@@ -173,6 +176,7 @@ input UpdatePizzaDto {
   description: String
   image: String
   slug: String
+  itemsSold: Float = 0
   toppings: [String!] = []
 }
 

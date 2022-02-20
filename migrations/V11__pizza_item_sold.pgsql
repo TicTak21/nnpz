@@ -1,0 +1,1 @@
+ALTER TABLE "pizza" ADD COLUMN "itemsSold" INT DEFAULT 0 NOT NULL;
