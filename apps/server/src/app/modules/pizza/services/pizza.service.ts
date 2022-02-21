@@ -142,4 +142,21 @@ export class PizzaService {
       catchError(err => this.errorService.handle(err)),
     );
   }
+
+  getTopBySold(take = 5): Observable<PizzaEntity[]> {
+    return from(
+      this.pizzaRepo
+        .createQueryBuilder('pizza')
+        .leftJoinAndSelect('pizza.toppings', 'toppings')
+        .orderBy('pizza.itemsSold', 'DESC')
+        .take(take)
+        .getMany(),
+    ).pipe(
+      mergeMap<PizzaEntity[], Observable<PizzaEntity[]>>(entity =>
+        entity ? of(entity) : EMPTY,
+      ),
+      throwIfEmpty(() => ({ code: HttpStatus.NOT_FOUND })),
+      catchError(err => this.errorService.handle(err)),
+    );
+  }
 }

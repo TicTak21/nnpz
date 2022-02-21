@@ -39,4 +39,11 @@ export class PizzaResolver {
   ): Observable<PizzaEntity> {
     return this.pizzaService.update(id, dto);
   }
+
+  @Query(_returns => [PizzaEntity], { nullable: true })
+  getTopPizzasBySold(
+    @Args('take', { nullable: true }) take?: number,
+  ): Observable<PizzaEntity[]> {
+    return this.pizzaService.getTopBySold(take);
+  }
 }

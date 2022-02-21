@@ -127,6 +127,7 @@ input PizzaInput {
 type Query {
   pizzas(pagination: PaginationArgsDto): PaginatedPizzasRo!
   pizza(id: String!): Pizza
+  getTopPizzasBySold(take: Float): [Pizza!]
   toppings(pagination: PaginationArgsDto): PaginatedToppingsRo!
   topping(id: String!): Topping
   users(pagination: PaginationArgsDto): PaginatedUsersRo!

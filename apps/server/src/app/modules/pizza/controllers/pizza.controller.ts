@@ -32,6 +32,12 @@ export class PizzaController {
     return this.pizzaService.getAll(pagination);
   }
 
+  @Get('/top')
+  @ApiOperation({ summary: 'Get top pizzas by "itemsSold"' })
+  getTopPizzasBySold(@Query('take') take: number) {
+    return this.pizzaService.getTopBySold(take);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a single pizza by `id`' })
   get(@Param('id') id: string): Observable<PizzaEntity> {
