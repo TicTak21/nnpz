@@ -14,4 +14,4 @@ export const ROOT_REDUCERS = new InjectionToken<
   }),
 });
 
-export const { selectRouteData } = fromRouter.getSelectors();
+export const { selectUrl } = fromRouter.getSelectors();

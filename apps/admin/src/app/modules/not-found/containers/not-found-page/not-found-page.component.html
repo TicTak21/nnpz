@@ -1,1 +1,13 @@
-<p>not-found-page works!</p>
+<div
+  lyP="1rem"
+  lyHeight="100vh"
+  lyDisplay="flex"
+  lyFlexDirection="column"
+  lyJustifyContent="center"
+  lyAlignItems="center"
+  [style.gap]="'1rem'"
+>
+  <admin-not-found-title></admin-not-found-title>
+  <admin-not-found-route [url$]="url$"></admin-not-found-route>
+  <admin-not-found-home-btn></admin-not-found-home-btn>
+</div>

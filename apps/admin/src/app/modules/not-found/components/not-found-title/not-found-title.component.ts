@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'admin-not-found',
-  templateUrl: './not-found.component.html',
+  selector: 'admin-not-found-title',
+  templateUrl: './not-found-title.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotFoundComponent {}
+export class NotFoundTitleComponent {}
