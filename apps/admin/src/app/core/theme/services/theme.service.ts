@@ -5,7 +5,7 @@ import { EThemes } from '@nnpz/ui';
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   // TODO: replace with smth like this.theme.currentTheme
-  private currentTheme: EThemes = EThemes.dark;
+  public currentTheme: EThemes = EThemes.dark;
   private readonly storageKey: string = 'alyle-theme';
   private readonly defaultLightTheme = EThemes.light;
   private readonly defaultDarkTheme = EThemes.dark;
