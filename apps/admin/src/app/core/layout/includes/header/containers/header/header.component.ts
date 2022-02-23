@@ -1,5 +1,7 @@
 import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as layoutActions from '../../../../store/actions';
 
 const styles = {
   container: {
@@ -26,5 +28,12 @@ export class HeaderComponent {
     ],
   };
 
-  constructor(private readonly theme: LyTheme2) {}
+  constructor(
+    private readonly theme: LyTheme2,
+    private readonly store: Store,
+  ) {}
+
+  toggleDrawer() {
+    this.store.dispatch(layoutActions.toggleDrawer());
+  }
 }

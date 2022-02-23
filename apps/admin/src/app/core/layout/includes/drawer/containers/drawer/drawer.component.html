@@ -1,10 +1,11 @@
 <ly-drawer-container [withClass]="classes.drawerContainer">
   <ly-drawer
+    *ngIf="opened$ | async as opened"
     ly-paper
     lyMy="1rem"
     lyP="1.5rem"
     #drawer="lyDrawer"
-    [opened]="true"
+    [opened]="opened"
     [hasBackdrop]="false"
     mode="side"
     drawerWidth="256"
