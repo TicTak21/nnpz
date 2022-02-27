@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Output,
@@ -13,8 +12,6 @@ import {
 })
 export class HeaderMenuBtnComponent {
   @Output() toggleDrawer$: EventEmitter<void> = new EventEmitter<void>();
-
-  constructor(private readonly cdr: ChangeDetectorRef) {}
 
   clickHandler() {
     this.toggleDrawer$.emit();
