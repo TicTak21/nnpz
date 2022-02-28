@@ -1,4 +1,4 @@
-import { PartialThemeVariables } from '@alyle/ui';
+import { lyl, PartialThemeVariables } from '@alyle/ui';
 import { color } from '@alyle/ui/color';
 
 export class CustomMinimaDark implements PartialThemeVariables {
@@ -18,5 +18,12 @@ export class CustomMinimaDark implements PartialThemeVariables {
   };
   paper = {
     default: color(0x212c45),
+  };
+  menu = {
+    root: (__: any) => lyl`{
+      ${__.container} {
+        background: #212c45
+      }
+    }`,
   };
 }
