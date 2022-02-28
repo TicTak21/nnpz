@@ -4,6 +4,7 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "extends": ["../../eslintrc-custom-overrides.json"],
       "rules": {}
     },
     {
