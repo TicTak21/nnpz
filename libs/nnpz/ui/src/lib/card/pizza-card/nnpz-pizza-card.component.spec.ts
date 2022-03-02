@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NnpzPizzaCardComponent } from './nnpz-pizza-card.component';
 
-import { PizzaCardComponent } from './pizza-card.component';
-
-describe('PizzaCardComponent', () => {
-  let component: PizzaCardComponent;
-  let fixture: ComponentFixture<PizzaCardComponent>;
+describe('NnpzPizzaCardComponent', () => {
+  let component: NnpzPizzaCardComponent;
+  let fixture: ComponentFixture<NnpzPizzaCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PizzaCardComponent],
+      declarations: [NnpzPizzaCardComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PizzaCardComponent);
+    fixture = TestBed.createComponent(NnpzPizzaCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

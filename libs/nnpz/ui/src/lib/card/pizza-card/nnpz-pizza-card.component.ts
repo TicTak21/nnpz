@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'nnpz-pizza-card',
-  templateUrl: './pizza-card.component.html',
+  templateUrl: './nnpz-pizza-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PizzaCardComponent {
+export class NnpzPizzaCardComponent {
   @Input() name: string = '';
   @Input() price: number = 0;
   @Input() description: string = '';

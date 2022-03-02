@@ -1,1 +1,1 @@
-export { PizzaCardModule } from './pizza-card/pizza-card.module';
+export { NnpzPizzaCardModule } from './pizza-card/nnpz-pizza-card.module';

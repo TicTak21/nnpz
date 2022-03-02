@@ -5,10 +5,10 @@ import { LyIconModule } from '@alyle/ui/icon';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PizzaCardComponent } from './pizza-card.component';
+import { NnpzPizzaCardComponent } from './nnpz-pizza-card.component';
 
 @NgModule({
-  declarations: [PizzaCardComponent],
+  declarations: [NnpzPizzaCardComponent],
   imports: [
     CommonModule,
     LyCommonModule,
@@ -17,6 +17,6 @@ import { PizzaCardComponent } from './pizza-card.component';
     LyButtonModule,
     LyIconModule,
   ],
-  exports: [PizzaCardComponent],
+  exports: [NnpzPizzaCardComponent],
 })
-export class PizzaCardModule {}
+export class NnpzPizzaCardModule {}
