@@ -1,13 +1,29 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectUrl } from '../../../../../store/reducers';
 
 @Component({
   selector: 'admin-drawer-menu',
   templateUrl: './drawer-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fadeIn', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [style({ opacity: 0 }), animate(500)]),
+    ]),
+  ],
 })
 export class DrawerMenuComponent {
   navigation = [
-    { label: 'Home', icon: 'home', href: '/' },
+    { label: 'Dashboard', icon: 'dashboard', href: '/dashboard' },
     { label: 'Profile', icon: 'person', href: '/me' },
     { label: 'Sales', icon: 'request_quote', href: '/sales' },
     { label: 'Report', icon: 'summarize', href: '/report' },
@@ -19,4 +35,9 @@ export class DrawerMenuComponent {
     },
     { label: 'Settings', icon: 'settings', href: '/settings' },
   ];
+  url$: Observable<string> = new Observable<string>();
+
+  constructor(private readonly store: Store) {
+    this.url$ = this.store.select(selectUrl);
+  }
 }
