@@ -2,6 +2,7 @@ import { LyCommonModule } from '@alyle/ui';
 import { LyButtonModule } from '@alyle/ui/button';
 import { LyGridModule } from '@alyle/ui/grid';
 import { LyIconModule } from '@alyle/ui/icon';
+import { LyTabsModule } from '@alyle/ui/tabs';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { DashboardSalesAmountChartComponent } from './components/dashboard-sales
 import { DashboardTopFivePizzasComponent } from './components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 import { DashboardPageComponent } from './containers/dashboard-page/dashboard-page.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardTabsComponent } from './components/dashboard-tabs/dashboard-tabs.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardActiveUsersComponent,
     DashboardDividerComponent,
     DashboardProfileComponent,
+    DashboardTabsComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     LyButtonModule,
     LyIconModule,
     NnpzAvatarModule,
+    LyTabsModule,
   ],
 })
 export class DashboardModule {}
