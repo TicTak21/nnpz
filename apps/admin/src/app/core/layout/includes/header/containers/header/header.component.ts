@@ -6,8 +6,9 @@ import * as layoutActions from '../../../../store/actions';
 const styles = {
   container: {
     gap: '0.25rem',
+    top: 0,
     boxShadow: '0 0 10px rgba(0,0,0, 0.5)',
-    zIndex: 99,
+    position: 'sticky',
   },
 };
 
