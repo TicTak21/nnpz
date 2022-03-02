@@ -5,7 +5,13 @@
   </ly-tab>
   <ly-tab>
     <button ly-tab-label>Notes</button>
-    <div lyP="1.5rem" lyTyp="body1">Editor</div>
+    <div lyP="1.5rem">
+      <quill-editor
+        placeholder="Update pizza with olives..."
+        [modules]="config"
+        [sanitize]="true"
+      ></quill-editor>
+    </div>
   </ly-tab>
   <ly-tab>
     <button ly-tab-label>Calendar</button>
