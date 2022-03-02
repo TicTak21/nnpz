@@ -1,4 +1,9 @@
-<a ly-button appearance="icon" routerLink="/me" [style.textDecoration]="'none'">
+<a
+  ly-button
+  appearance="icon"
+  [routerLink]="href"
+  [style.textDecoration]="'none'"
+>
   <ly-avatar [size]="size">
     <img *ngIf="src && alt" [alt]="alt" [src]="src" />
     <ng-container *ngIf="!src && alt">{{ altFirstChar }}</ng-container>

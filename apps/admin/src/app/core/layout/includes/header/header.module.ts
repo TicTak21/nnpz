@@ -9,7 +9,7 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AvatarModule } from '../../../../modules/avatar/avatar.module';
+import { NnpzAvatarModule } from '@nnpz/ui';
 import { ThemeModule } from '../../../theme/theme.module';
 import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu-btn.component';
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';
@@ -34,8 +34,8 @@ import { HeaderComponent } from './containers/header/header.component';
     LyAvatarModule,
     LyMenuModule,
     LyGridModule,
-    AvatarModule,
     ThemeModule,
+    NnpzAvatarModule,
   ],
   exports: [HeaderComponent],
 })

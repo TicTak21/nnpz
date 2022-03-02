@@ -3,11 +3,11 @@ import { LyIconModule } from '@alyle/ui/icon';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AvatarComponent } from './containers/avatar/avatar.component';
+import { NnpzAvatarComponent } from './nnpz-avatar.component';
 
 @NgModule({
-  declarations: [AvatarComponent],
+  declarations: [NnpzAvatarComponent],
   imports: [CommonModule, LyAvatarModule, LyIconModule, RouterModule],
-  exports: [AvatarComponent],
+  exports: [NnpzAvatarComponent],
 })
-export class AvatarModule {}
+export class NnpzAvatarModule {}

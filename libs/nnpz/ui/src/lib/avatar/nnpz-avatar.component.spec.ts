@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NnpzAvatarComponent } from './nnpz-avatar.component';
 
-import { AvatarComponent } from './avatar.component';
-
-describe('AvatarComponent', () => {
-  let component: AvatarComponent;
-  let fixture: ComponentFixture<AvatarComponent>;
+describe('NnpzAvatarComponent', () => {
+  let component: NnpzAvatarComponent;
+  let fixture: ComponentFixture<NnpzAvatarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AvatarComponent],
+      declarations: [NnpzAvatarComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvatarComponent);
+    fixture = TestBed.createComponent(NnpzAvatarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
