@@ -1,20 +1,22 @@
-<ly-tabs ly-paper bg="primary" lyHeight="100%">
-  <ly-tab>
-    <button ly-tab-label>Latest order</button>
-    <div lyP="1.5rem" lyTyp="body1">Order info</div>
-  </ly-tab>
-  <ly-tab>
-    <button ly-tab-label>Notes</button>
-    <div lyP="1.5rem">
-      <quill-editor
-        placeholder="Update pizza with olives..."
-        [modules]="config"
-        [sanitize]="true"
-      ></quill-editor>
-    </div>
-  </ly-tab>
-  <ly-tab>
-    <button ly-tab-label>Calendar</button>
-    <div lyP="1.5rem" lyTyp="body1">Calendar</div>
-  </ly-tab>
-</ly-tabs>
+<ly-paper [elevation]="3" lyHeight="100%">
+  <ly-tabs>
+    <ly-tab>
+      <button ly-tab-label>Latest order</button>
+      <div lyP="1.5rem" lyTyp="body1">Order info</div>
+    </ly-tab>
+    <ly-tab>
+      <button ly-tab-label>Notes</button>
+      <div lyP="1.5rem">
+        <quill-editor
+          placeholder="Update pizza with olives..."
+          [modules]="config"
+          [sanitize]="true"
+        ></quill-editor>
+      </div>
+    </ly-tab>
+    <ly-tab>
+      <button ly-tab-label>Calendar</button>
+      <div lyP="1.5rem" lyTyp="body1">Calendar</div>
+    </ly-tab>
+  </ly-tabs>
+</ly-paper>

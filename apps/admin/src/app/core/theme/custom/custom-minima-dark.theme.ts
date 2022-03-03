@@ -8,7 +8,7 @@ export class CustomMinimaDark implements PartialThemeVariables {
     contrast: color(0xffffff),
   };
   accent = {
-    default: color(0x28428b),
+    default: color(0x3366ff),
   };
   warn = {
     default: color(0xff3d71),
