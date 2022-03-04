@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BaseThemeModule } from '@nnpz/ui';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
-import { CustomMinimaDark } from './custom/custom-minima-dark.theme';
-import { CustomMinimaLight } from './custom/custom-minima-light.theme';
 import { CustomGlobalVariables } from './custom/custom-variables.theme';
+import { CustomMinimaDark } from './custom/dark/dark.theme';
+import { CustomMinimaLight } from './custom/light/light.theme';
 
 @NgModule({
   declarations: [ThemeSwitchComponent],

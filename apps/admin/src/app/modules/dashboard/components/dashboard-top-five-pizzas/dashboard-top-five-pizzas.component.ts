@@ -1,5 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ChartDataset } from 'chart.js';
+import {
+  ChartBlue,
+  ChartGreen,
+} from '../../../../core/theme/custom/charts/chart-colors.theme';
+import { chartConfig } from '../../../../core/theme/custom/charts/chart-config.theme';
 
 @Component({
   selector: 'admin-dashboard-top-five-pizzas',
@@ -7,34 +12,7 @@ import { ChartDataset } from 'chart.js';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardTopFivePizzasComponent {
-  barChartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        labels: {
-          color: 'rgb(143,155,179)',
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: 'rgb(143,155,179)',
-        },
-        grid: {
-          color: 'rgb(143,155,179,0.25)',
-        },
-      },
-      y: {
-        ticks: {
-          color: 'rgb(143,155,179)',
-        },
-        grid: {
-          color: 'rgb(143,155,179,0.25)',
-        },
-      },
-    },
-  };
+  chartConfig = { ...chartConfig };
   barChartLabels: string[] = [
     'Texas',
     'Hawaiian',
@@ -47,10 +25,10 @@ export class DashboardTopFivePizzasComponent {
     {
       data: [45, 37, 60, 70, 46],
       label: 'Top 5 Pizzas',
-      backgroundColor: 'rgb(50,99,247,0.1)',
-      hoverBackgroundColor: 'rgb(50,99,247,0.5)',
-      hoverBorderColor: 'rgb(0,214,143)',
-      borderColor: 'rgb(50,99,247)',
+      backgroundColor: ChartBlue.alpha(0.1).css(),
+      hoverBackgroundColor: ChartBlue.alpha(0.5).css(),
+      hoverBorderColor: ChartGreen.css(),
+      borderColor: ChartBlue.css(),
       borderWidth: 3,
     },
   ];

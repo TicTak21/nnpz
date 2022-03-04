@@ -1,5 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ChartDataset } from 'chart.js';
+import {
+  ChartBlue,
+  ChartGreen,
+  ChartWhite,
+} from '../../../../core/theme/custom/charts/chart-colors.theme';
+import { chartConfig } from '../../../../core/theme/custom/charts/chart-config.theme';
 
 @Component({
   selector: 'admin-dashboard-sales-amount-chart',
@@ -7,17 +13,18 @@ import { ChartDataset } from 'chart.js';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardSalesAmountChartComponent {
+  chartConfig = { ...chartConfig };
   lineChartData: ChartDataset[] = [
     {
       data: [85, 72, 78, 75, 77, 75],
       label: 'Sales amount',
-      backgroundColor: 'rgb(19,220,148,0.1)',
-      borderColor: 'rgb(19,220,148)',
+      backgroundColor: ChartGreen.alpha(0.1).css(),
+      borderColor: ChartGreen.css(),
       fill: true,
-      pointBackgroundColor: 'rgb(255,255,255)',
-      pointBorderColor: 'rgb(50,99,247)',
+      pointBackgroundColor: ChartWhite.css(),
+      pointBorderColor: ChartBlue.css(),
       pointBorderWidth: 4,
-      pointHoverBorderColor: 'rgb(50,99,247)',
+      pointHoverBorderColor: ChartBlue.css(),
       pointHoverBorderWidth: 6,
       pointHoverRadius: 10,
       pointRadius: 8,
@@ -31,32 +38,4 @@ export class DashboardSalesAmountChartComponent {
     'May',
     'June',
   ];
-  lineChartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        labels: {
-          color: 'rgb(143,155,179)',
-        },
-      },
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: 'rgb(143,155,179)',
-        },
-        grid: {
-          color: 'rgb(143,155,179,0.25)',
-        },
-      },
-      y: {
-        ticks: {
-          color: 'rgb(143,155,179)',
-        },
-        grid: {
-          color: 'rgb(143,155,179,0.25)',
-        },
-      },
-    },
-  };
 }
