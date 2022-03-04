@@ -11,10 +11,16 @@ export class DashboardSalesAmountChartComponent {
     {
       data: [85, 72, 78, 75, 77, 75],
       label: 'Sales amount',
-      backgroundColor: 'rgb(157, 40, 176, 0.25)',
-      borderColor: '#9d28b0',
+      backgroundColor: 'rgb(19,220,148,0.1)',
+      borderColor: 'rgb(19,220,148)',
       fill: true,
-      pointBackgroundColor: '#1eeab6',
+      pointBackgroundColor: 'rgb(255,255,255)',
+      pointBorderColor: 'rgb(50,99,247)',
+      pointBorderWidth: 4,
+      pointHoverBorderColor: 'rgb(50,99,247)',
+      pointHoverBorderWidth: 6,
+      pointHoverRadius: 10,
+      pointRadius: 8,
     },
   ];
   lineChartLabels: string[] = [
@@ -27,5 +33,30 @@ export class DashboardSalesAmountChartComponent {
   ];
   lineChartOptions = {
     responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: 'rgb(143,155,179)',
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: 'rgb(143,155,179)',
+        },
+        grid: {
+          color: 'rgb(143,155,179,0.25)',
+        },
+      },
+      y: {
+        ticks: {
+          color: 'rgb(143,155,179)',
+        },
+        grid: {
+          color: 'rgb(143,155,179,0.25)',
+        },
+      },
+    },
   };
 }

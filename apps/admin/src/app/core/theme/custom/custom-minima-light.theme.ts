@@ -7,6 +7,9 @@ export class CustomMinimaLight implements PartialThemeVariables {
     default: color(0xffffff),
     contrast: color(0x3b435a),
   };
+  accent = {
+    default: color(0x4070ff),
+  };
   warn = {
     default: color(0xff3d71),
   };

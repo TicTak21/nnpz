@@ -9,6 +9,31 @@ import { ChartDataset } from 'chart.js';
 export class DashboardTopFivePizzasComponent {
   barChartOptions = {
     responsive: true,
+    plugins: {
+      legend: {
+        labels: {
+          color: 'rgb(143,155,179)',
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: 'rgb(143,155,179)',
+        },
+        grid: {
+          color: 'rgb(143,155,179,0.25)',
+        },
+      },
+      y: {
+        ticks: {
+          color: 'rgb(143,155,179)',
+        },
+        grid: {
+          color: 'rgb(143,155,179,0.25)',
+        },
+      },
+    },
   };
   barChartLabels: string[] = [
     'Texas',
@@ -22,8 +47,11 @@ export class DashboardTopFivePizzasComponent {
     {
       data: [45, 37, 60, 70, 46],
       label: 'Top 5 Pizzas',
-      backgroundColor: '#1eeab6',
-      hoverBackgroundColor: '#9d28b0',
+      backgroundColor: 'rgb(50,99,247,0.1)',
+      hoverBackgroundColor: 'rgb(50,99,247,0.5)',
+      hoverBorderColor: 'rgb(0,214,143)',
+      borderColor: 'rgb(50,99,247)',
+      borderWidth: 3,
     },
   ];
 }
