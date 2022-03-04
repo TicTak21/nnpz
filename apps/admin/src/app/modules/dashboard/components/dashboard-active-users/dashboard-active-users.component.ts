@@ -6,5 +6,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardActiveUsersComponent {
-  @Input() activeUsers = 0;
+  @Input() activeUsers: number = 0;
 }

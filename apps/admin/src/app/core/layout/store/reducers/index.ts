@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as LayoutActions from '../actions';
+import * as layoutActions from '../actions';
 
 export const layoutFeatureKey = 'layout';
 
@@ -13,9 +13,7 @@ const initialState: State = {
 
 export const reducer = createReducer(
   initialState,
-  on(LayoutActions.toggleDrawer, state => ({
+  on(layoutActions.toggleDrawer, state => ({
     drawerOpened: !state.drawerOpened,
   })),
 );
-
-export const selectDrawerOpened = (state: State) => state.drawerOpened;

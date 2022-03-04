@@ -5,7 +5,10 @@ export const selectLayoutState = createFeatureSelector<fromLayout.State>(
   fromLayout.layoutFeatureKey,
 );
 
+export const selectDrawerOpened = (state: fromLayout.State) =>
+  state.drawerOpened;
+
 export const selectDrawerState = createSelector(
   selectLayoutState,
-  fromLayout.selectDrawerOpened,
+  selectDrawerOpened,
 );

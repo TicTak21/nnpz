@@ -7,7 +7,6 @@ import { LyTabsModule } from '@alyle/ui/tabs';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NnpzAvatarModule } from '@nnpz/ui';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardActiveOrdersComponent } from './components/dashboard-active-orders/dashboard-active-orders.component';
@@ -43,8 +42,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     NnpzAvatarModule,
     LyTabsModule,
     LyFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
   ],
 })
 export class DashboardModule {}

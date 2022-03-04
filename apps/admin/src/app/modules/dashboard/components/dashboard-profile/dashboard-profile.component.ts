@@ -20,6 +20,6 @@ export class DashboardProfileComponent {
 
   constructor(private readonly theme: LyTheme2) {}
 
-  @Input() username = '';
-  @Input() img = '';
+  @Input() username: string = '';
+  @Input() img: string = '';
 }

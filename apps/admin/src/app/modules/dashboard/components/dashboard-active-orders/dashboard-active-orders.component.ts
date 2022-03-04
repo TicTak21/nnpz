@@ -6,5 +6,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardActiveOrdersComponent {
-  @Input() activeOrders = 0;
+  @Input() activeOrders: number = 0;
 }
