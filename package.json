@@ -74,7 +74,6 @@
     "hammerjs": "^2.0.8",
     "helmet": "^4.6.0",
     "ngrx-store-localstorage": "^13.0.0",
-    "ngx-quill": "^16.1.2",
     "pg": "^8.7.1",
     "pug": "^3.0.2",
     "quill": "^1.3.7",
