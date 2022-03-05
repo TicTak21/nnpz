@@ -3,7 +3,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../../../environments/environment';
+import { environment } from '@nnpz/admin/environments/environment';
 import { metaReducers, ROOT_REDUCERS } from './reducers';
 
 @NgModule({

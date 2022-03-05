@@ -8,8 +8,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
+import * as layoutSelectors from '@nnpz/admin/app/core/layout/store';
 import { Observable, Subscription, tap } from 'rxjs';
-import * as layoutSelectors from '../../../../store/selectors';
 
 const styles = {
   container: {

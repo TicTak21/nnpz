@@ -7,8 +7,8 @@ import {
 } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { selectUrl } from '@nnpz/admin/app/core/store';
 import { Observable } from 'rxjs';
-import { selectUrl } from '../../../../../store/reducers';
 
 @Component({
   selector: 'admin-drawer-menu',

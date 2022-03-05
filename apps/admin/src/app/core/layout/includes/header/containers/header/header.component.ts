@@ -1,7 +1,7 @@
 import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as layoutActions from '../../../../store/actions';
+import * as layoutActions from '@nnpz/admin/app/core/layout/store';
 
 const styles = {
   container: {

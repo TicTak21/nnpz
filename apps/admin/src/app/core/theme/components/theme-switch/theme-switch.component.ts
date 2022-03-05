@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ThemeService } from '@nnpz/admin/app/core/theme/services/theme.service';
 import { EThemes } from '@nnpz/ui';
-import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'admin-theme-switch',

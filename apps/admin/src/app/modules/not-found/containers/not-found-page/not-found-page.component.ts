@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { selectUrl } from '@nnpz/admin/app/core/store/reducers';
 import { Observable } from 'rxjs';
-import { selectUrl } from '../../../../core/store/reducers';
 
 @Component({
   selector: 'admin-not-found-page',

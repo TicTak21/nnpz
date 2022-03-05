@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 import * as fromRouter from '@ngrx/router-store';
 import { Action, ActionReducerMap, MetaReducer } from '@ngrx/store';
-import * as fromLayout from '../../layout/store/reducers';
+import * as fromLayout from '@nnpz/admin/app/core/layout/store/reducers';
 import { localStorageSyncReducer } from './local-storage.reducer';
 
 export interface State {

@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ChartDataset } from 'chart.js';
 import {
   ChartBlue,
+  chartConfig,
   ChartGreen,
-} from '../../../../core/theme/custom/charts/chart-colors.theme';
-import { chartConfig } from '../../../../core/theme/custom/charts/chart-config.theme';
+} from '@nnpz/admin/app/core/theme/custom';
+import { ChartDataset } from 'chart.js';
 
 @Component({
   selector: 'admin-dashboard-top-five-pizzas',
