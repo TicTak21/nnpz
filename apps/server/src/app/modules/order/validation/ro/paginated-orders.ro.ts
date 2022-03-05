@@ -1,6 +1,6 @@
 import { ObjectType } from '@nestjs/graphql';
-import { AbstractPaginatedList } from '../../../../shared/validation/ro';
-import { OrderEntity } from '../../entities/order.entity';
+import { OrderEntity } from '@nnpz/server/app/modules/order/entities/order.entity';
+import { AbstractPaginatedList } from '@nnpz/server/app/shared/validation/ro';
 
 @ObjectType()
 export class PaginatedOrdersRo extends AbstractPaginatedList(OrderEntity) {}

@@ -1,7 +1,7 @@
-import { IToppingEntity } from '@nnpz/types';
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
+import { BaseEntity } from '@nnpz/server/app/shared/entities';
+import { IToppingEntity } from '@nnpz/types';
 import { Column, Entity } from 'typeorm';
-import { BaseEntity } from '../../../shared/entities';
 
 @Entity('topping')
 @ObjectType('Topping')

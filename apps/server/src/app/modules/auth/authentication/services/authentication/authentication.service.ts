@@ -1,6 +1,16 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
+import { ITokenPayload } from '@nnpz/server/app/modules/auth/authentication/interfaces';
+import {
+  LoginDto,
+  RegisterDto,
+} from '@nnpz/server/app/modules/auth/authentication/validation/dto';
+import { CryptoService } from '@nnpz/server/app/modules/crypto/services/crypto.service';
+import { ErrorService } from '@nnpz/server/app/modules/error/services/error.service';
+import { UserEntity } from '@nnpz/server/app/modules/user/entities/user.entity';
+import { UserService } from '@nnpz/server/app/modules/user/services/user.service';
+import { UserRo } from '@nnpz/server/app/modules/user/validation/ro';
 import { EUserRole } from '@nnpz/types';
 import {
   catchError,
@@ -12,13 +22,6 @@ import {
   throwError,
   withLatestFrom,
 } from 'rxjs';
-import { CryptoService } from '../../../../crypto/services/crypto.service';
-import { ErrorService } from '../../../../error/services/error.service';
-import { UserEntity } from '../../../../user/entities/user.entity';
-import { UserService } from '../../../../user/services/user.service';
-import { UserRo } from '../../../../user/validation/ro';
-import { ITokenPayload } from '../../interfaces';
-import { LoginDto, RegisterDto } from '../../validation/dto';
 
 @Injectable()
 export class AuthenticationService {

@@ -17,7 +17,8 @@
     "paths": {
       "@nnpz/types": ["libs/nnpz/types/src/index.ts"],
       "@nnpz/ui": ["libs/nnpz/ui/src/index.ts"],
-      "@nnpz/admin/*": ["apps/admin/src/*"]
+      "@nnpz/admin/*": ["apps/admin/src/*"],
+      "@nnpz/server/*": ["apps/server/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

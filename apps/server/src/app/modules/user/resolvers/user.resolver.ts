@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { PaginationArgsDto } from '@nnpz/server/app/shared/validation/dto';
 import { Observable } from 'rxjs';
-import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserEntity } from '../entities/user.entity';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';

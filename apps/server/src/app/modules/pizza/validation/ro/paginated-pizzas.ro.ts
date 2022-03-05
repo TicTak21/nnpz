@@ -1,6 +1,6 @@
 import { ObjectType } from '@nestjs/graphql';
-import { AbstractPaginatedList } from '../../../../shared/validation/ro';
-import { PizzaEntity } from '../../entities/pizza.entity';
+import { PizzaEntity } from '@nnpz/server/app/modules/pizza/entities/pizza.entity';
+import { AbstractPaginatedList } from '@nnpz/server/app/shared/validation/ro';
 
 @ObjectType()
 export class PaginatedPizzasRo extends AbstractPaginatedList(PizzaEntity) {}

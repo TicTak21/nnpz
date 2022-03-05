@@ -4,10 +4,10 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
+import { ToppingEntity } from '@nnpz/server/app/modules/topping/entities/topping.entity';
+import { BaseEntity } from '@nnpz/server/app/shared/entities';
 import { EPizzaSize, IPizzaEntity } from '@nnpz/types';
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
-import { BaseEntity } from '../../../shared/entities';
-import { ToppingEntity } from '../../topping/entities/topping.entity';
 
 @Entity({ name: 'pizza' })
 @ObjectType('Pizza')
