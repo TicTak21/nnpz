@@ -94,7 +94,7 @@
           }
         }
       },
-      "tags": ["admin", "angular"]
+      "tags": ["scope:admin", "type:app"]
     },
     "admin-e2e": {
       "root": "apps/admin-e2e",
@@ -121,7 +121,7 @@
           }
         }
       },
-      "tags": ["admin", "cypress", "e2e"],
+      "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
     "client": {
@@ -218,7 +218,7 @@
           }
         }
       },
-      "tags": ["client", "angular", "frontend"]
+      "tags": ["scope:client", "type:app"]
     },
     "client-e2e": {
       "root": "apps/client-e2e",
@@ -246,7 +246,7 @@
           "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": ["client", "cypress", "e2e"],
+      "tags": ["scope:client", "type:app"],
       "implicitDependencies": ["client"]
     },
     "server": {
@@ -312,7 +312,7 @@
           }
         }
       },
-      "tags": ["server", "nest", "backend"]
+      "tags": ["scope:server", "type:app"]
     },
     "types": {
       "root": "libs/nnpz/types",
@@ -327,7 +327,7 @@
           "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": ["types", "lib"]
+      "tags": ["scope:types", "type:util"]
     },
     "ui": {
       "projectType": "library",
@@ -346,11 +346,14 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/nnpz/ui/src/**/*.ts",
+              "libs/nnpz/ui/src/**/*.html"
+            ]
           }
         }
       },
-      "tags": ["ui", "angular", "lib"]
+      "tags": ["scope:ui", "type:ui"]
     }
   }
 }

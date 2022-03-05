@@ -10,11 +10,28 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
+            "allowCircularSelfDependency": true,
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:admin",
+                "onlyDependOnLibsWithTags": [
+                  "scope:admin",
+                  "scope:ui",
+                  "scope:types"
+                ]
+              },
+              {
+                "sourceTag": "scope:client",
+                "onlyDependOnLibsWithTags": [
+                  "scope:client",
+                  "scope:ui",
+                  "scope:types"
+                ]
+              },
+              {
+                "sourceTag": "scope:server",
+                "onlyDependOnLibsWithTags": ["scope:server", "scope:types"]
               }
             ]
           }
