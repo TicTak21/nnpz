@@ -1,4 +1,4 @@
-<ly-grid container [spacing]="16">
+<ly-grid container spacing="16">
   <ly-grid item col="4 12@XSmall@Small">
     <admin-dashboard-profile
       [username]="MOCK_DATA.username"
@@ -9,7 +9,7 @@
     <admin-dashboard-sales-amount-chart></admin-dashboard-sales-amount-chart>
   </ly-grid>
 
-  <ly-grid item [col]="12">
+  <ly-grid item col="12">
     <admin-dashboard-divider
       [activeOrders]="MOCK_DATA.activeOrders"
       [activeUsers]="MOCK_DATA.activeUsers"
