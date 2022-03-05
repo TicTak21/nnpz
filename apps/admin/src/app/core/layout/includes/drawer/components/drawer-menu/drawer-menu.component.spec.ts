@@ -8,9 +8,8 @@ describe('DrawerMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawerMenuComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawerMenuComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

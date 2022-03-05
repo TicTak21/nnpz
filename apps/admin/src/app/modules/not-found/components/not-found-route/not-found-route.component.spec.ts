@@ -8,9 +8,8 @@ describe('NotFoundRouteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotFoundRouteComponent ]
-    })
-    .compileComponents();
+      declarations: [NotFoundRouteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

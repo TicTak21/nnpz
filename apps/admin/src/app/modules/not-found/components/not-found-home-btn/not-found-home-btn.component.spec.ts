@@ -8,9 +8,8 @@ describe('NotFoundHomeBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotFoundHomeBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [NotFoundHomeBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

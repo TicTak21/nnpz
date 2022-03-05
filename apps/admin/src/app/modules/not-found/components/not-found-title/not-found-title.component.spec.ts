@@ -8,9 +8,8 @@ describe('NotFoundTitleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotFoundTitleComponent ]
-    })
-    .compileComponents();
+      declarations: [NotFoundTitleComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
