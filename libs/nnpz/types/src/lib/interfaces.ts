@@ -33,3 +33,8 @@ export interface IOrderEntity extends IBaseEntity {
   total: number;
   complete: boolean;
 }
+
+export interface IDashboardEntity {
+  title: string;
+  count: number;
+}

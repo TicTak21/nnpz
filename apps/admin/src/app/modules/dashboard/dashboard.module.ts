@@ -12,6 +12,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardActiveOrdersComponent } from './components/dashboard-active-orders/dashboard-active-orders.component';
 import { DashboardActiveUsersComponent } from './components/dashboard-active-users/dashboard-active-users.component';
 import { DashboardDividerComponent } from './components/dashboard-divider/dashboard-divider.component';
+import { DashboardEntityComponent } from './components/dashboard-entity/dashboard-entity.component';
 import { DashboardProfileComponent } from './components/dashboard-profile/dashboard-profile.component';
 import { DashboardSalesAmountChartComponent } from './components/dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
 import { DashboardTabsComponent } from './components/dashboard-tabs/dashboard-tabs.component';
@@ -29,6 +30,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardDividerComponent,
     DashboardProfileComponent,
     DashboardTabsComponent,
+    DashboardEntityComponent,
   ],
   imports: [
     CommonModule,

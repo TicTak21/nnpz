@@ -11,5 +11,23 @@ export class DashboardPageComponent {
     activeOrders: 48,
     username: 'Jane Doe',
     img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
+    entities: [
+      {
+        title: 'users',
+        count: 25,
+      },
+      {
+        title: 'orders',
+        count: 201,
+      },
+      {
+        title: 'pizzas',
+        count: 13,
+      },
+      {
+        title: 'toppings',
+        count: 42,
+      },
+    ],
   };
 }
