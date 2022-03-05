@@ -1,4 +1,15 @@
+import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+const styles = {
+  entities: {
+    display: 'grid',
+    overflowX: 'auto',
+    gap: '1rem',
+    gridAutoFlow: 'column',
+    gridAutoColumns: '25%',
+  },
+};
 
 @Component({
   selector: 'admin-dashboard-page',
@@ -13,21 +24,28 @@ export class DashboardPageComponent {
     img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
     entities: [
       {
-        title: 'users',
+        title: 'user',
         count: 25,
       },
       {
-        title: 'orders',
+        title: 'order',
         count: 201,
       },
       {
-        title: 'pizzas',
+        title: 'pizza',
         count: 13,
       },
       {
-        title: 'toppings',
+        title: 'topping',
         count: 42,
+      },
+      {
+        title: 'location',
+        count: 21,
       },
     ],
   };
+  classes = this.theme.addStyleSheet(styles);
+
+  constructor(private readonly theme: LyTheme2) {}
 }

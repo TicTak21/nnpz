@@ -23,11 +23,10 @@
     <admin-dashboard-tabs></admin-dashboard-tabs>
   </ly-grid>
 
-  <ly-grid
-    item
-    col="3 12@XSmall@Small"
-    *ngFor="let entity of MOCK_DATA.entities"
-  >
-    <admin-dashboard-entity [entity]="entity"></admin-dashboard-entity>
+  <ly-grid item col="12" [withClass]="classes.entities">
+    <admin-dashboard-entity
+      *ngFor="let entity of MOCK_DATA.entities"
+      [entity]="entity"
+    ></admin-dashboard-entity>
   </ly-grid>
 </ly-grid>
