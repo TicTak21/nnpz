@@ -8,9 +8,8 @@ describe('DrawerDirBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawerDirBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawerDirBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
