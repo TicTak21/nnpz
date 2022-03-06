@@ -17,7 +17,10 @@ module.exports = {
     '$ANGULAR_ANIMATION_INPUT',
     '$ANGULAR_ELEMENT_REF',
   ],
-  plugins: [require('prettier-plugin-organize-attributes')],
+  plugins: [
+    require('prettier-plugin-organize-attributes'),
+    require('@prettier/plugin-pug'),
+  ],
   overrides: [
     {
       files: ['**/*.pug'],
