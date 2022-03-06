@@ -7,7 +7,7 @@ const styles = {
     overflowX: 'auto',
     gap: '1rem',
     gridAutoFlow: 'column',
-    gridAutoColumns: '25%',
+    gridAutoColumns: 'minmax(256px, auto)',
   },
 };
 
