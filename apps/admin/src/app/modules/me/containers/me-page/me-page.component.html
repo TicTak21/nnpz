@@ -1,1 +1,33 @@
-Profile page
+<ly-paper elevation="3" lyHeight="100vh">
+  <ly-tabs alignTabs="stretch" lyHeight="100%">
+    <ly-tab>
+      <button ly-tab-label>
+        <ly-icon>person</ly-icon>
+        <span lyPe="0.25rem">You</span>
+      </button>
+
+      <admin-me-profile
+        [username]="MOCK_DATA.username"
+        [img]="MOCK_DATA.img"
+      ></admin-me-profile>
+    </ly-tab>
+
+    <ly-tab>
+      <button ly-tab-label>
+        <ly-icon>edit</ly-icon>
+        <span lyPe="0.25rem">Edit</span>
+      </button>
+
+      <admin-me-edit-form></admin-me-edit-form>
+    </ly-tab>
+
+    <ly-tab>
+      <button ly-tab-label color="warn">
+        <ly-icon>delete</ly-icon>
+        <span lyPe="0.25rem">Delete</span>
+      </button>
+
+      <admin-me-delete></admin-me-delete>
+    </ly-tab>
+  </ly-tabs>
+</ly-paper>
