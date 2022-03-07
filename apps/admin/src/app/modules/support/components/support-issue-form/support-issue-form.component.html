@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ly-field appearance="filled" color="accent" [lyWidth]="1">
+    <input
+      lyNativeControl
+      type="text"
+      formControlName="title"
+      [required]="true"
+    />
+    <ly-label>Title</ly-label>
+    <ly-error *ngIf="title.hasError('required')">Required</ly-error>
+  </ly-field>
+
+  <ly-field appearance="filled" color="accent" [lyWidth]="1">
+    <textarea
+      lyNativeControl
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="10"
+      rows="5"
+      formControlName="comment"
+    ></textarea>
+    <ly-label>Comment</ly-label>
+    <ly-hint align="before"
+      >{{ comment.value?.length || 0 }}/{{ maxCommentLength }}</ly-hint
+    >
+    <ly-error *ngIf="comment.hasError('maxlength')"
+      >Max {{ maxCommentLength }} characters</ly-error
+    >
+  </ly-field>
+
+  <div [withClass]="classes.ctrls">
+    <button ly-button outlined color="warn" type="reset" (click)="onReset()">
+      Reset
+    </button>
+    <button
+      ly-button
+      outlined
+      color="accent"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
