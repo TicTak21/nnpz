@@ -38,3 +38,8 @@ export interface IDashboardEntity {
   title: string;
   count: number;
 }
+
+export interface ILoginDto {
+  email: string;
+  password: string;
+}
