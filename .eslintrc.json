@@ -32,6 +32,14 @@
               {
                 "sourceTag": "scope:server",
                 "onlyDependOnLibsWithTags": ["scope:server", "scope:types"]
+              },
+              {
+                "sourceTag": "scope:ui",
+                "onlyDependOnLibsWithTags": ["scope:ui", "scope:types"]
+              },
+              {
+                "sourceTag": "scope:types",
+                "onlyDependOnLibsWithTags": ["scope:types"]
               }
             ]
           }
