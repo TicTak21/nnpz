@@ -1,16 +1,16 @@
 import { PartialThemeVariables } from '@alyle/ui';
+import { color } from '@alyle/ui/color';
 import {
   LightAccentDefault,
   LightBackgroundDefault,
   LightPrimaryContrast,
-  LightPrimaryDefault,
   LightWarnDefault,
 } from './light-colors.theme';
 
 export class CustomMinimaLight implements PartialThemeVariables {
   name = 'minima-light';
   primary = {
-    default: LightPrimaryDefault,
+    default: color(0xd8e2ff),
     contrast: LightPrimaryContrast,
   };
   accent = {

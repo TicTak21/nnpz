@@ -1,6 +1,6 @@
 import { color } from '@alyle/ui/color';
 
-export const DarkPrimaryDefault = color(0x212c45);
+export const DarkPrimaryDefault = color(0x233e94);
 export const DarkPrimaryContrast = color(0xffffff);
 
 export const DarkAccentDefault = color(0x3366ff);
