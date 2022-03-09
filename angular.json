@@ -249,6 +249,29 @@
       "tags": ["scope:client", "type:app"],
       "implicitDependencies": ["client"]
     },
+    "utils": {
+      "root": "libs/nnpz/utils",
+      "sourceRoot": "libs/nnpz/utils/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/nnpz/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/nnpz/utils"],
+          "options": {
+            "jestConfig": "libs/nnpz/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": ["scope:utils", "type:utils"]
+    },
     "server": {
       "root": "apps/server",
       "sourceRoot": "apps/server/src",

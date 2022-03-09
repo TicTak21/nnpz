@@ -18,7 +18,8 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:admin",
                   "scope:ui",
-                  "scope:types"
+                  "scope:types",
+                  "scope.utils"
                 ]
               },
               {
@@ -26,20 +27,33 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:client",
                   "scope:ui",
-                  "scope:types"
+                  "scope:types",
+                  "scope.utils"
                 ]
               },
               {
                 "sourceTag": "scope:server",
-                "onlyDependOnLibsWithTags": ["scope:server", "scope:types"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:server",
+                  "scope:types",
+                  "scope.utils"
+                ]
               },
               {
                 "sourceTag": "scope:ui",
-                "onlyDependOnLibsWithTags": ["scope:ui", "scope:types"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:ui",
+                  "scope:types",
+                  "scope.utils"
+                ]
               },
               {
                 "sourceTag": "scope:types",
                 "onlyDependOnLibsWithTags": ["scope:types"]
+              },
+              {
+                "sourceTag": "scope:utils",
+                "onlyDependOnLibsWithTags": ["scope:utils"]
               }
             ]
           }
