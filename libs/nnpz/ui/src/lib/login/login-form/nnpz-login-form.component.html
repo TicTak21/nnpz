@@ -31,6 +31,14 @@
 
   <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
     <button ly-button outlined type="reset" color="warn">Reset</button>
-    <button ly-button outlined type="submit" color="accent">Submit</button>
+    <button
+      ly-button
+      outlined
+      type="submit"
+      color="accent"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
   </div>
 </form>
