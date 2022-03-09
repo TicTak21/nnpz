@@ -1,8 +1,9 @@
 import { Field, InputType } from '@nestjs/graphql';
+import { IRegisterDto } from '@nnpz/types';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 @InputType()
-export class RegisterDto {
+export class RegisterDto implements IRegisterDto {
   @Field()
   @IsNotEmpty()
   @IsEmail()
