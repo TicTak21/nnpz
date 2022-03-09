@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IRegisterDto } from '@nnpz/types';
+import { CustomValidators } from '@nnpz/utils';
 
 @Component({
   selector: 'nnpz-register-form',
@@ -16,11 +17,14 @@ export class NnpzRegisterFormComponent {
   @Output() handleSubmit: EventEmitter<IRegisterDto> =
     new EventEmitter<IRegisterDto>();
 
-  form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
-    confirmPassword: new FormControl('', [Validators.required]),
-  });
+  form: FormGroup = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+      confirmPassword: new FormControl('', [Validators.required]),
+    },
+    { validators: CustomValidators.match('password', 'confirmPassword') },
+  );
   hide: boolean = true;
 
   get email(): FormControl {
