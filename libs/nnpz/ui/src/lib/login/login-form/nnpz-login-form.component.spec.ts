@@ -8,9 +8,8 @@ describe('NnpzLoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NnpzLoginFormComponent ]
-    })
-    .compileComponents();
+      declarations: [NnpzLoginFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
