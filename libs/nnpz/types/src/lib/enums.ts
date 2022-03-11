@@ -8,3 +8,8 @@ export enum EUserRole {
   admin = 'admin',
   client = 'client',
 }
+
+export enum EReportFormat {
+  pdf = 'pdf',
+  html = 'html',
+}

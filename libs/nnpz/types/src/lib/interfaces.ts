@@ -1,4 +1,4 @@
-import { EPizzaSize } from './enums';
+import { EPizzaSize, EReportFormat } from './enums';
 
 export interface IBaseEntity {
   id: string;
@@ -47,4 +47,10 @@ export interface ILoginDto {
 export interface IRegisterDto {
   email: string;
   password: string;
+}
+
+export interface IReportDto {
+  name: string;
+  days: number;
+  format: EReportFormat;
 }
