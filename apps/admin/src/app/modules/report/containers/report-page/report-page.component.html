@@ -1,0 +1,65 @@
+<ly-paper elevation="3" lyP="1rem" lyHeight="100vh">
+  <h1 lyTyp="headline">Generate report</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 lyTyp="title" [gutter]="true">Title</h2>
+    <ly-field appearance="filled" color="accent" lyWidth="1">
+      <ly-label>{{ docName }}</ly-label>
+      <input
+        lyNativeControl
+        type="text"
+        formControlName="name"
+        [required]="true"
+      />
+      <ly-error *ngIf="name.hasError('required')">Required</ly-error>
+    </ly-field>
+
+    <h2 lyTyp="title" [gutter]="true">Days</h2>
+    <ly-slider
+      lyWidth="1"
+      formControlName="days"
+      [min]="1"
+      [max]="30"
+      [thumbVisible]="true"
+      [marks]="true"
+    >
+      <ly-mark [value]="1">1</ly-mark>
+      <ly-mark [value]="7">7</ly-mark>
+      <ly-mark [value]="14">14</ly-mark>
+      <ly-mark [value]="21">21</ly-mark>
+      <ly-mark [value]="30">30</ly-mark>
+    </ly-slider>
+
+    <h2 lyTyp="title" [gutter]="true">Format</h2>
+    <ly-field appearance="filled" color="accent" lyWidth="1">
+      <ly-label>Output format</ly-label>
+      <select lyNativeControl formControlName="format">
+        <option value="pdf">PDF</option>
+        <option value="html">HTML</option>
+      </select>
+    </ly-field>
+
+    <h6 lyTyp="subheading" [gutter]="true" [withClass]="classes.reportName">
+      {{ docName }}
+    </h6>
+
+    <div
+      lyDisplay="flex"
+      lyJustifyContent="space-between"
+      lyAlignItems="center"
+    >
+      <button ly-button outlined type="button" color="warn" (click)="onReset()">
+        Reset
+      </button>
+      <button
+        ly-button
+        outlined
+        type="submit"
+        color="accent"
+        [disabled]="form.invalid"
+      >
+        Generate
+      </button>
+    </div>
+  </form>
+</ly-paper>
