@@ -35,8 +35,7 @@ export interface IOrderEntity extends IBaseEntity {
 }
 
 export interface IDashboardEntity {
-  title: string;
-  href: string;
+  name: string;
   count: number;
 }
 

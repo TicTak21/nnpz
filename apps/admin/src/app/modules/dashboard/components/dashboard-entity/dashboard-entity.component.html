@@ -1,8 +1,8 @@
 <ly-paper lyP="1rem" elevation="3" *ngIf="entity">
-  <h4 lyTyp="title">{{ entity.title | titlecase }}</h4>
+  <h4 lyTyp="title">{{ entity.name | titlecase }}</h4>
   <code>Total: {{ entity.count }}</code>
 
   <div lyMt="2">
-    <a ly-button outlined [routerLink]="entity.href">Show all</a>
+    <a ly-button outlined [routerLink]="['/', entity.name]">Show all</a>
   </div>
 </ly-paper>
