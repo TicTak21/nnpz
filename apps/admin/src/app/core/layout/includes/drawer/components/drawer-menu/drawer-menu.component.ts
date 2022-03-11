@@ -25,7 +25,8 @@ export class DrawerMenuComponent {
   navigation = [
     { label: 'Dashboard', icon: 'dashboard', href: '/dashboard' },
     { label: 'Profile', icon: 'person', href: '/me' },
-    { label: 'Sales', icon: 'request_quote', href: '/sales' },
+    { label: 'Sales', icon: 'leaderboard', href: '/sales' },
+    { label: 'Entities', icon: 'data_object', href: '/entities' },
     { label: 'Report', icon: 'summarize', href: '/report' },
     { label: 'Support', icon: 'support_agent', href: '/support' },
     {
