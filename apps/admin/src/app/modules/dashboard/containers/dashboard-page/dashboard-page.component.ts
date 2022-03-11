@@ -25,22 +25,27 @@ export class DashboardPageComponent {
     entities: [
       {
         title: 'user',
+        href: '/users',
         count: 25,
       },
       {
         title: 'order',
+        href: '/orders',
         count: 201,
       },
       {
         title: 'pizza',
+        href: '/pizzas',
         count: 13,
       },
       {
         title: 'topping',
+        href: '/toppings',
         count: 42,
       },
       {
         title: 'location',
+        href: '/locations',
         count: 21,
       },
     ],

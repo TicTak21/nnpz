@@ -36,6 +36,7 @@ export interface IOrderEntity extends IBaseEntity {
 
 export interface IDashboardEntity {
   title: string;
+  href: string;
   count: number;
 }
 
