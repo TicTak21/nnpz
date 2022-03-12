@@ -1,0 +1,15 @@
+<ly-grid
+  container
+  spacing="16"
+  cdkDropList
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <ly-grid
+    item
+    cdkDrag
+    col="4 12@XSmall@Small 6@Medium"
+    *ngFor="let entity of MOCK_DATA.entities"
+  >
+    <admin-entity-card [entity]="entity"></admin-entity-card>
+  </ly-grid>
+</ly-grid>

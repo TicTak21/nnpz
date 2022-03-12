@@ -48,7 +48,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/register/register.module').then(m => m.RegisterModule),
   },
-  { path: 'report', loadChildren: () => import('./modules/report/report.module').then(m => m.ReportModule) },
+  {
+    path: 'report',
+    loadChildren: () =>
+      import('./modules/report/report.module').then(m => m.ReportModule),
+  },
+  {
+    path: 'entities',
+    loadChildren: () =>
+      import('./modules/entity/entity.module').then(m => m.EntityModule),
+  },
   {
     path: '**',
     loadChildren: () =>
