@@ -1,1 +1,35 @@
-<div lyP="1.5rem">Edit your personal info.</div>
+<form lyP="1rem" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 lyTyp="title" [gutterBottom]="true">Edit your personal info.</h2>
+
+  <ly-field appearance="filled" lyWidth="1">
+    <ly-label>Email</ly-label>
+    <input lyNativeControl formControlName="email" [required]="true" />
+  </ly-field>
+
+  <ly-field appearance="filled" lyWidth="1">
+    <ly-label>Password</ly-label>
+    <input lyNativeControl formControlName="password" [required]="true" />
+  </ly-field>
+
+  <ly-field appearance="filled" color="accent" lyWidth="1">
+    <ly-label>Role</ly-label>
+    <select lyNativeControl formControlName="role" [required]="true">
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
+  </ly-field>
+
+  <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
+    <button ly-button outlined type="button" color="warn" (click)="onReset()">
+      Reset
+    </button>
+    <button
+      ly-button
+      outlined
+      type="submit"
+      color="accent"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

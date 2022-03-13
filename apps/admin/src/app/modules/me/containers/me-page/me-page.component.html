@@ -1,5 +1,5 @@
 <ly-paper elevation="3" lyHeight="100vh">
-  <ly-tabs alignTabs="stretch" lyHeight="100%">
+  <ly-tabs alignTabs="stretch" lyHeight="100%" [selectedIndex]="0">
     <ly-tab>
       <button ly-tab-label>
         <ly-icon>person</ly-icon>
@@ -18,7 +18,9 @@
         <span lyPe="0.25rem">Edit</span>
       </button>
 
-      <admin-me-edit-form></admin-me-edit-form>
+      <admin-me-edit-form
+        (handleSubmit)="onSubmit($event)"
+      ></admin-me-edit-form>
     </ly-tab>
 
     <ly-tab>

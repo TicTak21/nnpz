@@ -1,7 +1,17 @@
-<div lyP="1.5rem">
-  <div gutter>
-    Permanently delete your account. This action can't be undone.
-  </div>
+<ly-grid container spacing="16" lyP="1rem">
+  <ly-grid item col="12">
+    <h1 lyTyp="headline" color="warn">Danger zone</h1>
+  </ly-grid>
 
-  <button ly-button outlined color="warn">Delete</button>
-</div>
+  <ly-grid item col="12">
+    <h6 lyTyp="body1" [gutterBottom]="true">Terminate all sessions.</h6>
+    <button ly-button outlined color="warn">Terminate</button>
+  </ly-grid>
+
+  <ly-grid item col="12">
+    <h6 lyTyp="body1" [gutterBottom]="true">
+      Permanently delete your account. This action can't be undone.
+    </h6>
+    <button ly-button outlined color="warn">Delete</button>
+  </ly-grid>
+</ly-grid>
