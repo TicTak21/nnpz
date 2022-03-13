@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" (reset)="onReset()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ly-field appearance="filled" color="accent" [lyWidth]="1">
     <ly-label>Email</ly-label>
     <input
@@ -52,7 +52,9 @@
   </ly-field>
 
   <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
-    <button ly-button outlined type="reset" color="warn">Reset</button>
+    <button ly-button outlined type="button" color="warn" (click)="onReset()">
+      Reset
+    </button>
     <button
       ly-button
       outlined
