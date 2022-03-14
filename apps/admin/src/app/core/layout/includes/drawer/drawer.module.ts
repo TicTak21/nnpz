@@ -11,9 +11,10 @@ import { RouterModule } from '@angular/router';
 import { DrawerDirBtnComponent } from './components/drawer-dir-btn/drawer-dir-btn.component';
 import { DrawerMenuComponent } from './components/drawer-menu/drawer-menu.component';
 import { DrawerComponent } from './containers/drawer/drawer.component';
+import { DrawerLogoutBtnComponent } from './components/drawer-logout-btn/drawer-logout-btn.component';
 
 @NgModule({
-  declarations: [DrawerComponent, DrawerMenuComponent, DrawerDirBtnComponent],
+  declarations: [DrawerComponent, DrawerMenuComponent, DrawerDirBtnComponent, DrawerLogoutBtnComponent],
   imports: [
     CommonModule,
     RouterModule,

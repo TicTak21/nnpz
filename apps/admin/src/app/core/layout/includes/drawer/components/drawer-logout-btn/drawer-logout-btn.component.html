@@ -1,0 +1,4 @@
+<button ly-button outlined color="warn" (click)="handleClick()">
+  <span [lyMf]="1">{{ logged ? 'Log out' : 'Log in' }}</span>
+  <ly-icon>{{ logged ? 'logout' : 'login' }}</ly-icon>
+</button>

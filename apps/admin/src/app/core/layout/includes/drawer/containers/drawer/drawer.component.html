@@ -10,11 +10,10 @@
     #drawer="lyDrawer"
   >
     <admin-drawer-menu></admin-drawer-menu>
-    <ly-grid lyMy="0.5rem" container lyJustifyContent="center" spacing="8">
-      <ly-grid item>
-        <admin-drawer-dir-btn></admin-drawer-dir-btn>
-      </ly-grid>
-    </ly-grid>
+    <div [withClass]="classes.ctrls">
+      <admin-drawer-dir-btn></admin-drawer-dir-btn>
+      <admin-drawer-logout-btn></admin-drawer-logout-btn>
+    </div>
   </ly-drawer>
 
   <ly-drawer-content>
