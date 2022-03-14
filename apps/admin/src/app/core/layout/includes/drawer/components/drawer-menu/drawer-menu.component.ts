@@ -10,6 +10,9 @@ import { Store } from '@ngrx/store';
 import { selectUrl } from '@nnpz/admin/app/core/store';
 import { Observable } from 'rxjs';
 
+// TODO: fix chevron bug with direction
+// When direction = rtl chevron should point to the left
+
 @Component({
   selector: 'admin-drawer-menu',
   templateUrl: './drawer-menu.component.html',
