@@ -2,6 +2,7 @@ import { InjectionToken } from '@angular/core';
 import * as fromRouter from '@ngrx/router-store';
 import { Action, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store/reducers';
+import * as fromTheme from '@nnpz/admin/app/core/theme/store/reducers';
 import { localStorageSyncReducer } from './local-storage.reducer';
 
 export interface State {
@@ -16,6 +17,7 @@ export const ROOT_REDUCERS = new InjectionToken<
 >('Root reducers token', {
   factory: () => ({
     [fromLayout.layoutFeatureKey]: fromLayout.reducer,
+    [fromTheme.themeFeatureKey]: fromTheme.reducer,
     router: fromRouter.routerReducer,
   }),
 });

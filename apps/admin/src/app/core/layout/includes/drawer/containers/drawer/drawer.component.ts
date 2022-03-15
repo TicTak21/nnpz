@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as layoutSelectors from '@nnpz/admin/app/core/layout/store';
-import { DirectionService } from '@nnpz/admin/app/core/theme/services/direction.service';
 import { Observable, Subscription, tap } from 'rxjs';
 
 const styles = {
@@ -46,11 +45,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
   private opened$: Observable<boolean> = new Observable<boolean>();
   private openedSub: Subscription = new Subscription();
 
-  constructor(
-    private readonly theme: LyTheme2,
-    private readonly store: Store,
-    private readonly directionService: DirectionService,
-  ) {
+  constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.opened$ = this.store
       .select(layoutSelectors.selectDrawerState)
       .pipe(tap(() => this.drawer?.toggle()));

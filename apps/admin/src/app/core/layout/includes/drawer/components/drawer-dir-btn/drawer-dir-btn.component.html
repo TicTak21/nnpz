@@ -1,6 +1,8 @@
-<button ly-button outlined (click)="toggleDirection()">
-  <span [lyMf]="1">Change to {{ isLtr ? 'ltr' : 'rtl' }}</span>
+<button ly-button outlined (click)="handleClick()">
+  <span [lyMf]="1">Change to {{ direction$ | async }}</span>
   <ly-icon>{{
-    isLtr ? 'format_textdirection_l_to_r' : 'format_textdirection_r_to_l'
+    (isLtr$ | async)
+      ? 'format_textdirection_l_to_r'
+      : 'format_textdirection_r_to_l'
   }}</ly-icon>
 </button>

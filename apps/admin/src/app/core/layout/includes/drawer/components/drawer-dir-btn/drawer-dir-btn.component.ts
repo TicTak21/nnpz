@@ -1,6 +1,8 @@
 import { Dir } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DirectionService } from '@nnpz/admin/app/core/theme/services/direction.service';
+import { Store } from '@ngrx/store';
+import * as fromTheme from '@nnpz/admin/app/core/theme/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'admin-drawer-dir-btn',
@@ -8,13 +10,15 @@ import { DirectionService } from '@nnpz/admin/app/core/theme/services/direction.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DrawerDirBtnComponent {
-  constructor(private readonly directionService: DirectionService) {}
+  isLtr$: Observable<boolean> = new Observable<boolean>();
+  direction$: Observable<Dir> = new Observable<Dir>();
 
-  get isLtr(): boolean {
-    return this.directionService.currentDirection === Dir.ltr;
+  constructor(private readonly store: Store) {
+    this.isLtr$ = this.store.select(fromTheme.selectIsLtr);
+    this.direction$ = this.store.select(fromTheme.selectDirection);
   }
 
-  toggleDirection() {
-    this.directionService.toggleDirection();
+  handleClick() {
+    this.store.dispatch(fromTheme.toggleDirection());
   }
 }
