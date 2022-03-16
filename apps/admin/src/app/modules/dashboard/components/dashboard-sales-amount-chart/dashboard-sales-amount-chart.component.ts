@@ -4,7 +4,7 @@ import {
   chartConfig,
   ChartGreen,
   ChartWhite,
-} from '@nnpz/admin/app/core/theme/custom';
+} from '@nnpz/admin/app/core/theme/config';
 import { ChartDataset } from 'chart.js';
 
 @Component({
