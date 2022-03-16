@@ -8,9 +8,8 @@ describe('DrawerLogoutBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawerLogoutBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawerLogoutBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
