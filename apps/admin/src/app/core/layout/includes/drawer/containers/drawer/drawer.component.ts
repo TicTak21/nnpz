@@ -1,4 +1,4 @@
-import { LyTheme2 } from '@alyle/ui';
+import { Dir, LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import {
   ChangeDetectionStrategy,
@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as layoutSelectors from '@nnpz/admin/app/core/layout/store';
+import * as fromTheme from '@nnpz/admin/app/core/theme/store';
 import { Observable, Subscription, tap } from 'rxjs';
 
 const styles = {
@@ -42,13 +43,15 @@ export class DrawerComponent implements OnInit, OnDestroy {
   // or manually subscribe(without async pipe) to the value
   // => Is it possibly to use ngIf + async pipe and do not remove node from DOM?
   opened: boolean = true;
+  direction$: Observable<Dir> = new Observable<Dir>();
   private opened$: Observable<boolean> = new Observable<boolean>();
   private openedSub: Subscription = new Subscription();
 
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.opened$ = this.store
-      .select(layoutSelectors.selectDrawerState)
+      .select(layoutSelectors.selectDrawerOpened)
       .pipe(tap(() => this.drawer?.toggle()));
+    this.direction$ = this.store.select(fromTheme.selectDirection);
   }
 
   ngOnInit() {
@@ -57,5 +60,11 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.openedSub.unsubscribe();
+  }
+
+  toggleDirection(currentDirection: Dir) {
+    this.store.dispatch(
+      fromTheme.toggleDirection({ payload: { currentDirection } }),
+    );
   }
 }

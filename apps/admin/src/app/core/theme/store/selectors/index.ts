@@ -5,12 +5,12 @@ export const selectThemeState = createFeatureSelector<fromTheme.State>(
   fromTheme.themeFeatureKey,
 );
 
-export const selectIsLtr = createSelector(
-  selectThemeState,
-  state => state.isLtr,
-);
-
 export const selectDirection = createSelector(
   selectThemeState,
   state => state.direction,
+);
+
+export const selectThemeMode = createSelector(
+  selectThemeState,
+  state => state.themeMode,
 );

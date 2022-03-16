@@ -13,7 +13,7 @@ import {
 export class HeaderMenuBtnComponent {
   @Output() toggleDrawer$: EventEmitter<void> = new EventEmitter<void>();
 
-  clickHandler() {
+  handleClick() {
     this.toggleDrawer$.emit();
   }
 }

@@ -11,7 +11,10 @@
   >
     <admin-drawer-menu></admin-drawer-menu>
     <div [withClass]="classes.ctrls">
-      <admin-drawer-dir-btn></admin-drawer-dir-btn>
+      <admin-drawer-dir-btn
+        [direction$]="direction$"
+        (toggleDirection)="toggleDirection($event)"
+      ></admin-drawer-dir-btn>
       <admin-drawer-logout-btn></admin-drawer-logout-btn>
     </div>
   </ly-drawer>

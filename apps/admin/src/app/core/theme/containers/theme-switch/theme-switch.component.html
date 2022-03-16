@@ -1,0 +1,11 @@
+<button
+  color="primary:contrast"
+  ly-button
+  appearance="icon"
+  *ngIf="themeMode$ | async as currentTheme"
+  (click)="handleClick(currentTheme)"
+>
+  <ly-icon>{{
+    (currentTheme | isDarkMode) ? 'light_mode' : 'dark_mode'
+  }}</ly-icon>
+</button>

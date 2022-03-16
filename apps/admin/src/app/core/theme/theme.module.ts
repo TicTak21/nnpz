@@ -4,13 +4,14 @@ import { LyIconModule } from '@alyle/ui/icon';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BaseThemeModule } from '@nnpz/ui';
-import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
-import { CustomMinimaDark } from './custom/dark/dark.theme';
-import { CustomMinimaLight } from './custom/light/light.theme';
-import { CustomGlobalVariables } from './custom/vars/custom-variables.theme';
+import { CustomMinimaDark } from './config/dark/dark.theme';
+import { CustomMinimaLight } from './config/light/light.theme';
+import { CustomGlobalVariables } from './config/vars/custom-variables.theme';
+import { ThemeSwitchComponent } from './containers/theme-switch/theme-switch.component';
+import { IsDarkModePipe } from './pipes/is-dark-mode.pipe';
 
 @NgModule({
-  declarations: [ThemeSwitchComponent],
+  declarations: [ThemeSwitchComponent, IsDarkModePipe],
   imports: [CommonModule, BaseThemeModule, LyIconModule, LyButtonModule],
   exports: [ThemeSwitchComponent],
   providers: [
