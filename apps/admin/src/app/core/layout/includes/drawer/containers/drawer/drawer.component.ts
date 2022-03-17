@@ -8,8 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as layoutSelectors from '@nnpz/admin/app/core/layout/store';
-import * as fromTheme from '@nnpz/admin/app/core/theme/store';
+import * as fromLayout from '@nnpz/admin/app/core/layout/store';
 import { Observable, Subscription, tap } from 'rxjs';
 
 const styles = {
@@ -49,9 +48,9 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.opened$ = this.store
-      .select(layoutSelectors.selectDrawerOpened)
+      .select(fromLayout.selectDrawerOpened)
       .pipe(tap(() => this.drawer?.toggle()));
-    this.direction$ = this.store.select(fromTheme.selectDirection);
+    this.direction$ = this.store.select(fromLayout.selectDirection);
   }
 
   ngOnInit() {
@@ -64,7 +63,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
 
   toggleDirection(currentDirection: Dir) {
     this.store.dispatch(
-      fromTheme.toggleDirection({ payload: { currentDirection } }),
+      fromLayout.toggleDirection({ payload: { currentDirection } }),
     );
   }
 }

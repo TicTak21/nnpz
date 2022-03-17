@@ -2,7 +2,7 @@ import { LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as layoutActions from '@nnpz/admin/app/core/layout/store';
+import * as fromLayout from '@nnpz/admin/app/core/layout/store';
 
 const styles = {
   container: {
@@ -37,6 +37,6 @@ export class HeaderComponent {
   ) {}
 
   toggleDrawer() {
-    this.store.dispatch(layoutActions.toggleDrawer());
+    this.store.dispatch(fromLayout.toggleDrawer());
   }
 }

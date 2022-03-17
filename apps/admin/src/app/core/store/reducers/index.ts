@@ -7,6 +7,7 @@ import { localStorageSyncReducer } from './local-storage.reducer';
 
 export interface State {
   [fromLayout.layoutFeatureKey]: fromLayout.State;
+  [fromTheme.themeFeatureKey]: fromTheme.State;
   router: fromRouter.RouterReducerState;
 }
 

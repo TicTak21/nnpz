@@ -9,3 +9,8 @@ export const selectDrawerOpened = createSelector(
   selectLayoutState,
   state => state.drawerOpened,
 );
+
+export const selectDirection = createSelector(
+  selectLayoutState,
+  state => state.direction,
+);

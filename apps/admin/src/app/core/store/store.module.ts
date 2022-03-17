@@ -4,7 +4,6 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@nnpz/admin/environments/environment';
-import { ThemeEffects } from '../theme/store';
 import { metaReducers, ROOT_REDUCERS } from './reducers';
 
 @NgModule({
@@ -18,7 +17,7 @@ import { metaReducers, ROOT_REDUCERS } from './reducers';
         strictActionTypeUniqueness: true,
       },
     }),
-    EffectsModule.forRoot([ThemeEffects]),
+    EffectsModule.forRoot(),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
