@@ -34,6 +34,3 @@ jobs:
 
       - name: Build
         run: pnpm nx build admin
-
-      - name: Deploy to Surge
-        run: cp dist/apps/admin/index.html dist/apps/admin/200.html && pnpm add --global surge && surge ./dist/apps/admin https://nnpz-admin.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
