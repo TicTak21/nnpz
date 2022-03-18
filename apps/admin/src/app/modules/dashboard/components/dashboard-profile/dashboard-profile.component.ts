@@ -16,7 +16,7 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardProfileComponent {
-  classes = this.theme.addStyleSheet(styles);
+  readonly classes = this.theme.addStyleSheet(styles);
 
   constructor(private readonly theme: LyTheme2) {}
 

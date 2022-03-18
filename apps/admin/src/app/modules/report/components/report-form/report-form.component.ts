@@ -10,7 +10,6 @@ import { EReportFormat, IReportDto } from '@nnpz/types';
 @Component({
   selector: 'admin-report-form',
   templateUrl: './report-form.component.html',
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReportFormComponent {

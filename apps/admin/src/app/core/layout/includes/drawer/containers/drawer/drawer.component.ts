@@ -35,7 +35,7 @@ const styles = {
 export class DrawerComponent implements OnInit, OnDestroy {
   @ViewChild('drawer') drawer!: LyDrawer;
 
-  classes = this.theme.addStyleSheet(styles);
+  readonly classes = this.theme.addStyleSheet(styles);
   // TODO: HACK:
   // since ngIf removes node from DOM we have a bad animation after drawer added back(e.g. while opening)
   // to prevent this we could either use a default value in component/template
