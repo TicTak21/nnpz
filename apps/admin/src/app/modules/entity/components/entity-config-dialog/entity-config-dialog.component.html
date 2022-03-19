@@ -5,6 +5,7 @@
       <ly-field appearance="filled" lyWidth="1">
         <ly-label>Name</ly-label>
         <input lyNativeControl formControlName="name" [required]="true" />
+        <ly-error *ngIf="name.hasError('required')">Required</ly-error>
       </ly-field>
 
       <ly-field appearance="filled" lyWidth="1">
@@ -14,6 +15,7 @@
           formControlName="initialValue"
           [required]="true"
         />
+        <ly-error *ngIf="initialValue.hasError('required')">Required</ly-error>
       </ly-field>
 
       <ly-checkbox formControlName="required" [required]="true"

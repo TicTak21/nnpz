@@ -18,6 +18,7 @@ import { EntityConfigDialogComponent } from '../entity-config-dialog/entity-conf
 export class EntityNewFormComponent {
   form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
+    fields: new FormGroup({}),
   });
 
   constructor(
@@ -25,16 +26,27 @@ export class EntityNewFormComponent {
     private readonly cdr: ChangeDetectorRef,
   ) {}
 
-  get controls() {
-    return this.form.controls;
+  get fields() {
+    return this.form.get('fields') as FormGroup;
   }
 
   get name(): FormControl {
     return this.form.get('name') as FormControl;
   }
 
-  onSubmit() {
-    console.log(this.form.value);
+  get fieldsConfig() {
+    const formControls = { ...this.fields.controls };
+    const keys = Object.keys(formControls);
+    const config = keys.map(key => {
+      const ctrl = formControls[key];
+
+      return {
+        name: key,
+        initialValue: ctrl.value,
+      };
+    });
+
+    return config;
   }
 
   onAddField() {
@@ -47,7 +59,7 @@ export class EntityNewFormComponent {
       .subscribe((field: IEntityFieldConfig) => {
         const { name, initialValue, required } = field;
 
-        this.form.addControl(
+        this.fields.addControl(
           name,
           new FormControl(initialValue, [
             CustomValidators.conditionalRequired(required),
@@ -56,13 +68,15 @@ export class EntityNewFormComponent {
 
         // HACK: i suppose?
         this.cdr.detectChanges();
-
-        console.log(this.form.controls);
       });
   }
 
   onRemoveField(ctrlName: string) {
-    this.form.removeControl(ctrlName);
+    this.fields.removeControl(ctrlName);
+  }
+
+  onSubmit() {
+    console.log(this.form.value);
   }
 
   onReset() {

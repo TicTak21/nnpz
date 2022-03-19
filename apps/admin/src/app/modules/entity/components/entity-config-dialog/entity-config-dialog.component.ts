@@ -15,6 +15,14 @@ export class EntityConfigDialogComponent {
     required: new FormControl(true, [Validators.required]),
   });
 
+  get name(): FormControl {
+    return this.form.get('name') as FormControl;
+  }
+
+  get initialValue(): FormControl {
+    return this.form.get('initialValue') as FormControl;
+  }
+
   constructor(public readonly dialogRef: LyDialogRef) {}
 
   onSubmit() {

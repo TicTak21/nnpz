@@ -1,31 +1,32 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <!-- <ly-field appearance="filled" color="accent" lyWidth="1">
+  <ly-field appearance="filled" color="accent" lyWidth="1">
     <ly-label>Name</ly-label>
     <input lyNativeControl formControlName="name" [required]="true" />
     <ly-error *ngIf="name.hasError('required')">Required</ly-error>
-  </ly-field> -->
-
-  <ly-field
-    appearance="filled"
-    color="accent"
-    lyWidth="1"
-    *ngFor="let field of controls | keyvalue"
-  >
-    <ly-label>{{ field.key | titlecase }}</ly-label>
-    <input lyNativeControl [formControlName]="field.key" />
-    <button
-      ly-button
-      color="warn"
-      appearance="icon"
-      lySuffix
-      lyTooltip="Delete field"
-      *ngIf="field.key !== 'name'"
-      (click)="onRemoveField(field.key)"
-    >
-      <ly-icon>delete_forever</ly-icon>
-    </button>
-    <ly-error *ngIf="field.value.hasError('required')">Required</ly-error>
   </ly-field>
+
+  <div [formGroup]="fields">
+    <ly-field
+      appearance="filled"
+      color="accent"
+      lyWidth="1"
+      *ngFor="let field of fields.controls | keyvalue"
+    >
+      <ly-label>{{ field.key | titlecase }}</ly-label>
+      <input type="text" lyNativeControl [formControlName]="field.key" />
+      <button
+        ly-button
+        color="warn"
+        appearance="icon"
+        lySuffix
+        lyTooltip="Delete field"
+        (click)="onRemoveField(field.key)"
+      >
+        <ly-icon>delete_forever</ly-icon>
+      </button>
+      <ly-error *ngIf="field.value.hasError('required')">Required</ly-error>
+    </ly-field>
+  </div>
 
   <button
     ly-button
@@ -36,6 +37,8 @@
   >
     Add field
   </button>
+
+  <pre>Entity: {{ fieldsConfig | json }}</pre>
 
   <div
     lyMt="1rem"
