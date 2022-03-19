@@ -1,0 +1,51 @@
+<ly-paper>
+  <h4 ly-dialog-title>Configure field</h4>
+  <div ly-dialog-content>
+    <form [formGroup]="form">
+      <ly-field appearance="filled" lyWidth="1">
+        <ly-label>Name</ly-label>
+        <input lyNativeControl formControlName="name" [required]="true" />
+      </ly-field>
+
+      <ly-field appearance="filled" lyWidth="1">
+        <ly-label>Initial Value</ly-label>
+        <input
+          lyNativeControl
+          formControlName="initialValue"
+          [required]="true"
+        />
+      </ly-field>
+
+      <ly-checkbox formControlName="required" [required]="true"
+        >Required</ly-checkbox
+      >
+
+      <div
+        lyPt="1rem"
+        lyDisplay="flex"
+        lyJustifyContent="space-between"
+        lyAlignItems="center"
+      >
+        <button
+          ly-button
+          outlined
+          type="button"
+          color="warn"
+          (click)="dialogRef.close()"
+        >
+          Close
+        </button>
+        <button
+          ly-button
+          outlined
+          type="button"
+          color="accent"
+          [disabled]="form.invalid"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</ly-paper>

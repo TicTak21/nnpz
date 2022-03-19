@@ -19,6 +19,7 @@ import { DashboardTabsComponent } from './components/dashboard-tabs/dashboard-ta
 import { DashboardTopFivePizzasComponent } from './components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 import { DashboardPageComponent } from './containers/dashboard-page/dashboard-page.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardEntityNewComponent } from './components/dashboard-entity-new/dashboard-entity-new.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardProfileComponent,
     DashboardTabsComponent,
     DashboardEntityComponent,
+    DashboardEntityNewComponent,
   ],
   imports: [
     CommonModule,
