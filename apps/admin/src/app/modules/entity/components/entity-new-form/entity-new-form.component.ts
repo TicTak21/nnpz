@@ -55,7 +55,7 @@ export class EntityNewFormComponent {
         );
 
         // HACK: i suppose?
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
 
         console.log(this.form.controls);
       });
