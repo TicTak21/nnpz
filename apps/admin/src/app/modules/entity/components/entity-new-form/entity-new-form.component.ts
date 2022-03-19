@@ -5,6 +5,7 @@ import {
   Component,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from '@nnpz/utils';
 import { filter } from 'rxjs';
 import { IEntityFieldConfig } from '../../interfaces';
 import { EntityConfigDialogComponent } from '../entity-config-dialog/entity-config-dialog.component';
@@ -44,13 +45,13 @@ export class EntityNewFormComponent {
     dialogResult.afterClosed
       .pipe(filter(Boolean))
       .subscribe((field: IEntityFieldConfig) => {
-        const { name, initialValue } = field;
+        const { name, initialValue, required } = field;
 
         this.form.addControl(
           name,
-          // TODO: create custom conditional field validator
-          // https://medium.com/ngx/3-ways-to-implement-conditional-validation-of-reactive-forms-c59ed6fc3325
-          new FormControl(initialValue, [Validators.required]),
+          new FormControl(initialValue, [
+            CustomValidators.conditionalRequired(required),
+          ]),
         );
 
         // HACK: i suppose?

@@ -12,7 +12,7 @@
     *ngFor="let field of controls | keyvalue"
   >
     <ly-label>{{ field.key | titlecase }}</ly-label>
-    <input lyNativeControl [formControlName]="field.key" [required]="true" />
+    <input lyNativeControl [formControlName]="field.key" />
     <button
       ly-button
       color="warn"

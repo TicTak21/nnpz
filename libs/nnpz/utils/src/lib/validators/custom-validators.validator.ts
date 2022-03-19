@@ -3,6 +3,7 @@ import {
   FormControl,
   ValidationErrors,
   ValidatorFn,
+  Validators,
 } from '@angular/forms';
 
 export class CustomValidators {
@@ -23,6 +24,14 @@ export class CustomValidators {
 
         return errors;
       }
+
+      return null;
+    };
+  }
+
+  static conditionalRequired(condition: boolean): ValidatorFn {
+    return (ctrl: AbstractControl): ValidationErrors | null => {
+      if (condition) return Validators.required(ctrl);
 
       return null;
     };
