@@ -59,6 +59,23 @@ const routes: Routes = [
       import('./modules/entity/entity.module').then(m => m.EntityModule),
   },
   {
+    path: 'notifications',
+    loadChildren: () =>
+      import('./modules/notification/notification.module').then(
+        m => m.NotificationModule,
+      ),
+  },
+  {
+    path: 'sales',
+    loadChildren: () =>
+      import('./modules/sale/sale.module').then(m => m.SaleModule),
+  },
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./modules/setting/setting.module').then(m => m.SettingModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/not-found/not-found.module').then(
