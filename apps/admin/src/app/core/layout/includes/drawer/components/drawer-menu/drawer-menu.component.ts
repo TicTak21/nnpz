@@ -1,3 +1,4 @@
+import { Dir } from '@alyle/ui';
 import {
   animate,
   state,
@@ -5,13 +6,8 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectUrl } from '@nnpz/admin/app/core/store';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-
-// TODO: fix chevron bug with direction
-// When direction = rtl chevron should point to the left
 
 @Component({
   selector: 'admin-drawer-menu',
@@ -25,6 +21,9 @@ import { Observable } from 'rxjs';
   ],
 })
 export class DrawerMenuComponent {
+  @Input() url$: Observable<string> = new Observable<string>();
+  @Input() direction$: Observable<Dir> = new Observable<Dir>();
+
   navigation = [
     { label: 'Dashboard', icon: 'dashboard', href: '/dashboard' },
     { label: 'Profile', icon: 'person', href: '/me' },
@@ -39,9 +38,8 @@ export class DrawerMenuComponent {
     },
     { label: 'Settings', icon: 'settings', href: '/settings' },
   ];
-  url$: Observable<string> = new Observable<string>();
 
-  constructor(private readonly store: Store) {
-    this.url$ = this.store.select(selectUrl);
+  get directions(): typeof Dir {
+    return Dir;
   }
 }

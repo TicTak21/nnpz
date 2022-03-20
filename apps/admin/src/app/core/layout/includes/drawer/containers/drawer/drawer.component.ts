@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store';
+import { selectUrl } from '@nnpz/admin/app/core/store';
 import { Observable, Subscription, tap } from 'rxjs';
 
 const styles = {
@@ -43,6 +44,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
   // => Is it possibly to use ngIf + async pipe and do not remove node from DOM?
   opened: boolean = true;
   direction$: Observable<Dir> = new Observable<Dir>();
+  url$: Observable<string> = new Observable<string>();
   private opened$: Observable<boolean> = new Observable<boolean>();
   private openedSub: Subscription = new Subscription();
 
@@ -51,6 +53,7 @@ export class DrawerComponent implements OnInit, OnDestroy {
       .select(fromLayout.selectDrawerOpened)
       .pipe(tap(() => this.drawer?.toggle()));
     this.direction$ = this.store.select(fromLayout.selectDirection);
+    this.url$ = this.store.select(selectUrl);
   }
 
   ngOnInit() {
