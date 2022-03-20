@@ -6,7 +6,7 @@
     hasBackdrop="false"
     mode="side"
     drawerWidth="256"
-    [opened]="opened"
+    [opened]="(opened$ | async)!"
     #drawer="lyDrawer"
   >
     <admin-drawer-menu

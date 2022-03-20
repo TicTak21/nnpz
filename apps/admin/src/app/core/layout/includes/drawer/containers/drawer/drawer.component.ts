@@ -1,16 +1,10 @@
 import { Dir, LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store';
-import { selectUrl } from '@nnpz/admin/app/core/store';
-import { Observable, Subscription, tap } from 'rxjs';
+import * as fromCore from '@nnpz/admin/app/core/store';
+import { Observable } from 'rxjs';
 
 const styles = {
   container: {
@@ -33,35 +27,19 @@ const styles = {
   templateUrl: './drawer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DrawerComponent implements OnInit, OnDestroy {
+export class DrawerComponent {
   @ViewChild('drawer') drawer!: LyDrawer;
 
   readonly classes = this.theme.addStyleSheet(styles);
-  // TODO: HACK:
-  // since ngIf removes node from DOM we have a bad animation after drawer added back(e.g. while opening)
-  // to prevent this we could either use a default value in component/template
-  // or manually subscribe(without async pipe) to the value
-  // => Is it possibly to use ngIf + async pipe and do not remove node from DOM?
-  opened: boolean = true;
+
   direction$: Observable<Dir> = new Observable<Dir>();
   url$: Observable<string> = new Observable<string>();
-  private opened$: Observable<boolean> = new Observable<boolean>();
-  private openedSub: Subscription = new Subscription();
+  opened$: Observable<boolean> = new Observable<boolean>();
 
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
-    this.opened$ = this.store
-      .select(fromLayout.selectDrawerOpened)
-      .pipe(tap(() => this.drawer?.toggle()));
+    this.opened$ = this.store.select(fromLayout.selectDrawerOpened);
     this.direction$ = this.store.select(fromLayout.selectDirection);
-    this.url$ = this.store.select(selectUrl);
-  }
-
-  ngOnInit() {
-    this.openedSub = this.opened$.subscribe(opened => (this.opened = opened));
-  }
-
-  ngOnDestroy() {
-    this.openedSub.unsubscribe();
+    this.url$ = this.store.select(fromCore.selectUrl);
   }
 
   toggleDirection(currentDirection: Dir) {
