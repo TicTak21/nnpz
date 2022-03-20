@@ -8,9 +8,8 @@ describe('EntityNewPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntityNewPageComponent ]
-    })
-    .compileComponents();
+      declarations: [EntityNewPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

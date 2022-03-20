@@ -8,9 +8,8 @@ describe('EntityNewFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntityNewFormComponent ]
-    })
-    .compileComponents();
+      declarations: [EntityNewFormComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
