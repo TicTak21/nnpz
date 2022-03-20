@@ -3,7 +3,7 @@ import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store';
-import * as fromCore from '@nnpz/admin/app/core/store';
+import * as fromRouter from '@nnpz/admin/app/core/router/store';
 import { Observable } from 'rxjs';
 
 const styles = {
@@ -39,7 +39,7 @@ export class DrawerComponent {
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.opened$ = this.store.select(fromLayout.selectDrawerOpened);
     this.direction$ = this.store.select(fromLayout.selectDirection);
-    this.url$ = this.store.select(fromCore.selectUrl);
+    this.url$ = this.store.select(fromRouter.selectUrl);
   }
 
   toggleDirection(currentDirection: Dir) {

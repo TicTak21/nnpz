@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectUrl } from '@nnpz/admin/app/core/store/reducers';
+import * as fromRouter from '@nnpz/admin/app/core/router/store';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +12,6 @@ export class NotFoundPageComponent {
   url$: Observable<string> = new Observable<string>();
 
   constructor(private readonly store: Store) {
-    this.url$ = store.select(selectUrl);
+    this.url$ = store.select(fromRouter.selectUrl);
   }
 }
