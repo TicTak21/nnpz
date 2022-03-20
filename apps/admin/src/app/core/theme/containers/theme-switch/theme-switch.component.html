@@ -4,6 +4,7 @@
   appearance="icon"
   *ngIf="themeMode$ | async as currentTheme"
   (click)="handleClick(currentTheme)"
+  [@isDark]="currentTheme | isDarkMode"
 >
   <ly-icon>{{
     (currentTheme | isDarkMode) ? 'light_mode' : 'dark_mode'
