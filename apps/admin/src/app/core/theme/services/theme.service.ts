@@ -6,8 +6,8 @@ import { EThemes } from '@nnpz/ui';
 export class ThemeService {
   private readonly storageKey: string = 'theme';
   private readonly itemKey: string = 'themeMode';
-  private readonly defaultLightTheme = EThemes.light;
-  private readonly defaultDarkTheme = EThemes.dark;
+  // private readonly defaultLightTheme = EThemes.light;
+  // private readonly defaultDarkTheme = EThemes.dark;
 
   constructor(private readonly theme: LyTheme2) {}
 
@@ -17,17 +17,11 @@ export class ThemeService {
       : this.theme.setTheme(EThemes.dark);
   }
 
-  // TODO: due to ngrx-store-localstorage we always receive dark theme as initial
-  // it happends because reducer runs before effects(even before OnEffectsInit)
+  // TODO: dynamicaly set initialState https://github.com/ngrx/platform/issues/51
   setInitialTheme() {
     const localStorageTheme = localStorage.getItem(this.storageKey);
 
-    if (!localStorageTheme) {
-      const preferedTheme = this.checkThemePreferences();
-      this.theme.setTheme(preferedTheme);
-
-      return;
-    }
+    if (!localStorageTheme) return;
 
     const parsedLocalStorageTheme = JSON.parse(localStorageTheme);
     const localStorageThemeMode: EThemes =
@@ -36,15 +30,15 @@ export class ThemeService {
     this.theme.setTheme(localStorageThemeMode);
   }
 
-  private checkThemePreferences(): EThemes {
-    const { defaultLightTheme, defaultDarkTheme } = this;
+  // private checkThemePreferences(): EThemes {
+  //   const { defaultLightTheme, defaultDarkTheme } = this;
 
-    if (!window.matchMedia) return defaultLightTheme;
+  //   if (!window.matchMedia) return defaultLightTheme;
 
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  //   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (isDark) return defaultDarkTheme;
+  //   if (isDark) return defaultDarkTheme;
 
-    return defaultLightTheme;
-  }
+  //   return defaultLightTheme;
+  // }
 }
