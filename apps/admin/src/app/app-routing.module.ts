@@ -76,6 +76,12 @@ const routes: Routes = [
       import('./modules/setting/setting.module').then(m => m.SettingModule),
   },
   {
+    path: 'orders',
+    loadChildren: () =>
+      import('./modules/orders/orders.module').then(m => m.OrdersModule),
+  },
+  { path: 'locations', loadChildren: () => import('./modules/locations/locations.module').then(m => m.LocationsModule) },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/not-found/not-found.module').then(
