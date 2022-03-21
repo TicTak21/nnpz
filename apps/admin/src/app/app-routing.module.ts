@@ -15,21 +15,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'pizzas',
-    loadChildren: () =>
-      import('./modules/pizza/pizza.module').then(m => m.PizzaModule),
-  },
-  {
-    path: 'toppings',
-    loadChildren: () =>
-      import('./modules/topping/topping.module').then(m => m.ToppingModule),
-  },
-  {
-    path: 'users',
-    loadChildren: () =>
-      import('./modules/user/user.module').then(m => m.UserModule),
-  },
-  {
     path: 'me',
     loadChildren: () => import('./modules/me/me.module').then(m => m.MeModule),
   },
@@ -59,28 +44,49 @@ const routes: Routes = [
       import('./modules/entity/entity.module').then(m => m.EntityModule),
   },
   {
-    path: 'notifications',
-    loadChildren: () =>
-      import('./modules/notification/notification.module').then(
-        m => m.NotificationModule,
-      ),
-  },
-  {
     path: 'sales',
     loadChildren: () =>
-      import('./modules/sale/sale.module').then(m => m.SaleModule),
-  },
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./modules/setting/setting.module').then(m => m.SettingModule),
+      import('./modules/sales/sales.module').then(m => m.SalesModule),
   },
   {
     path: 'orders',
     loadChildren: () =>
       import('./modules/orders/orders.module').then(m => m.OrdersModule),
   },
-  { path: 'locations', loadChildren: () => import('./modules/locations/locations.module').then(m => m.LocationsModule) },
+  {
+    path: 'locations',
+    loadChildren: () =>
+      import('./modules/locations/locations.module').then(
+        m => m.LocationsModule,
+      ),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./modules/users/users.module').then(m => m.UsersModule),
+  },
+  {
+    path: 'pizzas',
+    loadChildren: () =>
+      import('./modules/pizzas/pizzas.module').then(m => m.PizzasModule),
+  },
+  {
+    path: 'toppings',
+    loadChildren: () =>
+      import('./modules/toppings/toppings.module').then(m => m.ToppingsModule),
+  },
+  {
+    path: 'notifications',
+    loadChildren: () =>
+      import('./modules/notifications/notifications.module').then(
+        m => m.NotificationsModule,
+      ),
+  },
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./modules/settings/settings.module').then(m => m.SettingsModule),
+  },
   {
     path: '**',
     loadChildren: () =>
