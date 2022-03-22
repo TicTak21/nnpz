@@ -1,9 +1,4 @@
-import { createAction, props } from '@ngrx/store';
-import { EThemes } from '@nnpz/ui';
+import { createAction } from '@ngrx/store';
 
 export const initTheme = createAction('[Theme]: Init theme');
-
-export const toggleTheme = createAction(
-  '[Theme]: Toggle theme',
-  props<{ payload: { currentTheme: EThemes } }>(),
-);
+export const toggleTheme = createAction('[Theme]: Toggle theme');

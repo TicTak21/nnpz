@@ -11,10 +11,15 @@ export class ThemeService {
 
   constructor(private readonly theme: LyTheme2) {}
 
-  toggleTheme(currentTheme: EThemes) {
-    currentTheme === EThemes.dark
-      ? this.theme.setTheme(EThemes.light)
-      : this.theme.setTheme(EThemes.dark);
+  get currentTheme(): EThemes {
+    return this.theme.variables.name as EThemes;
+  }
+
+  toggleTheme() {
+    const newTheme =
+      this.currentTheme === EThemes.dark ? EThemes.light : EThemes.dark;
+
+    this.theme.setTheme(newTheme);
   }
 
   // TODO: dynamicaly set initialState https://github.com/ngrx/platform/issues/51

@@ -3,7 +3,7 @@
   ly-button
   appearance="icon"
   *ngIf="themeMode$ | async as currentTheme"
-  (click)="handleClick(currentTheme)"
+  (click)="handleClick()"
   [@isDark]="currentTheme | isDarkMode"
 >
   <ly-icon>{{

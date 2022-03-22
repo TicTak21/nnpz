@@ -25,9 +25,7 @@ export class ThemeEffects implements OnInitEffects {
     () =>
       this.actions$.pipe(
         ofType(themeActions.toggleTheme),
-        tap(action =>
-          this.themeService.toggleTheme(action.payload.currentTheme),
-        ),
+        tap(() => this.themeService.toggleTheme()),
       ),
     { dispatch: false },
   );

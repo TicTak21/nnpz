@@ -28,7 +28,7 @@ export class ThemeSwitchComponent {
     this.themeMode$ = this.store.select(fromTheme.selectThemeMode);
   }
 
-  handleClick(currentTheme: EThemes) {
-    this.store.dispatch(fromTheme.toggleTheme({ payload: { currentTheme } }));
+  handleClick() {
+    this.store.dispatch(fromTheme.toggleTheme());
   }
 }
