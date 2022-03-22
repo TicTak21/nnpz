@@ -2,12 +2,12 @@
   ly-button
   outlined
   *ngIf="direction$ | async as direction"
-  (click)="handleClick(direction)"
+  (click)="handleClick()"
 >
-  <span [lyMf]="1">Change to {{ direction }}</span>
+  <span [lyMf]="1">Change direction</span>
   <ly-icon>{{
-    direction === 'ltr'
-      ? 'format_textdirection_l_to_r'
-      : 'format_textdirection_r_to_l'
+    (direction | isLtr)
+      ? 'format_textdirection_r_to_l'
+      : 'format_textdirection_l_to_r'
   }}</ly-icon>
 </button>

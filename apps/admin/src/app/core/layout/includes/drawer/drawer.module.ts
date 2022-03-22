@@ -9,9 +9,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DrawerDirBtnComponent } from './components/drawer-dir-btn/drawer-dir-btn.component';
+import { DrawerLogoutBtnComponent } from './components/drawer-logout-btn/drawer-logout-btn.component';
 import { DrawerMenuComponent } from './components/drawer-menu/drawer-menu.component';
 import { DrawerComponent } from './containers/drawer/drawer.component';
-import { DrawerLogoutBtnComponent } from './components/drawer-logout-btn/drawer-logout-btn.component';
+import { IsLtrPipe } from './pipes/is-ltr.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DrawerLogoutBtnComponent } from './components/drawer-logout-btn/drawer-
     DrawerMenuComponent,
     DrawerDirBtnComponent,
     DrawerLogoutBtnComponent,
+    IsLtrPipe,
   ],
   imports: [
     CommonModule,

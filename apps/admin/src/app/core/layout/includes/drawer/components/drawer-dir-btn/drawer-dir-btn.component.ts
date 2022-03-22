@@ -18,7 +18,7 @@ export class DrawerDirBtnComponent {
 
   @Output() toggleDirection: EventEmitter<Dir> = new EventEmitter<Dir>();
 
-  handleClick(currentDirection: Dir) {
-    this.toggleDirection.emit(currentDirection);
+  handleClick() {
+    this.toggleDirection.emit();
   }
 }

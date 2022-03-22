@@ -1,6 +1,7 @@
 import { Dir, LyTheme2 } from '@alyle/ui';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import { filter, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DirectionService {
@@ -16,15 +17,14 @@ export class DirectionService {
     return this.theme.variables.direction;
   }
 
-  initDirection() {
-    const localStorageDirection = localStorage.getItem(this.storageKey);
-
-    if (!localStorageDirection) return;
-
-    const parsedLocalStorageDirection = JSON.parse(localStorageDirection);
-    const localStorageDir: Dir = parsedLocalStorageDirection[this.itemKey];
-
-    if (this.currentDirection !== localStorageDir) this.toggleDirection();
+  initDirection(): Observable<Dir> {
+    return of(localStorage.getItem(this.storageKey)).pipe(
+      filter(Boolean),
+      map(str => JSON.parse(str)),
+      map(json => json[this.itemKey]),
+      filter((storageDir: Dir) => this.currentDirection !== storageDir),
+      tap(() => this.toggleDirection()),
+    );
   }
 
   toggleDirection() {
