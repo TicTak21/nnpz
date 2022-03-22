@@ -38,8 +38,4 @@ export class DrawerMenuComponent {
     },
     { label: 'Settings', icon: 'settings', href: '/settings' },
   ];
-
-  get directions(): typeof Dir {
-    return Dir;
-  }
 }

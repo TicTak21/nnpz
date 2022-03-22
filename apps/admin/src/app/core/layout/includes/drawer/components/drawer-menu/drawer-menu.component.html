@@ -1,11 +1,11 @@
 <ly-list>
   <ng-container *ngFor="let item of navigation">
     <a ly-list-item [routerLink]="item.href">
-      <ly-icon ly-list-icon *ngIf="(url$ | async) === item.href" [@fadeIn]>{{
-        (direction$ | async) === directions.ltr
-          ? 'chevron_left'
-          : 'chevron_right'
-      }}</ly-icon>
+      <ly-icon ly-list-icon *ngIf="(url$ | async) === item.href" [@fadeIn]>
+        <ng-container *ngIf="direction$ | async as direction">
+          {{ (direction | isLtr) ? 'chevron_right' : 'chevron_left' }}
+        </ng-container>
+      </ly-icon>
       <ly-icon ly-list-icon>{{ item.icon }}</ly-icon>
       <span ly-line>{{ item.label }}</span>
     </a>
