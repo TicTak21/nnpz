@@ -23,18 +23,18 @@ export class DirectionService {
       map(str => JSON.parse(str)),
       map(json => json[this.itemKey]),
       filter((storageDir: Dir) => this.currentDirection !== storageDir),
-      tap(() => this.toggleDirection()),
+      tap(() => this.theme.toggleDirection()),
     );
   }
 
-  toggleDirection() {
-    const newDirection = this.currentDirection === Dir.ltr ? Dir.rtl : Dir.ltr;
-
-    this.toggleOnDocument(newDirection);
-    this.theme.toggleDirection();
+  toggleDirection(): Observable<void> {
+    return of(this.currentDirection === Dir.ltr ? Dir.rtl : Dir.ltr).pipe(
+      map(dir => this.setOnDocument(dir)),
+      tap(() => this.theme.toggleDirection()),
+    );
   }
 
-  private toggleOnDocument(direction: Dir) {
+  private setOnDocument(direction: Dir) {
     this.document.dir = direction;
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { switchMap, tap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { DirectionService } from '../../services/direction.service';
 import * as layoutActions from '../actions';
 
@@ -25,7 +25,7 @@ export class LayoutEffects implements OnInitEffects {
     () =>
       this.actions$.pipe(
         ofType(layoutActions.toggleDirection),
-        tap(() => this.directionService.toggleDirection()),
+        switchMap(() => this.directionService.toggleDirection()),
       ),
     { dispatch: false },
   );
