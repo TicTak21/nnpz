@@ -42,9 +42,7 @@ export class DrawerComponent {
     this.url$ = this.store.select(fromRouter.selectUrl);
   }
 
-  toggleDirection(currentDirection: Dir) {
-    this.store.dispatch(
-      fromLayout.toggleDirection({ payload: { currentDirection } }),
-    );
+  toggleDirection() {
+    this.store.dispatch(fromLayout.toggleDirection());
   }
 }
