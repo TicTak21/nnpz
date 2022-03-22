@@ -1,6 +1,7 @@
 import { LyTheme2 } from '@alyle/ui';
 import { Injectable } from '@angular/core';
 import { EThemes } from '@nnpz/ui';
+import { filter, map, of, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -24,15 +25,12 @@ export class ThemeService {
 
   // TODO: dynamicaly set initialState https://github.com/ngrx/platform/issues/51
   setInitialTheme() {
-    const localStorageTheme = localStorage.getItem(this.storageKey);
-
-    if (!localStorageTheme) return;
-
-    const parsedLocalStorageTheme = JSON.parse(localStorageTheme);
-    const localStorageThemeMode: EThemes =
-      parsedLocalStorageTheme[this.itemKey];
-
-    this.theme.setTheme(localStorageThemeMode);
+    return of(localStorage.getItem(this.storageKey)).pipe(
+      filter(Boolean),
+      map(str => JSON.parse(str)),
+      map(json => json[this.itemKey]),
+      tap((storageTheme: EThemes) => this.theme.setTheme(storageTheme)),
+    );
   }
 
   // private checkThemePreferences(): EThemes {

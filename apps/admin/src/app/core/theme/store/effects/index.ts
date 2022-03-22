@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { tap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
 import * as themeActions from '../actions';
 
@@ -16,7 +16,7 @@ export class ThemeEffects implements OnInitEffects {
     () =>
       this.actions$.pipe(
         ofType(themeActions.initTheme),
-        tap(() => this.themeService.setInitialTheme()),
+        switchMap(() => this.themeService.setInitialTheme()),
       ),
     { dispatch: false },
   );
