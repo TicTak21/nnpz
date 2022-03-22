@@ -3,9 +3,9 @@ import { LyDrawerModule } from '@alyle/ui/drawer';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { DrawerModule } from './components/drawer/drawer.module';
+import { HeaderModule } from './components/header/header.module';
 import { LayoutComponent } from './containers/layout/layout.component';
-import { DrawerModule } from './includes/drawer/drawer.module';
-import { HeaderModule } from './includes/header/header.module';
 import { LayoutEffects } from './store/effects';
 
 @NgModule({
