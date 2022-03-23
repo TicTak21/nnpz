@@ -1,15 +1,4 @@
-import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
-const styles = {
-  entities: {
-    display: 'grid',
-    overflowX: 'auto',
-    gap: '1rem',
-    gridAutoFlow: 'column',
-    gridAutoColumns: 'minmax(256px, auto)',
-  },
-};
 
 @Component({
   selector: 'admin-dashboard-page',
@@ -17,7 +6,6 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardPageComponent {
-  readonly classes = this.theme.addStyleSheet(styles);
   MOCK_DATA = {
     activeUsers: 12,
     activeOrders: 48,
@@ -46,6 +34,4 @@ export class DashboardPageComponent {
       },
     ],
   };
-
-  constructor(private readonly theme: LyTheme2) {}
 }

@@ -20,6 +20,7 @@ import { DashboardTopFivePizzasComponent } from './components/dashboard-top-five
 import { DashboardPageComponent } from './containers/dashboard-page/dashboard-page.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardEntityNewComponent } from './components/dashboard-entity-new/dashboard-entity-new.component';
+import { DashboardEntitiesComponent } from './components/dashboard-entities/dashboard-entities.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DashboardEntityNewComponent } from './components/dashboard-entity-new/d
     DashboardTabsComponent,
     DashboardEntityComponent,
     DashboardEntityNewComponent,
+    DashboardEntitiesComponent,
   ],
   imports: [
     CommonModule,
