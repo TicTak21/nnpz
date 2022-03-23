@@ -1,5 +1,6 @@
 import { Dir } from '@alyle/ui';
 import { createReducer, on } from '@ngrx/store';
+import { ELayoutType } from '../../enums';
 import * as layoutActions from '../actions';
 
 export const layoutFeatureKey = 'layout';
@@ -7,11 +8,13 @@ export const layoutFeatureKey = 'layout';
 export interface State {
   drawerOpened: boolean;
   direction: Dir;
+  layoutType: ELayoutType;
 }
 
 const initialState: State = {
   drawerOpened: true,
   direction: Dir.ltr,
+  layoutType: ELayoutType.standart,
 };
 
 export const reducer = createReducer(
@@ -23,5 +26,9 @@ export const reducer = createReducer(
   on(layoutActions.toggleDrawer, state => ({
     ...state,
     drawerOpened: !state.drawerOpened,
+  })),
+  on(layoutActions.changeLayout, (state, action) => ({
+    ...state,
+    layoutType: action.payload.layoutType,
   })),
 );

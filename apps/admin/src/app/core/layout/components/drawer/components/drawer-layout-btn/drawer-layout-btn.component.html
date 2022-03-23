@@ -1,0 +1,23 @@
+<button
+  ly-button
+  outlined
+  *ngIf="layoutType$ | async as currentLayout"
+  [lyMenuTriggerFor]="menuRef"
+>
+  <span [lyMf]="1">{{ currentLayout | titlecase }}</span>
+  <ly-icon>dashboard_customize</ly-icon>
+</button>
+
+<ng-template let-menu #menuRef>
+  <ly-menu [ref]="menu" [xAnchor]="menuXAnchor">
+    <button
+      ly-button
+      ly-menu-item
+      *ngFor="let layout of layouts"
+      (click)="handleClick(layout)"
+    >
+      <ly-icon [lyMf]="1">{{ layout.icon }}</ly-icon>
+      <span>{{ layout.type | titlecase }}</span>
+    </button>
+  </ly-menu>
+</ng-template>

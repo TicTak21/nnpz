@@ -1,10 +1,12 @@
 <ly-grid container spacing="16">
-  <ng-container *ngFor="let item of grid">
-    <ly-grid item [col]="item.col">
-      <ng-template
-        [ngComponentOutlet]="item.component"
-        [ndcDynamicInputs]="item.inputs"
-      ></ng-template>
-    </ly-grid>
+  <ng-container *ngIf="layoutType$ | async as currentLayout">
+    <ng-container *ngFor="let item of getLayout(currentLayout)">
+      <ly-grid item [col]="item.col">
+        <ng-template
+          [ngComponentOutlet]="item.component"
+          [ndcDynamicInputs]="item.inputs"
+        ></ng-template>
+      </ly-grid>
+    </ng-container>
   </ng-container>
 </ly-grid>

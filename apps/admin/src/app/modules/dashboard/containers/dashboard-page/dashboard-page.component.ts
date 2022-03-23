@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgIterable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
+import * as fromLayout from '@nnpz/admin/app/core/layout/store';
+import { Observable } from 'rxjs';
 import { DashboardDividerComponent } from '../../components/dashboard-divider/dashboard-divider.component';
 import { DashboardEntitiesComponent } from '../../components/dashboard-entities/dashboard-entities.component';
 import { DashboardProfileComponent } from '../../components/dashboard-profile/dashboard-profile.component';
@@ -163,4 +167,21 @@ export class DashboardPageComponent {
       inputs: {},
     },
   ];
+
+  layouts: { [key in ELayoutType]: unknown } = {
+    standart: this.grid,
+    stats: this.grid2,
+    management: this.grid3,
+  };
+
+  layoutType$: Observable<ELayoutType> = new Observable<ELayoutType>();
+
+  constructor(private readonly store: Store) {
+    this.layoutType$ = this.store.select(fromLayout.selectLayoutType);
+  }
+
+  // TODO: remove function call from template
+  getLayout(currentLayout: ELayoutType) {
+    return this.layouts[currentLayout] as NgIterable<any>;
+  }
 }

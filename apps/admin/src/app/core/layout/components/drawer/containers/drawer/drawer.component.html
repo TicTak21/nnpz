@@ -14,6 +14,10 @@
       [direction$]="direction$"
     ></admin-drawer-menu>
     <div [withClass]="classes.ctrls">
+      <admin-drawer-layout-btn
+        [layoutType$]="layoutType$"
+        (changeLayout)="changeLayout($event)"
+      ></admin-drawer-layout-btn>
       <admin-drawer-dir-btn
         [direction$]="direction$"
         (toggleDirection)="toggleDirection()"

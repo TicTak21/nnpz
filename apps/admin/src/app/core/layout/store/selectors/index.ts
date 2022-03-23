@@ -14,3 +14,8 @@ export const selectDirection = createSelector(
   selectLayoutState,
   state => state.direction,
 );
+
+export const selectLayoutType = createSelector(
+  selectLayoutState,
+  state => state.layoutType,
+);
