@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, NgIterable } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store';
@@ -9,6 +9,7 @@ import { DashboardProfileComponent } from '../../components/dashboard-profile/da
 import { DashboardSalesAmountChartComponent } from '../../components/dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
 import { DashboardTabsComponent } from '../../components/dashboard-tabs/dashboard-tabs.component';
 import { DashboardTopFivePizzasComponent } from '../../components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
+import { TLayoutConfig } from '../../interfaces';
 
 @Component({
   selector: 'admin-dashboard-page',
@@ -45,143 +46,150 @@ export class DashboardPageComponent {
     ],
   };
 
-  grid = [
-    {
-      component: DashboardProfileComponent,
-      col: '4 12@XSmall@Small 3@Medium',
-      inputs: {
-        username: this.MOCK_DATA.username,
-        img: this.MOCK_DATA.img,
-      },
-    },
-    {
-      component: DashboardSalesAmountChartComponent,
-      col: '8 12@XSmall@Small 9@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardDividerComponent,
-      col: '12',
-      inputs: {
-        activeOrders: this.MOCK_DATA.activeOrders,
-        activeUsers: this.MOCK_DATA.activeUsers,
-      },
-    },
-    {
-      component: DashboardTopFivePizzasComponent,
-      col: '6 12@XSmall@Small 7@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardTabsComponent,
-      col: '6 12@XSmall@Small 5@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardEntitiesComponent,
-      col: '12',
-      inputs: {
-        entities: this.MOCK_DATA.entities,
-      },
-    },
-  ];
-
-  grid2 = [
-    {
-      component: DashboardDividerComponent,
-      col: '12',
-      inputs: {
-        activeOrders: this.MOCK_DATA.activeOrders,
-        activeUsers: this.MOCK_DATA.activeUsers,
-      },
-    },
-    {
-      component: DashboardSalesAmountChartComponent,
-      col: '6 12@XSmall@Small 6@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardTopFivePizzasComponent,
-      col: '6 12@XSmall@Small 6@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardEntitiesComponent,
-      col: '12',
-      inputs: {
-        entities: this.MOCK_DATA.entities,
-      },
-    },
-    {
-      component: DashboardTabsComponent,
-      col: '8 12@XSmall@Small 8@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardProfileComponent,
-      col: '4 12@XSmall@Small 4@Medium',
-      inputs: {
-        username: this.MOCK_DATA.username,
-        img: this.MOCK_DATA.img,
-      },
-    },
-  ];
-
-  grid3 = [
-    {
-      component: DashboardDividerComponent,
-      col: '12',
-      inputs: {
-        activeOrders: this.MOCK_DATA.activeOrders,
-        activeUsers: this.MOCK_DATA.activeUsers,
-      },
-    },
-    {
-      component: DashboardTabsComponent,
-      col: '12 12@XSmall@Small 12@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardProfileComponent,
-      col: '4 12@XSmall@Small 4@Medium',
-      inputs: {
-        username: this.MOCK_DATA.username,
-        img: this.MOCK_DATA.img,
-      },
-    },
-    {
-      component: DashboardEntitiesComponent,
-      col: '8 12@XSmall@Small 8@Medium',
-      inputs: {
-        entities: this.MOCK_DATA.entities,
-      },
-    },
-    {
-      component: DashboardSalesAmountChartComponent,
-      col: '6 12@XSmall@Small 6@Medium',
-      inputs: {},
-    },
-    {
-      component: DashboardTopFivePizzasComponent,
-      col: '6 12@XSmall@Small 6@Medium',
-      inputs: {},
-    },
-  ];
-
-  layouts: { [key in ELayoutType]: unknown } = {
-    standart: this.grid,
-    stats: this.grid2,
-    management: this.grid3,
-  };
-
   layoutType$: Observable<ELayoutType> = new Observable<ELayoutType>();
+
+  layouts: TLayoutConfig = {
+    standart: [
+      {
+        component: DashboardProfileComponent,
+        col: '4 12@XSmall@Small 3@Medium',
+        inputs: {
+          username: this.MOCK_DATA.username,
+          img: this.MOCK_DATA.img,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardSalesAmountChartComponent,
+        col: '8 12@XSmall@Small 9@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardDividerComponent,
+        col: '12',
+        inputs: {
+          activeOrders: this.MOCK_DATA.activeOrders,
+          activeUsers: this.MOCK_DATA.activeUsers,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardTopFivePizzasComponent,
+        col: '6 12@XSmall@Small 7@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardTabsComponent,
+        col: '6 12@XSmall@Small 5@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardEntitiesComponent,
+        col: '12',
+        inputs: {
+          entities: this.MOCK_DATA.entities,
+        },
+        outputs: {},
+      },
+    ],
+    stats: [
+      {
+        component: DashboardDividerComponent,
+        col: '12',
+        inputs: {
+          activeOrders: this.MOCK_DATA.activeOrders,
+          activeUsers: this.MOCK_DATA.activeUsers,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardSalesAmountChartComponent,
+        col: '6 12@XSmall@Small 6@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardTopFivePizzasComponent,
+        col: '6 12@XSmall@Small 6@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardEntitiesComponent,
+        col: '12',
+        inputs: {
+          entities: this.MOCK_DATA.entities,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardTabsComponent,
+        col: '8 12@XSmall@Small 8@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardProfileComponent,
+        col: '4 12@XSmall@Small 4@Medium',
+        inputs: {
+          username: this.MOCK_DATA.username,
+          img: this.MOCK_DATA.img,
+        },
+        outputs: {},
+      },
+    ],
+    management: [
+      {
+        component: DashboardDividerComponent,
+        col: '12',
+        inputs: {
+          activeOrders: this.MOCK_DATA.activeOrders,
+          activeUsers: this.MOCK_DATA.activeUsers,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardTabsComponent,
+        col: '12 12@XSmall@Small 12@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardProfileComponent,
+        col: '4 12@XSmall@Small 4@Medium',
+        inputs: {
+          username: this.MOCK_DATA.username,
+          img: this.MOCK_DATA.img,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardEntitiesComponent,
+        col: '8 12@XSmall@Small 8@Medium',
+        inputs: {
+          entities: this.MOCK_DATA.entities,
+        },
+        outputs: {},
+      },
+      {
+        component: DashboardSalesAmountChartComponent,
+        col: '6 12@XSmall@Small 6@Medium',
+        inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardTopFivePizzasComponent,
+        col: '6 12@XSmall@Small 6@Medium',
+        inputs: {},
+        outputs: {},
+      },
+    ],
+  };
 
   constructor(private readonly store: Store) {
     this.layoutType$ = this.store.select(fromLayout.selectLayoutType);
-  }
-
-  // TODO: remove function call from template
-  getLayout(currentLayout: ELayoutType) {
-    return this.layouts[currentLayout] as NgIterable<any>;
   }
 }

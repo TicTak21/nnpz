@@ -1,6 +1,6 @@
 <ly-grid container spacing="16">
   <ng-container *ngIf="layoutType$ | async as currentLayout">
-    <ng-container *ngFor="let item of getLayout(currentLayout)">
+    <ng-container *ngFor="let item of layouts[currentLayout]">
       <ly-grid item [col]="item.col">
         <ng-template
           [ngComponentOutlet]="item.component"
