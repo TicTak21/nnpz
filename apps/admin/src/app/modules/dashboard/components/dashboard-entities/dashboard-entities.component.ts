@@ -9,6 +9,7 @@ const styles = {
     gap: '1rem',
     gridAutoFlow: 'column',
     gridAutoColumns: 'minmax(256px, auto)',
+    height: '100%',
   },
 };
 

@@ -1,8 +1,12 @@
 <ly-paper lyP="1rem" elevation="3" lyHeight="100%">
-  <h4 lyTyp="title">New entity</h4>
-  <code>/entities/new</code>
+  <ly-grid container spacing="16" [withClass]="classes.grid">
+    <ly-grid item col="12">
+      <h4 lyTyp="title">New entity</h4>
+      <code>/entities/new</code>
+    </ly-grid>
 
-  <div lyMt="2">
-    <a ly-button outlined routerLink="/entities/new">Create</a>
-  </div>
+    <ly-grid item col="12" [withClass]="classes.ctrls">
+      <a ly-button outlined color="accent" routerLink="/entities/new">Create</a>
+    </ly-grid>
+  </ly-grid>
 </ly-paper>

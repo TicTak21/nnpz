@@ -1,36 +1,10 @@
 <ly-grid container spacing="16">
-  <admin-dashboard-profile
-    ly-grid-item
-    col="4 12@XSmall@Small 3@Medium"
-    [username]="MOCK_DATA.username"
-    [img]="MOCK_DATA.img"
-  ></admin-dashboard-profile>
-
-  <admin-dashboard-sales-amount-chart
-    ly-grid-item
-    col="8 12@XSmall@Small 9@Medium"
-  ></admin-dashboard-sales-amount-chart>
-
-  <admin-dashboard-divider
-    ly-grid-item
-    col="12"
-    [activeOrders]="MOCK_DATA.activeOrders"
-    [activeUsers]="MOCK_DATA.activeUsers"
-  ></admin-dashboard-divider>
-
-  <admin-dashboard-top-five-pizzas
-    ly-grid-item
-    col="6 12@XSmall@Small 7@Medium"
-  ></admin-dashboard-top-five-pizzas>
-
-  <admin-dashboard-tabs
-    ly-grid-item
-    col="6 12@XSmall@Small 5@Medium"
-  ></admin-dashboard-tabs>
-
-  <admin-dashboard-entities
-    ly-grid-item
-    col="12"
-    [entities]="MOCK_DATA.entities"
-  ></admin-dashboard-entities>
+  <ng-container *ngFor="let item of grid">
+    <ly-grid item [col]="item.col">
+      <ng-template
+        [ngComponentOutlet]="item.component"
+        [ndcDynamicInputs]="item.inputs"
+      ></ng-template>
+    </ly-grid>
+  </ng-container>
 </ly-grid>

@@ -1,8 +1,11 @@
-<ly-paper lyP="1rem" elevation="3" *ngIf="entity">
-  <h4 lyTyp="title">{{ entity.name | titlecase }}</h4>
-  <code>Total: {{ entity.count }}</code>
-
-  <div lyMt="2">
-    <a ly-button outlined [routerLink]="['/', entity.name]">Show all</a>
-  </div>
+<ly-paper lyP="1rem" elevation="3" lyHeight="100%" *ngIf="entity">
+  <ly-grid container spacing="16" [withClass]="classes.grid">
+    <ly-grid item col="12">
+      <h4 lyTyp="title">{{ entity.name | titlecase }}</h4>
+      <code>Total: {{ entity.count }}</code>
+    </ly-grid>
+    <ly-grid item col="12" [withClass]="classes.ctrls">
+      <a ly-button outlined [routerLink]="['/', entity.name]">Show all</a>
+    </ly-grid>
+  </ly-grid>
 </ly-paper>

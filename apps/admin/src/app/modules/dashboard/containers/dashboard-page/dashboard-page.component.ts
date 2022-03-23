@@ -1,4 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DashboardDividerComponent } from '../../components/dashboard-divider/dashboard-divider.component';
+import { DashboardEntitiesComponent } from '../../components/dashboard-entities/dashboard-entities.component';
+import { DashboardProfileComponent } from '../../components/dashboard-profile/dashboard-profile.component';
+import { DashboardSalesAmountChartComponent } from '../../components/dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
+import { DashboardTabsComponent } from '../../components/dashboard-tabs/dashboard-tabs.component';
+import { DashboardTopFivePizzasComponent } from '../../components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 
 @Component({
   selector: 'admin-dashboard-page',
@@ -34,4 +40,127 @@ export class DashboardPageComponent {
       },
     ],
   };
+
+  grid = [
+    {
+      component: DashboardProfileComponent,
+      col: '4 12@XSmall@Small 3@Medium',
+      inputs: {
+        username: this.MOCK_DATA.username,
+        img: this.MOCK_DATA.img,
+      },
+    },
+    {
+      component: DashboardSalesAmountChartComponent,
+      col: '8 12@XSmall@Small 9@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardDividerComponent,
+      col: '12',
+      inputs: {
+        activeOrders: this.MOCK_DATA.activeOrders,
+        activeUsers: this.MOCK_DATA.activeUsers,
+      },
+    },
+    {
+      component: DashboardTopFivePizzasComponent,
+      col: '6 12@XSmall@Small 7@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardTabsComponent,
+      col: '6 12@XSmall@Small 5@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardEntitiesComponent,
+      col: '12',
+      inputs: {
+        entities: this.MOCK_DATA.entities,
+      },
+    },
+  ];
+
+  grid2 = [
+    {
+      component: DashboardDividerComponent,
+      col: '12',
+      inputs: {
+        activeOrders: this.MOCK_DATA.activeOrders,
+        activeUsers: this.MOCK_DATA.activeUsers,
+      },
+    },
+    {
+      component: DashboardSalesAmountChartComponent,
+      col: '6 12@XSmall@Small 6@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardTopFivePizzasComponent,
+      col: '6 12@XSmall@Small 6@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardEntitiesComponent,
+      col: '12',
+      inputs: {
+        entities: this.MOCK_DATA.entities,
+      },
+    },
+    {
+      component: DashboardTabsComponent,
+      col: '8 12@XSmall@Small 8@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardProfileComponent,
+      col: '4 12@XSmall@Small 4@Medium',
+      inputs: {
+        username: this.MOCK_DATA.username,
+        img: this.MOCK_DATA.img,
+      },
+    },
+  ];
+
+  grid3 = [
+    {
+      component: DashboardDividerComponent,
+      col: '12',
+      inputs: {
+        activeOrders: this.MOCK_DATA.activeOrders,
+        activeUsers: this.MOCK_DATA.activeUsers,
+      },
+    },
+    {
+      component: DashboardTabsComponent,
+      col: '12 12@XSmall@Small 12@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardProfileComponent,
+      col: '4 12@XSmall@Small 4@Medium',
+      inputs: {
+        username: this.MOCK_DATA.username,
+        img: this.MOCK_DATA.img,
+      },
+    },
+    {
+      component: DashboardEntitiesComponent,
+      col: '8 12@XSmall@Small 8@Medium',
+      inputs: {
+        entities: this.MOCK_DATA.entities,
+      },
+    },
+    {
+      component: DashboardSalesAmountChartComponent,
+      col: '6 12@XSmall@Small 6@Medium',
+      inputs: {},
+    },
+    {
+      component: DashboardTopFivePizzasComponent,
+      col: '6 12@XSmall@Small 6@Medium',
+      inputs: {},
+    },
+  ];
 }
