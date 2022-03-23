@@ -97,15 +97,6 @@ export class DashboardPageComponent {
     ],
     stats: [
       {
-        component: DashboardDividerComponent,
-        col: '12',
-        inputs: {
-          activeOrders: this.MOCK_DATA.activeOrders,
-          activeUsers: this.MOCK_DATA.activeUsers,
-        },
-        outputs: {},
-      },
-      {
         component: DashboardSalesAmountChartComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
@@ -115,6 +106,15 @@ export class DashboardPageComponent {
         component: DashboardTopFivePizzasComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
+        outputs: {},
+      },
+      {
+        component: DashboardDividerComponent,
+        col: '12',
+        inputs: {
+          activeOrders: this.MOCK_DATA.activeOrders,
+          activeUsers: this.MOCK_DATA.activeUsers,
+        },
         outputs: {},
       },
       {
