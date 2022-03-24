@@ -18,6 +18,7 @@ import { EntityNewFormComponent } from './components/entity-new-form/entity-new-
 import { EntitiesPageComponent } from './containers/entities-page/entities-page.component';
 import { EntityNewPageComponent } from './containers/entity-new-page/entity-new-page.component';
 import { EntitiesRoutingModule } from './entities-routing.module';
+import { EntityNewCardComponent } from './components/entity-new-card/entity-new-card.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EntitiesRoutingModule } from './entities-routing.module';
     EntityNewPageComponent,
     EntityNewFormComponent,
     EntityConfigDialogComponent,
+    EntityNewCardComponent,
   ],
   imports: [
     CommonModule,
