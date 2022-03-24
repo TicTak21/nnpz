@@ -4,7 +4,7 @@
   *ngIf="direction$ | async as direction"
   (click)="handleClick()"
 >
-  <span [lyMf]="1">Change direction</span>
+  <span [lyMf]="1">{{ (direction | isLtr) ? 'RTL' : 'LTR' }}</span>
   <ly-icon>{{
     (direction | isLtr)
       ? 'format_textdirection_r_to_l'
