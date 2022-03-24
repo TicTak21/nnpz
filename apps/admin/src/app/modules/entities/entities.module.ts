@@ -15,13 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EntityCardComponent } from './components/entity-card/entity-card.component';
 import { EntityConfigDialogComponent } from './components/entity-config-dialog/entity-config-dialog.component';
 import { EntityNewFormComponent } from './components/entity-new-form/entity-new-form.component';
+import { EntitiesPageComponent } from './containers/entities-page/entities-page.component';
 import { EntityNewPageComponent } from './containers/entity-new-page/entity-new-page.component';
-import { EntityPageComponent } from './containers/entity-page/entity-page.component';
-import { EntityRoutingModule } from './entity-routing.module';
+import { EntitiesRoutingModule } from './entities-routing.module';
 
 @NgModule({
   declarations: [
-    EntityPageComponent,
+    EntitiesPageComponent,
     EntityCardComponent,
     EntityNewPageComponent,
     EntityNewFormComponent,
@@ -29,7 +29,7 @@ import { EntityRoutingModule } from './entity-routing.module';
   ],
   imports: [
     CommonModule,
-    EntityRoutingModule,
+    EntitiesRoutingModule,
     LyButtonModule,
     LyCardModule,
     LyIconModule,
@@ -44,4 +44,4 @@ import { EntityRoutingModule } from './entity-routing.module';
     LyCheckboxModule,
   ],
 })
-export class EntityModule {}
+export class EntitiesModule {}

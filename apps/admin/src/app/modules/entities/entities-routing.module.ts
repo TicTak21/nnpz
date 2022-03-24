@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EntitiesPageComponent } from './containers/entities-page/entities-page.component';
 import { EntityNewPageComponent } from './containers/entity-new-page/entity-new-page.component';
-import { EntityPageComponent } from './containers/entity-page/entity-page.component';
 
 const routes: Routes = [
-  { path: '', component: EntityPageComponent },
+  { path: '', component: EntitiesPageComponent },
   { path: 'new', component: EntityNewPageComponent },
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class EntityRoutingModule {}
+export class EntitiesRoutingModule {}

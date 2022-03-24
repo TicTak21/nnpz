@@ -4,10 +4,10 @@ import { IDashboardEntity } from '@nnpz/types';
 
 @Component({
   selector: 'admin-entity-page',
-  templateUrl: './entity-page.component.html',
+  templateUrl: './entities-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EntityPageComponent {
+export class EntitiesPageComponent {
   MOCK_DATA = {
     entities: [
       {
