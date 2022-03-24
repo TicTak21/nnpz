@@ -8,9 +8,8 @@ describe('EntityNewCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntityNewCardComponent ]
-    })
-    .compileComponents();
+      declarations: [EntityNewCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

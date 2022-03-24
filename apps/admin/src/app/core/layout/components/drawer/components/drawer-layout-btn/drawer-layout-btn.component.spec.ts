@@ -8,9 +8,8 @@ describe('DrawerLayoutBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawerLayoutBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawerLayoutBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
