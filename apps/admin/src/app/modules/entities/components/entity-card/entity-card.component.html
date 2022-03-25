@@ -3,18 +3,13 @@
     <h2 lyTyp="headline">{{ entity.name | titlecase }}: {{ entity.count }}</h2>
   </ly-card-content>
   <ly-card-actions [disableActionSpacing]="true">
-    <button ly-button appearance="icon" lyTooltip="Drag it" cdkDragHandle>
+    <button ly-button appearance="icon" cdkDragHandle>
       <ly-icon>drag_indicator</ly-icon>
     </button>
-    <button ly-button appearance="icon" lyTooltip="Add to the bookmarks">
+    <button ly-button appearance="icon">
       <ly-icon>bookmark_border</ly-icon>
     </button>
-    <a
-      ly-button
-      appearance="icon"
-      lyTooltip="Show all"
-      [routerLink]="['/', entity.name]"
-    >
+    <a ly-button appearance="icon" [routerLink]="['/', entity.name]">
       <ly-icon>east</ly-icon>
     </a>
   </ly-card-actions>
