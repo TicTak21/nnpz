@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from './auth/auth.module';
 import { LayoutComponent } from './layout/containers/layout/layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { StoreModule } from './store/store.module';
@@ -13,6 +14,7 @@ import { ThemeModule } from './theme/theme.module';
     LayoutModule,
     HttpClientModule,
     RouterModule,
+    AuthModule,
   ],
   exports: [LayoutComponent],
 })
