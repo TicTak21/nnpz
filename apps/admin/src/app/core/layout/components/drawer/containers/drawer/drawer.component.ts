@@ -2,11 +2,12 @@ import { Dir, LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import * as fromAuth from '@nnpz/admin/app/core/auth/store';
+import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
 import { ILayoutTypeItem } from '@nnpz/admin/app/core/layout/interfaces';
 import * as fromLayout from '@nnpz/admin/app/core/layout/store';
 import * as fromRouter from '@nnpz/admin/app/core/router/store';
 import { Observable } from 'rxjs';
-import { ELayoutType } from '../../../../enums';
 
 const styles = {
   container: {
@@ -38,12 +39,14 @@ export class DrawerComponent {
   url$: Observable<string> = new Observable<string>();
   opened$: Observable<boolean> = new Observable<boolean>();
   layoutType$: Observable<ELayoutType> = new Observable<ELayoutType>();
+  isLogged$: Observable<boolean> = new Observable<boolean>();
 
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.opened$ = this.store.select(fromLayout.selectDrawerOpened);
     this.direction$ = this.store.select(fromLayout.selectDirection);
     this.layoutType$ = this.store.select(fromLayout.selectLayoutType);
     this.url$ = this.store.select(fromRouter.selectUrl);
+    this.isLogged$ = this.store.select(fromAuth.selectIsLogged);
   }
 
   toggleDirection() {
@@ -54,5 +57,9 @@ export class DrawerComponent {
     this.store.dispatch(
       fromLayout.changeLayout({ payload: { layoutType: type } }),
     );
+  }
+
+  onLogout() {
+    this.store.dispatch(fromAuth.logout());
   }
 }

@@ -6,7 +6,9 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { filter, merge, Observable, of, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { filter, merge, Observable, tap } from 'rxjs';
+import * as fromAuth from '../store';
 
 type TCanActivate =
   | boolean
@@ -16,13 +18,13 @@ type TCanActivate =
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private readonly router: Router) {}
+  constructor(private readonly router: Router, private readonly store: Store) {}
 
   canActivate(
     _route: ActivatedRouteSnapshot,
     _state: RouterStateSnapshot,
   ): TCanActivate {
-    const store$ = of(true);
+    const store$ = this.store.select(fromAuth.selectIsLogged);
 
     const isLogged$ = store$.pipe(filter(isLogged => isLogged));
     const notLogged$ = store$.pipe(

@@ -21,7 +21,9 @@
         [direction$]="direction$"
         (toggleDirection)="toggleDirection()"
       ></admin-drawer-dir-btn>
-      <admin-drawer-logout-btn></admin-drawer-logout-btn>
+      <admin-drawer-logout-btn
+        (handleLogout)="onLogout()"
+      ></admin-drawer-logout-btn>
     </div>
   </ly-drawer>
 

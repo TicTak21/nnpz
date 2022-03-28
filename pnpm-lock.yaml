@@ -31,6 +31,7 @@ specifiers:
   '@nestjs/typeorm': ^8.0.2
   '@ngrx/effects': 13.0.2
   '@ngrx/router-store': 13.0.2
+  '@ngrx/schematics': ^13.1.0
   '@ngrx/store': 13.0.2
   '@ngrx/store-devtools': 13.0.2
   '@nrwl/angular': 13.8.1
@@ -146,6 +147,7 @@ devDependencies:
   '@angular/language-service': 13.2.2
   '@nestjs/schematics': 8.0.0_typescript@4.5.5
   '@nestjs/testing': 8.0.6_0f6569408de1f55b1e6481ed04272f1a
+  '@ngrx/schematics': 13.1.0
   '@nrwl/cli': 13.8.1
   '@nrwl/cypress': 13.8.1_d6823b3d5163700a68b68763d86bcc39
   '@nrwl/eslint-plugin-nx': 13.8.1_5ae33293dcc24cff4bd8ba3dedddd591
@@ -2770,6 +2772,10 @@ packages:
       rxjs: 7.3.0
       tslib: 2.3.1
     dev: false
+
+  /@ngrx/schematics/13.1.0:
+    resolution: {integrity: sha512-u832wAllTSF5Nivs/XoYL+nhKd6RKT8JY+CUiUXjfe+lX9EyRRfHXmolXG60g6a681HQs/2YT0fs4cVtE94HdA==}
+    dev: true
 
   /@ngrx/store-devtools/13.0.2_@ngrx+store@13.0.2+rxjs@7.3.0:
     resolution: {integrity: sha512-fcQ5A7cv9PONFvqlpFPXHswWjEflJvqrNt6wmywlxMtJDjkgzCHpvRiJqup/FiTosblRERoeZXN0oHW3Er3+rw==}

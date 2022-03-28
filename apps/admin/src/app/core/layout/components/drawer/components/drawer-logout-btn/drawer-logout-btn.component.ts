@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'admin-drawer-logout-btn',
@@ -7,9 +12,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DrawerLogoutBtnComponent {
-  logged: boolean = true;
+  @Output() handleLogout: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
-    this.logged = !this.logged;
+    this.handleLogout.emit();
   }
 }
