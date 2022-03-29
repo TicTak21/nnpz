@@ -16,6 +16,8 @@ import { ROOT_REDUCERS } from './reducers';
         strictActionSerializability: true,
         strictActionWithinNgZone: true,
         strictActionTypeUniqueness: true,
+        strictActionImmutability: true,
+        strictStateImmutability: true,
       },
     }),
     EffectsModule.forRoot(),
