@@ -4,8 +4,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '@nnpz/admin/environments/environment';
-import { metaReducers } from './meta-reducers';
-import { ROOT_REDUCERS } from './reducers';
+import { metaReducers } from './meta-reducers/meta.reducers';
+import { ROOT_REDUCERS } from './reducers/root.reducers';
 
 @NgModule({
   imports: [

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { switchMap } from 'rxjs';
 import { DirectionService } from '../../services/direction.service';
-import * as layoutActions from '../actions';
+import * as layoutActions from '../actions/layout.actions';
 
 @Injectable()
 export class LayoutEffects implements OnInitEffects {

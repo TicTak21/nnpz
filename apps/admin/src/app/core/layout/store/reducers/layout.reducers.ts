@@ -1,7 +1,7 @@
 import { Dir } from '@alyle/ui';
 import { createReducer, on } from '@ngrx/store';
 import { ELayoutType } from '../../enums';
-import * as layoutActions from '../actions';
+import * as layoutActions from '../actions/layout.actions';
 
 export const layoutFeatureKey = 'layout';
 

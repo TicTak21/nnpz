@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 import { DirectionService } from '@nnpz/admin/app/core/layout/services/direction.service';
 import { switchMap } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
-import * as themeActions from '../actions';
+import * as themeActions from '../actions/theme.actions';
 
 @Injectable()
 export class ThemeEffects implements OnInitEffects {

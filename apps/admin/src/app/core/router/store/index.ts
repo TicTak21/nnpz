@@ -1,2 +1,2 @@
-export * from './reducers';
-export * from './selectors';
+export * from './reducers/router.reducers';
+export * from './selectors/router.selectors';
