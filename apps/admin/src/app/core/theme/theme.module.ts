@@ -4,6 +4,7 @@ import { LyIconModule } from '@alyle/ui/icon';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { BaseThemeModule } from '@nnpz/ui';
 import {
   CustomGlobalVariables,
@@ -12,7 +13,7 @@ import {
 } from './config';
 import { ThemeSwitchComponent } from './containers/theme-switch/theme-switch.component';
 import { IsDarkModePipe } from './pipes/is-dark-mode.pipe';
-import { ThemeEffects } from './store';
+import * as fromTheme from './store';
 
 @NgModule({
   declarations: [ThemeSwitchComponent, IsDarkModePipe],
@@ -21,7 +22,8 @@ import { ThemeEffects } from './store';
     BaseThemeModule,
     LyIconModule,
     LyButtonModule,
-    EffectsModule.forFeature([ThemeEffects]),
+    StoreModule.forFeature(fromTheme.themeFeatureKey, fromTheme.reducer),
+    EffectsModule.forFeature([fromTheme.ThemeEffects]),
   ],
   exports: [ThemeSwitchComponent],
   providers: [
