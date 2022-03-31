@@ -13,7 +13,7 @@ import { EUserRole, IUserEntity } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeEditFormComponent {
-  @Output() handleSubmit: EventEmitter<IUserEntity> =
+  @Output() handleSubmit$: EventEmitter<IUserEntity> =
     new EventEmitter<IUserEntity>();
 
   form: FormGroup = new FormGroup({
@@ -26,11 +26,11 @@ export class MeEditFormComponent {
     return Object.keys(EUserRole);
   }
 
-  onSubmit() {
-    this.handleSubmit.emit(this.form.value);
+  handleSubmit() {
+    this.handleSubmit$.emit(this.form.value);
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset({ email: '', password: '', role: EUserRole.admin });
   }
 }

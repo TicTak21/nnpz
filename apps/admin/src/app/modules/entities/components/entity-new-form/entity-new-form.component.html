@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
   <ly-field appearance="filled" color="accent" lyWidth="1">
     <ly-label>Name</ly-label>
     <input lyNativeControl formControlName="name" [required]="true" />
@@ -20,7 +20,7 @@
         appearance="icon"
         lySuffix
         lyTooltip="Delete field"
-        (click)="onRemoveField(field.key)"
+        (click)="handleRemoveField(field.key)"
       >
         <ly-icon>delete_forever</ly-icon>
       </button>
@@ -33,7 +33,7 @@
     bg="accent"
     lyWidth="1"
     type="button"
-    (click)="onAddField()"
+    (click)="handleAddField()"
   >
     Add field
   </button>
@@ -46,7 +46,13 @@
     lyJustifyContent="space-between"
     lyAlignItems="center"
   >
-    <button ly-button outlined type="button" color="warn" (click)="onReset()">
+    <button
+      ly-button
+      outlined
+      type="button"
+      color="warn"
+      (click)="handleReset()"
+    >
       Reset
     </button>
     <button

@@ -13,7 +13,7 @@ import { EReportFormat, IReportDto } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReportFormComponent {
-  @Output() handleSubmit: EventEmitter<IReportDto> =
+  @Output() handleSubmit$: EventEmitter<IReportDto> =
     new EventEmitter<IReportDto>();
 
   readonly form: FormGroup = new FormGroup({
@@ -60,11 +60,11 @@ export class ReportFormComponent {
     return replaced;
   }
 
-  onSubmit() {
-    this.handleSubmit.emit(this.form.value);
+  handleSubmit() {
+    this.handleSubmit$.emit(this.form.value);
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset({
       name: 'report',
       days: 14,

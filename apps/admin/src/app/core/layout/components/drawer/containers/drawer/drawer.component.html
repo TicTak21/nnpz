@@ -15,14 +15,14 @@
     <div [withClass]="classes.ctrls">
       <admin-drawer-layout-btn
         [layoutType$]="layoutType$"
-        (changeLayout)="changeLayout($event)"
+        (changeLayout$)="changeLayout($event)"
       ></admin-drawer-layout-btn>
       <admin-drawer-dir-btn
         [direction$]="direction$"
-        (toggleDirection)="toggleDirection()"
+        (toggleDirection$)="toggleDirection()"
       ></admin-drawer-dir-btn>
       <admin-drawer-logout-btn
-        (handleLogout)="onLogout()"
+        (handleLogout$)="handleLogout()"
       ></admin-drawer-logout-btn>
     </div>
   </ly-drawer>

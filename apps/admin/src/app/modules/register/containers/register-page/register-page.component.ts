@@ -7,7 +7,7 @@ import { IRegisterDto } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterPageComponent {
-  onSubmit(registerDto: IRegisterDto) {
+  handleSubmit(registerDto: IRegisterDto) {
     console.log(registerDto);
   }
 }

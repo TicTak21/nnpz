@@ -7,7 +7,7 @@ import { ILoginDto } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPageComponent {
-  onSubmit(loginDto: ILoginDto) {
+  handleSubmit(loginDto: ILoginDto) {
     console.log(loginDto);
   }
 }

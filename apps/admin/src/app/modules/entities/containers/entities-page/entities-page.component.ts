@@ -33,7 +33,7 @@ export class EntitiesPageComponent {
     ],
   };
 
-  onDrop(event: CdkDragDrop<IDashboardEntity[]>) {
+  handleDrop(event: CdkDragDrop<IDashboardEntity[]>) {
     moveItemInArray(
       this.MOCK_DATA.entities,
       event.previousIndex,

@@ -1,4 +1,4 @@
-<form lyP="1rem" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form lyP="1rem" [formGroup]="form" (ngSubmit)="handleSubmit()">
   <h2 lyTyp="title" [gutterBottom]="true">Edit your personal info.</h2>
 
   <ly-field appearance="filled" lyWidth="1">
@@ -19,7 +19,13 @@
   </ly-field>
 
   <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
-    <button ly-button outlined type="button" color="warn" (click)="onReset()">
+    <button
+      ly-button
+      outlined
+      type="button"
+      color="warn"
+      (click)="handleReset()"
+    >
       Reset
     </button>
     <button

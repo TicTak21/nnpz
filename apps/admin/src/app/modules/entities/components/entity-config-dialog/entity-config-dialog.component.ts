@@ -25,7 +25,7 @@ export class EntityConfigDialogComponent {
 
   constructor(public readonly dialogRef: LyDialogRef) {}
 
-  onSubmit() {
+  handleSubmit() {
     this.dialogRef.close(this.form.value);
   }
 }

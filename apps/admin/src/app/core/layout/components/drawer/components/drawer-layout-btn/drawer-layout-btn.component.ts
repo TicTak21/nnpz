@@ -18,7 +18,7 @@ import { ELayoutType } from '../../../../enums';
 export class DrawerLayoutBtnComponent {
   @Input() layoutType$: Observable<ELayoutType> = new Observable<ELayoutType>();
 
-  @Output() changeLayout: EventEmitter<ILayoutTypeItem> =
+  @Output() changeLayout$: EventEmitter<ILayoutTypeItem> =
     new EventEmitter<ILayoutTypeItem>();
 
   layouts: ILayoutTypeItem[] = [
@@ -32,6 +32,6 @@ export class DrawerLayoutBtnComponent {
   }
 
   handleClick(layout: ILayoutTypeItem) {
-    this.changeLayout.emit(layout);
+    this.changeLayout$.emit(layout);
   }
 }

@@ -11,9 +11,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SettingsTerminateSessionsComponent {
-  @Output() handleTerminate: EventEmitter<void> = new EventEmitter<void>();
+  @Output() handleTerminate$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
-    this.handleTerminate.emit();
+    this.handleTerminate$.emit();
   }
 }

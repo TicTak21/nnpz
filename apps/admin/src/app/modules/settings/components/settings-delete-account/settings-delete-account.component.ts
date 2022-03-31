@@ -11,9 +11,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SettingsDeleteAccountComponent {
-  @Output() handleDelete: EventEmitter<void> = new EventEmitter<void>();
+  @Output() handleDelete$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
-    this.handleDelete.emit();
+    this.handleDelete$.emit();
   }
 }

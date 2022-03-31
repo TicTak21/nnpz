@@ -35,11 +35,11 @@ export class SupportIssueFormComponent {
     return this.form.get('comment') as FormControl;
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset();
   }
 
-  onSubmit() {
+  handleSubmit() {
     console.log(this.form.value);
   }
 }

@@ -7,7 +7,7 @@ import { IReportDto } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReportPageComponent {
-  onSubmit(reportDto: IReportDto) {
+  handleSubmit(reportDto: IReportDto) {
     console.log(reportDto);
   }
 }

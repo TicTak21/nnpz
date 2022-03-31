@@ -12,9 +12,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DrawerLogoutBtnComponent {
-  @Output() handleLogout: EventEmitter<void> = new EventEmitter<void>();
+  @Output() handleLogout$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
-    this.handleLogout.emit();
+    this.handleLogout$.emit();
   }
 }

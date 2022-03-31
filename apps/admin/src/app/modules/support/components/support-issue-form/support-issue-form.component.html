@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
   <ly-field appearance="filled" color="accent" [lyWidth]="1">
     <input
       lyNativeControl
@@ -29,7 +29,13 @@
   </ly-field>
 
   <div [withClass]="classes.ctrls">
-    <button ly-button outlined color="warn" type="reset" (click)="onReset()">
+    <button
+      ly-button
+      outlined
+      color="warn"
+      type="reset"
+      (click)="handleReset()"
+    >
       Reset
     </button>
     <button

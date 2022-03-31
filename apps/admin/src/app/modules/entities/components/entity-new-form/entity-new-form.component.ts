@@ -49,7 +49,7 @@ export class EntityNewFormComponent {
     return config;
   }
 
-  onAddField() {
+  handleAddField() {
     const dialogResult = this.dialog.open<EntityConfigDialogComponent>(
       EntityConfigDialogComponent,
     );
@@ -71,15 +71,15 @@ export class EntityNewFormComponent {
       });
   }
 
-  onRemoveField(ctrlName: string) {
+  handleRemoveField(ctrlName: string) {
     this.fields.removeControl(ctrlName);
   }
 
-  onSubmit() {
+  handleSubmit() {
     console.log(this.form.value);
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset();
   }
 }

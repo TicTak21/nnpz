@@ -59,7 +59,7 @@ export class DrawerComponent {
     );
   }
 
-  onLogout() {
+  handleLogout() {
     this.store.dispatch(fromAuth.logout());
   }
 }

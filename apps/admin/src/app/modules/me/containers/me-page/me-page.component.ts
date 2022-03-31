@@ -13,7 +13,7 @@ export class MePageComponent {
     isOnline: true,
   };
 
-  onSubmit(userDto: IUserEntity) {
+  handleSubmit(userDto: IUserEntity) {
     console.log(userDto);
   }
 }

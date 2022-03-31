@@ -14,7 +14,7 @@ import { CustomValidators } from '@nnpz/utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NnpzRegisterFormComponent {
-  @Output() handleSubmit: EventEmitter<IRegisterDto> =
+  @Output() handleSubmit$: EventEmitter<IRegisterDto> =
     new EventEmitter<IRegisterDto>();
 
   form: FormGroup = new FormGroup(
@@ -39,13 +39,13 @@ export class NnpzRegisterFormComponent {
     return this.form.get('confirmPassword') as FormControl;
   }
 
-  onSubmit() {
+  handleSubmit() {
     if (this.form.valid) {
-      this.handleSubmit.emit(this.form.value);
+      this.handleSubmit$.emit(this.form.value);
     }
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset();
   }
 

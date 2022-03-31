@@ -1,7 +1,7 @@
 <ly-paper>
   <h4 ly-dialog-title>Configure field</h4>
   <div ly-dialog-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="handleSubmit()">
       <ly-field appearance="filled" lyWidth="1">
         <ly-label>Name</ly-label>
         <input lyNativeControl formControlName="name" [required]="true" />
@@ -40,10 +40,9 @@
         <button
           ly-button
           outlined
-          type="button"
+          type="submit"
           color="accent"
           [disabled]="form.invalid"
-          (click)="onSubmit()"
         >
           Submit
         </button>

@@ -16,9 +16,9 @@ import { Observable } from 'rxjs';
 export class DrawerDirBtnComponent {
   @Input() direction$: Observable<Dir> = new Observable<Dir>();
 
-  @Output() toggleDirection: EventEmitter<Dir> = new EventEmitter<Dir>();
+  @Output() toggleDirection$: EventEmitter<Dir> = new EventEmitter<Dir>();
 
   handleClick() {
-    this.toggleDirection.emit();
+    this.toggleDirection$.emit();
   }
 }

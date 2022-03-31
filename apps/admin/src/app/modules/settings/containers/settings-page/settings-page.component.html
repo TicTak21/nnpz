@@ -6,13 +6,13 @@
       <admin-settings-terminate-sessions
         ly-grid-item
         col="12"
-        (handleTerminate)="handleTerminate()"
+        (handleTerminate$)="handleTerminate()"
       ></admin-settings-terminate-sessions>
 
       <admin-settings-delete-account
         ly-grid-item
         col="12"
-        (handleDelete)="handleDelete()"
+        (handleDelete$)="handleDelete()"
       ></admin-settings-delete-account>
     </ly-grid>
   </ly-paper>
