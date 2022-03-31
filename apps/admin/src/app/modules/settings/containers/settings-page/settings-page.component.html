@@ -1,3 +1,19 @@
 <ly-paper elevation="3" lyP="1rem" lyHeight="100vh">
-  <h1 lyTyp="headline">Settings</h1>
+  <ly-paper [withClass]="classes.dangerZone">
+    <ly-grid container spacing="16">
+      <h1 lyTyp="headline" ly-grid-item col="12">Danger Zone</h1>
+
+      <admin-settings-terminate-sessions
+        ly-grid-item
+        col="12"
+        (handleTerminate)="handleTerminate()"
+      ></admin-settings-terminate-sessions>
+
+      <admin-settings-delete-account
+        ly-grid-item
+        col="12"
+        (handleDelete)="handleDelete()"
+      ></admin-settings-delete-account>
+    </ly-grid>
+  </ly-paper>
 </ly-paper>
