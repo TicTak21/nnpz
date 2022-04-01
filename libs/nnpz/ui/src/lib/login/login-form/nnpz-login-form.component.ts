@@ -13,7 +13,7 @@ import { ILoginDto } from '@nnpz/types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NnpzLoginFormComponent {
-  @Output() handleSubmit: EventEmitter<ILoginDto> =
+  @Output() handleSubmit$: EventEmitter<ILoginDto> =
     new EventEmitter<ILoginDto>();
 
   form: FormGroup = new FormGroup({
@@ -30,13 +30,13 @@ export class NnpzLoginFormComponent {
     return this.form.get('password') as FormControl;
   }
 
-  onSubmit() {
+  handleSubmit() {
     if (this.form.valid) {
-      this.handleSubmit.emit(this.form.value);
+      this.handleSubmit$.emit(this.form.value);
     }
   }
 
-  onReset() {
+  handleReset() {
     this.form.reset();
   }
 
