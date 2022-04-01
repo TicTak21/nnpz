@@ -5,8 +5,10 @@ import { LyGridModule } from '@alyle/ui/grid';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyTabsModule } from '@alyle/ui/tabs';
 import { LyTypographyModule } from '@alyle/ui/typography';
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NnpzAvatarModule } from '@nnpz/ui';
 import { DynamicIoModule, DynamicModule } from 'ng-dynamic-component';
 import { NgChartsModule } from 'ng2-charts';
@@ -16,9 +18,9 @@ import { DashboardDividerComponent } from './components/dashboard-divider/dashbo
 import { DashboardEntitiesComponent } from './components/dashboard-entities/dashboard-entities.component';
 import { DashboardEntityNewComponent } from './components/dashboard-entity-new/dashboard-entity-new.component';
 import { DashboardEntityComponent } from './components/dashboard-entity/dashboard-entity.component';
+import { DashboardNotesComponent } from './components/dashboard-notes/dashboard-notes.component';
 import { DashboardProfileComponent } from './components/dashboard-profile/dashboard-profile.component';
 import { DashboardSalesAmountChartComponent } from './components/dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
-import { DashboardTabsComponent } from './components/dashboard-tabs/dashboard-tabs.component';
 import { DashboardTopFivePizzasComponent } from './components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 import { DashboardPageComponent } from './containers/dashboard-page/dashboard-page.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -32,10 +34,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardActiveUsersComponent,
     DashboardDividerComponent,
     DashboardProfileComponent,
-    DashboardTabsComponent,
     DashboardEntityComponent,
     DashboardEntityNewComponent,
     DashboardEntitiesComponent,
+    DashboardNotesComponent,
   ],
   imports: [
     CommonModule,
@@ -51,6 +53,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     LyFieldModule,
     DynamicModule,
     DynamicIoModule,
+    ReactiveFormsModule,
+    TextFieldModule,
   ],
 })
 export class DashboardModule {}

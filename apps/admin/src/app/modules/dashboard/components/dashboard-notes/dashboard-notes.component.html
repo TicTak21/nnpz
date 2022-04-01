@@ -1,0 +1,49 @@
+<ly-paper elevation="3" lyP="1rem" lyHeight="100%">
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <ly-field appearance="filled" lyWidth="1" color="accent">
+      <textarea
+        lyNativeControl
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="3"
+        cdkAutosizeMaxRows="5"
+        formControlName="note"
+      ></textarea>
+      <ly-label>Take a note</ly-label>
+      <ly-hint align="before"
+        >{{ note.value?.length || 0 }}/{{ noteMaxLength }}</ly-hint
+      >
+      <ly-error *ngIf="note.hasError('required')">Required</ly-error>
+      <ly-error *ngIf="note.hasError('minlength')"
+        >Min {{ noteMinLength }} characters</ly-error
+      >
+      <ly-error *ngIf="note.hasError('maxlength')"
+        >Max {{ noteMaxLength }} characters</ly-error
+      >
+    </ly-field>
+
+    <div
+      lyDisplay="flex"
+      lyJustifyContent="space-between"
+      lyAlignItems="center"
+    >
+      <button
+        ly-button
+        outlined
+        type="button"
+        color="warn"
+        (click)="handleReset()"
+      >
+        Reset
+      </button>
+      <button
+        ly-button
+        outlined
+        type="submit"
+        color="accent"
+        [disabled]="form.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</ly-paper>

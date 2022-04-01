@@ -5,9 +5,9 @@ import * as fromLayout from '@nnpz/admin/app/core/layout/store';
 import { Observable } from 'rxjs';
 import { DashboardDividerComponent } from '../../components/dashboard-divider/dashboard-divider.component';
 import { DashboardEntitiesComponent } from '../../components/dashboard-entities/dashboard-entities.component';
+import { DashboardNotesComponent } from '../../components/dashboard-notes/dashboard-notes.component';
 import { DashboardProfileComponent } from '../../components/dashboard-profile/dashboard-profile.component';
 import { DashboardSalesAmountChartComponent } from '../../components/dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
-import { DashboardTabsComponent } from '../../components/dashboard-tabs/dashboard-tabs.component';
 import { DashboardTopFivePizzasComponent } from '../../components/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 import { TLayoutConfig } from '../../interfaces';
 
@@ -81,7 +81,7 @@ export class DashboardPageComponent {
         outputs: {},
       },
       {
-        component: DashboardTabsComponent,
+        component: DashboardNotesComponent,
         col: '6 12@XSmall@Small 5@Medium',
         inputs: {},
         outputs: {},
@@ -126,7 +126,7 @@ export class DashboardPageComponent {
         outputs: {},
       },
       {
-        component: DashboardTabsComponent,
+        component: DashboardNotesComponent,
         col: '8 12@XSmall@Small 8@Medium',
         inputs: {},
         outputs: {},
@@ -152,7 +152,7 @@ export class DashboardPageComponent {
         outputs: {},
       },
       {
-        component: DashboardTabsComponent,
+        component: DashboardNotesComponent,
         col: '12 12@XSmall@Small 12@Medium',
         inputs: {},
         outputs: {},
