@@ -4,10 +4,13 @@ import { AppThemeVariables } from '@nnpz/admin/app/core/theme/types';
 
 const styles = (theme: AppThemeVariables) => {
   return {
+    notifications: lyl`{
+      border: 1px solid ${theme.accent.default}
+      border-radius: ${theme.borderRadius.default}
+    }`,
     dangerZone: lyl`{
       border: 1px solid ${theme.warn.default}
       border-radius: ${theme.borderRadius.default}
-      padding: 1rem
     }`,
   };
 };
@@ -28,5 +31,9 @@ export class SettingsPageComponent {
 
   handleDelete() {
     console.log('delete account');
+  }
+
+  handleMute(isMuted: boolean) {
+    console.log(`notifications muted: ${isMuted}`);
   }
 }
