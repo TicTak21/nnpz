@@ -14,7 +14,7 @@ export class DirectionService {
   ) {}
 
   get currentDirection(): Dir {
-    return this.theme.variables.direction;
+    return this.theme.variables.direction as Dir;
   }
 
   initDirection(): Observable<Dir> {
