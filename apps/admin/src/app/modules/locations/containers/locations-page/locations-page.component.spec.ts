@@ -1,5 +1,6 @@
+import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BaseThemeModule } from '@nnpz/ui';
 import { LocationsPageComponent } from './locations-page.component';
 
 describe('LocationsPageComponent', () => {
@@ -9,6 +10,7 @@ describe('LocationsPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LocationsPageComponent],
+      imports: [BaseThemeModule, LyCommonModule],
     }).compileComponents();
   });
 

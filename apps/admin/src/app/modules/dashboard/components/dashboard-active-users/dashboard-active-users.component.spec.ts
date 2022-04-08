@@ -1,5 +1,7 @@
+import { LyGridModule } from '@alyle/ui/grid';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BaseThemeModule } from '@nnpz/ui';
 import { DashboardActiveUsersComponent } from './dashboard-active-users.component';
 
 describe('DashboardActiveUsersComponent', () => {
@@ -9,6 +11,8 @@ describe('DashboardActiveUsersComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardActiveUsersComponent],
+      imports: [BaseThemeModule, LyGridModule],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

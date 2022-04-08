@@ -1,4 +1,8 @@
+import { LyCommonModule } from '@alyle/ui';
+import { LyGridModule } from '@alyle/ui/grid';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BaseThemeModule } from '@nnpz/ui';
 import { RegisterPageComponent } from './register-page.component';
 
 describe('RegisterPageComponent', () => {
@@ -8,6 +12,8 @@ describe('RegisterPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RegisterPageComponent],
+      imports: [BaseThemeModule, LyCommonModule, LyGridModule],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

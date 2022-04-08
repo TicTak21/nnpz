@@ -1,5 +1,9 @@
+import { LyCheckboxModule } from '@alyle/ui/checkbox';
+import { LyDialogModule, LyDialogRef } from '@alyle/ui/dialog';
+import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { BaseThemeModule } from '@nnpz/ui';
 import { EntityConfigDialogComponent } from './entity-config-dialog.component';
 
 describe('EntityConfigDialogComponent', () => {
@@ -9,6 +13,19 @@ describe('EntityConfigDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [EntityConfigDialogComponent],
+      imports: [
+        BaseThemeModule,
+        LyDialogModule,
+        LyFieldModule,
+        ReactiveFormsModule,
+        LyCheckboxModule,
+      ],
+      providers: [
+        {
+          provide: LyDialogRef,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

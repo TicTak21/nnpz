@@ -1,5 +1,7 @@
+import { LyCommonModule } from '@alyle/ui';
+import { LyGridModule } from '@alyle/ui/grid';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BaseThemeModule } from '@nnpz/ui';
 import { DashboardEntityNewComponent } from './dashboard-entity-new.component';
 
 describe('DashboardEntityNewComponent', () => {
@@ -9,6 +11,7 @@ describe('DashboardEntityNewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardEntityNewComponent],
+      imports: [BaseThemeModule, LyCommonModule, LyGridModule],
     }).compileComponents();
   });
 

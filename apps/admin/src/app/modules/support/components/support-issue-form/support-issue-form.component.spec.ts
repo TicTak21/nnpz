@@ -1,5 +1,7 @@
+import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { BaseThemeModule } from '@nnpz/ui';
 import { SupportIssueFormComponent } from './support-issue-form.component';
 
 describe('SupportIssueFormComponent', () => {
@@ -9,6 +11,7 @@ describe('SupportIssueFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SupportIssueFormComponent],
+      imports: [BaseThemeModule, LyFieldModule, ReactiveFormsModule],
     }).compileComponents();
   });
 

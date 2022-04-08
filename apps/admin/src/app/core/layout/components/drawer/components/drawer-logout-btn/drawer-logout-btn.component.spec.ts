@@ -1,5 +1,7 @@
+import { LyButtonModule } from '@alyle/ui/button';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BaseThemeModule } from '@nnpz/ui';
 import { DrawerLogoutBtnComponent } from './drawer-logout-btn.component';
 
 describe('DrawerLogoutBtnComponent', () => {
@@ -9,6 +11,8 @@ describe('DrawerLogoutBtnComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DrawerLogoutBtnComponent],
+      imports: [BaseThemeModule, LyButtonModule],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

@@ -1,5 +1,5 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MeProfileComponent } from './me-profile.component';
 
 describe('MeProfileComponent', () => {
@@ -9,6 +9,7 @@ describe('MeProfileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MeProfileComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

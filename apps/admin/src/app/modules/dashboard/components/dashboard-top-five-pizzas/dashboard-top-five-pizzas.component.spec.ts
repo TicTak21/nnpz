@@ -1,4 +1,7 @@
+import { LyCommonModule } from '@alyle/ui';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BaseThemeModule } from '@nnpz/ui';
 import { DashboardTopFivePizzasComponent } from './dashboard-top-five-pizzas.component';
 
 describe('DashboardTopFivePizzasComponent', () => {
@@ -8,6 +11,8 @@ describe('DashboardTopFivePizzasComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardTopFivePizzasComponent],
+      imports: [BaseThemeModule, LyCommonModule],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

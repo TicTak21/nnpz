@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BaseThemeModule } from '@nnpz/ui';
 import { DashboardEntityComponent } from './dashboard-entity.component';
 
 describe('DashboardEntityComponent', () => {
@@ -9,6 +9,7 @@ describe('DashboardEntityComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardEntityComponent],
+      imports: [BaseThemeModule],
     }).compileComponents();
   });
 

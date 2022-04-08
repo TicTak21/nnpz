@@ -1,4 +1,6 @@
+import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BaseThemeModule } from '@nnpz/ui';
 import { OrdersPageComponent } from './orders-page.component';
 
 describe('OrdersPageComponent', () => {
@@ -8,6 +10,7 @@ describe('OrdersPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [OrdersPageComponent],
+      imports: [BaseThemeModule, LyCommonModule],
     }).compileComponents();
   });
 

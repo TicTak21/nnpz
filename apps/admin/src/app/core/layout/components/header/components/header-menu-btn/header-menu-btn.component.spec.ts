@@ -1,5 +1,5 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeaderMenuBtnComponent } from './header-menu-btn.component';
 
 describe('HeaderMenuBtnComponent', () => {
@@ -9,6 +9,7 @@ describe('HeaderMenuBtnComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderMenuBtnComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

@@ -1,5 +1,5 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DrawerMenuComponent } from './drawer-menu.component';
 
 describe('DrawerMenuComponent', () => {
@@ -9,6 +9,7 @@ describe('DrawerMenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DrawerMenuComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
