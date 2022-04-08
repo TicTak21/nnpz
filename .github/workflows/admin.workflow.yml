@@ -34,3 +34,6 @@ jobs:
 
       - name: Build
         run: pnpm nx build admin
+
+      - name: Unit tests
+        run: pnpm nx test admin
