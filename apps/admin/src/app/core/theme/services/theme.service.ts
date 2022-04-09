@@ -1,7 +1,8 @@
 import { LyTheme2 } from '@alyle/ui';
 import { Injectable } from '@angular/core';
+import { TStorageItem } from '@nnpz/admin/app/shared/types';
 import { EThemes } from '@nnpz/ui';
-import { filter, map, of, tap } from 'rxjs';
+import { filter, map, Observable, of, tap, withLatestFrom } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -10,23 +11,34 @@ export class ThemeService {
 
   constructor(private readonly theme: LyTheme2) {}
 
-  get currentTheme(): EThemes {
-    return this.theme.variables.name as EThemes;
+  get currentTheme(): Observable<EThemes> {
+    return of(this.theme.variables.name as EThemes);
   }
 
-  // TODO: dynamicaly set initialState https://github.com/ngrx/platform/issues/51
-  initTheme() {
+  get storageTheme(): Observable<EThemes> {
     return of(localStorage.getItem(this.storageKey)).pipe(
       filter(Boolean),
-      map(str => JSON.parse(str)),
+      map<string, TStorageItem<EThemes>>(str => JSON.parse(str)),
       map(json => json[this.itemKey]),
-      tap((storageTheme: EThemes) => this.theme.setTheme(storageTheme)),
     );
   }
 
-  toggleTheme() {
-    return of(
-      this.currentTheme === EThemes.dark ? EThemes.light : EThemes.dark,
-    ).pipe(map((newTheme: EThemes) => this.theme.setTheme(newTheme)));
+  // TODO: dynamicaly set initialState https://github.com/ngrx/platform/issues/51
+  initTheme(): Observable<[EThemes, EThemes]> {
+    return this.storageTheme.pipe(
+      withLatestFrom(this.currentTheme),
+      tap(([storageTheme, currentTheme]) => {
+        if (storageTheme !== currentTheme) this.theme.setTheme(storageTheme);
+      }),
+    );
+  }
+
+  toggleTheme(): Observable<void> {
+    return this.currentTheme.pipe(
+      map(currentTheme =>
+        currentTheme === EThemes.dark ? EThemes.light : EThemes.dark,
+      ),
+      map(newTheme => this.theme.setTheme(newTheme)),
+    );
   }
 }

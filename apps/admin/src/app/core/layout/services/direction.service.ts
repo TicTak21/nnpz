@@ -1,7 +1,8 @@
 import { Dir, LyTheme2 } from '@alyle/ui';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
-import { filter, map, Observable, of, tap } from 'rxjs';
+import { TStorageItem } from '@nnpz/admin/app/shared/types';
+import { filter, map, Observable, of, tap, withLatestFrom } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DirectionService {
@@ -13,24 +14,34 @@ export class DirectionService {
     @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
-  get currentDirection(): Dir {
-    return this.theme.variables.direction as Dir;
+  get currentDirection(): Observable<Dir> {
+    return of(this.theme.variables.direction as Dir);
   }
 
-  initDirection(): Observable<Dir> {
+  get storageDir(): Observable<Dir> {
     return of(localStorage.getItem(this.storageKey)).pipe(
       filter(Boolean),
-      map(str => JSON.parse(str)),
+      map<string, TStorageItem<Dir>>(str => JSON.parse(str)),
       map(json => json[this.itemKey]),
-      filter((storageDir: Dir) => this.currentDirection !== storageDir),
-      tap(() => this.theme.toggleDirection()),
+    );
+  }
+
+  initDirection(): Observable<[Dir, Dir]> {
+    return this.storageDir.pipe(
+      withLatestFrom(this.currentDirection),
+      tap(([storageDir, currentDir]) => {
+        if (storageDir !== currentDir) this.theme.setDirection(storageDir);
+      }),
     );
   }
 
   toggleDirection(): Observable<void> {
-    return of(this.currentDirection === Dir.ltr ? Dir.rtl : Dir.ltr).pipe(
-      map(dir => this.setOnDocument(dir)),
-      tap(() => this.theme.toggleDirection()),
+    return this.currentDirection.pipe(
+      map(currentDir => (currentDir === Dir.ltr ? Dir.rtl : Dir.ltr)),
+      map(newDir => {
+        this.setOnDocument(newDir);
+        this.theme.setDirection(newDir);
+      }),
     );
   }
 
