@@ -7,7 +7,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter, merge, Observable, tap } from 'rxjs';
+import { iif, mergeMap, Observable, of } from 'rxjs';
 import * as fromAuth from '../store';
 
 type TCanActivate =
@@ -26,12 +26,8 @@ export class AuthGuard implements CanActivate {
   ): TCanActivate {
     const store$ = this.store.select(fromAuth.selectIsLogged);
 
-    const isLogged$ = store$.pipe(filter(isLogged => isLogged));
-    const notLogged$ = store$.pipe(
-      filter(isLogged => !isLogged),
-      tap(() => this.router.navigate(['/login'])),
+    return store$.pipe(
+      mergeMap(isLogged => iif(() => isLogged, of(true), of(false))),
     );
-
-    return merge(isLogged$, notLogged$);
   }
 }
