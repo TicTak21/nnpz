@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -18,11 +17,11 @@ type TCanActivate =
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private readonly router: Router, private readonly store: Store) {}
+  constructor(private readonly store: Store) {}
 
   canActivate(
-    _route: ActivatedRouteSnapshot,
-    _state: RouterStateSnapshot,
+    _route?: ActivatedRouteSnapshot,
+    _state?: RouterStateSnapshot,
   ): TCanActivate {
     const store$ = this.store.select(fromAuth.selectIsLogged);
 
