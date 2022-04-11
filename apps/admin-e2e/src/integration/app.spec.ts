@@ -1,13 +1,15 @@
-import { getGreeting } from '../support/app.po';
-
 describe('admin', () => {
-  beforeEach(() => cy.visit('/'));
+  const rootUrl = '/';
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  beforeEach(() => {
+    cy.visit(rootUrl);
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to admin!');
+  after(() => {
+    cy.visit(rootUrl);
+  });
+
+  it('should redirect to the /dashboard', () => {
+    cy.url().should('include', 'dashboard');
   });
 });
