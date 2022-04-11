@@ -2,12 +2,12 @@ import { Dir, LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromAuth from '@nnpz/admin/app/core/auth/store';
-import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
-import { ILayoutTypeItem } from '@nnpz/admin/app/core/layout/interfaces';
-import * as fromLayout from '@nnpz/admin/app/core/layout/store';
-import * as fromRouter from '@nnpz/admin/app/core/router/store';
 import { Observable } from 'rxjs';
+import * as fromAuth from '../../../../../../core/auth/store';
+import * as fromLayout from '../../../../../../core/layout/store';
+import * as fromRouter from '../../../../../../core/router/store';
+import { ELayoutType } from '../../../../enums';
+import { ILayoutTypeItem } from '../../../../interfaces';
 
 const styles = {
   container: {

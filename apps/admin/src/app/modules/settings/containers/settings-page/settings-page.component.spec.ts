@@ -3,8 +3,8 @@ import { LyDividerModule } from '@alyle/ui/divider';
 import { LyGridModule } from '@alyle/ui/grid';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CustomGlobalVariables } from '@nnpz/admin/app/core/theme/config';
 import { BaseThemeModule } from '@nnpz/ui';
+import { CustomGlobalVariables } from '../../../../core/theme/config';
 import { SettingsPageComponent } from './settings-page.component';
 
 describe('SettingsPageComponent', () => {

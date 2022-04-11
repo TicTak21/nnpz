@@ -1,8 +1,8 @@
 import { Body, Controller, Param, Post, Res } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { UserRo } from '@nnpz/server/app/modules/user/validation/ro';
 import { Response } from 'express';
 import { Observable, of, switchMap } from 'rxjs';
+import { UserRo } from '../../../user/validation/ro';
 import { Public } from '../decorators';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { LoginDto, RegisterDto } from '../validation/dto';

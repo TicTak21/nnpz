@@ -9,8 +9,8 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { PaginationArgsDto } from '@nnpz/server/app/shared/validation/dto';
 import { Observable } from 'rxjs';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
 import { UserService } from '../services/user.service';
 import { CreateUserDto, UpdateUserDto } from '../validation/dto';
 import { PaginatedUsersRo, UserRo } from '../validation/ro';

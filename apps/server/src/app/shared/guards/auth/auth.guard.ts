@@ -6,15 +6,15 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { GqlContextType, GqlExecutionContext } from '@nestjs/graphql';
-import { IS_PUBLIC_KEY } from '@nnpz/server/app/modules/auth/authentication/decorators';
-import { ETokenType } from '@nnpz/server/app/modules/auth/authentication/enums';
-import { AuthenticationService } from '@nnpz/server/app/modules/auth/authentication/services';
+import { Request } from 'express';
+import { Observable, of, switchMap } from 'rxjs';
+import { IS_PUBLIC_KEY } from '../../../modules/auth/authentication/decorators';
+import { ETokenType } from '../../../modules/auth/authentication/enums';
+import { AuthenticationService } from '../../../modules/auth/authentication/services';
 import {
   AuthHeaderNotFoundException,
   AuthTypeBearerRequired,
-} from '@nnpz/server/app/modules/error/exceptions';
-import { Request } from 'express';
-import { Observable, of, switchMap } from 'rxjs';
+} from '../../../modules/error/exceptions';
 
 type TCtxHandler = (ctx: ExecutionContext) => Observable<boolean>;
 type TCtxType = Partial<Record<GqlContextType, TCtxHandler>> & {

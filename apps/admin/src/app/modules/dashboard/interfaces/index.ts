@@ -1,6 +1,6 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
 import { InputsType, OutputsType } from 'ng-dynamic-component';
+import { ELayoutType } from '../../../core/layout/enums';
 
 export interface ILayoutItem {
   component: ComponentType<unknown>;

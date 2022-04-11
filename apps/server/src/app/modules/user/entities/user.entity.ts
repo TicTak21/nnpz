@@ -4,10 +4,10 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { BaseEntity } from '@nnpz/server/app/shared/entities';
 import { EUserRole, IUserEntity } from '@nnpz/types';
 import { Exclude } from 'class-transformer';
 import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../../shared/entities';
 
 @Entity({ name: 'user' })
 @ObjectType('User')

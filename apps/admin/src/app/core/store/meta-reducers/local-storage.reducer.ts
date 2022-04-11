@@ -1,7 +1,7 @@
 import { ActionReducer } from '@ngrx/store';
-import * as fromLayout from '@nnpz/admin/app/core/layout/store';
-import * as fromTheme from '@nnpz/admin/app/core/theme/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import * as fromLayout from '../../../core/layout/store';
+import * as fromTheme from '../../../core/theme/store';
 
 export const localStorageSyncReducer = (
   reducer: ActionReducer<unknown>,

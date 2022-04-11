@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ELayoutType } from '@nnpz/admin/app/core/layout/enums';
-import * as fromLayout from '@nnpz/admin/app/core/layout/store';
 import { Observable } from 'rxjs';
+import { ELayoutType } from '../../../../core/layout/enums';
+import * as fromLayout from '../../../../core/layout/store';
 import { DashboardDividerComponent } from '../../components/dashboard-divider/dashboard-divider.component';
 import { DashboardEntitiesComponent } from '../../components/dashboard-entities/dashboard-entities.component';
 import { DashboardNotesComponent } from '../../components/dashboard-notes/dashboard-notes.component';

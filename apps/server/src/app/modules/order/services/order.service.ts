@@ -1,9 +1,5 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ErrorService } from '@nnpz/server/app/modules/error/services/error.service';
-import { PaginationService } from '@nnpz/server/app/modules/pagination/services/pagination.service';
-import { TManyAndCount } from '@nnpz/server/app/modules/pagination/types';
-import { PaginationArgsDto } from '@nnpz/server/app/shared/validation/dto';
 import {
   catchError,
   EMPTY,
@@ -14,6 +10,10 @@ import {
   throwIfEmpty,
 } from 'rxjs';
 import { DeleteResult, InsertResult, Repository, UpdateResult } from 'typeorm';
+import { PaginationArgsDto } from '../../../shared/validation/dto';
+import { ErrorService } from '../../error/services/error.service';
+import { PaginationService } from '../../pagination/services/pagination.service';
+import { TManyAndCount } from '../../pagination/types';
 import { OrderEntity } from '../entities/order.entity';
 import { CreateOrderDto, UpdateOrderDto } from '../validation/dto';
 import { PaginatedOrdersRo } from '../validation/ro';

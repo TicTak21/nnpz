@@ -1,7 +1,7 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { BaseEntity } from '@nnpz/server/app/shared/entities';
 import { IOrderEntity } from '@nnpz/types';
 import { Column, Entity } from 'typeorm';
+import { BaseEntity } from '../../../shared/entities';
 
 @Entity('order')
 @ObjectType('Order')

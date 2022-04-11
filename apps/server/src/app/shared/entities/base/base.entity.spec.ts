@@ -1,4 +1,4 @@
-import { BaseEntity } from '@nnpz/server/app/shared/entities';
+import { BaseEntity } from './base.entity';
 
 describe('BaseEntity', () => {
   class MockEntity extends BaseEntity {}

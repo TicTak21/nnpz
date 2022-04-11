@@ -1,6 +1,6 @@
 import { lyl, LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AppThemeVariables } from '@nnpz/admin/app/core/theme/types';
+import { AppThemeVariables } from '../../../../core/theme/types';
 
 const styles = (theme: AppThemeVariables) => {
   return {

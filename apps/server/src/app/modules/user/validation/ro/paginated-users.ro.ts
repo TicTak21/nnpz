@@ -1,6 +1,6 @@
 import { ObjectType } from '@nestjs/graphql';
-import { UserEntity } from '@nnpz/server/app/modules/user/entities/user.entity';
-import { AbstractPaginatedList } from '@nnpz/server/app/shared/validation/ro';
+import { AbstractPaginatedList } from '../../../../shared/validation/ro';
+import { UserEntity } from '../../entities/user.entity';
 import { UserRo } from './user.ro';
 
 @ObjectType()

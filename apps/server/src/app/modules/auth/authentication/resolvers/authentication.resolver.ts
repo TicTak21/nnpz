@@ -1,7 +1,7 @@
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
-import { UserEntity } from '@nnpz/server/app/modules/user/entities/user.entity';
-import { UserRo } from '@nnpz/server/app/modules/user/validation/ro';
 import { Observable, of, switchMap } from 'rxjs';
+import { UserEntity } from '../../../user/entities/user.entity';
+import { UserRo } from '../../../user/validation/ro';
 import { Public } from '../decorators';
 import { GqlContext } from '../interfaces';
 import { AuthenticationService } from '../services/authentication/authentication.service';
