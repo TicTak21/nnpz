@@ -315,14 +315,14 @@
       "tags": ["scope:server", "type:app"]
     },
     "types": {
-      "root": "libs/nnpz/types",
-      "sourceRoot": "libs/nnpz/types/src",
+      "root": "libs/types",
+      "sourceRoot": "libs/types/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/nnpz/types/**/*.ts"]
+            "lintFilePatterns": ["libs/types/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         }
@@ -331,47 +331,44 @@
     },
     "ui": {
       "projectType": "library",
-      "root": "libs/nnpz/ui",
-      "sourceRoot": "libs/nnpz/ui/src",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
       "prefix": "nnpz",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/nnpz/ui"],
+          "outputs": ["coverage/libs/ui"],
           "options": {
-            "jestConfig": "libs/nnpz/ui/jest.config.js",
+            "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/nnpz/ui/src/**/*.ts",
-              "libs/nnpz/ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         }
       },
       "tags": ["scope:ui", "type:ui"]
     },
     "utils": {
-      "root": "libs/nnpz/utils",
-      "sourceRoot": "libs/nnpz/utils/src",
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/nnpz/utils/**/*.ts"]
+            "lintFilePatterns": ["libs/utils/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/nnpz/utils"],
+          "outputs": ["coverage/libs/utils"],
           "options": {
-            "jestConfig": "libs/nnpz/utils/jest.config.js",
+            "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
           }
         }
