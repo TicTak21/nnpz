@@ -33,7 +33,7 @@ jobs:
           run_install: true
 
       - name: Build
-        run: pnpx nx affected:build --base={{github.ref_name}}
+        run: pnpx nx affected:build --base=$GITHUB_REF
 
       - name: Unit tests
-        run: pnpx nx affected:test --base={{github.ref_name}}
+        run: pnpx nx affected:test --base=$GITHUB_REF
