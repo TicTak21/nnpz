@@ -13,3 +13,8 @@ export enum EReportFormat {
   pdf = 'pdf',
   html = 'html',
 }
+
+export enum EThemes {
+  dark = 'minima-dark',
+  light = 'minima-light',
+}

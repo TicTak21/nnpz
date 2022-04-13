@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { EThemes } from '@nnpz/ui';
+import { EThemes } from '@nnpz/types';
 
 @Pipe({ name: 'isDarkMode' })
 export class IsDarkModePipe implements PipeTransform {

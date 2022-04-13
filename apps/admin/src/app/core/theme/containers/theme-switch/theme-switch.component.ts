@@ -1,7 +1,7 @@
 import { transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { EThemes } from '@nnpz/ui';
+import { EThemes } from '@nnpz/types';
 import { Observable } from 'rxjs';
 import { flipAnimation } from '../../animations';
 import * as fromTheme from '../../store';

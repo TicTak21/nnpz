@@ -8,7 +8,7 @@ import {
 import { MinimaDark, MinimaLight } from '@alyle/ui/themes/minima';
 import { NgModule } from '@angular/core';
 import { HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { EThemes } from './enums';
+import { EThemes } from '@nnpz/types';
 
 @NgModule({
   imports: [HammerModule],
