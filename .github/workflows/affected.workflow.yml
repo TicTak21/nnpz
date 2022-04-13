@@ -1,8 +1,8 @@
-name: admin
+name: affected
 on: [push]
 
 jobs:
-  main:
+  affected:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -33,7 +33,7 @@ jobs:
           run_install: true
 
       - name: Build
-        run: pnpm nx build admin
+        run: pnpx nx affected:build --base={{github.ref_name}}
 
       - name: Unit tests
-        run: pnpm nx test admin
+        run: pnpx nx affected:test --base={{github.ref_name}}
