@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   affected:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [14.x]
