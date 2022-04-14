@@ -32,8 +32,14 @@ jobs:
           version: latest
           run_install: true
 
-      - name: Build
-        run: pnpx nx affected:build --base=$GITHUB_REF
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-      - name: Unit tests
-        run: pnpx nx affected:test --base=$GITHUB_REF
+      - uses: nrwl/nx-set-shas@v2
+
+      - run: pnpx nx workspace-lint
+      - run: pnpx nx format:check
+      - run: pnpx nx affected --target=lint --parallel=3
+      - run: pnpx nx affected --target=test --parallel=3 --ci --code-coverage
+      - run: pnpx nx affected --target=build --parallel=3
