@@ -10,6 +10,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v2
 
       - name: Cache pnpm modules
         uses: actions/cache@v2
@@ -31,12 +35,6 @@ jobs:
         with:
           version: latest
           run_install: true
-
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - uses: nrwl/nx-set-shas@v2
 
       - run: pnpx nx workspace-lint
       - run: pnpx nx format:check
