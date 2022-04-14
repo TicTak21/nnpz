@@ -1,5 +1,5 @@
-import { EUserRole } from '@nnpz/types';
 import { Field, InputType } from '@nestjs/graphql';
+import { EUserRole } from '@nnpz/shared/types';
 import {
   IsEmail,
   IsEnum,

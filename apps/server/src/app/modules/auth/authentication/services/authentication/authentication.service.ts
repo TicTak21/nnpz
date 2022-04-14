@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { EUserRole } from '@nnpz/types';
+import { EUserRole } from '@nnpz/shared/types';
 import {
   catchError,
   forkJoin,

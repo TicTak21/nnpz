@@ -315,60 +315,63 @@
       "tags": ["scope:server", "type:app"]
     },
     "types": {
-      "root": "libs/types",
-      "sourceRoot": "libs/types/src",
+      "root": "libs/shared/types",
+      "sourceRoot": "libs/shared/types/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/types/**/*.ts"]
+            "lintFilePatterns": ["libs/shared/types/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         }
       },
-      "tags": ["scope:types", "type:util"]
+      "tags": ["scope:types", "type:utils"]
     },
     "ui": {
       "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
+      "root": "libs/shared/ui",
+      "sourceRoot": "libs/shared/ui/src",
       "prefix": "nnpz",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": ["coverage/libs/shared/ui"],
           "options": {
-            "jestConfig": "libs/ui/jest.config.js",
+            "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/shared/ui/src/**/*.ts",
+              "libs/shared/ui/src/**/*.html"
+            ]
           }
         }
       },
       "tags": ["scope:ui", "type:ui"]
     },
     "utils": {
-      "root": "libs/utils",
-      "sourceRoot": "libs/utils/src",
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/utils/**/*.ts"]
+            "lintFilePatterns": ["libs/shared/utils/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/utils"],
+          "outputs": ["coverage/libs/shared/utils"],
           "options": {
-            "jestConfig": "libs/utils/jest.config.js",
+            "jestConfig": "libs/shared/utils/jest.config.js",
             "passWithNoTests": true
           }
         }

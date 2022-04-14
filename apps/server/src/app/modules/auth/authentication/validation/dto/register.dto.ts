@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { IRegisterDto } from '@nnpz/types';
+import { IRegisterDto } from '@nnpz/shared/types';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 @InputType()

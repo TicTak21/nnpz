@@ -1,7 +1,7 @@
 import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { SupportIssueFormComponent } from './support-issue-form.component';
 
 describe('SupportIssueFormComponent', () => {

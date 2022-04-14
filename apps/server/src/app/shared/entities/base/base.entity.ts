@@ -1,5 +1,5 @@
-import { IBaseEntity } from '@nnpz/types';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { IBaseEntity } from '@nnpz/shared/types';
 import {
   CreateDateColumn,
   PrimaryGeneratedColumn,

@@ -1,6 +1,6 @@
 import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { PizzasPageComponent } from './pizzas-page.component';
 
 describe('PizzasPageComponent', () => {

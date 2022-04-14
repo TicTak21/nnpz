@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IReportDto } from '@nnpz/types';
+import { IReportDto } from '@nnpz/shared/types';
 
 @Component({
   selector: 'admin-report-page',

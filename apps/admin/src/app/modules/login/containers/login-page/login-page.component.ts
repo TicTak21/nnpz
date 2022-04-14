@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ILoginDto } from '@nnpz/types';
+import { ILoginDto } from '@nnpz/shared/types';
 
 @Component({
   selector: 'admin-login-page',

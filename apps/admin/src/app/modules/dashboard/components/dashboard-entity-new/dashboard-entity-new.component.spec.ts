@@ -1,7 +1,7 @@
 import { LyCommonModule } from '@alyle/ui';
 import { LyGridModule } from '@alyle/ui/grid';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { DashboardEntityNewComponent } from './dashboard-entity-new.component';
 
 describe('DashboardEntityNewComponent', () => {

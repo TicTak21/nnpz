@@ -2,7 +2,7 @@ import { LyCommonModule } from '@alyle/ui';
 import { LyTabsModule } from '@alyle/ui/tabs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { MePageComponent } from './me-page.component';
 
 describe('MePageComponent', () => {

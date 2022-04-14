@@ -1,7 +1,7 @@
 import { LyGridModule } from '@alyle/ui/grid';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { DashboardPageComponent } from './dashboard-page.component';
 
 describe('DashboardPageComponent', () => {

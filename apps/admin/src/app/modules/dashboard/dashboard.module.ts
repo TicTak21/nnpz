@@ -9,7 +9,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NnpzAvatarModule } from '@nnpz/ui';
+import { NnpzAvatarModule } from '@nnpz/shared/ui';
 import { DynamicIoModule, DynamicModule } from 'ng-dynamic-component';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardActiveOrdersComponent } from './components/dashboard-active-orders/dashboard-active-orders.component';

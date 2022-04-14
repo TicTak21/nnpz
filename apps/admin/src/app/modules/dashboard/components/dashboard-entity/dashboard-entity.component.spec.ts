@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { DashboardEntityComponent } from './dashboard-entity.component';
 
 describe('DashboardEntityComponent', () => {

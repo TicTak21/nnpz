@@ -2,7 +2,7 @@ import { LyCommonModule } from '@alyle/ui';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { EntityNewPageComponent } from './entity-new-page.component';
 
 describe('EntityNewPageComponent', () => {

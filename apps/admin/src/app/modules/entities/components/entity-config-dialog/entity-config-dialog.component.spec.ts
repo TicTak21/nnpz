@@ -3,7 +3,7 @@ import { LyDialogModule, LyDialogRef } from '@alyle/ui/dialog';
 import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BaseThemeModule } from '@nnpz/ui';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { EntityConfigDialogComponent } from './entity-config-dialog.component';
 
 describe('EntityConfigDialogComponent', () => {

@@ -9,7 +9,7 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NnpzAvatarModule } from '@nnpz/ui';
+import { NnpzAvatarModule } from '@nnpz/shared/ui';
 import { ThemeModule } from '../../../theme/theme.module';
 import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu-btn.component';
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';

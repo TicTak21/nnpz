@@ -8,7 +8,7 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NnpzAvatarModule } from '@nnpz/ui';
+import { NnpzAvatarModule } from '@nnpz/shared/ui';
 import { MeEditFormComponent } from './components/me-edit-form/me-edit-form.component';
 import { MeProfileComponent } from './components/me-profile/me-profile.component';
 import { MePageComponent } from './containers/me-page/me-page.component';
