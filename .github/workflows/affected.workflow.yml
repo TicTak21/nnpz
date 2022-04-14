@@ -10,6 +10,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+
+      - uses: nrwl/nx-set-shas@v2
 
       - name: Cache pnpm modules
         uses: actions/cache@v2
@@ -21,19 +30,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Use node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: latest
-          run_install: true
+      - name: Install deps
+        run: pnpm install
 
-      - name: Build
-        run: pnpx nx affected:build --base=$GITHUB_REF
-
-      - name: Unit tests
-        run: pnpx nx affected:test --base=$GITHUB_REF
+      - run: pnpx nx workspace-lint
+      - run: pnpx nx format:check
+      - run: pnpx nx affected --target=lint --parallel=3
+      - run: pnpx nx affected --target=test --parallel=3 --ci --code-coverage
+      - run: pnpx nx affected --target=build --parallel=3
