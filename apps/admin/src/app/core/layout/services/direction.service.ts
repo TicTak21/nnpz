@@ -1,8 +1,8 @@
 import { Dir, LyTheme2 } from '@alyle/ui';
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import { TStorageItem } from '@nnpz/shared/types';
 import { filter, map, Observable, of, tap, withLatestFrom } from 'rxjs';
-import { TStorageItem } from '../../../shared/types';
 
 @Injectable({ providedIn: 'root' })
 export class DirectionService {
