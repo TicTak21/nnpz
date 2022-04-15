@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'admin-support-page',
-  templateUrl: './support-page.component.html',
+  selector: 'admin-ui-support-title',
+  templateUrl: './support-title.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SupportPageComponent {}
+export class AdminUiSupportTitleComponent {}

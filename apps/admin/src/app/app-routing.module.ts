@@ -34,7 +34,9 @@ const routes: Routes = [
   {
     path: 'support',
     loadChildren: () =>
-      import('./modules/support/support.module').then(m => m.SupportModule),
+      import('@nnpz/admin/feature-support').then(
+        m => m.AdminFeatureSupportModule,
+      ),
     canActivate: [AuthGuard],
   },
   {

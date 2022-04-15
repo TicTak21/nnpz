@@ -12,11 +12,11 @@ const styles = {
 };
 
 @Component({
-  selector: 'admin-support-issue-form',
+  selector: 'admin-ui-support-issue-form',
   templateUrl: './support-issue-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SupportIssueFormComponent {
+export class AdminUiSupportIssueFormComponent {
   readonly classes = this.theme.addStyleSheet(styles);
 
   readonly maxCommentLength = 256;
