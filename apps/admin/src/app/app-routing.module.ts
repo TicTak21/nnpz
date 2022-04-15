@@ -72,7 +72,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () =>
-      import('./modules/users/users.module').then(m => m.UsersModule),
+      import('@nnpz/admin/feature-users').then(m => m.AdminFeatureUsersModule),
     canActivate: [AuthGuard],
   },
   {
