@@ -84,7 +84,9 @@ const routes: Routes = [
   {
     path: 'toppings',
     loadChildren: () =>
-      import('./modules/toppings/toppings.module').then(m => m.ToppingsModule),
+      import('@nnpz/admin/feature-toppings').then(
+        m => m.AdminFeatureToppingsModule,
+      ),
     canActivate: [AuthGuard],
   },
   {
