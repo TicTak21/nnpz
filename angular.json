@@ -124,6 +124,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-ui-not-found": {
+      "projectType": "library",
+      "root": "libs/admin/ui-not-found",
+      "sourceRoot": "libs/admin/ui-not-found/src",
+      "prefix": "admin-ui-not-found",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/ui-not-found"],
+          "options": {
+            "jestConfig": "libs/admin/ui-not-found/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/ui-not-found/src/**/*.ts",
+              "libs/admin/ui-not-found/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
+    },
     "client": {
       "projectType": "application",
       "root": "apps/client",

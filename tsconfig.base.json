@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nnpz/admin/*": ["apps/admin/src/*"],
+      "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],
       "@nnpz/server/*": ["apps/server/src/*"],
       "@nnpz/shared/types": ["libs/shared/types/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],
