@@ -1,16 +1,16 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { NotFoundPageComponent } from './not-found-page.component';
+import { AdminFeauterNotFoundPageComponent } from './not-found-page.component';
 
-describe('NotFoundPageComponent', () => {
-  let component: NotFoundPageComponent;
-  let fixture: ComponentFixture<NotFoundPageComponent>;
+describe('AdminFeauterNotFoundPageComponent', () => {
+  let component: AdminFeauterNotFoundPageComponent;
+  let fixture: ComponentFixture<AdminFeauterNotFoundPageComponent>;
   let _store: MockStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NotFoundPageComponent],
+      declarations: [AdminFeauterNotFoundPageComponent],
       providers: [provideMockStore({})],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
@@ -19,7 +19,7 @@ describe('NotFoundPageComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotFoundPageComponent);
+    fixture = TestBed.createComponent(AdminFeauterNotFoundPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
