@@ -1,8 +1,8 @@
 import { lyl, LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AppThemeVariables } from '../../../../core/theme/types';
 
-const styles = (theme: AppThemeVariables) => {
+// TODO: replace any with AppThemeVariables
+const styles = (theme: any) => {
   return {
     notifications: lyl`{
       border: 1px solid ${theme.accent.default}
@@ -16,11 +16,11 @@ const styles = (theme: AppThemeVariables) => {
 };
 
 @Component({
-  selector: 'admin-settings-page',
+  selector: 'admin-feature-settings-page',
   templateUrl: './settings-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SettingsPageComponent {
+export class AdminUiSettingsPageComponent {
   readonly classes = this.theme.addStyleSheet(styles);
 
   constructor(private readonly theme: LyTheme2) {}

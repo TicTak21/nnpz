@@ -5,10 +5,10 @@
       <div [withClass]="classes.notifications">
         <ly-list>
           <ly-list-item>
-            <admin-settings-mute-notifications
+            <admin-ui-settings-mute-notifications
               ly-line
               (handleMute$)="handleMute($event)"
-            ></admin-settings-mute-notifications>
+            ></admin-ui-settings-mute-notifications>
           </ly-list-item>
         </ly-list>
       </div>
@@ -19,19 +19,19 @@
       <div [withClass]="classes.dangerZone">
         <ly-list>
           <ly-list-item>
-            <admin-settings-terminate-sessions
+            <admin-ui-settings-terminate-sessions
               ly-line
               (handleTerminate$)="handleTerminate()"
-            ></admin-settings-terminate-sessions>
+            ></admin-ui-settings-terminate-sessions>
           </ly-list-item>
 
           <ly-divider></ly-divider>
 
           <ly-list-item>
-            <admin-settings-delete-account
+            <admin-ui-settings-delete-account
               ly-line
               (handleDelete$)="handleDelete()"
-            ></admin-settings-delete-account>
+            ></admin-ui-settings-delete-account>
           </ly-list-item>
         </ly-list>
       </div>

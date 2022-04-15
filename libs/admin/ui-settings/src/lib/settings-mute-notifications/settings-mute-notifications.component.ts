@@ -6,11 +6,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'admin-settings-mute-notifications',
+  selector: 'admin-ui-settings-mute-notifications',
   templateUrl: './settings-mute-notifications.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SettingsMuteNotificationsComponent {
+export class AdminUiSettingsMuteNotificationsComponent {
   @Output() handleMute$: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   handleChange(newValue: boolean) {

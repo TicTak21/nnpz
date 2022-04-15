@@ -176,6 +176,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-feature-settings": {
+      "projectType": "library",
+      "root": "libs/admin/feature-settings",
+      "sourceRoot": "libs/admin/feature-settings/src",
+      "prefix": "admin-feature-settings",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-settings"],
+          "options": {
+            "jestConfig": "libs/admin/feature-settings/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-settings/src/**/*.ts",
+              "libs/admin/feature-settings/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-feature-support": {
       "projectType": "library",
       "root": "libs/admin/feature-support",
@@ -279,6 +305,32 @@
         }
       },
       "tags": ["scope:admin", "type:ui"]
+    },
+    "admin-ui-settings": {
+      "projectType": "library",
+      "root": "libs/admin/ui-settings",
+      "sourceRoot": "libs/admin/ui-settings/src",
+      "prefix": "admin-ui-settings",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/ui-settings"],
+          "options": {
+            "jestConfig": "libs/admin/ui-settings/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/ui-settings/src/**/*.ts",
+              "libs/admin/ui-settings/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-ui-support": {
       "projectType": "library",

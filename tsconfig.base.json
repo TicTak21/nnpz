@@ -21,6 +21,9 @@
       "@nnpz/admin/feature-not-found": [
         "libs/admin/feature-not-found/src/index.ts"
       ],
+      "@nnpz/admin/feature-settings": [
+        "libs/admin/feature-settings/src/index.ts"
+      ],
       "@nnpz/admin/feature-support": [
         "libs/admin/feature-support/src/index.ts"
       ],
@@ -29,6 +32,7 @@
       ],
       "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
       "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],
+      "@nnpz/admin/ui-settings": ["libs/admin/ui-settings/src/index.ts"],
       "@nnpz/admin/ui-support": ["libs/admin/ui-support/src/index.ts"],
       "@nnpz/shared/types": ["libs/shared/types/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],

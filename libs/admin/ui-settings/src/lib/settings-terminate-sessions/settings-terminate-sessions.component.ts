@@ -6,11 +6,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'admin-settings-terminate-sessions',
+  selector: 'admin-ui-settings-terminate-sessions',
   templateUrl: './settings-terminate-sessions.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SettingsTerminateSessionsComponent {
+export class AdminUiSettingsTerminateSessionsComponent {
   @Output() handleTerminate$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {

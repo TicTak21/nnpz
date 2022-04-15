@@ -102,7 +102,9 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () =>
-      import('./modules/settings/settings.module').then(m => m.SettingsModule),
+      import('@nnpz/admin/feature-settings').then(
+        m => m.AdminFeatureSettingsModule,
+      ),
     canActivate: [AuthGuard],
   },
   {

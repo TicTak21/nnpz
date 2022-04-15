@@ -6,11 +6,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'admin-settings-delete-account',
+  selector: 'admin-ui-settings-delete-account',
   templateUrl: './settings-delete-account.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SettingsDeleteAccountComponent {
+export class AdminUiSettingsDeleteAccountComponent {
   @Output() handleDelete$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
