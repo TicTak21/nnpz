@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { Action, ActionReducerMap } from '@ngrx/store';
-import * as fromRouter from '../../../core/router/store';
+import { fromRouter } from '@nnpz/admin/data-access-router';
 
 export interface State {
   [fromRouter.routerFeatureKey]: fromRouter.State;

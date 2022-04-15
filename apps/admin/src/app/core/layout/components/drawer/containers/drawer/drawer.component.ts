@@ -2,10 +2,10 @@ import { Dir, LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromRouter } from '@nnpz/admin/data-access-router';
 import { Observable } from 'rxjs';
 import * as fromAuth from '../../../../../../core/auth/store';
 import * as fromLayout from '../../../../../../core/layout/store';
-import * as fromRouter from '../../../../../../core/router/store';
 import { ELayoutType } from '../../../../enums';
 import { ILayoutTypeItem } from '../../../../interfaces';
 

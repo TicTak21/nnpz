@@ -96,6 +96,32 @@
       },
       "tags": ["scope:admin", "type:app"]
     },
+    "admin-data-access-router": {
+      "projectType": "library",
+      "root": "libs/admin/data-access-router",
+      "sourceRoot": "libs/admin/data-access-router/src",
+      "prefix": "admin-data-access-router",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/data-access-router"],
+          "options": {
+            "jestConfig": "libs/admin/data-access-router/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/data-access-router/src/**/*.ts",
+              "libs/admin/data-access-router/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:data-access"]
+    },
     "admin-e2e": {
       "root": "apps/admin-e2e",
       "sourceRoot": "apps/admin-e2e/src",
