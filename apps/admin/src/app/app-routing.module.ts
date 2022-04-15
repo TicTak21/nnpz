@@ -104,8 +104,8 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () =>
-      import('./modules/not-found/not-found.module').then(
-        m => m.NotFoundModule,
+      import('@nnpz/admin/feature-not-found').then(
+        m => m.AdminFeatureNotFoundModule,
       ),
   },
 ];

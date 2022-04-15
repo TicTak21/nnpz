@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromRouter } from '@nnpz/admin/data-access-router';
 import { Observable } from 'rxjs';
-import * as fromRouter from '../../../../core/router/store';
 
 @Component({
-  selector: 'admin-not-found-page',
+  selector: 'admin-feature-not-found-page',
   templateUrl: './not-found-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotFoundPageComponent {
+export class AdminFeauterNotFoundPageComponent {
   url$: Observable<string> = new Observable<string>();
 
   constructor(private readonly store: Store) {
-    this.url$ = store.select(fromRouter.selectUrl);
+    this.url$ = this.store.select(fromRouter.selectUrl);
   }
 }

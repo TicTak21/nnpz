@@ -150,6 +150,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-feature-not-found": {
+      "projectType": "library",
+      "root": "libs/admin/feature-not-found",
+      "sourceRoot": "libs/admin/feature-not-found/src",
+      "prefix": "admin-feature-not-found",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-not-found"],
+          "options": {
+            "jestConfig": "libs/admin/feature-not-found/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-not-found/src/**/*.ts",
+              "libs/admin/feature-not-found/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-ui-not-found": {
       "projectType": "library",
       "root": "libs/admin/ui-not-found",
