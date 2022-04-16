@@ -8,11 +8,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { EReportFormat, IReportDto } from '@nnpz/shared/types';
 
 @Component({
-  selector: 'admin-report-form',
+  selector: 'admin-ui-report-form',
   templateUrl: './report-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ReportFormComponent {
+export class AdminUiReportFormComponent {
   @Output() handleSubmit$: EventEmitter<IReportDto> =
     new EventEmitter<IReportDto>();
 

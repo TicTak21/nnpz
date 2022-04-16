@@ -42,7 +42,9 @@ const routes: Routes = [
   {
     path: 'report',
     loadChildren: () =>
-      import('./modules/report/report.module').then(m => m.ReportModule),
+      import('@nnpz/admin/feature-report').then(
+        m => m.AdminFeatureReportModule,
+      ),
     canActivate: [AuthGuard],
   },
   {
