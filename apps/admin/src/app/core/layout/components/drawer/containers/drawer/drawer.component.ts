@@ -3,11 +3,10 @@ import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromAuth } from '@nnpz/admin/data-access-auth';
+import { fromLayout } from '@nnpz/admin/data-access-layout';
 import { fromRouter } from '@nnpz/admin/data-access-router';
+import { ELayoutType, ILayoutTypeItem } from '@nnpz/admin/util-layout';
 import { Observable } from 'rxjs';
-import * as fromLayout from '../../../../../../core/layout/store';
-import { ELayoutType } from '../../../../enums';
-import { ILayoutTypeItem } from '../../../../interfaces';
 
 const styles = {
   container: {

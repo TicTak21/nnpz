@@ -6,9 +6,8 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { ELayoutType, ILayoutTypeItem } from '@nnpz/admin/util-layout';
 import { Observable } from 'rxjs';
-import { ELayoutType } from '../../../../enums';
-import { ILayoutTypeItem } from '../../../../interfaces';
 
 @Component({
   selector: 'admin-drawer-layout-btn',

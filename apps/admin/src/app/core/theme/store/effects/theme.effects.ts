@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
+import { DirectionService } from '@nnpz/admin/data-access-layout';
 import { switchMap } from 'rxjs';
-import { DirectionService } from '../../../layout/services/direction.service';
 import { ThemeService } from '../../services/theme.service';
 import * as themeActions from '../actions/theme.actions';
 

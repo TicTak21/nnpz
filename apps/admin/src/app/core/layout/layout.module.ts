@@ -2,12 +2,10 @@ import { LyCommonModule } from '@alyle/ui';
 import { LyDrawerModule } from '@alyle/ui/drawer';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import { AdminDataAccessLayoutModule } from '@nnpz/admin/data-access-layout';
 import { DrawerModule } from './components/drawer/drawer.module';
 import { HeaderModule } from './components/header/header.module';
 import { LayoutComponent } from './containers/layout/layout.component';
-import * as fromLayout from './store';
 
 @NgModule({
   declarations: [LayoutComponent],
@@ -17,8 +15,7 @@ import * as fromLayout from './store';
     LyDrawerModule,
     HeaderModule,
     DrawerModule,
-    StoreModule.forFeature(fromLayout.layoutFeatureKey, fromLayout.reducer),
-    EffectsModule.forFeature([fromLayout.LayoutEffects]),
+    AdminDataAccessLayoutModule,
   ],
   exports: [LayoutComponent],
 })

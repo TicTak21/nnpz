@@ -2,7 +2,7 @@ import { LyTheme2 } from '@alyle/ui';
 import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromLayout from '../../../../../../core/layout/store';
+import { fromLayout } from '@nnpz/admin/data-access-layout';
 
 const styles = {
   container: {

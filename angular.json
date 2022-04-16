@@ -122,6 +122,32 @@
       },
       "tags": ["scope:admin", "type:data-access"]
     },
+    "admin-data-access-layout": {
+      "projectType": "library",
+      "root": "libs/admin/data-access-layout",
+      "sourceRoot": "libs/admin/data-access-layout/src",
+      "prefix": "admin-data-access-layout",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/data-access-layout"],
+          "options": {
+            "jestConfig": "libs/admin/data-access-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/data-access-layout/src/**/*.ts",
+              "libs/admin/data-access-layout/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:data-access"]
+    },
     "admin-data-access-router": {
       "projectType": "library",
       "root": "libs/admin/data-access-router",
@@ -747,6 +773,32 @@
         }
       },
       "tags": ["scope:admin", "type:ui"]
+    },
+    "admin-util-layout": {
+      "projectType": "library",
+      "root": "libs/admin/util-layout",
+      "sourceRoot": "libs/admin/util-layout/src",
+      "prefix": "admin-util-layout",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/util-layout"],
+          "options": {
+            "jestConfig": "libs/admin/util-layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/util-layout/src/**/*.ts",
+              "libs/admin/util-layout/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:util"]
     },
     "client": {
       "projectType": "application",

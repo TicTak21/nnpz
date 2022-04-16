@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ELayoutType } from '../../enums';
+import { ELayoutType } from '@nnpz/admin/util-layout';
 
 export const toggleDrawer = createAction('[Layout] Toggle Drawer');
 
