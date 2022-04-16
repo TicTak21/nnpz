@@ -15,9 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nnpz/admin/data-access-auth": [
+        "libs/admin/data-access-auth/src/index.ts"
+      ],
       "@nnpz/admin/data-access-router": [
         "libs/admin/data-access-router/src/index.ts"
       ],
+      "@nnpz/admin/feature-auth": ["libs/admin/feature-auth/src/index.ts"],
       "@nnpz/admin/feature-entities": [
         "libs/admin/feature-entities/src/index.ts"
       ],

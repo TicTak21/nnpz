@@ -96,6 +96,32 @@
       },
       "tags": ["scope:admin", "type:app"]
     },
+    "admin-data-access-auth": {
+      "projectType": "library",
+      "root": "libs/admin/data-access-auth",
+      "sourceRoot": "libs/admin/data-access-auth/src",
+      "prefix": "admin-data-access-auth",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/data-access-auth"],
+          "options": {
+            "jestConfig": "libs/admin/data-access-auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/data-access-auth/src/**/*.ts",
+              "libs/admin/data-access-auth/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:data-access"]
+    },
     "admin-data-access-router": {
       "projectType": "library",
       "root": "libs/admin/data-access-router",
@@ -149,6 +175,32 @@
       },
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
+    },
+    "admin-feature-auth": {
+      "projectType": "library",
+      "root": "libs/admin/feature-auth",
+      "sourceRoot": "libs/admin/feature-auth/src",
+      "prefix": "admin-feature-auth",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-auth"],
+          "options": {
+            "jestConfig": "libs/admin/feature-auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-auth/src/**/*.ts",
+              "libs/admin/feature-auth/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-entities": {
       "projectType": "library",

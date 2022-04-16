@@ -6,8 +6,8 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { fromAuth } from '@nnpz/admin/data-access-auth';
 import { iif, mergeMap, Observable, of } from 'rxjs';
-import * as fromAuth from '../store';
 
 type TCanActivate =
   | boolean
