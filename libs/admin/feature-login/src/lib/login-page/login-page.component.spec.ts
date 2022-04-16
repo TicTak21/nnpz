@@ -3,22 +3,22 @@ import { LyGridModule } from '@alyle/ui/grid';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { LoginPageComponent } from './login-page.component';
+import { AdminFeatureLoginPageComponent } from './login-page.component';
 
-describe('LoginPageComponent', () => {
-  let component: LoginPageComponent;
-  let fixture: ComponentFixture<LoginPageComponent>;
+describe('AdminFeatureLoginPageComponent', () => {
+  let component: AdminFeatureLoginPageComponent;
+  let fixture: ComponentFixture<AdminFeatureLoginPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LoginPageComponent],
+      declarations: [AdminFeatureLoginPageComponent],
       imports: [BaseThemeModule, LyCommonModule, LyGridModule],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPageComponent);
+    fixture = TestBed.createComponent(AdminFeatureLoginPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

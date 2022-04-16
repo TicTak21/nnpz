@@ -150,6 +150,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-feature-login": {
+      "projectType": "library",
+      "root": "libs/admin/feature-login",
+      "sourceRoot": "libs/admin/feature-login/src",
+      "prefix": "admin-feature-login",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-login"],
+          "options": {
+            "jestConfig": "libs/admin/feature-login/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-login/src/**/*.ts",
+              "libs/admin/feature-login/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "admin-feature-me": {
       "projectType": "library",
       "root": "libs/admin/feature-me",

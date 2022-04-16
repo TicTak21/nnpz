@@ -2,18 +2,20 @@ import { LyGridModule } from '@alyle/ui/grid';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NnpzLoginFormModule } from '@nnpz/shared/ui';
-import { LoginPageComponent } from './containers/login-page/login-page.component';
-import { LoginRoutingModule } from './login-routing.module';
+import { AdminFeatureLoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
-  declarations: [LoginPageComponent],
+  declarations: [AdminFeatureLoginPageComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
-    LyTypographyModule,
     NnpzLoginFormModule,
+    LyTypographyModule,
     LyGridModule,
+    RouterModule.forChild([
+      { path: '', component: AdminFeatureLoginPageComponent },
+    ]),
   ],
 })
-export class LoginModule {}
+export class AdminFeatureLoginModule {}
