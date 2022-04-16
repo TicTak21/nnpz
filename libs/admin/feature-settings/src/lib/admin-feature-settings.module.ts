@@ -5,7 +5,7 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AdminUiSettingsModule } from 'libs/admin/ui-settings/src';
+import { AdminUiSettingsModule } from '@nnpz/admin/ui-settings';
 import { AdminUiSettingsPageComponent } from './settings-page/settings-page.component';
 
 @NgModule({

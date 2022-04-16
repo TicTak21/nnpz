@@ -4,7 +4,7 @@ import { LyTabsModule } from '@alyle/ui/tabs';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AdminUiMeModule } from 'libs/admin/ui-me/src';
+import { AdminUiMeModule } from '@nnpz/admin/ui-me';
 import { AdminFeatureMePageComponent } from './me-page/me-page.component';
 
 @NgModule({
