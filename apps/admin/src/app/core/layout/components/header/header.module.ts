@@ -9,8 +9,8 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AdminFeatureThemeModule } from '@nnpz/admin/feature-theme';
 import { NnpzAvatarModule } from '@nnpz/shared/ui';
-import { ThemeModule } from '../../../theme/theme.module';
 import { HeaderMenuBtnComponent } from './components/header-menu-btn/header-menu-btn.component';
 import { HeaderNotificationsComponent } from './components/header-notifications/header-notifications.component';
 import { HeaderTitleComponent } from './components/header-title/header-title.component';
@@ -34,8 +34,9 @@ import { HeaderComponent } from './containers/header/header.component';
     LyAvatarModule,
     LyMenuModule,
     LyGridModule,
-    ThemeModule,
+    AdminFeatureThemeModule,
     NnpzAvatarModule,
+    AdminFeatureThemeModule,
   ],
   exports: [HeaderComponent],
 })

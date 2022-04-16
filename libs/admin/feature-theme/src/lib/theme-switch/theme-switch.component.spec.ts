@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { ThemeSwitchComponent } from './theme-switch.component';
+import { AdminUiThemeSwitchComponent } from './theme-switch.component';
 
-fdescribe('ThemeSwitchComponent', () => {
-  let component: ThemeSwitchComponent;
-  let fixture: ComponentFixture<ThemeSwitchComponent>;
+fdescribe('AdminUiThemeSwitchComponent', () => {
+  let component: AdminUiThemeSwitchComponent;
+  let fixture: ComponentFixture<AdminUiThemeSwitchComponent>;
   let _store: MockStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ThemeSwitchComponent],
+      declarations: [AdminUiThemeSwitchComponent],
       providers: [provideMockStore({})],
     }).compileComponents();
 
@@ -17,7 +17,7 @@ fdescribe('ThemeSwitchComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThemeSwitchComponent);
+    fixture = TestBed.createComponent(AdminUiThemeSwitchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

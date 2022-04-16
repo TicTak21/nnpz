@@ -3,33 +3,33 @@ import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { BaseThemeModule } from '@nnpz/shared/ui';
+import { AdminDataAccessThemeModule } from '@nnpz/admin/data-access-theme';
 import {
   CustomGlobalVariables,
   CustomMinimaDark,
   CustomMinimaLight,
-} from './config';
-import { ThemeSwitchComponent } from './containers/theme-switch/theme-switch.component';
+} from '@nnpz/admin/util-theme';
+import { BaseThemeModule } from '@nnpz/shared/ui';
 import { IsDarkModePipe } from './pipes/is-dark-mode.pipe';
-import * as fromTheme from './store';
+import { AdminUiThemeSwitchComponent } from './theme-switch/theme-switch.component';
+
+const COMPONENTS = [AdminUiThemeSwitchComponent];
+const PIPES = [IsDarkModePipe];
 
 @NgModule({
-  declarations: [ThemeSwitchComponent, IsDarkModePipe],
+  declarations: [COMPONENTS, PIPES],
   imports: [
     CommonModule,
     BaseThemeModule,
-    LyIconModule,
+    AdminDataAccessThemeModule,
     LyButtonModule,
-    StoreModule.forFeature(fromTheme.themeFeatureKey, fromTheme.reducer),
-    EffectsModule.forFeature([fromTheme.ThemeEffects]),
+    LyIconModule,
   ],
-  exports: [ThemeSwitchComponent],
+  exports: [COMPONENTS, PIPES],
   providers: [
     { provide: LY_THEME, useClass: CustomMinimaLight, multi: true },
     { provide: LY_THEME, useClass: CustomMinimaDark, multi: true },
     { provide: LY_THEME_GLOBAL_VARIABLES, useClass: CustomGlobalVariables },
   ],
 })
-export class ThemeModule {}
+export class AdminFeatureThemeModule {}

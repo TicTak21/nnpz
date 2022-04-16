@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ChartDataset } from 'chart.js';
 import {
   ChartBlue,
   chartConfig,
   ChartGreen,
   ChartWhite,
-} from '../../../../core/theme/config';
+} from '@nnpz/admin/util-theme';
+import { ChartDataset } from 'chart.js';
 
 @Component({
   selector: 'admin-dashboard-sales-amount-chart',

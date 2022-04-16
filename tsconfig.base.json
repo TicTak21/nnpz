@@ -24,6 +24,9 @@
       "@nnpz/admin/data-access-router": [
         "libs/admin/data-access-router/src/index.ts"
       ],
+      "@nnpz/admin/data-access-theme": [
+        "libs/admin/data-access-theme/src/index.ts"
+      ],
       "@nnpz/admin/feature-auth": ["libs/admin/feature-auth/src/index.ts"],
       "@nnpz/admin/feature-entities": [
         "libs/admin/feature-entities/src/index.ts"
@@ -52,6 +55,7 @@
       "@nnpz/admin/feature-support": [
         "libs/admin/feature-support/src/index.ts"
       ],
+      "@nnpz/admin/feature-theme": ["libs/admin/feature-theme/src/index.ts"],
       "@nnpz/admin/feature-toppings": [
         "libs/admin/feature-toppings/src/index.ts"
       ],
@@ -63,6 +67,7 @@
       "@nnpz/admin/ui-settings": ["libs/admin/ui-settings/src/index.ts"],
       "@nnpz/admin/ui-support": ["libs/admin/ui-support/src/index.ts"],
       "@nnpz/admin/util-layout": ["libs/admin/util-layout/src/index.ts"],
+      "@nnpz/admin/util-theme": ["libs/admin/util-theme/src/index.ts"],
       "@nnpz/shared/types": ["libs/shared/types/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@nnpz/shared/utils": ["libs/shared/utils/src/index.ts"]
