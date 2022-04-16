@@ -73,8 +73,8 @@ const routes: Routes = [
   {
     path: 'locations',
     loadChildren: () =>
-      import('./modules/locations/locations.module').then(
-        m => m.LocationsModule,
+      import('@nnpz/admin/feature-locations').then(
+        m => m.AdminFeatureLocationsModule,
       ),
     canActivate: [AuthGuard],
   },

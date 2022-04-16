@@ -150,6 +150,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-feature-locations": {
+      "projectType": "library",
+      "root": "libs/admin/feature-locations",
+      "sourceRoot": "libs/admin/feature-locations/src",
+      "prefix": "admin-feature-locations",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-locations"],
+          "options": {
+            "jestConfig": "libs/admin/feature-locations/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-locations/src/**/*.ts",
+              "libs/admin/feature-locations/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "admin-feature-login": {
       "projectType": "library",
       "root": "libs/admin/feature-login",
