@@ -84,7 +84,9 @@ const routes: Routes = [
   {
     path: 'pizzas',
     loadChildren: () =>
-      import('./modules/pizzas/pizzas.module').then(m => m.PizzasModule),
+      import('@nnpz/admin/feature-pizzas').then(
+        m => m.AdminFeaturePizzasModule,
+      ),
     canActivate: [AuthGuard],
   },
   {

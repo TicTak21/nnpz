@@ -176,6 +176,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-feature-pizzas": {
+      "projectType": "library",
+      "root": "libs/admin/feature-pizzas",
+      "sourceRoot": "libs/admin/feature-pizzas/src",
+      "prefix": "admin-feature-pizzas",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-pizzas"],
+          "options": {
+            "jestConfig": "libs/admin/feature-pizzas/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-pizzas/src/**/*.ts",
+              "libs/admin/feature-pizzas/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "admin-feature-register": {
       "projectType": "library",
       "root": "libs/admin/feature-register",
