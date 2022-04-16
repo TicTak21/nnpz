@@ -102,8 +102,8 @@ const routes: Routes = [
   {
     path: 'notifications',
     loadChildren: () =>
-      import('./modules/notifications/notifications.module').then(
-        m => m.NotificationsModule,
+      import('@nnpz/admin/feature-notifications').then(
+        m => m.AdminFeatureNotificationsModule,
       ),
     canActivate: [AuthGuard],
   },

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'admin-notifications-page',
+  selector: 'admin-feature-notifications-page',
   templateUrl: './notifications-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotificationsPageComponent {}
+export class AdminFeatureNotificationsPageComponent {}

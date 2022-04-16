@@ -21,6 +21,9 @@
       "@nnpz/admin/feature-not-found": [
         "libs/admin/feature-not-found/src/index.ts"
       ],
+      "@nnpz/admin/feature-notifications": [
+        "libs/admin/feature-notifications/src/index.ts"
+      ],
       "@nnpz/admin/feature-orders": ["libs/admin/feature-orders/src/index.ts"],
       "@nnpz/admin/feature-pizzas": ["libs/admin/feature-pizzas/src/index.ts"],
       "@nnpz/admin/feature-register": [
