@@ -64,7 +64,9 @@ const routes: Routes = [
   {
     path: 'orders',
     loadChildren: () =>
-      import('./modules/orders/orders.module').then(m => m.OrdersModule),
+      import('@nnpz/admin/feature-orders').then(
+        m => m.AdminFeatureOrdersModule,
+      ),
     canActivate: [AuthGuard],
   },
   {
