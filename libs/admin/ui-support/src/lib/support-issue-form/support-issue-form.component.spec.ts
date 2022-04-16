@@ -2,21 +2,21 @@ import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { SupportIssueFormComponent } from './support-issue-form.component';
+import { AdminUiSupportIssueFormComponent } from './support-issue-form.component';
 
-describe('SupportIssueFormComponent', () => {
-  let component: SupportIssueFormComponent;
-  let fixture: ComponentFixture<SupportIssueFormComponent>;
+describe('AdminUiSupportIssueFormComponent', () => {
+  let component: AdminUiSupportIssueFormComponent;
+  let fixture: ComponentFixture<AdminUiSupportIssueFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SupportIssueFormComponent],
+      declarations: [AdminUiSupportIssueFormComponent],
       imports: [BaseThemeModule, LyFieldModule, ReactiveFormsModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupportIssueFormComponent);
+    fixture = TestBed.createComponent(AdminUiSupportIssueFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,21 +1,21 @@
 import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { ToppingsPageComponent } from './toppings-page.component';
+import { AdminFeatureToppingsPageComponent } from './toppings-page.component';
 
-describe('ToppingsPageComponent', () => {
-  let component: ToppingsPageComponent;
-  let fixture: ComponentFixture<ToppingsPageComponent>;
+describe('AdminFeatureToppingsPageComponent', () => {
+  let component: AdminFeatureToppingsPageComponent;
+  let fixture: ComponentFixture<AdminFeatureToppingsPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ToppingsPageComponent],
+      declarations: [AdminFeatureToppingsPageComponent],
       imports: [BaseThemeModule, LyCommonModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToppingsPageComponent);
+    fixture = TestBed.createComponent(AdminFeatureToppingsPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminUiSettingsTerminateSessionsComponent } from './settings-terminate-sessions.component';
 
-import { SettingsTerminateSessionsComponent } from './settings-terminate-sessions.component';
-
-describe('SettingsTerminateSessionsComponent', () => {
-  let component: SettingsTerminateSessionsComponent;
-  let fixture: ComponentFixture<SettingsTerminateSessionsComponent>;
+describe('AdminUiSettingsTerminateSessionsComponent', () => {
+  let component: AdminUiSettingsTerminateSessionsComponent;
+  let fixture: ComponentFixture<AdminUiSettingsTerminateSessionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingsTerminateSessionsComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminUiSettingsTerminateSessionsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsTerminateSessionsComponent);
+    fixture = TestBed.createComponent(
+      AdminUiSettingsTerminateSessionsComponent,
+    );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

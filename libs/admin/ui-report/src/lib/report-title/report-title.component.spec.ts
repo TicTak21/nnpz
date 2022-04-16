@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminUiReportTitleComponent } from './report-title.component';
 
-import { ReportTitleComponent } from './report-title.component';
-
-describe('ReportTitleComponent', () => {
-  let component: ReportTitleComponent;
-  let fixture: ComponentFixture<ReportTitleComponent>;
+describe('AdminUiReportTitleComponent', () => {
+  let component: AdminUiReportTitleComponent;
+  let fixture: ComponentFixture<AdminUiReportTitleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReportTitleComponent],
+      declarations: [AdminUiReportTitleComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReportTitleComponent);
+    fixture = TestBed.createComponent(AdminUiReportTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

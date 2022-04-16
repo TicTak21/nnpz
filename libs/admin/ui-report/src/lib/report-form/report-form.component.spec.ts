@@ -4,15 +4,15 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { ReportFormComponent } from './report-form.component';
+import { AdminUiReportFormComponent } from './report-form.component';
 
-describe('ReportFormComponent', () => {
-  let component: ReportFormComponent;
-  let fixture: ComponentFixture<ReportFormComponent>;
+describe('AdminUiReportFormComponent', () => {
+  let component: AdminUiReportFormComponent;
+  let fixture: ComponentFixture<AdminUiReportFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReportFormComponent],
+      declarations: [AdminUiReportFormComponent],
       imports: [
         BaseThemeModule,
         LyFieldModule,
@@ -24,7 +24,7 @@ describe('ReportFormComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReportFormComponent);
+    fixture = TestBed.createComponent(AdminUiReportFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

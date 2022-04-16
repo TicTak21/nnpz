@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminUiSupportTitleComponent } from './support-title.component';
 
-import { SupportTitleComponent } from './support-title.component';
-
-describe('SupportTitleComponent', () => {
-  let component: SupportTitleComponent;
-  let fixture: ComponentFixture<SupportTitleComponent>;
+describe('AdminUiSupportTitleComponent', () => {
+  let component: AdminUiSupportTitleComponent;
+  let fixture: ComponentFixture<AdminUiSupportTitleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SupportTitleComponent],
+      declarations: [AdminUiSupportTitleComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupportTitleComponent);
+    fixture = TestBed.createComponent(AdminUiSupportTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

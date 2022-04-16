@@ -3,17 +3,17 @@ import { LyDividerModule } from '@alyle/ui/divider';
 import { LyGridModule } from '@alyle/ui/grid';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CustomGlobalVariables } from '@nnpz/admin/util-theme';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { CustomGlobalVariables } from '../../../../core/theme/config';
-import { SettingsPageComponent } from './settings-page.component';
+import { AdminUiSettingsPageComponent } from './settings-page.component';
 
-describe('SettingsPageComponent', () => {
-  let component: SettingsPageComponent;
-  let fixture: ComponentFixture<SettingsPageComponent>;
+describe('AdminUiSettingsPageComponent', () => {
+  let component: AdminUiSettingsPageComponent;
+  let fixture: ComponentFixture<AdminUiSettingsPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SettingsPageComponent],
+      declarations: [AdminUiSettingsPageComponent],
       imports: [BaseThemeModule, LyGridModule, LyDividerModule, LyCommonModule],
       providers: [
         { provide: LY_THEME_GLOBAL_VARIABLES, useClass: CustomGlobalVariables },
@@ -23,7 +23,7 @@ describe('SettingsPageComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsPageComponent);
+    fixture = TestBed.createComponent(AdminUiSettingsPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

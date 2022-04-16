@@ -1,21 +1,23 @@
 import { LyCheckboxModule } from '@alyle/ui/checkbox';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { SettingsMuteNotificationsComponent } from './settings-mute-notifications.component';
+import { AdminUiSettingsMuteNotificationsComponent } from './settings-mute-notifications.component';
 
-describe('SettingsMuteNotificationsComponent', () => {
-  let component: SettingsMuteNotificationsComponent;
-  let fixture: ComponentFixture<SettingsMuteNotificationsComponent>;
+describe('AdminUiSettingsMuteNotificationsComponent', () => {
+  let component: AdminUiSettingsMuteNotificationsComponent;
+  let fixture: ComponentFixture<AdminUiSettingsMuteNotificationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SettingsMuteNotificationsComponent],
+      declarations: [AdminUiSettingsMuteNotificationsComponent],
       imports: [BaseThemeModule, LyCheckboxModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsMuteNotificationsComponent);
+    fixture = TestBed.createComponent(
+      AdminUiSettingsMuteNotificationsComponent,
+    );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

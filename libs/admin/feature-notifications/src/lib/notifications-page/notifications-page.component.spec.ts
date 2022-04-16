@@ -1,21 +1,21 @@
 import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { NotificationsPageComponent } from './notifications-page.component';
+import { AdminFeatureNotificationsPageComponent } from './notifications-page.component';
 
-describe('NotificationsPageComponent', () => {
-  let component: NotificationsPageComponent;
-  let fixture: ComponentFixture<NotificationsPageComponent>;
+describe('AdminFeatureNotificationsPageComponent', () => {
+  let component: AdminFeatureNotificationsPageComponent;
+  let fixture: ComponentFixture<AdminFeatureNotificationsPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NotificationsPageComponent],
+      declarations: [AdminFeatureNotificationsPageComponent],
       imports: [BaseThemeModule, LyCommonModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotificationsPageComponent);
+    fixture = TestBed.createComponent(AdminFeatureNotificationsPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
