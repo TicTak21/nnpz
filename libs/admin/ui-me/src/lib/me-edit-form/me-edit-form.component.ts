@@ -8,11 +8,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EUserRole, IUserEntity } from '@nnpz/shared/types';
 
 @Component({
-  selector: 'admin-me-edit-form',
+  selector: 'admin-ui-me-edit-form',
   templateUrl: './me-edit-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MeEditFormComponent {
+export class AdminUiMeEditFormComponent {
   @Output() handleSubmit$: EventEmitter<IUserEntity> =
     new EventEmitter<IUserEntity>();
 

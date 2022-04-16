@@ -30,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'me',
-    loadChildren: () => import('./modules/me/me.module').then(m => m.MeModule),
+    loadChildren: () =>
+      import('@nnpz/admin/feature-me').then(m => m.AdminFeatureMeModule),
     canActivate: [AuthGuard],
   },
   {

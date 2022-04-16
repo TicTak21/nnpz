@@ -6,10 +6,10 @@
         <span lyPe="0.25rem">You</span>
       </button>
 
-      <admin-me-profile
+      <admin-ui-me-profile
         [username]="MOCK_DATA.username"
         [img]="MOCK_DATA.img"
-      ></admin-me-profile>
+      ></admin-ui-me-profile>
     </ly-tab>
 
     <ly-tab>
@@ -18,9 +18,9 @@
         <span lyPe="0.25rem">Edit</span>
       </button>
 
-      <admin-me-edit-form
+      <admin-ui-me-edit-form
         (handleSubmit$)="handleSubmit($event)"
-      ></admin-me-edit-form>
+      ></admin-ui-me-edit-form>
     </ly-tab>
   </ly-tabs>
 </ly-paper>

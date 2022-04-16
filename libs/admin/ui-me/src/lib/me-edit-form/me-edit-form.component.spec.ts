@@ -3,15 +3,15 @@ import { LyTypographyModule } from '@alyle/ui/typography';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { MeEditFormComponent } from './me-edit-form.component';
+import { AdminUiMeEditFormComponent } from './me-edit-form.component';
 
-describe('MeEditFormComponent', () => {
-  let component: MeEditFormComponent;
-  let fixture: ComponentFixture<MeEditFormComponent>;
+describe('AdminUiMeEditFormComponent', () => {
+  let component: AdminUiMeEditFormComponent;
+  let fixture: ComponentFixture<AdminUiMeEditFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MeEditFormComponent],
+      declarations: [AdminUiMeEditFormComponent],
       imports: [
         BaseThemeModule,
         LyFieldModule,
@@ -22,7 +22,7 @@ describe('MeEditFormComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MeEditFormComponent);
+    fixture = TestBed.createComponent(AdminUiMeEditFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

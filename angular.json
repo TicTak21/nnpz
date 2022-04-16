@@ -150,6 +150,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-feature-me": {
+      "projectType": "library",
+      "root": "libs/admin/feature-me",
+      "sourceRoot": "libs/admin/feature-me/src",
+      "prefix": "admin-feature-me",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-me"],
+          "options": {
+            "jestConfig": "libs/admin/feature-me/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-me/src/**/*.ts",
+              "libs/admin/feature-me/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "admin-feature-not-found": {
       "projectType": "library",
       "root": "libs/admin/feature-not-found",
@@ -435,6 +461,32 @@
         }
       },
       "tags": ["scope:admin", "type:feature"]
+    },
+    "admin-ui-me": {
+      "projectType": "library",
+      "root": "libs/admin/ui-me",
+      "sourceRoot": "libs/admin/ui-me/src",
+      "prefix": "admin-ui-me",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/ui-me"],
+          "options": {
+            "jestConfig": "libs/admin/ui-me/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/ui-me/src/**/*.ts",
+              "libs/admin/ui-me/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
     },
     "admin-ui-not-found": {
       "projectType": "library",

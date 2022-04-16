@@ -18,6 +18,7 @@
       "@nnpz/admin/data-access-router": [
         "libs/admin/data-access-router/src/index.ts"
       ],
+      "@nnpz/admin/feature-me": ["libs/admin/feature-me/src/index.ts"],
       "@nnpz/admin/feature-not-found": [
         "libs/admin/feature-not-found/src/index.ts"
       ],
@@ -41,6 +42,7 @@
         "libs/admin/feature-toppings/src/index.ts"
       ],
       "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
+      "@nnpz/admin/ui-me": ["libs/admin/ui-me/src/index.ts"],
       "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],
       "@nnpz/admin/ui-report": ["libs/admin/ui-report/src/index.ts"],
       "@nnpz/admin/ui-settings": ["libs/admin/ui-settings/src/index.ts"],

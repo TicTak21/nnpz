@@ -1,20 +1,20 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MeProfileComponent } from './me-profile.component';
+import { AdminUiMeProfileComponent } from './me-profile.component';
 
-describe('MeProfileComponent', () => {
-  let component: MeProfileComponent;
-  let fixture: ComponentFixture<MeProfileComponent>;
+describe('AdminUiMeProfileComponent', () => {
+  let component: AdminUiMeProfileComponent;
+  let fixture: ComponentFixture<AdminUiMeProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MeProfileComponent],
+      declarations: [AdminUiMeProfileComponent],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MeProfileComponent);
+    fixture = TestBed.createComponent(AdminUiMeProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
