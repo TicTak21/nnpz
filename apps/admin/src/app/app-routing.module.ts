@@ -53,7 +53,9 @@ const routes: Routes = [
   {
     path: 'entities',
     loadChildren: () =>
-      import('./modules/entities/entities.module').then(m => m.EntitiesModule),
+      import('@nnpz/admin/feature-entities').then(
+        m => m.AdminFeatureEntitiesModule,
+      ),
     canActivate: [AuthGuard],
   },
   {

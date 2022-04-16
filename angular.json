@@ -150,6 +150,32 @@
       "tags": ["scope:admin", "type:app"],
       "implicitDependencies": ["admin"]
     },
+    "admin-feature-entities": {
+      "projectType": "library",
+      "root": "libs/admin/feature-entities",
+      "sourceRoot": "libs/admin/feature-entities/src",
+      "prefix": "admin-feature-entities",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-entities"],
+          "options": {
+            "jestConfig": "libs/admin/feature-entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-entities/src/**/*.ts",
+              "libs/admin/feature-entities/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-feature-locations": {
       "projectType": "library",
       "root": "libs/admin/feature-locations",
@@ -174,7 +200,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-login": {
       "projectType": "library",
@@ -200,7 +226,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-me": {
       "projectType": "library",
@@ -226,7 +252,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-not-found": {
       "projectType": "library",
@@ -278,7 +304,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-orders": {
       "projectType": "library",
@@ -304,7 +330,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-pizzas": {
       "projectType": "library",
@@ -330,7 +356,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-register": {
       "projectType": "library",
@@ -356,7 +382,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-report": {
       "projectType": "library",
@@ -382,7 +408,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-sales": {
       "projectType": "library",
@@ -408,7 +434,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-settings": {
       "projectType": "library",
@@ -514,6 +540,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-ui-entities": {
+      "projectType": "library",
+      "root": "libs/admin/ui-entities",
+      "sourceRoot": "libs/admin/ui-entities/src",
+      "prefix": "admin-ui-entities",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/ui-entities"],
+          "options": {
+            "jestConfig": "libs/admin/ui-entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/ui-entities/src/**/*.ts",
+              "libs/admin/ui-entities/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
+    },
     "admin-ui-me": {
       "projectType": "library",
       "root": "libs/admin/ui-me",
@@ -538,7 +590,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:ui"]
     },
     "admin-ui-not-found": {
       "projectType": "library",
@@ -590,7 +642,7 @@
           }
         }
       },
-      "tags": []
+      "tags": ["scope:admin", "type:ui"]
     },
     "admin-ui-settings": {
       "projectType": "library",
@@ -616,7 +668,7 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": ["scope:admin", "type:ui"]
     },
     "admin-ui-support": {
       "projectType": "library",
@@ -642,7 +694,7 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": ["scope:admin", "type:ui"]
     },
     "client": {
       "projectType": "application",
