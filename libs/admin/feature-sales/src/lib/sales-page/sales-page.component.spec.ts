@@ -1,21 +1,21 @@
 import { LyCommonModule } from '@alyle/ui';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { SalesPageComponent } from './sales-page.component';
+import { AdminFeatureSalesPageComponent } from './sales-page.component';
 
-describe('SalesPageComponent', () => {
-  let component: SalesPageComponent;
-  let fixture: ComponentFixture<SalesPageComponent>;
+describe('AdminFeatureSalesPageComponent', () => {
+  let component: AdminFeatureSalesPageComponent;
+  let fixture: ComponentFixture<AdminFeatureSalesPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SalesPageComponent],
+      declarations: [AdminFeatureSalesPageComponent],
       imports: [BaseThemeModule, LyCommonModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SalesPageComponent);
+    fixture = TestBed.createComponent(AdminFeatureSalesPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -54,7 +54,7 @@ const routes: Routes = [
   {
     path: 'sales',
     loadChildren: () =>
-      import('./modules/sales/sales.module').then(m => m.SalesModule),
+      import('@nnpz/admin/feature-sales').then(m => m.AdminFeatureSalesModule),
     canActivate: [AuthGuard],
   },
   {
