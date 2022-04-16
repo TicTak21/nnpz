@@ -3,22 +3,22 @@ import { LyGridModule } from '@alyle/ui/grid';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { RegisterPageComponent } from './register-page.component';
+import { AdminFeatureRegisterPageComponent } from './register-page.component';
 
-describe('RegisterPageComponent', () => {
-  let component: RegisterPageComponent;
-  let fixture: ComponentFixture<RegisterPageComponent>;
+describe('AdminFeatureRegisterPageComponent', () => {
+  let component: AdminFeatureRegisterPageComponent;
+  let fixture: ComponentFixture<AdminFeatureRegisterPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RegisterPageComponent],
+      declarations: [AdminFeatureRegisterPageComponent],
       imports: [BaseThemeModule, LyCommonModule, LyGridModule],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterPageComponent);
+    fixture = TestBed.createComponent(AdminFeatureRegisterPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

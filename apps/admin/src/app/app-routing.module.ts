@@ -16,7 +16,9 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () =>
-      import('./modules/register/register.module').then(m => m.RegisterModule),
+      import('@nnpz/admin/feature-register').then(
+        m => m.AdminFeatureRegisterModule,
+      ),
   },
   {
     path: 'dashboard',

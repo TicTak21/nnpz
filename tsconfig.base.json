@@ -21,6 +21,9 @@
       "@nnpz/admin/feature-not-found": [
         "libs/admin/feature-not-found/src/index.ts"
       ],
+      "@nnpz/admin/feature-register": [
+        "libs/admin/feature-register/src/index.ts"
+      ],
       "@nnpz/admin/feature-report": ["libs/admin/feature-report/src/index.ts"],
       "@nnpz/admin/feature-sales": ["libs/admin/feature-sales/src/index.ts"],
       "@nnpz/admin/feature-settings": [
