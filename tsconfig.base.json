@@ -28,6 +28,9 @@
         "libs/admin/data-access-theme/src/index.ts"
       ],
       "@nnpz/admin/feature-auth": ["libs/admin/feature-auth/src/index.ts"],
+      "@nnpz/admin/feature-dashboard": [
+        "libs/admin/feature-dashboard/src/index.ts"
+      ],
       "@nnpz/admin/feature-entities": [
         "libs/admin/feature-entities/src/index.ts"
       ],
@@ -60,6 +63,7 @@
         "libs/admin/feature-toppings/src/index.ts"
       ],
       "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
+      "@nnpz/admin/ui-dashboard": ["libs/admin/ui-dashboard/src/index.ts"],
       "@nnpz/admin/ui-entities": ["libs/admin/ui-entities/src/index.ts"],
       "@nnpz/admin/ui-me": ["libs/admin/ui-me/src/index.ts"],
       "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],

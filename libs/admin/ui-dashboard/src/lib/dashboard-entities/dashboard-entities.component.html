@@ -1,0 +1,7 @@
+<div [withClass]="classes.entities">
+  <admin-ui-dashboard-entity
+    *ngFor="let entity of entities"
+    [entity]="entity"
+  ></admin-ui-dashboard-entity>
+  <admin-ui-dashboard-entity-new></admin-ui-dashboard-entity-new>
+</div>

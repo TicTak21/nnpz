@@ -23,8 +23,8 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('./modules/dashboard/dashboard.module').then(
-        m => m.DashboardModule,
+      import('@nnpz/admin/feature-dashboard').then(
+        m => m.AdminFeatureDashboardModule,
       ),
     canActivate: [AuthGuard],
   },

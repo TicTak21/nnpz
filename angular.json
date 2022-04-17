@@ -254,6 +254,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-feature-dashboard": {
+      "projectType": "library",
+      "root": "libs/admin/feature-dashboard",
+      "sourceRoot": "libs/admin/feature-dashboard/src",
+      "prefix": "admin-feature-dashboard",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-dashboard"],
+          "options": {
+            "jestConfig": "libs/admin/feature-dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-dashboard/src/**/*.ts",
+              "libs/admin/feature-dashboard/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-feature-entities": {
       "projectType": "library",
       "root": "libs/admin/feature-entities",
@@ -669,6 +695,32 @@
         }
       },
       "tags": ["scope:admin", "type:feature"]
+    },
+    "admin-ui-dashboard": {
+      "projectType": "library",
+      "root": "libs/admin/ui-dashboard",
+      "sourceRoot": "libs/admin/ui-dashboard/src",
+      "prefix": "admin-ui-dashboard",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/ui-dashboard"],
+          "options": {
+            "jestConfig": "libs/admin/ui-dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/ui-dashboard/src/**/*.ts",
+              "libs/admin/ui-dashboard/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
     },
     "admin-ui-entities": {
       "projectType": "library",
