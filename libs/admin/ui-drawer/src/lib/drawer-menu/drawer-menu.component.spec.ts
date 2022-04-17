@@ -1,20 +1,20 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DrawerMenuComponent } from './drawer-menu.component';
+import { AdminUiDrawerMenuComponent } from './drawer-menu.component';
 
-describe('DrawerMenuComponent', () => {
-  let component: DrawerMenuComponent;
-  let fixture: ComponentFixture<DrawerMenuComponent>;
+describe('AdminUiDrawerMenuComponent', () => {
+  let component: AdminUiDrawerMenuComponent;
+  let fixture: ComponentFixture<AdminUiDrawerMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DrawerMenuComponent],
+      declarations: [AdminUiDrawerMenuComponent],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DrawerMenuComponent);
+    fixture = TestBed.createComponent(AdminUiDrawerMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

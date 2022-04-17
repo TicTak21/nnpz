@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Action } from '@ngrx/store';
+import { DirectionService } from '@nnpz/admin/data-access-layout';
 import { Observable } from 'rxjs';
-import { DirectionService } from '../../../layout/services/direction.service';
 import { ThemeService } from '../../services/theme.service';
 import { ThemeEffects } from './theme.effects';
 

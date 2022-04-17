@@ -3,16 +3,16 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { HeaderComponent } from './header.component';
+import { AdminFeatureHeaderComponent } from './header.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('AdminFeatureHeaderComponent', () => {
+  let component: AdminFeatureHeaderComponent;
+  let fixture: ComponentFixture<AdminFeatureHeaderComponent>;
   let _store: MockStore;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [AdminFeatureHeaderComponent],
       imports: [BaseThemeModule, LyToolbarModule],
       providers: [provideMockStore({})],
       schemas: [NO_ERRORS_SCHEMA],
@@ -22,7 +22,7 @@ describe('HeaderComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(AdminFeatureHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

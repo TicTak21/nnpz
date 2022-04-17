@@ -2,22 +2,22 @@ import { LyBadgeModule } from '@alyle/ui/badge';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { HeaderNotificationsComponent } from './header-notifications.component';
+import { AdminUiHeaderNotificationsComponent } from './header-notifications.component';
 
-describe('HeaderNotificationsComponent', () => {
-  let component: HeaderNotificationsComponent;
-  let fixture: ComponentFixture<HeaderNotificationsComponent>;
+describe('AdminUiHeaderNotificationsComponent', () => {
+  let component: AdminUiHeaderNotificationsComponent;
+  let fixture: ComponentFixture<AdminUiHeaderNotificationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderNotificationsComponent],
+      declarations: [AdminUiHeaderNotificationsComponent],
       imports: [BaseThemeModule, LyBadgeModule],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderNotificationsComponent);
+    fixture = TestBed.createComponent(AdminUiHeaderNotificationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

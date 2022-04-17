@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { fromAuth } from '@nnpz/admin/data-access-auth';
 import { cold } from 'jest-marbles';
-import * as fromAuth from '../store';
 import { AuthGuard } from './auth.guard';
 
 describe('Auth Guard', () => {
