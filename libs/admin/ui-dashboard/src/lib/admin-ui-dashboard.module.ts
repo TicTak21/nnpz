@@ -22,7 +22,7 @@ import { AdminUiDashboardProfileComponent } from './dashboard-profile/dashboard-
 import { AdminUiDashboardSalesAmountChartComponent } from './dashboard-sales-amount-chart/dashboard-sales-amount-chart.component';
 import { AdminUiDashboardTopFivePizzasComponent } from './dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 
-export const COMPONENTS = [
+const COMPONENTS = [
   AdminUiDashboardActiveOrdersComponent,
   AdminUiDashboardActiveUsersComponent,
   AdminUiDashboardDividerComponent,
@@ -34,11 +34,6 @@ export const COMPONENTS = [
   AdminUiDashboardSalesAmountChartComponent,
   AdminUiDashboardTopFivePizzasComponent,
 ];
-
-export const COMPONENTS_MAP: any = COMPONENTS.reduce(
-  (a, v) => ({ ...a, [v.name]: v }),
-  {},
-);
 
 @NgModule({
   declarations: [COMPONENTS],

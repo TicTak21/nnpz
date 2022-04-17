@@ -6,6 +6,15 @@ import { ELayoutType } from '@nnpz/admin/util-layout';
 import { Observable } from 'rxjs';
 import { TLayoutConfig } from '../interfaces';
 
+const {
+  AdminUiDashboardDividerComponent,
+  AdminUiDashboardEntitiesComponent,
+  AdminUiDashboardNotesComponent,
+  AdminUiDashboardProfileComponent,
+  AdminUiDashboardSalesAmountChartComponent,
+  AdminUiDashboardTopFivePizzasComponent,
+} = COMPONENTS_MAP;
+
 @Component({
   selector: 'admin-feature-dashboard-page',
   templateUrl: './dashboard-page.component.html',
@@ -46,7 +55,7 @@ export class AdminFeatureDashboardPageComponent {
   layouts: TLayoutConfig = {
     standart: [
       {
-        component: COMPONENTS_MAP.AdminUiDashboardProfileComponent,
+        component: AdminUiDashboardProfileComponent,
         col: '4 12@XSmall@Small 3@Medium',
         inputs: {
           username: this.MOCK_DATA.username,
@@ -55,13 +64,13 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardSalesAmountChartComponent,
+        component: AdminUiDashboardSalesAmountChartComponent,
         col: '8 12@XSmall@Small 9@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardDividerComponent,
+        component: AdminUiDashboardDividerComponent,
         col: '12',
         inputs: {
           activeOrders: this.MOCK_DATA.activeOrders,
@@ -70,19 +79,19 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardTopFivePizzasComponent,
+        component: AdminUiDashboardTopFivePizzasComponent,
         col: '6 12@XSmall@Small 7@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardNotesComponent,
+        component: AdminUiDashboardNotesComponent,
         col: '6 12@XSmall@Small 5@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardEntitiesComponent,
+        component: AdminUiDashboardEntitiesComponent,
         col: '12',
         inputs: {
           entities: this.MOCK_DATA.entities,
@@ -92,19 +101,19 @@ export class AdminFeatureDashboardPageComponent {
     ],
     stats: [
       {
-        component: COMPONENTS_MAP.AdminUiDashboardSalesAmountChartComponent,
+        component: AdminUiDashboardSalesAmountChartComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardTopFivePizzasComponent,
+        component: AdminUiDashboardTopFivePizzasComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardDividerComponent,
+        component: AdminUiDashboardDividerComponent,
         col: '12',
         inputs: {
           activeOrders: this.MOCK_DATA.activeOrders,
@@ -113,7 +122,7 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardEntitiesComponent,
+        component: AdminUiDashboardEntitiesComponent,
         col: '12',
         inputs: {
           entities: this.MOCK_DATA.entities,
@@ -121,13 +130,13 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardNotesComponent,
+        component: AdminUiDashboardNotesComponent,
         col: '8 12@XSmall@Small 8@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardProfileComponent,
+        component: AdminUiDashboardProfileComponent,
         col: '4 12@XSmall@Small 4@Medium',
         inputs: {
           username: this.MOCK_DATA.username,
@@ -138,7 +147,7 @@ export class AdminFeatureDashboardPageComponent {
     ],
     management: [
       {
-        component: COMPONENTS_MAP.AdminUiDashboardDividerComponent,
+        component: AdminUiDashboardDividerComponent,
         col: '12',
         inputs: {
           activeOrders: this.MOCK_DATA.activeOrders,
@@ -147,13 +156,13 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardNotesComponent,
+        component: AdminUiDashboardNotesComponent,
         col: '12 12@XSmall@Small 12@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardProfileComponent,
+        component: AdminUiDashboardProfileComponent,
         col: '4 12@XSmall@Small 4@Medium',
         inputs: {
           username: this.MOCK_DATA.username,
@@ -162,7 +171,7 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardEntitiesComponent,
+        component: AdminUiDashboardEntitiesComponent,
         col: '8 12@XSmall@Small 8@Medium',
         inputs: {
           entities: this.MOCK_DATA.entities,
@@ -170,13 +179,13 @@ export class AdminFeatureDashboardPageComponent {
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardSalesAmountChartComponent,
+        component: AdminUiDashboardSalesAmountChartComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
         outputs: {},
       },
       {
-        component: COMPONENTS_MAP.AdminUiDashboardTopFivePizzasComponent,
+        component: AdminUiDashboardTopFivePizzasComponent,
         col: '6 12@XSmall@Small 6@Medium',
         inputs: {},
         outputs: {},
