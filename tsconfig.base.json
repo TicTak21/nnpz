@@ -34,6 +34,7 @@
       "@nnpz/admin/feature-entities": [
         "libs/admin/feature-entities/src/index.ts"
       ],
+      "@nnpz/admin/feature-header": ["libs/admin/feature-header/src/index.ts"],
       "@nnpz/admin/feature-locations": [
         "libs/admin/feature-locations/src/index.ts"
       ],
@@ -68,6 +69,7 @@
       "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
       "@nnpz/admin/ui-dashboard": ["libs/admin/ui-dashboard/src/index.ts"],
       "@nnpz/admin/ui-entities": ["libs/admin/ui-entities/src/index.ts"],
+      "@nnpz/admin/ui-header": ["libs/admin/ui-header/src/index.ts"],
       "@nnpz/admin/ui-me": ["libs/admin/ui-me/src/index.ts"],
       "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],
       "@nnpz/admin/ui-report": ["libs/admin/ui-report/src/index.ts"],

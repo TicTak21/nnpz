@@ -14,11 +14,11 @@ const styles = {
 };
 
 @Component({
-  selector: 'admin-header',
+  selector: 'admin-feature-header',
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {
+export class AdminFeatureHeaderComponent {
   @ViewChild('drawer') drawer!: LyDrawer;
 
   readonly classes = this.theme.addStyleSheet(styles);

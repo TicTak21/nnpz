@@ -6,11 +6,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'admin-header-menu-btn',
+  selector: 'admin-ui-header-menu-btn',
   templateUrl: './header-menu-btn.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderMenuBtnComponent {
+export class AdminUiHeaderMenuBtnComponent {
   @Output() toggleDrawer$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {

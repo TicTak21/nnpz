@@ -1,11 +1,11 @@
 <ly-toolbar bg="paper" [withClass]="classes.container">
-  <admin-header-menu-btn
+  <admin-ui-header-menu-btn
     (toggleDrawer$)="toggleDrawer()"
-  ></admin-header-menu-btn>
-  <admin-header-title lyFlexGrow="1"></admin-header-title>
-  <admin-header-notifications
+  ></admin-ui-header-menu-btn>
+  <admin-ui-header-title lyFlexGrow="1"></admin-ui-header-title>
+  <admin-ui-header-notifications
     [notifications]="MOCK_DATA.notifications"
-  ></admin-header-notifications>
+  ></admin-ui-header-notifications>
   <admin-feature-theme-switch></admin-feature-theme-switch>
   <nnpz-avatar [alt]="MOCK_DATA.username" [src]="MOCK_DATA.img"></nnpz-avatar>
 </ly-toolbar>
