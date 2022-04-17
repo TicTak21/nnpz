@@ -1,8 +1,8 @@
 import { lyl, LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AppThemeVariables } from '@nnpz/admin/util-theme';
 
-// TODO: replace any with AppThemeVariables
-const styles = (theme: any) => {
+const styles = (theme: AppThemeVariables) => {
   return {
     notifications: lyl`{
       border: 1px solid ${theme.accent.default}

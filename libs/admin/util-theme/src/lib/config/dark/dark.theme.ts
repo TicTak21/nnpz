@@ -1,4 +1,4 @@
-import { Dir, lyl, PartialThemeVariables } from '@alyle/ui';
+import { Dir, lyl, PartialThemeVariables, StyleTemplate } from '@alyle/ui';
 import {
   DarkAccentDefault,
   DarkBackgroundDefault,
@@ -29,7 +29,7 @@ export class CustomMinimaDark implements PartialThemeVariables {
     default: DarkPaperDefault,
   };
   menu = {
-    root: (__: any) => lyl`{
+    root: (__: { container: StyleTemplate }) => lyl`{
       ${__.container} {
         background: ${DarkMenuBackground}
       }
