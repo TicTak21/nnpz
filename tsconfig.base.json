@@ -31,10 +31,12 @@
       "@nnpz/admin/feature-dashboard": [
         "libs/admin/feature-dashboard/src/index.ts"
       ],
+      "@nnpz/admin/feature-drawer": ["libs/admin/feature-drawer/src/index.ts"],
       "@nnpz/admin/feature-entities": [
         "libs/admin/feature-entities/src/index.ts"
       ],
       "@nnpz/admin/feature-header": ["libs/admin/feature-header/src/index.ts"],
+      "@nnpz/admin/feature-layout": ["libs/admin/feature-layout/src/index.ts"],
       "@nnpz/admin/feature-locations": [
         "libs/admin/feature-locations/src/index.ts"
       ],
@@ -68,6 +70,7 @@
       ],
       "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
       "@nnpz/admin/ui-dashboard": ["libs/admin/ui-dashboard/src/index.ts"],
+      "@nnpz/admin/ui-drawer": ["libs/admin/ui-drawer/src/index.ts"],
       "@nnpz/admin/ui-entities": ["libs/admin/ui-entities/src/index.ts"],
       "@nnpz/admin/ui-header": ["libs/admin/ui-header/src/index.ts"],
       "@nnpz/admin/ui-me": ["libs/admin/ui-me/src/index.ts"],

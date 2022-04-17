@@ -1,0 +1,33 @@
+<ly-drawer-container [withClass]="classes.container">
+  <ly-drawer
+    ly-paper
+    elevation="3"
+    lyMy="1rem @XSmall"
+    drawerWidth="256 100%@XSmall"
+    hasBackdrop="false"
+    [opened]="(opened$ | async)!"
+    #drawer="lyDrawer"
+  >
+    <admin-ui-drawer-menu
+      [url$]="url$"
+      [direction$]="direction$"
+    ></admin-ui-drawer-menu>
+    <div [withClass]="classes.ctrls">
+      <admin-ui-drawer-layout-btn
+        [layoutType$]="layoutType$"
+        (changeLayout$)="changeLayout($event)"
+      ></admin-ui-drawer-layout-btn>
+      <admin-ui-drawer-dir-btn
+        [direction$]="direction$"
+        (toggleDirection$)="toggleDirection()"
+      ></admin-ui-drawer-dir-btn>
+      <admin-ui-drawer-logout-btn
+        (handleLogout$)="handleLogout()"
+      ></admin-ui-drawer-logout-btn>
+    </div>
+  </ly-drawer>
+
+  <ly-drawer-content>
+    <ng-content select="[drawerProjection]"></ng-content>
+  </ly-drawer-content>
+</ly-drawer-container>
