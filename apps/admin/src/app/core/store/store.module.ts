@@ -3,8 +3,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule as NgrxStoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { metaReducers } from '@nnpz/admin/feature-meta-reducers';
 import { environment } from '../../../environments/environment';
-import { metaReducers } from './meta-reducers/meta.reducers';
 import { ROOT_REDUCERS } from './reducers/root.reducers';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { ROOT_REDUCERS } from './reducers/root.reducers';
     EffectsModule.forRoot(),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({
-      maxAge: 25,
+      maxAge: environment.devToolsMaxAge,
       logOnly: environment.production,
     }),
   ],

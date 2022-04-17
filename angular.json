@@ -384,6 +384,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-feature-meta-reducers": {
+      "projectType": "library",
+      "root": "libs/admin/feature-meta-reducers",
+      "sourceRoot": "libs/admin/feature-meta-reducers/src",
+      "prefix": "admin-feature-meta-reducers",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-meta-reducers"],
+          "options": {
+            "jestConfig": "libs/admin/feature-meta-reducers/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-meta-reducers/src/**/*.ts",
+              "libs/admin/feature-meta-reducers/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-feature-not-found": {
       "projectType": "library",
       "root": "libs/admin/feature-not-found",

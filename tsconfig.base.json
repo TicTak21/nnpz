@@ -39,6 +39,9 @@
       ],
       "@nnpz/admin/feature-login": ["libs/admin/feature-login/src/index.ts"],
       "@nnpz/admin/feature-me": ["libs/admin/feature-me/src/index.ts"],
+      "@nnpz/admin/feature-meta-reducers": [
+        "libs/admin/feature-meta-reducers/src/index.ts"
+      ],
       "@nnpz/admin/feature-not-found": [
         "libs/admin/feature-not-found/src/index.ts"
       ],
