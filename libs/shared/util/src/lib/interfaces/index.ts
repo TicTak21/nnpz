@@ -1,4 +1,4 @@
-import { EPizzaSize, EReportFormat, EUserRole } from './enums';
+import { EPizzaSize, EReportFormat, EUserRole } from '../enums';
 
 export interface IBaseEntity {
   id: string;

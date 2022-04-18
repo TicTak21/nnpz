@@ -1317,7 +1317,7 @@
       },
       "tags": ["scope:server", "type:app"]
     },
-    "shared-util": {
+    "util-shared": {
       "projectType": "library",
       "root": "libs/shared/util",
       "sourceRoot": "libs/shared/util/src",
@@ -1343,7 +1343,7 @@
       },
       "tags": ["scope:shared", "type:util"]
     },
-    "ui": {
+    "ui-shared": {
       "projectType": "library",
       "root": "libs/shared/ui",
       "sourceRoot": "libs/shared/ui/src",

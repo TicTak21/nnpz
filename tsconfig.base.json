@@ -83,8 +83,7 @@
       "@nnpz/admin/util-layout": ["libs/admin/util-layout/src/index.ts"],
       "@nnpz/admin/util-theme": ["libs/admin/util-theme/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@nnpz/shared/util": ["libs/shared/util/src/index.ts"],
-      "@nnpz/shared/utils": ["libs/shared/utils/src/index.ts"]
+      "@nnpz/shared/util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
