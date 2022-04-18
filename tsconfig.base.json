@@ -15,73 +15,103 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nnpz/admin/util-layout": ["libs/admin/layout/util-layout/src/index.ts"],
       "@nnpz/admin/data-access-auth": [
-        "libs/admin/data-access-auth/src/index.ts"
+        "libs/admin/auth/data-access-auth/src/index.ts"
       ],
       "@nnpz/admin/data-access-layout": [
-        "libs/admin/data-access-layout/src/index.ts"
+        "libs/admin/layout/data-access-layout/src/index.ts"
       ],
       "@nnpz/admin/data-access-router": [
-        "libs/admin/data-access-router/src/index.ts"
+        "libs/admin/router/data-access-router/src/index.ts"
       ],
       "@nnpz/admin/data-access-theme": [
-        "libs/admin/data-access-theme/src/index.ts"
+        "libs/admin/theme/data-access-theme/src/index.ts"
       ],
-      "@nnpz/admin/feature-auth": ["libs/admin/feature-auth/src/index.ts"],
+      "@nnpz/admin/feature-auth": ["libs/admin/auth/feature-auth/src/index.ts"],
       "@nnpz/admin/feature-dashboard": [
-        "libs/admin/feature-dashboard/src/index.ts"
+        "libs/admin/dashboard/feature-dashboard/src/index.ts"
       ],
-      "@nnpz/admin/feature-drawer": ["libs/admin/feature-drawer/src/index.ts"],
+      "@nnpz/admin/feature-drawer": [
+        "libs/admin/drawer/feature-drawer/src/index.ts"
+      ],
       "@nnpz/admin/feature-entities": [
-        "libs/admin/feature-entities/src/index.ts"
+        "libs/admin/entities/feature-entities/src/index.ts"
       ],
-      "@nnpz/admin/feature-header": ["libs/admin/feature-header/src/index.ts"],
-      "@nnpz/admin/feature-layout": ["libs/admin/feature-layout/src/index.ts"],
+      "@nnpz/admin/feature-header": [
+        "libs/admin/header/feature-header/src/index.ts"
+      ],
+      "@nnpz/admin/feature-layout": [
+        "libs/admin/layout/feature-layout/src/index.ts"
+      ],
       "@nnpz/admin/feature-locations": [
-        "libs/admin/feature-locations/src/index.ts"
+        "libs/admin/locations/feature-locations/src/index.ts"
       ],
-      "@nnpz/admin/feature-login": ["libs/admin/feature-login/src/index.ts"],
-      "@nnpz/admin/feature-me": ["libs/admin/feature-me/src/index.ts"],
+      "@nnpz/admin/feature-login": [
+        "libs/admin/login/feature-login/src/index.ts"
+      ],
+      "@nnpz/admin/feature-me": ["libs/admin/me/feature-me/src/index.ts"],
       "@nnpz/admin/feature-meta-reducers": [
-        "libs/admin/feature-meta-reducers/src/index.ts"
+        "libs/admin/store/feature-meta-reducers/src/index.ts"
       ],
       "@nnpz/admin/feature-not-found": [
-        "libs/admin/feature-not-found/src/index.ts"
+        "libs/admin/not-found/feature-not-found/src/index.ts"
       ],
       "@nnpz/admin/feature-notifications": [
-        "libs/admin/feature-notifications/src/index.ts"
+        "libs/admin/notifications/feature-notifications/src/index.ts"
       ],
-      "@nnpz/admin/feature-orders": ["libs/admin/feature-orders/src/index.ts"],
-      "@nnpz/admin/feature-pizzas": ["libs/admin/feature-pizzas/src/index.ts"],
+      "@nnpz/admin/feature-orders": [
+        "libs/admin/orders/feature-orders/src/index.ts"
+      ],
+      "@nnpz/admin/feature-pizzas": [
+        "libs/admin/pizzas/feature-pizzas/src/index.ts"
+      ],
       "@nnpz/admin/feature-register": [
-        "libs/admin/feature-register/src/index.ts"
+        "libs/admin/register/feature-register/src/index.ts"
       ],
-      "@nnpz/admin/feature-report": ["libs/admin/feature-report/src/index.ts"],
-      "@nnpz/admin/feature-sales": ["libs/admin/feature-sales/src/index.ts"],
+      "@nnpz/admin/feature-report": [
+        "libs/admin/report/feature-report/src/index.ts"
+      ],
+      "@nnpz/admin/feature-sales": [
+        "libs/admin/sales/feature-sales/src/index.ts"
+      ],
       "@nnpz/admin/feature-settings": [
-        "libs/admin/feature-settings/src/index.ts"
+        "libs/admin/settings/feature-settings/src/index.ts"
       ],
-      "@nnpz/admin/feature-store": ["libs/admin/feature-store/src/index.ts"],
+      "@nnpz/admin/feature-store": [
+        "libs/admin/store/feature-store/src/index.ts"
+      ],
       "@nnpz/admin/feature-support": [
-        "libs/admin/feature-support/src/index.ts"
+        "libs/admin/support/feature-support/src/index.ts"
       ],
-      "@nnpz/admin/feature-theme": ["libs/admin/feature-theme/src/index.ts"],
+      "@nnpz/admin/feature-theme": [
+        "libs/admin/theme/feature-theme/src/index.ts"
+      ],
       "@nnpz/admin/feature-toppings": [
-        "libs/admin/feature-toppings/src/index.ts"
+        "libs/admin/toppings/feature-toppings/src/index.ts"
       ],
-      "@nnpz/admin/feature-users": ["libs/admin/feature-users/src/index.ts"],
-      "@nnpz/admin/ui-dashboard": ["libs/admin/ui-dashboard/src/index.ts"],
-      "@nnpz/admin/ui-drawer": ["libs/admin/ui-drawer/src/index.ts"],
-      "@nnpz/admin/ui-entities": ["libs/admin/ui-entities/src/index.ts"],
-      "@nnpz/admin/ui-header": ["libs/admin/ui-header/src/index.ts"],
-      "@nnpz/admin/ui-me": ["libs/admin/ui-me/src/index.ts"],
-      "@nnpz/admin/ui-not-found": ["libs/admin/ui-not-found/src/index.ts"],
-      "@nnpz/admin/ui-report": ["libs/admin/ui-report/src/index.ts"],
-      "@nnpz/admin/ui-settings": ["libs/admin/ui-settings/src/index.ts"],
-      "@nnpz/admin/ui-support": ["libs/admin/ui-support/src/index.ts"],
-      "@nnpz/admin/util-env": ["libs/admin/util-env/src/index.ts"],
-      "@nnpz/admin/util-layout": ["libs/admin/util-layout/src/index.ts"],
-      "@nnpz/admin/util-theme": ["libs/admin/util-theme/src/index.ts"],
+      "@nnpz/admin/feature-users": [
+        "libs/admin/users/feature-users/src/index.ts"
+      ],
+      "@nnpz/admin/ui-dashboard": [
+        "libs/admin/dashboard/ui-dashboard/src/index.ts"
+      ],
+      "@nnpz/admin/ui-drawer": ["libs/admin/drawer/ui-drawer/src/index.ts"],
+      "@nnpz/admin/ui-entities": [
+        "libs/admin/entities/ui-entities/src/index.ts"
+      ],
+      "@nnpz/admin/ui-header": ["libs/admin/header/ui-header/src/index.ts"],
+      "@nnpz/admin/ui-me": ["libs/admin/me/ui-me/src/index.ts"],
+      "@nnpz/admin/ui-not-found": [
+        "libs/admin/not-found/ui-not-found/src/index.ts"
+      ],
+      "@nnpz/admin/ui-report": ["libs/admin/report/ui-report/src/index.ts"],
+      "@nnpz/admin/ui-settings": [
+        "libs/admin/settings/ui-settings/src/index.ts"
+      ],
+      "@nnpz/admin/ui-support": ["libs/admin/support/ui-support/src/index.ts"],
+      "@nnpz/admin/util-env": ["libs/admin/config/util-env/src/index.ts"],
+      "@nnpz/admin/util-theme": ["libs/admin/theme/util-theme/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@nnpz/shared/util": ["libs/shared/util/src/index.ts"]
     }
