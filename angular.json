@@ -37,8 +37,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/admin/src/environments/environment.ts",
-                  "with": "apps/admin/src/environments/environment.prod.ts"
+                  "replace": "libs/admin/util-env/src/lib/environments/environment.ts",
+                  "with": "libs/admin/util-env/src/lib/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -1033,6 +1033,21 @@
         }
       },
       "tags": ["scope:admin", "type:ui"]
+    },
+    "admin-util-env": {
+      "root": "libs/admin/util-env",
+      "sourceRoot": "libs/admin/util-env/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/admin/util-env/**/*.ts"]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:util"]
     },
     "admin-util-layout": {
       "projectType": "library",

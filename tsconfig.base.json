@@ -78,6 +78,7 @@
       "@nnpz/admin/ui-report": ["libs/admin/ui-report/src/index.ts"],
       "@nnpz/admin/ui-settings": ["libs/admin/ui-settings/src/index.ts"],
       "@nnpz/admin/ui-support": ["libs/admin/ui-support/src/index.ts"],
+      "@nnpz/admin/util-env": ["libs/admin/util-env/src/index.ts"],
       "@nnpz/admin/util-layout": ["libs/admin/util-layout/src/index.ts"],
       "@nnpz/admin/util-theme": ["libs/admin/util-theme/src/index.ts"],
       "@nnpz/shared/types": ["libs/shared/types/src/index.ts"],
