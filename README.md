@@ -14,8 +14,6 @@ This project was generated using [Nx](https://nx.dev).
 
 ## Libs
 
-### @nnpz/shared
+### @nnpz/admin/\*
 
-- types
-- ui
-- utils
+### @nnpz/shared/\*
