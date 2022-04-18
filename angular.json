@@ -304,7 +304,7 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": ["scope:admin", "type:feature"]
     },
     "admin-feature-entities": {
       "projectType": "library",
@@ -1317,20 +1317,31 @@
       },
       "tags": ["scope:server", "type:app"]
     },
-    "types": {
-      "root": "libs/shared/types",
-      "sourceRoot": "libs/shared/types/src",
+    "shared-util": {
       "projectType": "library",
+      "root": "libs/shared/util",
+      "sourceRoot": "libs/shared/util/src",
+      "prefix": "shared-util",
       "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util"],
+          "options": {
+            "jestConfig": "libs/shared/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/types/**/*.ts"]
-          },
-          "outputs": ["{options.outputFile}"]
+            "lintFilePatterns": [
+              "libs/shared/util/src/**/*.ts",
+              "libs/shared/util/src/**/*.html"
+            ]
+          }
         }
       },
-      "tags": ["scope:types", "type:utils"]
+      "tags": ["scope:shared", "type:util"]
     },
     "ui": {
       "projectType": "library",
@@ -1356,30 +1367,7 @@
           }
         }
       },
-      "tags": ["scope:ui", "type:ui"]
-    },
-    "utils": {
-      "root": "libs/shared/utils",
-      "sourceRoot": "libs/shared/utils/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/shared/utils/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/utils"],
-          "options": {
-            "jestConfig": "libs/shared/utils/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": ["scope:utils", "type:utils"]
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }

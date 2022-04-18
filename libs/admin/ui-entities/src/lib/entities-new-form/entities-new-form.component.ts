@@ -5,7 +5,7 @@ import {
   Component,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators } from '@nnpz/shared/utils';
+import { CustomValidators } from '@nnpz/shared/util';
 import { filter } from 'rxjs';
 import { AdminUiEntitiesConfigDialogComponent } from '../entities-config-dialog/entities-config-dialog.component';
 import { IEntityFieldConfig } from '../interfaces';

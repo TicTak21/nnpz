@@ -1,6 +1,6 @@
 import { LyTheme2 } from '@alyle/ui';
 import { Injectable } from '@angular/core';
-import { EThemes, TStorageItem } from '@nnpz/shared/types';
+import { EThemes, TStorageItem } from '@nnpz/shared/util';
 import { filter, map, Observable, of, tap, withLatestFrom } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

@@ -1,4 +1,4 @@
-import { EThemes } from '@nnpz/shared/types';
+import { EThemes } from '@nnpz/shared/util';
 import { IsDarkModePipe } from './is-dark-mode.pipe';
 
 describe('IsDarkModePipe', () => {

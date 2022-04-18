@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IRegisterDto } from '@nnpz/shared/types';
+import { IRegisterDto } from '@nnpz/shared/util';
 
 @Component({
   selector: 'admin-feature-register-page',

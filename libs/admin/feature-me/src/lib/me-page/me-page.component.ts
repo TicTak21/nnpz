@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IUserEntity } from '@nnpz/shared/types';
+import { IUserEntity } from '@nnpz/shared/util';
 
 @Component({
   selector: 'admin-feature-me-page',

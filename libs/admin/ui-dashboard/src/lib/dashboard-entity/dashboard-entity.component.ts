@@ -1,6 +1,6 @@
 import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IDashboardEntity } from '@nnpz/shared/types';
+import { IDashboardEntity } from '@nnpz/shared/util';
 
 const styles = {
   grid: {

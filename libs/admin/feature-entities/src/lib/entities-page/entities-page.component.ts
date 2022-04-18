@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IDashboardEntity } from '@nnpz/shared/types';
+import { IDashboardEntity } from '@nnpz/shared/util';
 
 @Component({
   selector: 'admin-feature-entities-page',

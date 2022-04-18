@@ -5,8 +5,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IRegisterDto } from '@nnpz/shared/types';
-import { CustomValidators } from '@nnpz/shared/utils';
+import { CustomValidators, IRegisterDto } from '@nnpz/shared/util';
 
 @Component({
   selector: 'nnpz-register-form',
