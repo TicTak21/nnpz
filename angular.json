@@ -696,6 +696,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-feature-store": {
+      "projectType": "library",
+      "root": "libs/admin/feature-store",
+      "sourceRoot": "libs/admin/feature-store/src",
+      "prefix": "admin-feature-store",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/feature-store"],
+          "options": {
+            "jestConfig": "libs/admin/feature-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/feature-store/src/**/*.ts",
+              "libs/admin/feature-store/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-feature-support": {
       "projectType": "library",
       "root": "libs/admin/feature-support",

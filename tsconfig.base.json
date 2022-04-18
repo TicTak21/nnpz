@@ -61,6 +61,7 @@
       "@nnpz/admin/feature-settings": [
         "libs/admin/feature-settings/src/index.ts"
       ],
+      "@nnpz/admin/feature-store": ["libs/admin/feature-store/src/index.ts"],
       "@nnpz/admin/feature-support": [
         "libs/admin/feature-support/src/index.ts"
       ],

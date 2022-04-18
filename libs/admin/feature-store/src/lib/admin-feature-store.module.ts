@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule as NgrxStoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { metaReducers } from '@nnpz/admin/feature-meta-reducers';
 import { environment } from '@nnpz/admin/util-env';
-import { ROOT_REDUCERS } from './reducers/root.reducers';
+import { ROOT_REDUCERS } from './+store/reducers/root.reducers';
 
 @NgModule({
   imports: [
-    NgrxStoreModule.forRoot(ROOT_REDUCERS, {
+    StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers: metaReducers,
       runtimeChecks: {
         strictStateSerializability: true,
@@ -28,4 +28,4 @@ import { ROOT_REDUCERS } from './reducers/root.reducers';
     }),
   ],
 })
-export class AppStoreModule {}
+export class AdminFeatureStoreModule {}
