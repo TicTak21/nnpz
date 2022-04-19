@@ -40,7 +40,7 @@ module.exports = {
     },
   ],
   downloads: {
-    storageDirectory: `${__dirname}/tmp`,
+    storageDirectory: `${__dirname}/tmp/flyway`,
     expirationTimeInMs: -1,
   },
 };
