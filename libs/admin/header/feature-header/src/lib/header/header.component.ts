@@ -3,6 +3,9 @@ import { LyDrawer } from '@alyle/ui/drawer';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromLayout } from '@nnpz/admin/data-access-layout';
+import { fromTheme } from '@nnpz/admin/data-access-theme';
+import { EThemes } from '@nnpz/shared/types';
+import { Observable } from 'rxjs';
 
 const styles = {
   container: {
@@ -30,13 +33,17 @@ export class AdminFeatureHeaderComponent {
       { id: 2, title: 'Delete pizza with olives' },
     ],
   };
+  themeMode$: Observable<EThemes>;
 
-  constructor(
-    private readonly theme: LyTheme2,
-    private readonly store: Store,
-  ) {}
+  constructor(private readonly theme: LyTheme2, private readonly store: Store) {
+    this.themeMode$ = this.store.select(fromTheme.selectThemeMode);
+  }
 
   toggleDrawer() {
     this.store.dispatch(fromLayout.toggleDrawer());
+  }
+
+  handleThemeChange() {
+    this.store.dispatch(fromTheme.toggleTheme());
   }
 }

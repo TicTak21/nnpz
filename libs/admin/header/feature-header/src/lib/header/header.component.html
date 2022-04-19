@@ -6,6 +6,9 @@
   <admin-ui-header-notifications
     [notifications]="MOCK_DATA.notifications"
   ></admin-ui-header-notifications>
-  <admin-feature-theme-switch></admin-feature-theme-switch>
+  <admin-ui-theme-switch
+    [themeMode$]="themeMode$"
+    (handleThemeChange$)="handleThemeChange()"
+  ></admin-ui-theme-switch>
   <nnpz-avatar [alt]="MOCK_DATA.username" [src]="MOCK_DATA.img"></nnpz-avatar>
 </ly-toolbar>

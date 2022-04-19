@@ -1,8 +1,8 @@
 import { LyToolbarModule } from '@alyle/ui/toolbar';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AdminFeatureThemeModule } from '@nnpz/admin/feature-theme';
 import { AdminUiHeaderModule } from '@nnpz/admin/ui-header';
+import { AdminUiThemeModule } from '@nnpz/admin/ui-theme';
 import { NnpzAvatarModule } from '@nnpz/shared/ui';
 import { AdminFeatureHeaderComponent } from './header/header.component';
 
@@ -13,7 +13,7 @@ const COMPONENST = [AdminFeatureHeaderComponent];
   imports: [
     CommonModule,
     AdminUiHeaderModule,
-    AdminFeatureThemeModule,
+    AdminUiThemeModule,
     NnpzAvatarModule,
     LyToolbarModule,
   ],

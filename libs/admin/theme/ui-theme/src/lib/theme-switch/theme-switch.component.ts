@@ -1,13 +1,17 @@
 import { transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { fromTheme } from '@nnpz/admin/data-access-theme';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { EThemes } from '@nnpz/shared/types';
 import { flipAnimation } from '@nnpz/shared/ui';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'admin-feature-theme-switch',
+  selector: 'admin-ui-theme-switch',
   templateUrl: './theme-switch.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -22,13 +26,11 @@ import { Observable } from 'rxjs';
   ],
 })
 export class AdminUiThemeSwitchComponent {
-  themeMode$: Observable<EThemes> = new Observable<EThemes>();
+  @Input() themeMode$: Observable<EThemes> = new Observable<EThemes>();
 
-  constructor(private readonly store: Store) {
-    this.themeMode$ = this.store.select(fromTheme.selectThemeMode);
-  }
+  @Output() handleThemeChange$: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick() {
-    this.store.dispatch(fromTheme.toggleTheme());
+    this.handleThemeChange$.emit();
   }
 }

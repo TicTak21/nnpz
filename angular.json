@@ -1051,6 +1051,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-theme-ui-theme": {
+      "projectType": "library",
+      "root": "libs/admin/theme/ui-theme",
+      "sourceRoot": "libs/admin/theme/ui-theme/src",
+      "prefix": "admin-ui-theme",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/theme/ui-theme"],
+          "options": {
+            "jestConfig": "libs/admin/theme/ui-theme/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/theme/ui-theme/src/**/*.ts",
+              "libs/admin/theme/ui-theme/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
+    },
     "admin-theme-util-theme": {
       "projectType": "library",
       "root": "libs/admin/theme/util-theme",
