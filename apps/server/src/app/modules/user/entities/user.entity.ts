@@ -4,7 +4,7 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { EUserRole, IUserEntity } from '@nnpz/shared/util';
+import { EUserRole, IUserEntity } from '@nnpz/shared/types';
 import { Exclude } from 'class-transformer';
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';

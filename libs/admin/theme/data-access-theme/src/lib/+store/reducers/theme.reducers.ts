@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { EThemes } from '@nnpz/shared/util';
+import { EThemes } from '@nnpz/shared/types';
 import * as themeActions from '../actions/theme.actions';
 
 export const themeFeatureKey = 'theme';

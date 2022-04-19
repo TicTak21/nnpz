@@ -5,7 +5,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ILoginDto } from '@nnpz/shared/util';
+import { ILoginDto } from '@nnpz/shared/types';
 
 @Component({
   selector: 'nnpz-login-form',

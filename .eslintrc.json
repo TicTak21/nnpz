@@ -23,8 +23,11 @@
               },
               {
                 "sourceTag": "scope:server",
-                "onlyDependOnLibsWithTags": ["scope:server", "scope:shared"],
-                "notDependOnLibsWithTags": ["type:ui"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:server",
+                  "scope:shared",
+                  "type:types"
+                ]
               },
               {
                 "sourceTag": "scope:shared",
@@ -36,7 +39,8 @@
                   "type:feature",
                   "type:ui",
                   "type:data-access",
-                  "type:util"
+                  "type:util",
+                  "type:types"
                 ]
               },
               {
@@ -45,20 +49,33 @@
                   "type:feature",
                   "type:ui",
                   "type:data-access",
-                  "type:util"
+                  "type:util",
+                  "type:types"
                 ]
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:util"]
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:util",
+                  "type:types"
+                ]
               },
               {
                 "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["type:data-access", "type:util"]
+                "onlyDependOnLibsWithTags": [
+                  "type:data-access",
+                  "type:util",
+                  "type:types"
+                ]
               },
               {
                 "sourceTag": "type:util",
-                "onlyDependOnLibsWithTags": ["type:util"]
+                "onlyDependOnLibsWithTags": ["type:util", "type:types"]
+              },
+              {
+                "sourceTag": "type:types",
+                "onlyDependOnLibsWithTags": ["type:types"]
               }
             ]
           }

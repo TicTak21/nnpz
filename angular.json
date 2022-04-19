@@ -1319,6 +1319,24 @@
       },
       "tags": ["scope:server", "type:app"]
     },
+    "types-shared": {
+      "projectType": "library",
+      "root": "libs/shared/types",
+      "sourceRoot": "libs/shared/types/src",
+      "prefix": "client",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/types/src/**/*.ts",
+              "libs/shared/types/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:shared", "type:types"]
+    },
     "ui-shared": {
       "projectType": "library",
       "root": "libs/shared/ui",

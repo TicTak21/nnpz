@@ -1,4 +1,4 @@
-import { EUserRole } from '@nnpz/shared/util';
+import { EUserRole } from '@nnpz/shared/types';
 import { Request, Response } from 'express';
 
 export interface ITokenPayload {

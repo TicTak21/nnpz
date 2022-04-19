@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IDashboardEntity } from '@nnpz/shared/util';
+import { IDashboardEntity } from '@nnpz/shared/types';
 
 @Component({
   selector: 'admin-ui-entities-card',

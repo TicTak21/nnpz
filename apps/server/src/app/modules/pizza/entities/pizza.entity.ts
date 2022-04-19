@@ -4,7 +4,7 @@ import {
   ObjectType,
   registerEnumType,
 } from '@nestjs/graphql';
-import { EPizzaSize, IPizzaEntity } from '@nnpz/shared/util';
+import { EPizzaSize, IPizzaEntity } from '@nnpz/shared/types';
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 import { BaseEntity } from '../../../shared/entities';
 import { ToppingEntity } from '../../topping/entities/topping.entity';

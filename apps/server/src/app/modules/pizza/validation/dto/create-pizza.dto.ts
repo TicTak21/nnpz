@@ -1,5 +1,5 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { EPizzaSize } from '@nnpz/shared/util';
+import { EPizzaSize } from '@nnpz/shared/types';
 import {
   IsEnum,
   IsInt,

@@ -2,8 +2,8 @@ import { transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromTheme } from '@nnpz/admin/data-access-theme';
+import { EThemes } from '@nnpz/shared/types';
 import { flipAnimation } from '@nnpz/shared/ui';
-import { EThemes } from '@nnpz/shared/util';
 import { Observable } from 'rxjs';
 
 @Component({

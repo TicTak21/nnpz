@@ -5,7 +5,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EReportFormat, IReportDto } from '@nnpz/shared/util';
+import { EReportFormat, IReportDto } from '@nnpz/shared/types';
 
 @Component({
   selector: 'admin-ui-report-form',

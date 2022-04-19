@@ -5,7 +5,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EUserRole, IUserEntity } from '@nnpz/shared/util';
+import { EUserRole, IUserEntity } from '@nnpz/shared/types';
 
 @Component({
   selector: 'admin-ui-me-edit-form',

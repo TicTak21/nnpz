@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nnpz/admin/util-layout": ["libs/admin/layout/util-layout/src/index.ts"],
       "@nnpz/admin/data-access-auth": [
         "libs/admin/auth/data-access-auth/src/index.ts"
       ],
@@ -111,7 +110,9 @@
       ],
       "@nnpz/admin/ui-support": ["libs/admin/support/ui-support/src/index.ts"],
       "@nnpz/admin/util-env": ["libs/admin/config/util-env/src/index.ts"],
+      "@nnpz/admin/util-layout": ["libs/admin/layout/util-layout/src/index.ts"],
       "@nnpz/admin/util-theme": ["libs/admin/theme/util-theme/src/index.ts"],
+      "@nnpz/shared/types": ["libs/shared/types/src/index.ts"],
       "@nnpz/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@nnpz/shared/util": ["libs/shared/util/src/index.ts"]
     }
