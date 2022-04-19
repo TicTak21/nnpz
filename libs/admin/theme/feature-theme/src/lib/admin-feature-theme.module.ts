@@ -10,22 +10,22 @@ import {
   CustomMinimaLight,
 } from '@nnpz/admin/util-theme';
 import { BaseThemeModule } from '@nnpz/shared/ui';
-import { IsDarkModePipe } from './pipes/is-dark-mode.pipe';
+import { SharedUtilModule } from '@nnpz/shared/util';
 import { AdminUiThemeSwitchComponent } from './theme-switch/theme-switch.component';
 
 const COMPONENTS = [AdminUiThemeSwitchComponent];
-const PIPES = [IsDarkModePipe];
 
 @NgModule({
-  declarations: [COMPONENTS, PIPES],
+  declarations: [COMPONENTS],
   imports: [
     CommonModule,
     BaseThemeModule,
     AdminDataAccessThemeModule,
     LyButtonModule,
     LyIconModule,
+    SharedUtilModule,
   ],
-  exports: [COMPONENTS, PIPES],
+  exports: [COMPONENTS],
   providers: [
     { provide: LY_THEME, useClass: CustomMinimaLight, multi: true },
     { provide: LY_THEME, useClass: CustomMinimaDark, multi: true },

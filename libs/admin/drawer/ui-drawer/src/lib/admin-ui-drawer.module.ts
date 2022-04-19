@@ -6,11 +6,11 @@ import { LyMenuModule } from '@alyle/ui/menu';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedUtilModule } from '@nnpz/shared/util';
 import { AdminUiDrawerDirBtnComponent } from './drawer-dir-btn/drawer-dir-btn.component';
 import { AdminUiDrawerLayoutBtnComponent } from './drawer-layout-btn/drawer-layout-btn.component';
 import { AdminUiDrawerLogoutBtnComponent } from './drawer-logout-btn/drawer-logout-btn.component';
 import { AdminUiDrawerMenuComponent } from './drawer-menu/drawer-menu.component';
-import { IsLtrPipe } from './pipes/is-ltr.pipe';
 
 const COMPONENTS = [
   AdminUiDrawerDirBtnComponent,
@@ -19,10 +19,8 @@ const COMPONENTS = [
   AdminUiDrawerMenuComponent,
 ];
 
-const PIPES = [IsLtrPipe];
-
 @NgModule({
-  declarations: [COMPONENTS, PIPES],
+  declarations: [COMPONENTS],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,7 +29,8 @@ const PIPES = [IsLtrPipe];
     LyMenuModule,
     LyDividerModule,
     LyListModule,
+    SharedUtilModule,
   ],
-  exports: [COMPONENTS, PIPES],
+  exports: [COMPONENTS],
 })
 export class AdminUiDrawerModule {}
