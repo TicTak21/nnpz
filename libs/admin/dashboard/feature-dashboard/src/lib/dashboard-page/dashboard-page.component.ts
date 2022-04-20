@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromLayout } from '@nnpz/admin/data-access-layout';
-import { COMPONENTS_MAP } from '@nnpz/admin/ui-dashboard';
+import { DASHBOARD_COMPONENTS_MAP } from '@nnpz/admin/ui-dashboard';
 import { ELayoutType } from '@nnpz/admin/util-layout';
 import { Observable } from 'rxjs';
 import { TLayoutConfig } from '../interfaces';
@@ -13,7 +13,7 @@ const {
   AdminUiDashboardProfileComponent,
   AdminUiDashboardSalesAmountChartComponent,
   AdminUiDashboardTopFivePizzasComponent,
-} = COMPONENTS_MAP;
+} = DASHBOARD_COMPONENTS_MAP;
 
 @Component({
   selector: 'admin-feature-dashboard-page',

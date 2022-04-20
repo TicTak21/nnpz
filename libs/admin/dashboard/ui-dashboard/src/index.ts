@@ -6,7 +6,7 @@ import { AdminUiDashboardSalesAmountChartComponent } from './lib/dashboard-sales
 import { AdminUiDashboardTopFivePizzasComponent } from './lib/dashboard-top-five-pizzas/dashboard-top-five-pizzas.component';
 
 export * from './lib/admin-ui-dashboard.module';
-export const COMPONENTS_MAP = {
+export const DASHBOARD_COMPONENTS_MAP = {
   AdminUiDashboardDividerComponent,
   AdminUiDashboardEntitiesComponent,
   AdminUiDashboardNotesComponent,
