@@ -1,6 +1,5 @@
 import { Dir, LyTheme2 } from '@alyle/ui';
-import { LyDrawer } from '@alyle/ui/drawer';
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { fromAuth } from '@nnpz/admin/data-access-auth';
 import { fromLayout } from '@nnpz/admin/data-access-layout';
@@ -30,8 +29,6 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminFeatureDrawerComponent {
-  @ViewChild('drawer') drawer!: LyDrawer;
-
   readonly classes = this.theme.addStyleSheet(styles);
 
   direction$: Observable<Dir> = new Observable<Dir>();
