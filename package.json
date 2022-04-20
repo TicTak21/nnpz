@@ -59,6 +59,7 @@
     "@nestjs/serve-static": "^2.2.2",
     "@nestjs/swagger": "^5.0.9",
     "@nestjs/typeorm": "^8.0.2",
+    "@ngneat/transloco": "^4.0.0",
     "@ngrx/effects": "13.0.2",
     "@ngrx/router-store": "13.0.2",
     "@ngrx/store": "13.0.2",
