@@ -399,6 +399,58 @@
       },
       "tags": ["scope:admin", "type:ui"]
     },
+    "admin-i18n-data-access-i18n": {
+      "projectType": "library",
+      "root": "libs/admin/i18n/data-access-i18n",
+      "sourceRoot": "libs/admin/i18n/data-access-i18n/src",
+      "prefix": "data-access-i18n",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/i18n/data-access-i18n"],
+          "options": {
+            "jestConfig": "libs/admin/i18n/data-access-i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/i18n/data-access-i18n/src/**/*.ts",
+              "libs/admin/i18n/data-access-i18n/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:data-access"]
+    },
+    "admin-i18n-feature-i18n": {
+      "projectType": "library",
+      "root": "libs/admin/i18n/feature-i18n",
+      "sourceRoot": "libs/admin/i18n/feature-i18n/src",
+      "prefix": "admin-feature-i18n",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/i18n/feature-i18n"],
+          "options": {
+            "jestConfig": "libs/admin/i18n/feature-i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/i18n/feature-i18n/src/**/*.ts",
+              "libs/admin/i18n/feature-i18n/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:feature"]
+    },
     "admin-layout-data-access-layout": {
       "projectType": "library",
       "root": "libs/admin/layout/data-access-layout",

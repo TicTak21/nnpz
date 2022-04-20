@@ -2,7 +2,14 @@
   <admin-ui-header-menu-btn
     (toggleDrawer$)="toggleDrawer()"
   ></admin-ui-header-menu-btn>
+
   <admin-ui-header-title lyFlexGrow="1"></admin-ui-header-title>
+
+  <admin-ui-header-translate-btn
+    [langs$]="langs$"
+    [currentLang$]="currentLang$"
+    (handleLangChange$)="handleLangChange($event)"
+  ></admin-ui-header-translate-btn>
   <admin-ui-header-notifications
     [notifications]="MOCK_DATA.notifications"
   ></admin-ui-header-notifications>

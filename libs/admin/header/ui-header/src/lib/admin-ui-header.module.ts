@@ -9,11 +9,13 @@ import { RouterModule } from '@angular/router';
 import { AdminUiHeaderMenuBtnComponent } from './header-menu-btn/header-menu-btn.component';
 import { AdminUiHeaderNotificationsComponent } from './header-notifications/header-notifications.component';
 import { AdminUiHeaderTitleComponent } from './header-title/header-title.component';
+import { AdminUiHeaderTranslateBtnComponent } from './header-translate-btn/header-translate-btn.component';
 
 const COMPONENTS = [
   AdminUiHeaderMenuBtnComponent,
   AdminUiHeaderNotificationsComponent,
   AdminUiHeaderTitleComponent,
+  AdminUiHeaderTranslateBtnComponent,
 ];
 
 @NgModule({

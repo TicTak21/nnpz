@@ -8,6 +8,7 @@ import {
   TRANSLOCO_CONFIG,
 } from '@ngneat/transloco';
 import { AdminFeatureAuthModule } from '@nnpz/admin/feature-auth';
+import { AdminFeatureI18nModule } from '@nnpz/admin/feature-i18n';
 import { AdminFeatureLayoutModule } from '@nnpz/admin/feature-layout';
 import { AdminFeatureStoreModule } from '@nnpz/admin/feature-store';
 import { AdminFeatureThemeModule } from '@nnpz/admin/feature-theme';
@@ -23,6 +24,7 @@ const FEATURES = [
   AdminFeatureLayoutModule,
   AdminFeatureThemeModule,
   AdminFeatureAuthModule,
+  AdminFeatureI18nModule,
   TranslocoModule,
 ];
 

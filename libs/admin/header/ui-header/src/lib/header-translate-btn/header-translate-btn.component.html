@@ -1,0 +1,22 @@
+<button
+  ly-button
+  color="primary:contrast"
+  appearance="icon"
+  *ngIf="currentLang$ | async as currentLang"
+  [lyMenuTriggerFor]="menuRef"
+>
+  <ly-icon>translate</ly-icon>
+</button>
+
+<ng-template let-menu #menuRef>
+  <ly-menu [ref]="menu">
+    <button
+      ly-button
+      ly-menu-item
+      *ngFor="let lang of langs$ | async"
+      (click)="handleClick(lang)"
+    >
+      {{ lang }}
+    </button>
+  </ly-menu>
+</ng-template>

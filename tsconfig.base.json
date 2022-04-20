@@ -18,6 +18,10 @@
       "@nnpz/admin/data-access-auth": [
         "libs/admin/auth/data-access-auth/src/index.ts"
       ],
+      "@nnpz/admin/feature-i18n": ["libs/admin/i18n/feature-i18n/src/index.ts"],
+      "@nnpz/admin/data-access-i18n": [
+        "libs/admin/i18n/data-access-i18n/src/index.ts"
+      ],
       "@nnpz/admin/data-access-layout": [
         "libs/admin/layout/data-access-layout/src/index.ts"
       ],

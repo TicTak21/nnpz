@@ -1,10 +1,10 @@
 import { LyTheme2 } from '@alyle/ui';
-import { LyDrawer } from '@alyle/ui/drawer';
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromI18n } from '@nnpz/admin/data-access-i18n';
 import { fromLayout } from '@nnpz/admin/data-access-layout';
 import { fromTheme } from '@nnpz/admin/data-access-theme';
-import { EThemes } from '@nnpz/shared/types';
+import { ELangs, EThemes } from '@nnpz/shared/types';
 import { Observable } from 'rxjs';
 
 const styles = {
@@ -22,8 +22,6 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminFeatureHeaderComponent {
-  @ViewChild('drawer') drawer!: LyDrawer;
-
   readonly classes = this.theme.addStyleSheet(styles);
   MOCK_DATA = {
     username: 'Jane Doe',
@@ -34,9 +32,13 @@ export class AdminFeatureHeaderComponent {
     ],
   };
   themeMode$: Observable<EThemes>;
+  currentLang$: Observable<ELangs>;
+  langs$: Observable<ELangs[]>;
 
   constructor(private readonly theme: LyTheme2, private readonly store: Store) {
     this.themeMode$ = this.store.select(fromTheme.selectThemeMode);
+    this.currentLang$ = this.store.select(fromI18n.selectCurrentLang);
+    this.langs$ = this.store.select(fromI18n.selectLangs);
   }
 
   toggleDrawer() {
@@ -45,5 +47,9 @@ export class AdminFeatureHeaderComponent {
 
   handleThemeChange() {
     this.store.dispatch(fromTheme.toggleTheme());
+  }
+
+  handleLangChange(newLang: ELangs) {
+    this.store.dispatch(fromI18n.setLang({ payload: { newLang } }));
   }
 }
