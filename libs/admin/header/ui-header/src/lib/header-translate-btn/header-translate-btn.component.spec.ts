@@ -8,9 +8,8 @@ describe('HeaderTranslateBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderTranslateBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [HeaderTranslateBtnComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
