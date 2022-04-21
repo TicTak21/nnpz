@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AdminUiHeaderTranslateBtnComponent } from './header-translate-btn.component';
 
-import { HeaderTranslateBtnComponent } from './header-translate-btn.component';
-
-describe('HeaderTranslateBtnComponent', () => {
-  let component: HeaderTranslateBtnComponent;
-  let fixture: ComponentFixture<HeaderTranslateBtnComponent>;
+describe('AdminUiHeaderTranslateBtnComponent', () => {
+  let component: AdminUiHeaderTranslateBtnComponent;
+  let fixture: ComponentFixture<AdminUiHeaderTranslateBtnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderTranslateBtnComponent],
+      declarations: [AdminUiHeaderTranslateBtnComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderTranslateBtnComponent);
+    fixture = TestBed.createComponent(AdminUiHeaderTranslateBtnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
