@@ -9,8 +9,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AdminUtilI18nModule } from '@nnpz/admin/util-i18n';
 import { NnpzAvatarModule } from '@nnpz/shared/ui';
 import { NgChartsModule } from 'ng2-charts';
+import { scopeLoader } from 'scoped-translations';
 import { AdminUiDashboardActiveOrdersComponent } from './dashboard-active-orders/dashboard-active-orders.component';
 import { AdminUiDashboardActiveUsersComponent } from './dashboard-active-users/dashboard-active-users.component';
 import { AdminUiDashboardDividerComponent } from './dashboard-divider/dashboard-divider.component';
@@ -50,6 +52,12 @@ const COMPONENTS = [
     NnpzAvatarModule,
     LyTabsModule,
     TextFieldModule,
+    AdminUtilI18nModule.forChild(
+      'adminUiDashboard',
+      scopeLoader(
+        (lang: string, root: string) => import(`../${root}/${lang}.json`),
+      ),
+    ),
   ],
   exports: [COMPONENTS],
 })

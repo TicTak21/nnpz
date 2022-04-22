@@ -53,7 +53,7 @@ export class AdminFeatureDashboardPageComponent {
   layoutType$: Observable<ELayoutType> = new Observable<ELayoutType>();
 
   layouts: TLayoutConfig = {
-    standart: [
+    standard: [
       {
         component: AdminUiDashboardProfileComponent,
         col: '4 12@XSmall@Small 3@Medium',

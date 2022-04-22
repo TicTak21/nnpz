@@ -1,0 +1,21 @@
+{
+  "Active orders": "Órdenes activas",
+  "Active users": "Usuarios activos",
+  "Create note": "Crear nota",
+  "Required": "Requerido",
+  "Reset": "Reiniciar",
+  "Submit": "Entregar",
+  "Min": "Mín.",
+  "Max": "Máx.",
+  "Total": "Total",
+  "Show all": "Mostrar todo",
+  "New entity": "Nueva entidad",
+  "Create": "Crear",
+  "users": "usuarios",
+  "orders": "pedidos",
+  "pizzas": "pizzas",
+  "toppings": "coberturas",
+  "locations": "ubicaciones",
+  "Log out": "Cerrar sesión",
+  "Go to Profile": "Ir a Perfil"
+}

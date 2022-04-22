@@ -12,14 +12,16 @@
       <h6 lyTyp="headline">{{ username }}</h6>
     </ly-grid>
     <ly-grid item col="12">
-      <a ly-button outlined routerLink="/me" lyM="0 0.5rem">Go to Profile</a>
+      <a ly-button outlined routerLink="/me" lyM="0 0.5rem">{{
+        'adminUiDashboard.Go to Profile' | transloco
+      }}</a>
       <a
         ly-button
         outlined
         color="warn"
         routerLink="/auth/logout"
         lyM="0 0.5rem"
-        >Log Out</a
+        >{{ 'adminUiDashboard.Log out' | transloco }}</a
       >
     </ly-grid>
   </ly-grid>

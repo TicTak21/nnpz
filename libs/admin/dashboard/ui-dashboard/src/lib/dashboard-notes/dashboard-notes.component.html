@@ -8,16 +8,18 @@
         cdkAutosizeMaxRows="5"
         formControlName="note"
       ></textarea>
-      <ly-label>Take a note</ly-label>
+      <ly-label>{{ 'adminUiDashboard.Create note' | transloco }}</ly-label>
       <ly-hint align="before"
         >{{ note.value?.length || 0 }}/{{ noteMaxLength }}</ly-hint
       >
-      <ly-error *ngIf="note.hasError('required')">Required</ly-error>
+      <ly-error *ngIf="note.hasError('required')">{{
+        'adminUiDashboard.Required' | transloco
+      }}</ly-error>
       <ly-error *ngIf="note.hasError('minlength')"
-        >Min {{ noteMinLength }} characters</ly-error
+        >{{ 'adminUiDashboard.Min' | transloco }} {{ noteMinLength }}</ly-error
       >
       <ly-error *ngIf="note.hasError('maxlength')"
-        >Max {{ noteMaxLength }} characters</ly-error
+        >{{ 'adminUiDashboard.Max' | transloco }} {{ noteMaxLength }}</ly-error
       >
     </ly-field>
 
@@ -33,7 +35,7 @@
         color="warn"
         (click)="handleReset()"
       >
-        Reset
+        {{ 'adminUiDashboard.Reset' | transloco }}
       </button>
       <button
         ly-button
@@ -42,7 +44,7 @@
         color="accent"
         [disabled]="form.invalid"
       >
-        Submit
+        {{ 'adminUiDashboard.Submit' | transloco }}
       </button>
     </div>
   </form>
