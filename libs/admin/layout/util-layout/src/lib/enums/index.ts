@@ -1,5 +1,5 @@
 export const enum ELayoutType {
-  standart = 'standart',
+  standard = 'standard',
   stats = 'stats',
   management = 'management',
 }

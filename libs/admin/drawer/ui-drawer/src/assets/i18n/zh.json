@@ -6,5 +6,9 @@
   "Report": "報告",
   "Support": "支持",
   "Notifications": "通知",
-  "Settings": "設置"
+  "Settings": "設置",
+  "standard": "標準",
+  "stats": "統計數據",
+  "management": "管理",
+  "Log out": "登出"
 }

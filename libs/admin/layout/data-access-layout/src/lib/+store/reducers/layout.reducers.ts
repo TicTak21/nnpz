@@ -14,7 +14,7 @@ export interface State {
 const initialState: State = {
   drawerOpened: true,
   direction: Dir.ltr,
-  layoutType: ELayoutType.standart,
+  layoutType: ELayoutType.standard,
 };
 
 export const reducer = createReducer(

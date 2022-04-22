@@ -21,7 +21,7 @@ export class AdminUiDrawerLayoutBtnComponent {
     new EventEmitter<ILayoutTypeItem>();
 
   layouts: ILayoutTypeItem[] = [
-    { type: ELayoutType.standart, icon: 'grid_view' },
+    { type: ELayoutType.standard, icon: 'grid_view' },
     { type: ELayoutType.stats, icon: 'query_stats' },
     { type: ELayoutType.management, icon: 'view_kanban' },
   ];

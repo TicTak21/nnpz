@@ -6,5 +6,9 @@
   "Report": "Reporte",
   "Support": "Apoyo",
   "Notifications": "Notificaciones",
-  "Settings": "Ajustes"
+  "Settings": "Ajustes",
+  "standard": "estándar",
+  "stats": "estadísticas",
+  "management": "administración",
+  "Log out": "Cerrar sesión"
 }

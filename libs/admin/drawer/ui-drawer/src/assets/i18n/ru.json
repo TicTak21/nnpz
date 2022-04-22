@@ -1,10 +1,14 @@
 {
-  "Dashboard": "Панель приборов",
+  "Dashboard": "Дашбоард",
   "Profile": "Профиль",
   "Sales": "Продажи",
   "Entities": "Сущности",
   "Report": "Отчет",
-  "Support": "Поддерживать",
+  "Support": "Поддержка",
   "Notifications": "Уведомления",
-  "Settings": "Настройки"
+  "Settings": "Настройки",
+  "standard": "стандартный",
+  "stats": "статистика",
+  "management": "менеджмент",
+  "Log out": "Выйти"
 }

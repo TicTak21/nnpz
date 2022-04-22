@@ -4,7 +4,9 @@
   *ngIf="layoutType$ | async as currentLayout"
   [lyMenuTriggerFor]="menuRef"
 >
-  <span [lyMf]="1">{{ currentLayout | titlecase }}</span>
+  <span [lyMf]="1">{{
+    'adminUiDrawer.' + currentLayout | transloco | titlecase
+  }}</span>
   <ly-icon>dashboard_customize</ly-icon>
 </button>
 
@@ -17,7 +19,7 @@
       (click)="handleClick(layout)"
     >
       <ly-icon [lyMf]="1">{{ layout.icon }}</ly-icon>
-      <span>{{ layout.type | titlecase }}</span>
+      <span>{{ 'adminUiDrawer.' + layout.type | transloco | titlecase }}</span>
     </button>
   </ly-menu>
 </ng-template>

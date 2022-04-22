@@ -6,5 +6,9 @@
   "Report": "Report",
   "Support": "Support",
   "Notifications": "Notifications",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "standard": "standard",
+  "stats": "stats",
+  "management": "management",
+  "Log out": "Log out"
 }

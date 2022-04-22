@@ -33,7 +33,7 @@ const COMPONENTS = [
     LyListModule,
     SharedUtilModule,
     AdminUtilI18nModule.forChild(
-      'adminUiDrawerMenu',
+      'adminUiDrawer',
       scopeLoader(
         (lang: string, root: string) => import(`../${root}/${lang}.json`),
       ),
