@@ -19,6 +19,7 @@ import { translocoLoader } from './transloco.loader';
         reRenderOnLangChange: true,
         availableLangs,
         defaultLang: ELangs.english,
+        fallbackLang: ELangs.english,
         prodMode: environment.production,
       } as TranslocoConfig,
     },

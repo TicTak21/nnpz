@@ -6,7 +6,7 @@ import { LyMenuModule } from '@alyle/ui/menu';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TranslocoModule, TRANSLOCO_SCOPE } from '@ngneat/transloco';
+import { AdminUtilI18nModule } from '@nnpz/admin/util-i18n';
 import { SharedUtilModule } from '@nnpz/shared/util';
 import { scopeLoader } from 'scoped-translations';
 import { AdminUiDrawerDirBtnComponent } from './drawer-dir-btn/drawer-dir-btn.component';
@@ -32,18 +32,12 @@ const COMPONENTS = [
     LyDividerModule,
     LyListModule,
     SharedUtilModule,
-    TranslocoModule,
-  ],
-  providers: [
-    {
-      provide: TRANSLOCO_SCOPE,
-      useValue: {
-        scope: 'adminUiDrawerMenu',
-        loader: scopeLoader(
-          (lang: string, root: string) => import(`../${root}/${lang}.json`),
-        ),
-      },
-    },
+    AdminUtilI18nModule.forChild(
+      'adminUiDrawerMenu',
+      scopeLoader(
+        (lang: string, root: string) => import(`../${root}/${lang}.json`),
+      ),
+    ),
   ],
   exports: [COMPONENTS],
 })

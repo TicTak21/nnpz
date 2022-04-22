@@ -451,6 +451,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-i18n-util-i18n": {
+      "projectType": "library",
+      "root": "libs/admin/i18n/util-i18n",
+      "sourceRoot": "libs/admin/i18n/util-i18n/src",
+      "prefix": "admin-util-i18n",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/i18n/util-i18n"],
+          "options": {
+            "jestConfig": "libs/admin/i18n/util-i18n/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/i18n/util-i18n/src/**/*.ts",
+              "libs/admin/i18n/util-i18n/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:util"]
+    },
     "admin-layout-data-access-layout": {
       "projectType": "library",
       "root": "libs/admin/layout/data-access-layout",
