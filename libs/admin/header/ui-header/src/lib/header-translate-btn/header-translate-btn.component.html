@@ -5,7 +5,11 @@
   *ngIf="currentLang$ | async as currentLang"
   [lyMenuTriggerFor]="menuRef"
 >
-  <ly-icon>translate</ly-icon>
+  <ly-icon
+    >translate<ly-badge bg="accent">{{
+      currentLang | uppercase
+    }}</ly-badge></ly-icon
+  >
 </button>
 
 <ng-template let-menu #menuRef>
@@ -16,7 +20,7 @@
       *ngFor="let lang of langs$ | async"
       (click)="handleClick(lang)"
     >
-      {{ lang }}
+      {{ lang | uppercase }}
     </button>
   </ly-menu>
 </ng-template>
