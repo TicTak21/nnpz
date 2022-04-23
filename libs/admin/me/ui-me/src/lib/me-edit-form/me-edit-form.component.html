@@ -1,18 +1,20 @@
 <form lyP="1rem" [formGroup]="form" (ngSubmit)="handleSubmit()">
-  <h2 lyTyp="title" [gutterBottom]="true">Edit your personal info.</h2>
+  <h2 lyTyp="title" [gutterBottom]="true">
+    {{ 'adminUiMe.Edit your personal info' | transloco }}
+  </h2>
 
   <ly-field appearance="filled" lyWidth="1">
-    <ly-label>Email</ly-label>
+    <ly-label>{{ 'adminUiMe.Email' | transloco }}</ly-label>
     <input lyNativeControl formControlName="email" [required]="true" />
   </ly-field>
 
   <ly-field appearance="filled" lyWidth="1">
-    <ly-label>Password</ly-label>
+    <ly-label>{{ 'adminUiMe.Password' | transloco }}</ly-label>
     <input lyNativeControl formControlName="password" [required]="true" />
   </ly-field>
 
   <ly-field appearance="filled" color="accent" lyWidth="1">
-    <ly-label>Role</ly-label>
+    <ly-label>{{ 'adminUiMe.Role' | transloco }}</ly-label>
     <select lyNativeControl formControlName="role" [required]="true">
       <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
     </select>
@@ -26,7 +28,7 @@
       color="warn"
       (click)="handleReset()"
     >
-      Reset
+      {{ 'adminUiMe.Reset' | transloco }}
     </button>
     <button
       ly-button
@@ -35,7 +37,7 @@
       color="accent"
       [disabled]="form.invalid"
     >
-      Submit
+      {{ 'adminUiMe.Submit' | transloco }}
     </button>
   </div>
 </form>
