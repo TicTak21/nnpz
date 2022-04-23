@@ -1,9 +1,9 @@
 <ly-paper elevation="3" lyP="1rem" lyHeight="100vh">
   <ly-grid container spacing="24">
-    <h1 ly-grid-item col="12" lyTyp="headline">Settings</h1>
+    <admin-ui-settings-title ly-grid-item col="12"></admin-ui-settings-title>
 
     <ly-grid item col="12">
-      <h2 lyTyp="title" [gutterBottom]="true">Notifications</h2>
+      <admin-ui-settings-notifications-title></admin-ui-settings-notifications-title>
       <div [withClass]="classes.notifications">
         <ly-list>
           <ly-list-item>
@@ -17,7 +17,7 @@
     </ly-grid>
 
     <ly-grid item col="12">
-      <h2 lyTyp="title" [gutterBottom]="true">Danger Zone</h2>
+      <admin-ui-settings-danger-zone-title></admin-ui-settings-danger-zone-title>
       <div [withClass]="classes.dangerZone">
         <ly-list>
           <ly-list-item>

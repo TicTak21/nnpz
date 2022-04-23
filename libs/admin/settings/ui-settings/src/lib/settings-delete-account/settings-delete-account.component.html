@@ -1,4 +1,6 @@
 <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
-  <h3 lyTyp="subheading">Mute notifications</h3>
-  <button ly-button raised bg="warn" (click)="handleClick()">Delete</button>
+  <h3 lyTyp="subheading">{{ 'adminUiSettings.Delete account' | transloco }}</h3>
+  <button ly-button raised bg="warn" (click)="handleClick()">
+    {{ 'adminUiSettings.Delete' | transloco }}
+  </button>
 </div>

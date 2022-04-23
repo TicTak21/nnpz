@@ -1,4 +1,6 @@
 <div lyDisplay="flex" lyJustifyContent="space-between" lyAlignItems="center">
-  <h3 lyTyp="subheading">Mute notifications</h3>
+  <h3 lyTyp="subheading">
+    {{ 'adminUiSettings.Mute notifications' | transloco }}
+  </h3>
   <ly-checkbox (change)="handleChange($event.checked)"></ly-checkbox>
 </div>
