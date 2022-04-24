@@ -1,5 +1,6 @@
 import { LyCardModule } from '@alyle/ui/card';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { BaseThemeModule } from '@nnpz/shared/ui';
 import { AdminUiEntitiesNewCardComponent } from './entities-new-card.component';
 
@@ -10,7 +11,7 @@ describe('AdminUiEntitiesNewCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiEntitiesNewCardComponent],
-      imports: [BaseThemeModule, LyCardModule],
+      imports: [BaseThemeModule, LyCardModule, TranslocoTestingModule],
     }).compileComponents();
   });
 

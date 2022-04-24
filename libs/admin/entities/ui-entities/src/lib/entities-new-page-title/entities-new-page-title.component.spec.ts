@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiEntitiesNewPageTitleComponent } from './entities-new-page-title.component';
 
 describe('AdminUiEntitiesNewPageTitleComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiEntitiesNewPageTitleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiEntitiesNewPageTitleComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 
