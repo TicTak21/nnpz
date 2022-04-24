@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiMeEditTabTitleComponent } from './me-edit-tab-title.component';
 
 describe('AdminUiMeEditTabTitleComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiMeEditTabTitleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiMeEditTabTitleComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 

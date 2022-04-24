@@ -2,6 +2,7 @@ import { LyFieldModule } from '@alyle/ui/field';
 import { LyTypographyModule } from '@alyle/ui/typography';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { BaseThemeModule } from '@nnpz/shared/ui';
 import { AdminUiMeEditFormComponent } from './me-edit-form.component';
 
@@ -17,6 +18,7 @@ describe('AdminUiMeEditFormComponent', () => {
         LyFieldModule,
         LyTypographyModule,
         ReactiveFormsModule,
+        TranslocoTestingModule,
       ],
     }).compileComponents();
   });
