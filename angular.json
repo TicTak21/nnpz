@@ -921,6 +921,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-sales-ui-sales": {
+      "projectType": "library",
+      "root": "libs/admin/sales/ui-sales",
+      "sourceRoot": "libs/admin/sales/ui-sales/src",
+      "prefix": "admin-ui-sales",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/sales/ui-sales"],
+          "options": {
+            "jestConfig": "libs/admin/sales/ui-sales/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/sales/ui-sales/src/**/*.ts",
+              "libs/admin/sales/ui-sales/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
+    },
     "admin-settings-feature-settings": {
       "projectType": "library",
       "root": "libs/admin/settings/feature-settings",
