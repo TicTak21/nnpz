@@ -1,5 +1,6 @@
 import { LyButtonModule } from '@alyle/ui/button';
 import { LyCardModule } from '@alyle/ui/card';
+import { LyCheckboxModule } from '@alyle/ui/checkbox';
 import { LyDialogModule } from '@alyle/ui/dialog';
 import { LyFieldModule } from '@alyle/ui/field';
 import { LyIconModule } from '@alyle/ui/icon';
@@ -36,6 +37,7 @@ const COMPONENTS = [
     LyTypographyModule,
     LyFieldModule,
     LyDialogModule,
+    LyCheckboxModule,
     AdminUtilI18nModule.forChild(
       'adminUiEntities',
       scopeLoader(
