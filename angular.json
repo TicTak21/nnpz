@@ -739,6 +739,32 @@
       },
       "tags": ["scope:admin", "type:feature"]
     },
+    "admin-notifications-ui-notifications": {
+      "projectType": "library",
+      "root": "libs/admin/notifications/ui-notifications",
+      "sourceRoot": "libs/admin/notifications/ui-notifications/src",
+      "prefix": "admin-ui-notifications",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/admin/notifications/ui-notifications"],
+          "options": {
+            "jestConfig": "libs/admin/notifications/ui-notifications/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/admin/notifications/ui-notifications/src/**/*.ts",
+              "libs/admin/notifications/ui-notifications/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:admin", "type:ui"]
+    },
     "admin-orders-feature-orders": {
       "projectType": "library",
       "root": "libs/admin/orders/feature-orders",

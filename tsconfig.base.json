@@ -108,6 +108,9 @@
       "@nnpz/admin/ui-not-found": [
         "libs/admin/not-found/ui-not-found/src/index.ts"
       ],
+      "@nnpz/admin/ui-notifications": [
+        "libs/admin/notifications/ui-notifications/src/index.ts"
+      ],
       "@nnpz/admin/ui-report": ["libs/admin/report/ui-report/src/index.ts"],
       "@nnpz/admin/ui-sales": ["libs/admin/sales/ui-sales/src/index.ts"],
       "@nnpz/admin/ui-settings": [
