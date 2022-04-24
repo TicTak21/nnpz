@@ -1,4 +1,3 @@
-import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyTabsModule } from '@alyle/ui/tabs';
 import { CommonModule } from '@angular/common';
@@ -14,7 +13,6 @@ import { AdminFeatureMePageComponent } from './me-page/me-page.component';
     AdminUiMeModule,
     LyTabsModule,
     LyIconModule,
-    LyButtonModule,
     RouterModule.forChild([
       { path: '', component: AdminFeatureMePageComponent },
     ]),
