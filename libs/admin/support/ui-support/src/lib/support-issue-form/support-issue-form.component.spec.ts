@@ -1,6 +1,7 @@
 import { LyFieldModule } from '@alyle/ui/field';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { BaseThemeModule } from '@nnpz/shared/ui';
 import { AdminUiSupportIssueFormComponent } from './support-issue-form.component';
 
@@ -11,7 +12,12 @@ describe('AdminUiSupportIssueFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiSupportIssueFormComponent],
-      imports: [BaseThemeModule, LyFieldModule, ReactiveFormsModule],
+      imports: [
+        BaseThemeModule,
+        LyFieldModule,
+        ReactiveFormsModule,
+        TranslocoTestingModule,
+      ],
     }).compileComponents();
   });
 

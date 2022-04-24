@@ -6,8 +6,10 @@
       formControlName="title"
       [required]="true"
     />
-    <ly-label>Title</ly-label>
-    <ly-error *ngIf="title.hasError('required')">Required</ly-error>
+    <ly-label>{{ 'adminUiSupport.Title' | transloco }}</ly-label>
+    <ly-error *ngIf="title.hasError('required')">{{
+      'adminUiSupport.Required' | transloco
+    }}</ly-error>
   </ly-field>
 
   <ly-field appearance="filled" color="accent" [lyWidth]="1">
@@ -19,12 +21,12 @@
       rows="5"
       formControlName="comment"
     ></textarea>
-    <ly-label>Comment</ly-label>
+    <ly-label>{{ 'adminUiSupport.Comment' | transloco }}</ly-label>
     <ly-hint align="before"
       >{{ comment.value?.length || 0 }}/{{ maxCommentLength }}</ly-hint
     >
     <ly-error *ngIf="comment.hasError('maxlength')"
-      >Max {{ maxCommentLength }} characters</ly-error
+      >{{ 'adminUiSupport.Max' | transloco }} {{ maxCommentLength }}</ly-error
     >
   </ly-field>
 
@@ -36,7 +38,7 @@
       type="reset"
       (click)="handleReset()"
     >
-      Reset
+      {{ 'adminUiSupport.Reset' | transloco }}
     </button>
     <button
       ly-button
@@ -45,7 +47,7 @@
       type="submit"
       [disabled]="form.invalid"
     >
-      Submit
+      {{ 'adminUiSupport.Submit' | transloco }}
     </button>
   </div>
 </form>
