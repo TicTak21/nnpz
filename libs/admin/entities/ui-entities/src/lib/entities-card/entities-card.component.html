@@ -1,6 +1,9 @@
 <ly-card bg="paper" cdkDrag *ngIf="entity">
   <ly-card-content>
-    <h2 lyTyp="headline">{{ entity.name | titlecase }}: {{ entity.count }}</h2>
+    <h2 lyTyp="headline">
+      {{ 'adminUiEntities.' + entity.name | transloco | titlecase }}:
+      {{ entity.count }}
+    </h2>
   </ly-card-content>
   <ly-card-actions [disableActionSpacing]="true">
     <button ly-button appearance="icon" cdkDragHandle>

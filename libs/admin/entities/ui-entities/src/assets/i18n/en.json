@@ -1,0 +1,17 @@
+{
+  "Create entity": "Create entity",
+  "users": "users",
+  "orders": "orders",
+  "pizzas": "pizzas",
+  "toppings": "toppings",
+  "locations": "locations",
+  "Name": "Name",
+  "Required": "Required",
+  "Add field": "Add field",
+  "Entity": "Entity",
+  "Reset": "Reset",
+  "Submit": "Submit",
+  "Configure field": "Configure field",
+  "Initial value": "Initial value",
+  "Close": "Close"
+}

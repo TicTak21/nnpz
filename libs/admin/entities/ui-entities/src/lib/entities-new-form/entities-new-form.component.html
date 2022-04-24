@@ -1,8 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="handleSubmit()">
   <ly-field appearance="filled" color="accent" lyWidth="1">
-    <ly-label>Name</ly-label>
+    <ly-label>{{ 'adminUiEntities.Name' | transloco }}</ly-label>
     <input lyNativeControl formControlName="name" [required]="true" />
-    <ly-error *ngIf="name.hasError('required')">Required</ly-error>
+    <ly-error *ngIf="name.hasError('required')">{{
+      'adminUiEntities.Required' | transloco
+    }}</ly-error>
   </ly-field>
 
   <div [formGroup]="fields">
@@ -24,7 +26,9 @@
       >
         <ly-icon>delete_forever</ly-icon>
       </button>
-      <ly-error *ngIf="field.value.hasError('required')">Required</ly-error>
+      <ly-error *ngIf="field.value.hasError('required')">{{
+        'adminUiEntities.Required' | transloco
+      }}</ly-error>
     </ly-field>
   </div>
 
@@ -35,10 +39,12 @@
     type="button"
     (click)="handleAddField()"
   >
-    Add field
+    {{ 'adminUiEntities.Add field' | transloco }}
   </button>
 
-  <pre>Entity: {{ fieldsConfig | json }}</pre>
+  <pre
+    >{{ 'adminUiEntities.Entity' | transloco }}: {{ fieldsConfig | json }}</pre
+  >
 
   <div
     lyMt="1rem"
@@ -53,7 +59,7 @@
       color="warn"
       (click)="handleReset()"
     >
-      Reset
+      {{ 'adminUiEntities.Reset' | transloco }}
     </button>
     <button
       ly-button
@@ -62,7 +68,7 @@
       color="accent"
       [disabled]="form.invalid"
     >
-      Submit
+      {{ 'adminUiEntities.Submit' | transloco }}
     </button>
   </div>
 </form>

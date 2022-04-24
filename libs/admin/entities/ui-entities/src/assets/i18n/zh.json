@@ -1,0 +1,17 @@
+{
+  "Create entity": "創建實體",
+  "users": "用戶",
+  "orders": "訂單",
+  "pizzas": "比薩餅",
+  "toppings": "澆頭",
+  "locations": "地點",
+  "Name": "姓名",
+  "Required": "必需的",
+  "Add field": "添加字段",
+  "Entity": "實體",
+  "Reset": "重啟",
+  "Submit": "提交",
+  "Configure field": "配置字段",
+  "Initial value": "初始值",
+  "Close": "關閉"
+}

@@ -1,0 +1,17 @@
+{
+  "Create entity": "Crear entidad",
+  "users": "usuarios",
+  "orders": "pedidos",
+  "pizzas": "pizzas",
+  "toppings": "coberturas",
+  "locations": "ubicaciones",
+  "Name": "Nombre",
+  "Required": "Requerido",
+  "Add field": "Agregue campo",
+  "Entity": "Entidad",
+  "Reset": "Reiniciar",
+  "Submit": "Entregar",
+  "Configure field": "Configurar campo",
+  "Initial value": "Valor inicial",
+  "Close": "Cerrar"
+}

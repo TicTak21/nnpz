@@ -1,26 +1,30 @@
 <ly-paper>
-  <h4 ly-dialog-title>Configure field</h4>
+  <h4 ly-dialog-title>{{ 'adminUiEntities.Configure field' | transloco }}</h4>
   <div ly-dialog-content>
     <form [formGroup]="form" (ngSubmit)="handleSubmit()">
       <ly-field appearance="filled" lyWidth="1">
-        <ly-label>Name</ly-label>
+        <ly-label>{{ 'adminUiEntities.Name' | transloco }}</ly-label>
         <input lyNativeControl formControlName="name" [required]="true" />
-        <ly-error *ngIf="name.hasError('required')">Required</ly-error>
+        <ly-error *ngIf="name.hasError('required')">{{
+          'adminUiEntities.Required' | transloco
+        }}</ly-error>
       </ly-field>
 
       <ly-field appearance="filled" lyWidth="1">
-        <ly-label>Initial Value</ly-label>
+        <ly-label>{{ 'adminUiEntities.Initial value' | transloco }}</ly-label>
         <input
           lyNativeControl
           formControlName="initialValue"
           [required]="true"
         />
-        <ly-error *ngIf="initialValue.hasError('required')">Required</ly-error>
+        <ly-error *ngIf="initialValue.hasError('required')">{{
+          'adminUiEntities.Required' | transloco
+        }}</ly-error>
       </ly-field>
 
-      <ly-checkbox formControlName="required" [required]="true"
-        >Required</ly-checkbox
-      >
+      <ly-checkbox formControlName="required" [required]="true">{{
+        'adminUiEntities.Required' | transloco
+      }}</ly-checkbox>
 
       <div
         lyPt="1rem"
@@ -35,7 +39,7 @@
           color="warn"
           (click)="dialogRef.close()"
         >
-          Close
+          {{ 'adminUiEntities.Close' | transloco }}
         </button>
         <button
           ly-button
@@ -44,7 +48,7 @@
           color="accent"
           [disabled]="form.invalid"
         >
-          Submit
+          {{ 'adminUiEntities.Submit' | transloco }}
         </button>
       </div>
     </form>

@@ -8,16 +8,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AdminUtilI18nModule } from '@nnpz/admin/util-i18n';
+import { scopeLoader } from 'scoped-translations';
 import { AdminUiEntitiesCardComponent } from './entities-card/entities-card.component';
 import { AdminUiEntitiesConfigDialogComponent } from './entities-config-dialog/entities-config-dialog.component';
 import { AdminUiEntitiesNewCardComponent } from './entities-new-card/entities-new-card.component';
 import { AdminUiEntitiesNewFormComponent } from './entities-new-form/entities-new-form.component';
+import { AdminUiEntitiesNewPageTitleComponent } from './entities-new-page-title/entities-new-page-title.component';
 
 const COMPONENTS = [
   AdminUiEntitiesCardComponent,
   AdminUiEntitiesConfigDialogComponent,
   AdminUiEntitiesNewCardComponent,
   AdminUiEntitiesNewFormComponent,
+  AdminUiEntitiesNewPageTitleComponent,
 ];
 
 @NgModule({
@@ -32,6 +36,12 @@ const COMPONENTS = [
     LyTypographyModule,
     LyFieldModule,
     LyDialogModule,
+    AdminUtilI18nModule.forChild(
+      'adminUiEntities',
+      scopeLoader(
+        (lang: string, root: string) => import(`../${root}/${lang}.json`),
+      ),
+    ),
   ],
   exports: [COMPONENTS],
 })
