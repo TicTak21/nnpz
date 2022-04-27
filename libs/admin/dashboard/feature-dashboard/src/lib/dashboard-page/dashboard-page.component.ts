@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { fromAuth } from '@nnpz/admin/data-access-auth';
 import { fromLayout } from '@nnpz/admin/data-access-layout';
 import { DASHBOARD_COMPONENTS_MAP } from '@nnpz/admin/ui-dashboard';
 import { ELayoutType } from '@nnpz/admin/util-layout';
@@ -61,7 +62,9 @@ export class AdminFeatureDashboardPageComponent {
           username: this.MOCK_DATA.username,
           img: this.MOCK_DATA.img,
         },
-        outputs: {},
+        outputs: {
+          handleLogoutChange$: () => this.handleLogout(),
+        },
       },
       {
         component: AdminUiDashboardSalesAmountChartComponent,
@@ -142,7 +145,9 @@ export class AdminFeatureDashboardPageComponent {
           username: this.MOCK_DATA.username,
           img: this.MOCK_DATA.img,
         },
-        outputs: {},
+        outputs: {
+          handleLogoutChange$: () => this.handleLogout(),
+        },
       },
     ],
     management: [
@@ -168,7 +173,9 @@ export class AdminFeatureDashboardPageComponent {
           username: this.MOCK_DATA.username,
           img: this.MOCK_DATA.img,
         },
-        outputs: {},
+        outputs: {
+          handleLogoutChange$: () => this.handleLogout(),
+        },
       },
       {
         component: AdminUiDashboardEntitiesComponent,
@@ -195,5 +202,9 @@ export class AdminFeatureDashboardPageComponent {
 
   constructor(private readonly store: Store) {
     this.layoutType$ = this.store.select(fromLayout.selectLayoutType);
+  }
+
+  handleLogout() {
+    this.store.dispatch(fromAuth.logout());
   }
 }
