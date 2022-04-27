@@ -19,8 +19,8 @@
         ly-button
         outlined
         color="warn"
-        routerLink="/auth/logout"
         lyM="0 0.5rem"
+        (click)="handleLogout()"
         >{{ 'adminUiDashboard.Log out' | transloco }}</a
       >
     </ly-grid>

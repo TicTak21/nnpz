@@ -1,5 +1,11 @@
 import { LyTheme2 } from '@alyle/ui';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 const styles = {
   container: {
@@ -16,10 +22,16 @@ const styles = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminUiDashboardProfileComponent {
+  @Input() username: string = '';
+  @Input() img: string = '';
+
+  @Output() handleLogoutChange$: EventEmitter<void> = new EventEmitter<void>();
+
   readonly classes = this.theme.addStyleSheet(styles);
 
   constructor(private readonly theme: LyTheme2) {}
 
-  @Input() username: string = '';
-  @Input() img: string = '';
+  handleLogout() {
+    this.handleLogoutChange$.emit();
+  }
 }
