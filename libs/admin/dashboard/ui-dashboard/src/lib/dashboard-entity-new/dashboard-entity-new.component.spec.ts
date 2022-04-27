@@ -1,6 +1,7 @@
 import { LyCommonModule } from '@alyle/ui';
 import { LyGridModule } from '@alyle/ui/grid';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { BaseThemeModule } from '@nnpz/shared/ui';
 import { AdminUiDashboardEntityNewComponent } from './dashboard-entity-new.component';
 
@@ -11,7 +12,12 @@ describe('AdminUiDashboardEntityNewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiDashboardEntityNewComponent],
-      imports: [BaseThemeModule, LyCommonModule, LyGridModule],
+      imports: [
+        BaseThemeModule,
+        LyCommonModule,
+        LyGridModule,
+        TranslocoTestingModule,
+      ],
     }).compileComponents();
   });
 
