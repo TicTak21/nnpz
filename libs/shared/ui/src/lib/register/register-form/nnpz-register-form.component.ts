@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IRegisterDto } from '@nnpz/shared/types';
 import { CustomValidators } from '@nnpz/shared/util';
 
@@ -17,26 +17,26 @@ export class NnpzRegisterFormComponent {
   @Output() handleSubmit$: EventEmitter<IRegisterDto> =
     new EventEmitter<IRegisterDto>();
 
-  form: FormGroup = new FormGroup(
+  form: UntypedFormGroup = new UntypedFormGroup(
     {
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [Validators.required]),
+      confirmPassword: new UntypedFormControl('', [Validators.required]),
     },
     { validators: CustomValidators.match('password', 'confirmPassword') },
   );
   hide: boolean = true;
 
-  get email(): FormControl {
-    return this.form.get('email') as FormControl;
+  get email(): UntypedFormControl {
+    return this.form.get('email') as UntypedFormControl;
   }
 
-  get password(): FormControl {
-    return this.form.get('password') as FormControl;
+  get password(): UntypedFormControl {
+    return this.form.get('password') as UntypedFormControl;
   }
 
-  get confirmPassword(): FormControl {
-    return this.form.get('confirmPassword') as FormControl;
+  get confirmPassword(): UntypedFormControl {
+    return this.form.get('confirmPassword') as UntypedFormControl;
   }
 
   handleSubmit() {

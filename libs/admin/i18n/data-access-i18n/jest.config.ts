@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   displayName: 'admin-i18n-data-access-i18n',
 
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
@@ -18,5 +18,5 @@ module.exports = {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
-  preset: '../../../../jest.preset.ts',
+  preset: '../../../../jest.preset.js',
 };

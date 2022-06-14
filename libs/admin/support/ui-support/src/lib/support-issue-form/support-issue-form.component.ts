@@ -1,6 +1,6 @@
 import { LyTheme2 } from '@alyle/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 const styles = {
   ctrls: {
@@ -20,19 +20,19 @@ export class AdminUiSupportIssueFormComponent {
   readonly classes = this.theme.addStyleSheet(styles);
 
   readonly maxCommentLength = 256;
-  readonly form = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    comment: new FormControl('', [Validators.maxLength(this.maxCommentLength)]),
+  readonly form = new UntypedFormGroup({
+    title: new UntypedFormControl('', [Validators.required]),
+    comment: new UntypedFormControl('', [Validators.maxLength(this.maxCommentLength)]),
   });
 
   constructor(private readonly theme: LyTheme2) {}
 
   get title() {
-    return this.form.get('title') as FormControl;
+    return this.form.get('title') as UntypedFormControl;
   }
 
   get comment() {
-    return this.form.get('comment') as FormControl;
+    return this.form.get('comment') as UntypedFormControl;
   }
 
   handleReset() {

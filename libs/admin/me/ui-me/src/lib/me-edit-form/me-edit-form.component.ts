@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { EUserRole, IUserEntity } from '@nnpz/shared/types';
 
 @Component({
@@ -16,10 +16,10 @@ export class AdminUiMeEditFormComponent {
   @Output() handleSubmit$: EventEmitter<IUserEntity> =
     new EventEmitter<IUserEntity>();
 
-  form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    role: new FormControl(EUserRole.admin, [Validators.required]),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required]),
+    password: new UntypedFormControl('', [Validators.required]),
+    role: new UntypedFormControl(EUserRole.admin, [Validators.required]),
   });
 
   get roles(): string[] {

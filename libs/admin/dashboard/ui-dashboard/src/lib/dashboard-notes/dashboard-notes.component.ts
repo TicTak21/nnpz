@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'admin-ui-dashboard-notes',
@@ -9,16 +9,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AdminUiDashboardNotesComponent {
   readonly noteMinLength: number = 4;
   readonly noteMaxLength: number = 256;
-  readonly form: FormGroup = new FormGroup({
-    note: new FormControl('', [
+  readonly form: UntypedFormGroup = new UntypedFormGroup({
+    note: new UntypedFormControl('', [
       Validators.required,
       Validators.minLength(this.noteMinLength),
       Validators.maxLength(this.noteMaxLength),
     ]),
   });
 
-  get note(): FormControl {
-    return this.form.get('note') as FormControl;
+  get note(): UntypedFormControl {
+    return this.form.get('note') as UntypedFormControl;
   }
 
   handleReset() {

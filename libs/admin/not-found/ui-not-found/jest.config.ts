@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   displayName: 'admin-not-found-ui-not-found',
 
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
@@ -18,5 +18,5 @@ module.exports = {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
-  preset: '../../../../jest.preset.ts',
+  preset: '../../../../jest.preset.js',
 };

@@ -2,6 +2,7 @@
   "version": 1,
   "projects": {
     "admin": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "root": "apps/admin",
       "sourceRoot": "apps/admin/src",
@@ -9,7 +10,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/admin",
             "index": "apps/admin/src/index.html",
@@ -17,8 +20,13 @@
             "polyfills": "apps/admin/src/polyfills.ts",
             "tsConfig": "apps/admin/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-            "styles": ["apps/admin/src/styles.scss"],
+            "assets": [
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/assets"
+            ],
+            "styles": [
+              "apps/admin/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -87,16 +95,22 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/admin"],
+          "outputs": [
+            "coverage/apps/admin"
+          ],
           "options": {
             "jestConfig": "apps/admin/jest.config.ts",
             "passWithNoTests": true
           }
         }
       },
-      "tags": ["scope:admin", "type:app"]
+      "tags": [
+        "scope:admin",
+        "type:app"
+      ]
     },
     "admin-auth-data-access-auth": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/auth/data-access-auth",
       "sourceRoot": "libs/admin/auth/data-access-auth/src",
@@ -104,7 +118,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/auth/data-access-auth"],
+          "outputs": [
+            "coverage/libs/admin/auth/data-access-auth"
+          ],
           "options": {
             "jestConfig": "libs/admin/auth/data-access-auth/jest.config.ts",
             "passWithNoTests": true
@@ -120,9 +136,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:data-access"]
+      "tags": [
+        "scope:admin",
+        "type:data-access"
+      ]
     },
     "admin-auth-feature-auth": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/auth/feature-auth",
       "sourceRoot": "libs/admin/auth/feature-auth/src",
@@ -130,7 +150,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/auth/feature-auth"],
+          "outputs": [
+            "coverage/libs/admin/auth/feature-auth"
+          ],
           "options": {
             "jestConfig": "libs/admin/auth/feature-auth/jest.config.ts",
             "passWithNoTests": true
@@ -146,24 +168,36 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-config-util-env": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "root": "libs/admin/config/util-env",
       "sourceRoot": "libs/admin/config/util-env/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/admin/config/util-env/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/admin/config/util-env/**/*.ts"
+            ]
           }
         }
       },
-      "tags": ["scope:admin", "type:util"]
+      "tags": [
+        "scope:admin",
+        "type:util"
+      ]
     },
     "admin-dashboard-feature-dashboard": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/dashboard/feature-dashboard",
       "sourceRoot": "libs/admin/dashboard/feature-dashboard/src",
@@ -171,7 +205,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/dashboard/feature-dashboard"],
+          "outputs": [
+            "coverage/libs/admin/dashboard/feature-dashboard"
+          ],
           "options": {
             "jestConfig": "libs/admin/dashboard/feature-dashboard/jest.config.ts",
             "passWithNoTests": true
@@ -187,9 +223,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-dashboard-ui-dashboard": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/dashboard/ui-dashboard",
       "sourceRoot": "libs/admin/dashboard/ui-dashboard/src",
@@ -197,7 +237,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/dashboard/ui-dashboard"],
+          "outputs": [
+            "coverage/libs/admin/dashboard/ui-dashboard"
+          ],
           "options": {
             "jestConfig": "libs/admin/dashboard/ui-dashboard/jest.config.ts",
             "passWithNoTests": true
@@ -213,9 +255,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-drawer-feature-drawer": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/drawer/feature-drawer",
       "sourceRoot": "libs/admin/drawer/feature-drawer/src",
@@ -223,7 +269,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/drawer/feature-drawer"],
+          "outputs": [
+            "coverage/libs/admin/drawer/feature-drawer"
+          ],
           "options": {
             "jestConfig": "libs/admin/drawer/feature-drawer/jest.config.ts",
             "passWithNoTests": true
@@ -239,9 +287,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-drawer-ui-drawer": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/drawer/ui-drawer",
       "sourceRoot": "libs/admin/drawer/ui-drawer/src",
@@ -249,7 +301,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/drawer/ui-drawer"],
+          "outputs": [
+            "coverage/libs/admin/drawer/ui-drawer"
+          ],
           "options": {
             "jestConfig": "libs/admin/drawer/ui-drawer/jest.config.ts",
             "passWithNoTests": true
@@ -265,9 +319,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/admin-e2e",
       "sourceRoot": "apps/admin-e2e/src",
       "projectType": "application",
@@ -286,16 +344,26 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/admin-e2e/**/*.{js,ts}"
+            ]
           }
         }
       },
-      "tags": ["scope:admin", "type:app"],
-      "implicitDependencies": ["admin"]
+      "tags": [
+        "scope:admin",
+        "type:app"
+      ],
+      "implicitDependencies": [
+        "admin"
+      ]
     },
     "admin-entities-feature-entities": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/entities/feature-entities",
       "sourceRoot": "libs/admin/entities/feature-entities/src",
@@ -303,7 +371,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/entities/feature-entities"],
+          "outputs": [
+            "coverage/libs/admin/entities/feature-entities"
+          ],
           "options": {
             "jestConfig": "libs/admin/entities/feature-entities/jest.config.ts",
             "passWithNoTests": true
@@ -319,9 +389,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-entities-ui-entities": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/entities/ui-entities",
       "sourceRoot": "libs/admin/entities/ui-entities/src",
@@ -329,7 +403,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/entities/ui-entities"],
+          "outputs": [
+            "coverage/libs/admin/entities/ui-entities"
+          ],
           "options": {
             "jestConfig": "libs/admin/entities/ui-entities/jest.config.ts",
             "passWithNoTests": true
@@ -345,9 +421,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-header-feature-header": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/header/feature-header",
       "sourceRoot": "libs/admin/header/feature-header/src",
@@ -355,7 +435,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/header/feature-header"],
+          "outputs": [
+            "coverage/libs/admin/header/feature-header"
+          ],
           "options": {
             "jestConfig": "libs/admin/header/feature-header/jest.config.ts",
             "passWithNoTests": true
@@ -371,9 +453,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-header-ui-header": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/header/ui-header",
       "sourceRoot": "libs/admin/header/ui-header/src",
@@ -381,7 +467,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/header/ui-header"],
+          "outputs": [
+            "coverage/libs/admin/header/ui-header"
+          ],
           "options": {
             "jestConfig": "libs/admin/header/ui-header/jest.config.ts",
             "passWithNoTests": true
@@ -397,9 +485,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-i18n-data-access-i18n": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/i18n/data-access-i18n",
       "sourceRoot": "libs/admin/i18n/data-access-i18n/src",
@@ -407,7 +499,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/i18n/data-access-i18n"],
+          "outputs": [
+            "coverage/libs/admin/i18n/data-access-i18n"
+          ],
           "options": {
             "jestConfig": "libs/admin/i18n/data-access-i18n/jest.config.ts",
             "passWithNoTests": true
@@ -423,9 +517,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:data-access"]
+      "tags": [
+        "scope:admin",
+        "type:data-access"
+      ]
     },
     "admin-i18n-feature-i18n": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/i18n/feature-i18n",
       "sourceRoot": "libs/admin/i18n/feature-i18n/src",
@@ -433,7 +531,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/i18n/feature-i18n"],
+          "outputs": [
+            "coverage/libs/admin/i18n/feature-i18n"
+          ],
           "options": {
             "jestConfig": "libs/admin/i18n/feature-i18n/jest.config.ts",
             "passWithNoTests": true
@@ -449,9 +549,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-i18n-util-i18n": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/i18n/util-i18n",
       "sourceRoot": "libs/admin/i18n/util-i18n/src",
@@ -459,7 +563,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/i18n/util-i18n"],
+          "outputs": [
+            "coverage/libs/admin/i18n/util-i18n"
+          ],
           "options": {
             "jestConfig": "libs/admin/i18n/util-i18n/jest.config.ts",
             "passWithNoTests": true
@@ -475,9 +581,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:util"]
+      "tags": [
+        "scope:admin",
+        "type:util"
+      ]
     },
     "admin-layout-data-access-layout": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/layout/data-access-layout",
       "sourceRoot": "libs/admin/layout/data-access-layout/src",
@@ -485,7 +595,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/layout/data-access-layout"],
+          "outputs": [
+            "coverage/libs/admin/layout/data-access-layout"
+          ],
           "options": {
             "jestConfig": "libs/admin/layout/data-access-layout/jest.config.ts",
             "passWithNoTests": true
@@ -501,9 +613,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:data-access"]
+      "tags": [
+        "scope:admin",
+        "type:data-access"
+      ]
     },
     "admin-layout-feature-layout": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/layout/feature-layout",
       "sourceRoot": "libs/admin/layout/feature-layout/src",
@@ -511,7 +627,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/layout/feature-layout"],
+          "outputs": [
+            "coverage/libs/admin/layout/feature-layout"
+          ],
           "options": {
             "jestConfig": "libs/admin/layout/feature-layout/jest.config.ts",
             "passWithNoTests": true
@@ -527,9 +645,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-layout-util-layout": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/layout/util-layout",
       "sourceRoot": "libs/admin/layout/util-layout/src",
@@ -537,7 +659,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/layout/util-layout"],
+          "outputs": [
+            "coverage/libs/admin/layout/util-layout"
+          ],
           "options": {
             "jestConfig": "libs/admin/layout/util-layout/jest.config.ts",
             "passWithNoTests": true
@@ -553,9 +677,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:util"]
+      "tags": [
+        "scope:admin",
+        "type:util"
+      ]
     },
     "admin-locations-feature-locations": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/locations/feature-locations",
       "sourceRoot": "libs/admin/locations/feature-locations/src",
@@ -563,7 +691,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/locations/feature-locations"],
+          "outputs": [
+            "coverage/libs/admin/locations/feature-locations"
+          ],
           "options": {
             "jestConfig": "libs/admin/locations/feature-locations/jest.config.ts",
             "passWithNoTests": true
@@ -579,9 +709,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-login-feature-login": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/login/feature-login",
       "sourceRoot": "libs/admin/login/feature-login/src",
@@ -589,7 +723,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/login/feature-login"],
+          "outputs": [
+            "coverage/libs/admin/login/feature-login"
+          ],
           "options": {
             "jestConfig": "libs/admin/login/feature-login/jest.config.ts",
             "passWithNoTests": true
@@ -605,9 +741,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-me-feature-me": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/me/feature-me",
       "sourceRoot": "libs/admin/me/feature-me/src",
@@ -615,7 +755,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/me/feature-me"],
+          "outputs": [
+            "coverage/libs/admin/me/feature-me"
+          ],
           "options": {
             "jestConfig": "libs/admin/me/feature-me/jest.config.ts",
             "passWithNoTests": true
@@ -631,9 +773,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-me-ui-me": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/me/ui-me",
       "sourceRoot": "libs/admin/me/ui-me/src",
@@ -641,7 +787,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/me/ui-me"],
+          "outputs": [
+            "coverage/libs/admin/me/ui-me"
+          ],
           "options": {
             "jestConfig": "libs/admin/me/ui-me/jest.config.ts",
             "passWithNoTests": true
@@ -657,9 +805,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-not-found-feature-not-found": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/not-found/feature-not-found",
       "sourceRoot": "libs/admin/not-found/feature-not-found/src",
@@ -667,7 +819,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/not-found/feature-not-found"],
+          "outputs": [
+            "coverage/libs/admin/not-found/feature-not-found"
+          ],
           "options": {
             "jestConfig": "libs/admin/not-found/feature-not-found/jest.config.ts",
             "passWithNoTests": true
@@ -683,9 +837,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-not-found-ui-not-found": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/not-found/ui-not-found",
       "sourceRoot": "libs/admin/not-found/ui-not-found/src",
@@ -693,7 +851,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/not-found/ui-not-found"],
+          "outputs": [
+            "coverage/libs/admin/not-found/ui-not-found"
+          ],
           "options": {
             "jestConfig": "libs/admin/not-found/ui-not-found/jest.config.ts",
             "passWithNoTests": true
@@ -709,9 +869,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-notifications-feature-notifications": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/notifications/feature-notifications",
       "sourceRoot": "libs/admin/notifications/feature-notifications/src",
@@ -737,9 +901,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-notifications-ui-notifications": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/notifications/ui-notifications",
       "sourceRoot": "libs/admin/notifications/ui-notifications/src",
@@ -747,7 +915,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/notifications/ui-notifications"],
+          "outputs": [
+            "coverage/libs/admin/notifications/ui-notifications"
+          ],
           "options": {
             "jestConfig": "libs/admin/notifications/ui-notifications/jest.config.ts",
             "passWithNoTests": true
@@ -763,9 +933,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-orders-feature-orders": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/orders/feature-orders",
       "sourceRoot": "libs/admin/orders/feature-orders/src",
@@ -773,7 +947,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/orders/feature-orders"],
+          "outputs": [
+            "coverage/libs/admin/orders/feature-orders"
+          ],
           "options": {
             "jestConfig": "libs/admin/orders/feature-orders/jest.config.ts",
             "passWithNoTests": true
@@ -789,9 +965,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-pizzas-feature-pizzas": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/pizzas/feature-pizzas",
       "sourceRoot": "libs/admin/pizzas/feature-pizzas/src",
@@ -799,7 +979,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/pizzas/feature-pizzas"],
+          "outputs": [
+            "coverage/libs/admin/pizzas/feature-pizzas"
+          ],
           "options": {
             "jestConfig": "libs/admin/pizzas/feature-pizzas/jest.config.ts",
             "passWithNoTests": true
@@ -815,9 +997,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-register-feature-register": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/register/feature-register",
       "sourceRoot": "libs/admin/register/feature-register/src",
@@ -825,7 +1011,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/register/feature-register"],
+          "outputs": [
+            "coverage/libs/admin/register/feature-register"
+          ],
           "options": {
             "jestConfig": "libs/admin/register/feature-register/jest.config.ts",
             "passWithNoTests": true
@@ -841,9 +1029,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-report-feature-report": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/report/feature-report",
       "sourceRoot": "libs/admin/report/feature-report/src",
@@ -851,7 +1043,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/report/feature-report"],
+          "outputs": [
+            "coverage/libs/admin/report/feature-report"
+          ],
           "options": {
             "jestConfig": "libs/admin/report/feature-report/jest.config.ts",
             "passWithNoTests": true
@@ -867,9 +1061,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-report-ui-report": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/report/ui-report",
       "sourceRoot": "libs/admin/report/ui-report/src",
@@ -877,7 +1075,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/report/ui-report"],
+          "outputs": [
+            "coverage/libs/admin/report/ui-report"
+          ],
           "options": {
             "jestConfig": "libs/admin/report/ui-report/jest.config.ts",
             "passWithNoTests": true
@@ -893,9 +1093,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-router-data-access-router": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/router/data-access-router",
       "sourceRoot": "libs/admin/router/data-access-router/src",
@@ -903,7 +1107,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/router/data-access-router"],
+          "outputs": [
+            "coverage/libs/admin/router/data-access-router"
+          ],
           "options": {
             "jestConfig": "libs/admin/router/data-access-router/jest.config.ts",
             "passWithNoTests": true
@@ -919,9 +1125,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:data-access"]
+      "tags": [
+        "scope:admin",
+        "type:data-access"
+      ]
     },
     "admin-sales-feature-sales": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/sales/feature-sales",
       "sourceRoot": "libs/admin/sales/feature-sales/src",
@@ -929,7 +1139,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/sales/feature-sales"],
+          "outputs": [
+            "coverage/libs/admin/sales/feature-sales"
+          ],
           "options": {
             "jestConfig": "libs/admin/sales/feature-sales/jest.config.ts",
             "passWithNoTests": true
@@ -945,9 +1157,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-sales-ui-sales": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/sales/ui-sales",
       "sourceRoot": "libs/admin/sales/ui-sales/src",
@@ -955,7 +1171,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/sales/ui-sales"],
+          "outputs": [
+            "coverage/libs/admin/sales/ui-sales"
+          ],
           "options": {
             "jestConfig": "libs/admin/sales/ui-sales/jest.config.ts",
             "passWithNoTests": true
@@ -971,9 +1189,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-settings-feature-settings": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/settings/feature-settings",
       "sourceRoot": "libs/admin/settings/feature-settings/src",
@@ -981,7 +1203,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/settings/feature-settings"],
+          "outputs": [
+            "coverage/libs/admin/settings/feature-settings"
+          ],
           "options": {
             "jestConfig": "libs/admin/settings/feature-settings/jest.config.ts",
             "passWithNoTests": true
@@ -997,9 +1221,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-settings-ui-settings": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/settings/ui-settings",
       "sourceRoot": "libs/admin/settings/ui-settings/src",
@@ -1007,7 +1235,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/settings/ui-settings"],
+          "outputs": [
+            "coverage/libs/admin/settings/ui-settings"
+          ],
           "options": {
             "jestConfig": "libs/admin/settings/ui-settings/jest.config.ts",
             "passWithNoTests": true
@@ -1023,9 +1253,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-store-feature-meta-reducers": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/store/feature-meta-reducers",
       "sourceRoot": "libs/admin/store/feature-meta-reducers/src",
@@ -1033,7 +1267,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/store/feature-meta-reducers"],
+          "outputs": [
+            "coverage/libs/admin/store/feature-meta-reducers"
+          ],
           "options": {
             "jestConfig": "libs/admin/store/feature-meta-reducers/jest.config.ts",
             "passWithNoTests": true
@@ -1049,9 +1285,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-store-feature-store": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/store/feature-store",
       "sourceRoot": "libs/admin/store/feature-store/src",
@@ -1059,7 +1299,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/store/feature-store"],
+          "outputs": [
+            "coverage/libs/admin/store/feature-store"
+          ],
           "options": {
             "jestConfig": "libs/admin/store/feature-store/jest.config.ts",
             "passWithNoTests": true
@@ -1075,9 +1317,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-support-feature-support": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/support/feature-support",
       "sourceRoot": "libs/admin/support/feature-support/src",
@@ -1085,7 +1331,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/support/feature-support"],
+          "outputs": [
+            "coverage/libs/admin/support/feature-support"
+          ],
           "options": {
             "jestConfig": "libs/admin/support/feature-support/jest.config.ts",
             "passWithNoTests": true
@@ -1101,9 +1349,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-support-ui-support": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/support/ui-support",
       "sourceRoot": "libs/admin/support/ui-support/src",
@@ -1111,7 +1363,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/support/ui-support"],
+          "outputs": [
+            "coverage/libs/admin/support/ui-support"
+          ],
           "options": {
             "jestConfig": "libs/admin/support/ui-support/jest.config.ts",
             "passWithNoTests": true
@@ -1127,9 +1381,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-theme-data-access-theme": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/theme/data-access-theme",
       "sourceRoot": "libs/admin/theme/data-access-theme/src",
@@ -1137,7 +1395,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/theme/data-access-theme"],
+          "outputs": [
+            "coverage/libs/admin/theme/data-access-theme"
+          ],
           "options": {
             "jestConfig": "libs/admin/theme/data-access-theme/jest.config.ts",
             "passWithNoTests": true
@@ -1153,9 +1413,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:data-access"]
+      "tags": [
+        "scope:admin",
+        "type:data-access"
+      ]
     },
     "admin-theme-feature-theme": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/theme/feature-theme",
       "sourceRoot": "libs/admin/theme/feature-theme/src",
@@ -1163,7 +1427,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/theme/feature-theme"],
+          "outputs": [
+            "coverage/libs/admin/theme/feature-theme"
+          ],
           "options": {
             "jestConfig": "libs/admin/theme/feature-theme/jest.config.ts",
             "passWithNoTests": true
@@ -1179,9 +1445,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-theme-ui-theme": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/theme/ui-theme",
       "sourceRoot": "libs/admin/theme/ui-theme/src",
@@ -1189,7 +1459,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/theme/ui-theme"],
+          "outputs": [
+            "coverage/libs/admin/theme/ui-theme"
+          ],
           "options": {
             "jestConfig": "libs/admin/theme/ui-theme/jest.config.ts",
             "passWithNoTests": true
@@ -1205,9 +1477,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:ui"]
+      "tags": [
+        "scope:admin",
+        "type:ui"
+      ]
     },
     "admin-theme-util-theme": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/theme/util-theme",
       "sourceRoot": "libs/admin/theme/util-theme/src",
@@ -1215,7 +1491,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/theme/util-theme"],
+          "outputs": [
+            "coverage/libs/admin/theme/util-theme"
+          ],
           "options": {
             "jestConfig": "libs/admin/theme/util-theme/jest.config.ts",
             "passWithNoTests": true
@@ -1231,9 +1509,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:util"]
+      "tags": [
+        "scope:admin",
+        "type:util"
+      ]
     },
     "admin-toppings-feature-toppings": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/toppings/feature-toppings",
       "sourceRoot": "libs/admin/toppings/feature-toppings/src",
@@ -1241,7 +1523,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/toppings/feature-toppings"],
+          "outputs": [
+            "coverage/libs/admin/toppings/feature-toppings"
+          ],
           "options": {
             "jestConfig": "libs/admin/toppings/feature-toppings/jest.config.ts",
             "passWithNoTests": true
@@ -1257,9 +1541,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "admin-users-feature-users": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/admin/users/feature-users",
       "sourceRoot": "libs/admin/users/feature-users/src",
@@ -1267,7 +1555,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/admin/users/feature-users"],
+          "outputs": [
+            "coverage/libs/admin/users/feature-users"
+          ],
           "options": {
             "jestConfig": "libs/admin/users/feature-users/jest.config.ts",
             "passWithNoTests": true
@@ -1283,9 +1573,13 @@
           }
         }
       },
-      "tags": ["scope:admin", "type:feature"]
+      "tags": [
+        "scope:admin",
+        "type:feature"
+      ]
     },
     "client": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "projectType": "application",
       "root": "apps/client",
       "sourceRoot": "apps/client/src",
@@ -1293,7 +1587,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/client",
             "index": "apps/client/src/index.html",
@@ -1301,8 +1597,13 @@
             "polyfills": "apps/client/src/polyfills.ts",
             "tsConfig": "apps/client/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
-            "styles": ["apps/client/src/styles.scss"],
+            "assets": [
+              "apps/client/src/favicon.ico",
+              "apps/client/src/assets"
+            ],
+            "styles": [
+              "apps/client/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -1368,20 +1669,28 @@
               "apps/client/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/client"],
+          "outputs": [
+            "coverage/apps/client"
+          ],
           "options": {
             "jestConfig": "apps/client/jest.config.ts",
             "passWithNoTests": true
           }
         }
       },
-      "tags": ["scope:client", "type:app"]
+      "tags": [
+        "scope:client",
+        "type:app"
+      ]
     },
     "client-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/client-e2e",
       "sourceRoot": "apps/client-e2e/src",
       "projectType": "application",
@@ -1402,34 +1711,54 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/client-e2e/**/*.{js,ts}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
-      "tags": ["scope:client", "type:app"],
-      "implicitDependencies": ["client"]
+      "tags": [
+        "scope:client",
+        "type:app"
+      ],
+      "implicitDependencies": [
+        "client"
+      ]
     },
     "server": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/server",
       "sourceRoot": "apps/server/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@nrwl/node:webpack",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/server",
             "main": "apps/server/src/main.ts",
             "tsConfig": "apps/server/tsconfig.app.json",
-            "assets": ["apps/server/src/assets"],
+            "assets": [
+              "apps/server/src/assets"
+            ],
             "tsPlugins": [
               {
                 "name": "@nestjs/swagger/plugin",
                 "options": {
                   "compilerOptions": {
-                    "plugins": ["@nestjs/swagger"],
-                    "dtoFileNameSuffix": [".dto.ts", ".ro.ts", ".entity.ts"],
+                    "plugins": [
+                      "@nestjs/swagger"
+                    ],
+                    "dtoFileNameSuffix": [
+                      ".dto.ts",
+                      ".ro.ts",
+                      ".entity.ts"
+                    ],
                     "classValidatorShim": true,
                     "introspectComments": true
                   }
@@ -1460,22 +1789,32 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/server/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/server/**/*.ts"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/server"],
+          "outputs": [
+            "coverage/apps/server"
+          ],
           "options": {
             "jestConfig": "apps/server/jest.config.ts",
             "passWithNoTests": true
           }
         }
       },
-      "tags": ["scope:server", "type:app"]
+      "tags": [
+        "scope:server",
+        "type:app"
+      ]
     },
     "types-shared": {
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/shared/types",
       "sourceRoot": "libs/shared/types/src",
@@ -1491,9 +1830,13 @@
           }
         }
       },
-      "tags": ["scope:shared", "type:types"]
+      "tags": [
+        "scope:shared",
+        "type:types"
+      ]
     },
     "ui-shared": {
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/shared/ui",
       "sourceRoot": "libs/shared/ui/src",
@@ -1501,7 +1844,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.ts",
             "passWithNoTests": true
@@ -1517,9 +1862,13 @@
           }
         }
       },
-      "tags": ["scope:shared", "type:ui"]
+      "tags": [
+        "scope:shared",
+        "type:ui"
+      ]
     },
     "util-shared": {
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
       "projectType": "library",
       "root": "libs/shared/util",
       "sourceRoot": "libs/shared/util/src",
@@ -1527,7 +1876,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/util"],
+          "outputs": [
+            "coverage/libs/shared/util"
+          ],
           "options": {
             "jestConfig": "libs/shared/util/jest.config.ts",
             "passWithNoTests": true
@@ -1543,7 +1894,10 @@
           }
         }
       },
-      "tags": ["scope:shared", "type:util"]
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
     }
   }
 }

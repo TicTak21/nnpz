@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { EReportFormat, IReportDto } from '@nnpz/shared/types';
 
 @Component({
@@ -16,22 +16,22 @@ export class AdminUiReportFormComponent {
   @Output() handleSubmit$: EventEmitter<IReportDto> =
     new EventEmitter<IReportDto>();
 
-  readonly form: FormGroup = new FormGroup({
-    name: new FormControl('report'),
-    days: new FormControl(14),
-    format: new FormControl(EReportFormat.pdf),
+  readonly form: UntypedFormGroup = new UntypedFormGroup({
+    name: new UntypedFormControl('report'),
+    days: new UntypedFormControl(14),
+    format: new UntypedFormControl(EReportFormat.pdf),
   });
 
   get name() {
-    return this.form.get('name') as FormControl;
+    return this.form.get('name') as UntypedFormControl;
   }
 
   get days() {
-    return this.form.get('days') as FormControl;
+    return this.form.get('days') as UntypedFormControl;
   }
 
   get format() {
-    return this.form.get('format') as FormControl;
+    return this.form.get('format') as UntypedFormControl;
   }
 
   get docName() {

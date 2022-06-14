@@ -28,9 +28,6 @@
       }
     ]
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
   "generators": {
     "@nrwl/angular": {
       "application": {
@@ -59,5 +56,6 @@
       "changeDetection": "OnPush"
     }
   },
-  "defaultProject": "client"
+  "defaultProject": "client",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

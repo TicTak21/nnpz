@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ILoginDto } from '@nnpz/shared/types';
 
 @Component({
@@ -16,18 +16,18 @@ export class NnpzLoginFormComponent {
   @Output() handleSubmit$: EventEmitter<ILoginDto> =
     new EventEmitter<ILoginDto>();
 
-  form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required]),
   });
   hide: boolean = true;
 
-  get email(): FormControl {
-    return this.form.get('email') as FormControl;
+  get email(): UntypedFormControl {
+    return this.form.get('email') as UntypedFormControl;
   }
 
-  get password(): FormControl {
-    return this.form.get('password') as FormControl;
+  get password(): UntypedFormControl {
+    return this.form.get('password') as UntypedFormControl;
   }
 
   handleSubmit() {

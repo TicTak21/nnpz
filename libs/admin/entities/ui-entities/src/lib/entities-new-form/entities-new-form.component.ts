@@ -4,7 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '@nnpz/shared/util';
 import { filter } from 'rxjs';
 import { AdminUiEntitiesConfigDialogComponent } from '../entities-config-dialog/entities-config-dialog.component';
@@ -16,9 +16,9 @@ import { IEntityFieldConfig } from '../interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminUiEntitiesNewFormComponent {
-  form: FormGroup = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    fields: new FormGroup({}),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    name: new UntypedFormControl('', [Validators.required]),
+    fields: new UntypedFormGroup({}),
   });
 
   constructor(
@@ -27,11 +27,11 @@ export class AdminUiEntitiesNewFormComponent {
   ) {}
 
   get fields() {
-    return this.form.get('fields') as FormGroup;
+    return this.form.get('fields') as UntypedFormGroup;
   }
 
-  get name(): FormControl {
-    return this.form.get('name') as FormControl;
+  get name(): UntypedFormControl {
+    return this.form.get('name') as UntypedFormControl;
   }
 
   get fieldsConfig() {
@@ -61,7 +61,7 @@ export class AdminUiEntitiesNewFormComponent {
 
         this.fields.addControl(
           name,
-          new FormControl(initialValue, [
+          new UntypedFormControl(initialValue, [
             CustomValidators.conditionalRequired(required),
           ]),
         );

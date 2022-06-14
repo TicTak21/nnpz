@@ -1,6 +1,6 @@
 import {
   AbstractControl,
-  FormControl,
+  UntypedFormControl,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -12,8 +12,8 @@ export class CustomValidators {
     secondControlName: string,
   ): ValidatorFn {
     return (form: AbstractControl): ValidationErrors | null => {
-      const firstControl = form.get(firstControlName) as FormControl;
-      const secondControl = form.get(secondControlName) as FormControl;
+      const firstControl = form.get(firstControlName) as UntypedFormControl;
+      const secondControl = form.get(secondControlName) as UntypedFormControl;
 
       const firstControlValue: string = firstControl.value;
       const secondControlValue: string = secondControl.value;
