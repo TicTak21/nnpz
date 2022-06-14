@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminFeatureUsersModule } from './admin-feature-users.module';
 
 describe('AdminFeatureUsersModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminFeatureUsersModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

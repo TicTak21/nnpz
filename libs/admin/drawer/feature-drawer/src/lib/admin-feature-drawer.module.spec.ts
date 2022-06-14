@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminFeatureDrawerModule } from './admin-feature-drawer.module';
 
 describe('AdminFeatureDrawerModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminFeatureDrawerModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminFeatureHeaderModule } from './admin-feature-header.module';
 
 describe('AdminFeatureHeaderModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminFeatureHeaderModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

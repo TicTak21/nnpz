@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminUiNotFoundModule } from './admin-ui-not-found.module';
 
 describe('AdminUiNotFoundModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminUiNotFoundModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminDataAccessAuthModule } from './admin-data-access-auth.module';
 
 describe('AdminDataAccessAuthModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminDataAccessAuthModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminUtilI18nModule } from './admin-util-i18n.module';
 
 describe('AdminUtilI18nModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminUtilI18nModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

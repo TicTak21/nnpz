@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminUiSettingsModule } from './admin-ui-settings.module';
 
 describe('AdminUiSettingsModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminUiSettingsModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

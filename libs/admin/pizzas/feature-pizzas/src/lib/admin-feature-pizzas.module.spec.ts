@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminFeaturePizzasModule } from './admin-feature-pizzas.module';
 
 describe('AdminFeaturePizzasModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminFeaturePizzasModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

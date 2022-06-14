@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminUiDrawerModule } from './admin-ui-drawer.module';
 
 describe('AdminUiDrawerModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminUiDrawerModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //

@@ -1,12 +1,12 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AdminUiNotificationsModule } from './admin-ui-notifications.module';
 
 describe('AdminUiNotificationsModule', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [AdminUiNotificationsModule],
     }).compileComponents();
-  }));
+  });
 
   // TODO: Add real tests here.
   //
