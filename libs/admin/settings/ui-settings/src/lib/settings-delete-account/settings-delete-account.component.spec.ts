@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiSettingsDeleteAccountComponent } from './settings-delete-account.component';
 
 describe('AdminUiSettingsDeleteAccountComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiSettingsDeleteAccountComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiSettingsDeleteAccountComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 

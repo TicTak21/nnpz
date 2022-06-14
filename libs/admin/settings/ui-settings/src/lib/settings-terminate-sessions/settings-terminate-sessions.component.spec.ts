@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiSettingsTerminateSessionsComponent } from './settings-terminate-sessions.component';
 
 describe('AdminUiSettingsTerminateSessionsComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiSettingsTerminateSessionsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiSettingsTerminateSessionsComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 

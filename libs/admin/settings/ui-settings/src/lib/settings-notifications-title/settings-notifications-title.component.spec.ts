@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiSettingsNotificationsTitleComponent } from './settings-notifications-title.component';
 
 describe('AdminUiSettingsNotificationsTitleComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiSettingsNotificationsTitleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiSettingsNotificationsTitleComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 

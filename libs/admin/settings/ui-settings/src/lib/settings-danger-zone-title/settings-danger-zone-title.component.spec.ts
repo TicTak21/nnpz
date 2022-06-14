@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslocoTestingModule } from '@ngneat/transloco';
 import { AdminUiSettingsDangerZoneTitleComponent } from './settings-danger-zone-title.component';
 
 describe('AdminUiSettingsDangerZoneTitleComponent', () => {
@@ -8,6 +9,7 @@ describe('AdminUiSettingsDangerZoneTitleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AdminUiSettingsDangerZoneTitleComponent],
+      imports: [TranslocoTestingModule],
     }).compileComponents();
   });
 
